@@ -20,14 +20,34 @@ on:
     types: [ opened, synchronize, reopened, ready_for_review ]
   # Trigger the workflow on manual dispatch
   workflow_dispatch:
+    inputs:
+      image_override:
+        description: 'Override the Docker image (e.g. ghcr.io/neurodesk/neurodesktop/neurodesktop:2024-01-01)'
+        required: false
+        type: string
+      force_execution:
+        description: 'Force execution of all notebooks'
+        required: false
+        type: boolean
+        default: false
+      force_deploy_pages:
+        description: 'Force deploy pages'
+        required: false
+        type: boolean
+        default: false
+      notebook_selector:
+        description: 'Select a specific notebook to run (e.g. workflows/nipype_short.ipynb)'
+        required: false
+        type: string
 
 jobs:
   select-runner:
     runs-on: ubuntu-22.04
     outputs:
       runner: ${{ steps.select_runner.outputs.runner }}
+      neurodesk_image: ${{ steps.get_image.outputs.neurodesk_image }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - name: Select runner
         id: select_runner
         run: |
@@ -36,16 +56,26 @@ jobs:
           else
             echo "runner=ubuntu-22.04" >> $GITHUB_OUTPUT
           fi
+      - name: Get Neurodesk Image
+        id: get_image
+        run: |
+          if [ -n "${{ inputs.image_override }}" ]; then
+            echo "neurodesk_image=${{ inputs.image_override }}" >> $GITHUB_OUTPUT
+          else
+            curl -s https://raw.githubusercontent.com/neurodesk/neurodesk.github.io/main/data/neurodesktop.toml -o neurodesktop.toml
+            VERSION=$(grep 'jupyter_neurodesk_version = ' neurodesktop.toml | cut -d '"' -f 2)
+            echo "neurodesk_image=ghcr.io/neurodesk/neurodesktop/neurodesktop:$VERSION" >> $GITHUB_OUTPUT
+          fi
           
   get-notebooks:
     runs-on: ubuntu-22.04
     outputs:
       notebook_list: ${{ steps.list_changed_notebooks.outputs.notebook_list }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
     - name: Find all notebooks with changes
       id: find_changed_notebooks
-      uses: tj-actions/changed-files@v45.0.3
+      uses: tj-actions/changed-files@c3a1bb2c992d77180ae65be6ae6c166cf40f857c
       with:
         path: "./books"
         files: |
@@ -55,8 +85,17 @@ jobs:
     - name: Filter down to changed notebooks
       id: list_changed_notebooks
       run: |
-        echo ${{ steps.find_changed_notebooks.outputs.all_changed_files }}
-        changed_notebooks=$(echo "${{ steps.find_changed_notebooks.outputs.all_changed_files }}")
+        if [ "${{ inputs.force_execution }}" == "true" ]; then
+          echo "Forcing execution of all notebooks"
+          # Find all notebooks and remove the leading ./books/ prefix if present, or just ./
+          changed_notebooks=$(find books -name "*.ipynb" | sed 's|^books/||')
+        elif [ -n "${{ inputs.notebook_selector }}" ]; then
+          echo "Selecting specific notebook: ${{ inputs.notebook_selector }}"
+          changed_notebooks="${{ inputs.notebook_selector }}"
+        else
+          echo ${{ steps.find_changed_notebooks.outputs.all_changed_files }}
+          changed_notebooks=$(echo "${{ steps.find_changed_notebooks.outputs.all_changed_files }}")
+        fi
         
         notebook_list='['
         for NOTEBOOK in $(echo "${changed_notebooks}"); do
@@ -72,7 +111,7 @@ jobs:
     if: ${{ needs.get-notebooks.outputs.notebook_list != '[]' }}
     runs-on: ${{ needs.select-runner.outputs.runner }}
     container: 
-      image: vnmd/neurodesktop:latest
+      image: ${{ needs.select-runner.outputs.neurodesk_image }}
       volumes:
         - /home/runner/:/home/
       options: --user root
@@ -82,12 +121,12 @@ jobs:
       matrix:
         notebooks: ${{ fromJson(needs.get-notebooks.outputs.notebook_list) }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
     - name: Install dependencies
       shell: bash
       run: |
-        mamba install -c conda-forge -y r-irkernel ipykernel -c pypi -y jupyter-book ghp-import
+        mamba install -c conda-forge -y r-irkernel ipykernel "jupyter-book<2.0.0" ghp-import
 
     - name: Run ${{ matrix.notebooks }}
       shell: bash
@@ -98,13 +137,19 @@ jobs:
       run: |
         echo ${{ github.workspace }}
         echo $GITHUB_WORKSPACE
-        export PATH=$HOME/.local/bin:$PATH
+        export PATH=/opt/conda/bin:$HOME/.local/bin:$PATH
         echo "PATH=$PATH"
         echo "NOTEBOOK=$(basename -s .ipynb ${{ matrix.notebooks }})"
         echo "DIRNAME=$(dirname ${{ matrix.notebooks }})"
         echo "NOTEBOOK=$(basename -s .ipynb ${{ matrix.notebooks }})" >> $GITHUB_ENV
         echo "DIRNAME=$(dirname ${{ matrix.notebooks }})" >> $GITHUB_ENV
-        jb build ${{ matrix.notebooks }}
+        
+        # Debugging
+        echo "Checking for jupyter-book..."
+        which jupyter-book || echo "jupyter-book not found in PATH"
+        ls -l /opt/conda/bin/jupyter-book || echo "/opt/conda/bin/jupyter-book not found"
+        
+        jupyter-book build ${{ matrix.notebooks }}
 
     - name: Restructure
       shell: bash
@@ -128,13 +173,13 @@ jobs:
       run: git config --global http.postBuffer 524288000
       
     - name: Push to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4.0.0
-      if: github.event_name != 'pull_request'
+      uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e
+      if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.force_deploy_pages == true)
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./books/_build/**/**/html
         keep_files: true
-        cname: www.neurodesk.org
+        cname: neurodesk.org
 
     - name: Clean build dir
       run: |
@@ -142,20 +187,20 @@ jobs:
 
   build-structure:
     if: ${{ needs.test-notebooks.result != 'failure' }}
-    needs: [ test-notebooks ]
+    needs: [ test-notebooks, select-runner ]
     runs-on: ubuntu-22.04
     container: 
-      image: vnmd/neurodesktop:latest
+      image: ${{ needs.select-runner.outputs.neurodesk_image }}
       volumes:
         - /home/runner/:/home/
       options: --user root
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
     - name: Install dependencies
       shell: bash
       run: |
-        mamba install -c conda-forge -y r-irkernel ipykernel -c pypi jupyter-book ghp-import
+        mamba install -c conda-forge -y r-irkernel ipykernel "jupyter-book<2.0.0" ghp-import
 
     - name: Run all
       shell: bash
@@ -163,18 +208,18 @@ jobs:
       env: 
         GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        export PATH=$HOME/.local/bin:$PATH
+        export PATH=/opt/conda/bin:$HOME/.local/bin:$PATH
         /bin/bash ../.github/scripts/write-toc-entry.sh
         sed -i 's/execute_notebooks: .*/execute_notebooks: off/' _config.yml
         cat _config.yml
-        jb build .
+        jupyter-book build .
 
 
     - name: Push to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4.0.0
-      if: github.event_name != 'pull_request'
+      uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e
+      if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.force_deploy_pages == true)
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./books/_build/html
         keep_files: true
-        cname: www.neurodesk.org
+        cname: neurodesk.org

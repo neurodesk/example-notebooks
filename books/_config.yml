@@ -20,6 +20,11 @@ execute:
 launch_buttons:
   jupyterhub_url: "https://play-america.neurodesk.org"
   notebook_interface: "jupyterlab"
+  jupyterhub_servers:
+    - text: "Run in America"
+      url: "https://play-america.neurodesk.org"
+    - text: "Run in Europe"
+      url: "https://play-europe.neurodesk.org"
 
 # Information about where the book exists on the web
 repository:
@@ -45,6 +50,8 @@ sphinx:
     nb_code_prompt_hide: "outputs"
     nb_merge_streams: true
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  local_extensions:
+    multiple_jupyterhub: _ext
 
 parse:
   myst_enable_extensions:

@@ -2,7 +2,7 @@ name: generate-doi
 
 on:
     schedule:
-        - cron: '0 0 1 * *' # Every Sunday at midnight
+        - cron: '0 0 1 * *' # Every month on the first day at midnight
     workflow_dispatch:
 
 jobs:
@@ -44,7 +44,7 @@ jobs:
           - name: Install dependencies
             run: |
               python -m pip install --upgrade pip
-              pip install requests pyyaml>=6.0.2
+              pip install requests pyyaml>=6.0.2 tqdm
           - name : Publish singularity container files in nectar cloud to Zenodo
             id: publish_doi
             shell: bash
@@ -56,9 +56,18 @@ jobs:
               NOTEBOOK_NAME=$(echo "${{ matrix.notebooks }}" | cut -d'/' -f3 | cut -d'.' -f1)
               echo "NOTEBOOK_NAME=$NOTEBOOK_NAME" >> $GITHUB_ENV
               NOTEBOOK_BUILDDATE="${NOTEBOOK_NAME}_${BUILDDATE}"
-              sed -i "s/^[[:space:]]*license = get_license(args.container_name, args.gh_token)/    license = 'mit'/" .github/scripts/publish-doi.py
-              export DOI_URL=$(python3 .github/scripts/publish-doi.py --container_filepath="https://raw.githubusercontent.com/Neurodesk/example-notebooks/refs/heads/main/${{ matrix.notebooks }}" --container_name=${NOTEBOOK_BUILDDATE} --zenodo_token=${{ secrets.ZENODO_TOKEN }} --gh_token=${{ secrets.GITHUB_TOKEN }} | tail -n 1)
-              echo "DOI_URL: $DOI_URL"
+              sed -i "s/^        license = get_license(args.container_name, args.gh_token)/        license = 'mit'/" .github/scripts/publish-doi.py
+              if DOI_URL=$(python3 .github/scripts/publish-doi.py \
+                    --container_filepath="https://raw.githubusercontent.com/Neurodesk/example-notebooks/refs/heads/main/${{ matrix.notebooks }}" \
+                    --container_name=${NOTEBOOK_BUILDDATE} \
+                    --zenodo_token=${{ secrets.ZENODO_TOKEN }} \
+                    --gh_token=${{ secrets.GITHUB_TOKEN }} | tail -n 1)
+              then
+                echo "DOI_URL: $DOI_URL"
+              else
+                echo "Failed to publish ${app} to Zenodo"
+                exit 1
+              fi
               echo "${DOI_URL}" >> ${NOTEBOOK_NAME}.txt
           - name: Upload updated notebook
             uses: actions/upload-artifact@v4
@@ -150,4 +159,4 @@ jobs:
             publish_dir: ./
             publish_branch: gh-pages
             keep_files: true
-            cname: www.neurodesk.org
+            cname: neurodesk.org

@@ -11,12 +11,15 @@ git clone --depth 1 https://github.com/neurodesk/example-notebooks.git
 
 ## Neurodesk
 
-For more information about how to develop these notebooks or explore the tools in Neurodesk, please visit [our website neurodesk.org](https://www.neurodesk.org/).
+For more information about how to develop these notebooks or explore the tools in Neurodesk, please visit [our website neurodesk.org](https://neurodesk.org/).
 
 ## Acknowledgements
 This example repository is funded by the Wellcome Trust with a Wellcome Discretionary Award as part of the Chan Zuckerberg Initiative (CZI), The Kavli Foundation and Wellcome’s Essential Open Source Software for Science (Cycle 6) Program [313306/Z/24/Z]
 
-The interactive version of these notebooks is run by Jetstream2 (NSF award #2005506), which is supported by the National Science Foundation. Jetstream2 is a cloud computing resource managed by the Indiana University Pervasive Technology Institute and part of the ACCESS project.
+The interactive version of these notebooks is run in the US by Jetstream2 (NSF award #2005506), which is supported by the National Science Foundation. Jetstream2 is a cloud computing resource managed by the Indiana University Pervasive Technology Institute and part of the ACCESS project. 
+
+The interactive version of these notebooks is run in Europe by the EGI Federation with the dedicated support of CESNET-MCC. Computational resources were provided by the e-INFRA CZ project (ID:90254), supported by the Ministry of Education, Youth and Sports of the Czech Republic.
+
 
 <img src="images/Wellcome_Trust_logo.png" width="150">
 <img src="images/czi_logo.png" width="250">
