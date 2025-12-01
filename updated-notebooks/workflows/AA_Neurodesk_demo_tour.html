@@ -284,7 +284,7 @@
       
         <div class="header-article-item">
 
-<div class="article-header-buttons"><a href="https://doi.org/10.5072/zenodo.407140" target="_blank" rel="noopener noreferrer" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button">https://doi.org/10.5072/zenodo.407140</a>
+<div class="article-header-buttons"><a href="https://doi.org/10.5072/zenodo.409842" target="_blank" rel="noopener noreferrer" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button">https://doi.org/10.5072/zenodo.409842</a>
 
 
 
@@ -298,14 +298,28 @@
       
       
       
-      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/AA_Neurodesk_demo_tour.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on JupyterHub" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/AA_Neurodesk_demo_tour.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in America" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+    <img alt="Run in America logo" src="../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="btn__text-container">JupyterHub</span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/AA_Neurodesk_demo_tour.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in Europe" data-bs-placement="left" data-bs-toggle="tooltip">
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
 </a>
 </li>
       
@@ -857,7 +871,7 @@ action summary:
 <h2>3. Bits about BIDS<a class="headerlink" href="#bits-about-bids" title="Link to this heading">#</a></h2>
 <section id="bids-conversion-with-bidscoin">
 <h3>BIDS conversion with BIDScoin<a class="headerlink" href="#bids-conversion-with-bidscoin" title="Link to this heading">#</a></h3>
-<p>For more information on BIDS conversion using different software tools, <code class="docutils literal notranslate"><span class="pre">dcm2niix</span></code>, <code class="docutils literal notranslate"><span class="pre">HeuDiConv</span></code>, and <code class="docutils literal notranslate"><span class="pre">BIDScoin</span></code>, see this <a class="reference external" href="https://www.neurodesk.org/example-notebooks/workflows/bids_conversion.html">BIDS conversion example</a>.</p>
+<p>For more information on BIDS conversion using different software tools, <code class="docutils literal notranslate"><span class="pre">dcm2niix</span></code>, <code class="docutils literal notranslate"><span class="pre">HeuDiConv</span></code>, and <code class="docutils literal notranslate"><span class="pre">BIDScoin</span></code>, see this <a class="reference external" href="https://neurodesk.org/example-notebooks/workflows/bids_conversion.html">BIDS conversion example</a>.</p>
 <p><strong>BIDScoin workflow:</strong>
 BIDScoin requires that the source data repository follows a <code class="docutils literal notranslate"><span class="pre">subject/[session]/data</span></code> structure. The <code class="docutils literal notranslate"><span class="pre">data</span></code> folder can be organized in various DICOM layouts: DICOM series, DICOMDIR, or flat DICOMs.</p>
 <p>To perform a BIDS conversion using BIDScoin:</p>
@@ -1464,7 +1478,7 @@ NB: That folder may contain privacy sensitive information, e.g. pathnames in log
 </section>
 <section id="pybids">
 <h3>pyBIDS<a class="headerlink" href="#pybids" title="Link to this heading">#</a></h3>
-<p>PyBIDS is a Python package that makes it easier to query, summarize, and manage BIDS-formatted datasets. It integrates smoothly with neuroimaging tools like Nipype and Nilearn, which support the BIDS standard natively. <a class="reference external" href="https://www.neurodesk.org/example-notebooks/workflows/PyBIDS.html">Here</a>, you’ll finda  more comprehensive example.</p>
+<p>PyBIDS is a Python package that makes it easier to query, summarize, and manage BIDS-formatted datasets. It integrates smoothly with neuroimaging tools like Nipype and Nilearn, which support the BIDS standard natively. <a class="reference external" href="https://neurodesk.org/example-notebooks/workflows/PyBIDS.html">Here</a>, you’ll finda  more comprehensive example.</p>
 <section id="bidslayout">
 <h4>BIDSLayout<a class="headerlink" href="#bidslayout" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
@@ -1733,12 +1747,12 @@ The first 3 files are:
 <p>Several neuroimaging tools provide streamlined, reproducible pipelines that build on widely used software packages such as FSL, AFNI, ANTs, and SPM. Some notable examples, like fMRIPrep and MRIQC, are high-level, preconfigured pipelines built on Nipype, a flexible Python workflow engine designed for creating custom neuroimaging processing chains.</p>
 <section id="fmriprep-a-preprocessing-pipeline-for-fmri-data">
 <h4>fMRIPrep: A Preprocessing Pipeline for fMRI Data<a class="headerlink" href="#fmriprep-a-preprocessing-pipeline-for-fmri-data" title="Link to this heading">#</a></h4>
-<p>fMRIPrep offers a robust BIDS-compatible pipeline for preprocessing fMRI data with minimal manual intervention, as demonstrated in the <a class="reference external" href="https://www.neurodesk.org/example-notebooks/functional_imaging/ffmriprep.html">fMRIPrep example notebook</a>.</p>
+<p>fMRIPrep offers a robust BIDS-compatible pipeline for preprocessing fMRI data with minimal manual intervention, as demonstrated in the <a class="reference external" href="https://neurodesk.org/example-notebooks/functional_imaging/ffmriprep.html">fMRIPrep example notebook</a>.</p>
 </section>
 <section id="mriqc-quality-control">
 <h4>MRIQC: Quality control<a class="headerlink" href="#mriqc-quality-control" title="Link to this heading">#</a></h4>
 <p>MRIQC provides automated quality assessment metrics for structural and functional MRI data, generating comprehensive reports to identify potential issues before analysis.
-For a complete walkthrough and more detailed example, see the full <a class="reference external" href="https://www.neurodesk.org/example-notebooks/workflows/MRIQC.html">MRIQC example</a>.</p>
+For a complete walkthrough and more detailed example, see the full <a class="reference external" href="https://neurodesk.org/example-notebooks/workflows/MRIQC.html">MRIQC example</a>.</p>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mriqc<span class="w"> </span>--help
@@ -2941,7 +2955,7 @@ action summary:
 </div>
 <section id="freesurfer-s-synthstrip-brain-extraction-of-the-anatomical-image">
 <h4>FreeSurfer’s SynthStrip: Brain extraction of the anatomical image<a class="headerlink" href="#freesurfer-s-synthstrip-brain-extraction-of-the-anatomical-image" title="Link to this heading">#</a></h4>
-<p>Another interactive example can be found here: <a class="reference external" href="https://www.neurodesk.org/example-notebooks/structural_imaging/freesurfer.html">recon-all</a></p>
+<p>Another interactive example can be found here: <a class="reference external" href="https://neurodesk.org/example-notebooks/structural_imaging/freesurfer.html">recon-all</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SynthStrip</span>
@@ -2967,7 +2981,7 @@ NeuroImage 206 (2022), 119474.
 </section>
 <section id="afni-s-3dvolreg-motion-correction-of-functional-data">
 <h4>AFNI’s 3dvolreg: Motion Correction of functional data<a class="headerlink" href="#afni-s-3dvolreg-motion-correction-of-functional-data" title="Link to this heading">#</a></h4>
-<p>For a complete example about preprocessing and glm, have a look at this <a class="reference external" href="https://www.neurodesk.org/example-notebooks/functional_imaging/AFNI_preprocessing_plus_glm.html">AFNI Preprocessing and GLM</a> notebook.</p>
+<p>For a complete example about preprocessing and glm, have a look at this <a class="reference external" href="https://neurodesk.org/example-notebooks/functional_imaging/AFNI_preprocessing_plus_glm.html">AFNI Preprocessing and GLM</a> notebook.</p>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3dvolreg</span>
@@ -3009,7 +3023,7 @@ NeuroImage 206 (2022), 119474.
 </section>
 <section id="fsl-registration-of-the-anatomical-image-to-mni">
 <h4>FSL: Registration of the anatomical image to MNI<a class="headerlink" href="#fsl-registration-of-the-anatomical-image-to-mni" title="Link to this heading">#</a></h4>
-<p>A detailed example notebook about <a class="reference external" href="https://www.neurodesk.org/example-notebooks/functional_imaging/FSL_preproc_glm.html">FSL Preprocessing and GLM</a> is also available.</p>
+<p>A detailed example notebook about <a class="reference external" href="https://neurodesk.org/example-notebooks/functional_imaging/FSL_preproc_glm.html">FSL Preprocessing and GLM</a> is also available.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fsl_path</span> <span class="o">=</span> <span class="o">!</span>which<span class="w"> </span>fsl
@@ -3044,7 +3058,7 @@ NeuroImage 206 (2022), 119474.
 </section>
 <section id="mrtrix-denoising-diffusion-data">
 <h4>MRTrix: Denoising diffusion data<a class="headerlink" href="#mrtrix-denoising-diffusion-data" title="Link to this heading">#</a></h4>
-<p>There is a series of 3 notebooks about MRTrix: Part 1 - Preprocessing can be found <a class="reference external" href="https://www.neurodesk.org/example-notebooks/diffusion_imaging/MRtrix_1.html">here</a>.</p>
+<p>There is a series of 3 notebooks about MRTrix: Part 1 - Preprocessing can be found <a class="reference external" href="https://neurodesk.org/example-notebooks/diffusion_imaging/MRtrix_1.html">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># converts diffusion data to a format that MRtrix understands</span>
@@ -3080,7 +3094,7 @@ dwidenoise: [100%] running MP-PCA denoising[0K?7h?7l?7l?7l?7l?7l?7l?7l?7l?7l?7l?
 <section id="nipype">
 <h4>Nipype<a class="headerlink" href="#nipype" title="Link to this heading">#</a></h4>
 <p>Nipype is a flexible Python-based workflow engine that enables users to build reproducible, modular pipelines by integrating diverse neuroimaging tools under a consistent interface. We will explore how it wraps individual tools such as <code class="docutils literal notranslate"><span class="pre">fsl.BET()</span></code> and <code class="docutils literal notranslate"><span class="pre">afni.Edge3()</span></code> directly from Python code.</p>
-<p>An overview of Nipype and how to build pipelines can be found in <a class="reference external" href="https://www.neurodesk.org/example-notebooks/workflows/nipype_full.html">Nipype on Neurodesk</a>.</p>
+<p>An overview of Nipype and how to build pipelines can be found in <a class="reference external" href="https://neurodesk.org/example-notebooks/workflows/nipype_full.html">Nipype on Neurodesk</a>.</p>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this makes it so FSL knows how we want our output files</span>

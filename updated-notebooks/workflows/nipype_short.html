@@ -284,7 +284,7 @@
       
         <div class="header-article-item">
 
-<div class="article-header-buttons"><a href="https://doi.org/10.5072/zenodo.407108" target="_blank" rel="noopener noreferrer" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button">https://doi.org/10.5072/zenodo.407108</a>
+<div class="article-header-buttons"><a href="https://doi.org/10.5072/zenodo.409836" target="_blank" rel="noopener noreferrer" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button">https://doi.org/10.5072/zenodo.409836</a>
 
 
 
@@ -298,14 +298,28 @@
       
       
       
-      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/nipype_short.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on JupyterHub" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/nipype_short.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in America" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+    <img alt="Run in America logo" src="../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="btn__text-container">JupyterHub</span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/nipype_short.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in Europe" data-bs-placement="left" data-bs-toggle="tooltip">
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
 </a>
 </li>
       
@@ -460,9 +474,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information">Output CPU information</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information-for-reproducibility">Output CPU information for reproducibility</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-module-system-in-python-and-nipype">Demonstrating the module system in Python and Nipype</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load afni and SPM as well</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load AFNI and SPM as well</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">download test data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">run nipype pipeline</a></li>
 </ul>
@@ -483,8 +497,8 @@ document.write(`
 <h1>Basic Nipype<a class="headerlink" href="#basic-nipype" title="Link to this heading">#</a></h1>
 <p>Author: Steffen Bollmann</p>
 </section>
-<section id="output-cpu-information">
-<h1>Output CPU information<a class="headerlink" href="#output-cpu-information" title="Link to this heading">#</a></h1>
+<section id="output-cpu-information-for-reproducibility">
+<h1>Output CPU information for reproducibility<a class="headerlink" href="#output-cpu-information-for-reproducibility" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
@@ -572,7 +586,7 @@ Miscellaneous options:
 </div>
 </div>
 <section id="load-afni-and-spm-as-well">
-<h2>Load afni and SPM as well<a class="headerlink" href="#load-afni-and-spm-as-well" title="Link to this heading">#</a></h2>
+<h2>Load AFNI and SPM as well<a class="headerlink" href="#load-afni-and-spm-as-well" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'afni/22.3.06'</span><span class="p">)</span>
@@ -921,9 +935,9 @@ stty: 'standard input': Inappropriate ioctl for device
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information">Output CPU information</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information-for-reproducibility">Output CPU information for reproducibility</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-module-system-in-python-and-nipype">Demonstrating the module system in Python and Nipype</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load afni and SPM as well</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load AFNI and SPM as well</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">download test data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">run nipype pipeline</a></li>
 </ul>

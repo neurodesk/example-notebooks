@@ -1,14 +1,8 @@
+<!DOCTYPE html><html lang="en" data-content_root="../"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!DOCTYPE html>
-
-
-<html lang="en" data-content_root="../" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>FSL Preprocessing and GLM &#8212; Neurodesk</title>
+    <title>FSL Preprocessing and GLM — Neurodesk</title>
   
   
   
@@ -18,27 +12,27 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079">
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062">
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357">
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b">
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css">
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6">
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e">
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b">
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
@@ -73,14 +67,14 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'functional_imaging/FSL_preproc_glm';</script>
-    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/functional_imaging/FSL_preproc_glm.html" />
-    <link rel="icon" href="../_static/neurodesk_logo.svg"/>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Resting state with FSLnets" href="FSLnets_course_practical.html" />
-    <link rel="prev" title="AFNI Preprocessing &amp; Group Analysis" href="AFNI_preprocessing_plus_glm_group.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/functional_imaging/FSL_preproc_glm.html">
+    <link rel="icon" href="../_static/neurodesk_logo.svg">
+    <link rel="index" title="Index" href="../genindex.html">
+    <link rel="search" title="Search" href="../search.html">
+    <link rel="next" title="Resting state with FSLnets" href="FSLnets_course_practical.html">
+    <link rel="prev" title="AFNI Preprocessing &amp; Group Analysis" href="AFNI_preprocessing_plus_glm_group.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="docsearch:language" content="en">
   </head>
   
   
@@ -96,33 +90,18 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
+  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox">
   <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
+  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox">
   <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../search.html"
-      method="get">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
@@ -170,7 +149,7 @@
       
     
     
-    <img src="../_static/neurodesk_logo.svg" class="logo__image only-light" alt="Neurodesk - Home"/>
+    <img src="../_static/neurodesk_logo.svg" class="logo__image only-light" alt="Neurodesk - Home">
     <script>document.write(`<img src="../_static/neurodesk_logo.svg" class="logo__image only-dark" alt="Neurodesk - Home"/>`);</script>
   
   
@@ -307,7 +286,7 @@
       
         <div class="header-article-item">
 
-<div class="article-header-buttons">
+<div class="article-header-buttons"><a href="https://doi.org/10.5072/zenodo.409832" target="_blank" rel="noopener noreferrer" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button">https://doi.org/10.5072/zenodo.409832</a>
 
 
 
@@ -321,11 +300,7 @@
       
       
       
-      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/functional_imaging/FSL_preproc_glm.ipynb&branch=main" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Run in America"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/functional_imaging/FSL_preproc_glm.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in America" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -339,11 +314,7 @@
       
       
       
-      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/functional_imaging/FSL_preproc_glm.ipynb&branch=main" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Run in Europe"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/functional_imaging/FSL_preproc_glm.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in Europe" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -370,11 +341,7 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
+      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank" class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -387,11 +354,7 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/functional_imaging/FSL_preproc_glm.ipynb" target="_blank"
-   class="btn btn-sm btn-source-edit-button dropdown-item"
-   title="Suggest edit"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/functional_imaging/FSL_preproc_glm.ipynb" target="_blank" class="btn btn-sm btn-source-edit-button dropdown-item" title="Suggest edit" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -404,11 +367,7 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2Ffunctional_imaging/FSL_preproc_glm.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2Ffunctional_imaging/FSL_preproc_glm.html&amp;body=Your%20issue%20content%20here." target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item" title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -434,11 +393,7 @@
       
       
       
-      <li><a href="../_sources/functional_imaging/FSL_preproc_glm.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
+      <li><a href="../_sources/functional_imaging/FSL_preproc_glm.ipynb" target="_blank" class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -452,11 +407,7 @@
       
       
       <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
+<button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item" title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -472,11 +423,7 @@
 
 
 
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
+<button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button" title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
   
 
 <span class="btn__icon-container">
@@ -591,8 +538,8 @@ document.write(`
 <h2>Output CPU information<a class="headerlink" href="#output-cpu-information" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;vendor&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-<span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;model name&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'vendor'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
+<span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'model name'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
 </pre></div>
 </div>
 </div>
@@ -617,13 +564,13 @@ model name	: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">module</span>
-<span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fsl/6.0.7.16&#39;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'fsl/6.0.7.16'</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;mrtrix3/3.0.4&#39;, &#39;fsl/6.0.7.16&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['mrtrix3/3.0.4', 'fsl/6.0.7.16']
 </pre></div>
 </div>
 </div>
@@ -644,7 +591,7 @@ model name	: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this makes it so FSL knows how we want our output files</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;FSLOUTPUTTYPE&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;NIFTI_GZ&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"FSLOUTPUTTYPE"</span><span class="p">]</span><span class="o">=</span><span class="s2">"NIFTI_GZ"</span>
 </pre></div>
 </div>
 </div>
@@ -673,7 +620,7 @@ Resolving:   0%|                                | 0.00/537 [00:00&lt;?, ? Deltas
 [INFO   ] scanning for unlocked files (this may take some time)                 
 [INFO   ] Remote origin not usable by git-annex; setting annex-ignore 
 [INFO   ] access to 1 dataset sibling s3-PRIVATE not auto-enabled, enable with:
-| 		datalad siblings -d &quot;/home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/ds000102&quot; enable -s s3-PRIVATE 
+| 		datalad siblings -d "/home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/ds000102" enable -s s3-PRIVATE 
 <span class=" -Color -Color-Bold">install</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): /home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/ds000102 (<span class=" -Color -Color-Bold -Color-Bold-Magenta">dataset</span>)
 Total:   0%|                                   | 0.00/67.8M [00:00&lt;?, ? Bytes/s]
 Get sub-08/a .. 8_T1w.nii.gz:   0%|            | 0.00/10.6M [00:00&lt;?, ? Bytes/s]
@@ -729,7 +676,7 @@ action summary:
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">./ds000102/sub-08/</span>
 ├── <span class=" -Color -Color-Bold -Color-Bold-Blue">anat</span>
-│   └── <span class=" -Color -Color-Bold -Color-Bold-Cyan">sub-08_T1w.nii.gz</span> -&gt; <span class=" -Color -Color-Bold -Color-Bold-Red">../../.git/annex/objects/mw/MM/MD5E-s10561256--b94dddd8dc1c146aa8cd97f8d9994146.nii.gz/MD5E-s10561256--b94dddd8dc1c146aa8cd97f8d9994146.nii.gz</span>
+│&nbsp;&nbsp; └── <span class=" -Color -Color-Bold -Color-Bold-Cyan">sub-08_T1w.nii.gz</span> -&gt; <span class=" -Color -Color-Bold -Color-Bold-Red">../../.git/annex/objects/mw/MM/MD5E-s10561256--b94dddd8dc1c146aa8cd97f8d9994146.nii.gz/MD5E-s10561256--b94dddd8dc1c146aa8cd97f8d9994146.nii.gz</span>
 └── <span class=" -Color -Color-Bold -Color-Bold-Blue">func</span>
     ├── <span class=" -Color -Color-Bold -Color-Bold-Cyan">sub-08_task-flanker_run-1_bold.nii.gz</span> -&gt; <span class=" -Color -Color-Bold -Color-Bold-Red">../../.git/annex/objects/zX/v9/MD5E-s28641609--47314e6d1a14b8545686110b5b67f8b8.nii.gz/MD5E-s28641609--47314e6d1a14b8545686110b5b67f8b8.nii.gz</span>
     ├── sub-08_task-flanker_run-1_events.tsv
@@ -751,8 +698,8 @@ action summary:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#extract first volume of functional images</span>
-<span class="n">index_img</span><span class="p">(</span><span class="s2">&quot;./ds000102/sub-08/func/sub-08_task-flanker_run-1_bold.nii.gz&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-1_bold_vol0.nii.gz&quot;</span><span class="p">)</span>
-<span class="n">index_img</span><span class="p">(</span><span class="s2">&quot;./ds000102/sub-08/func/sub-08_task-flanker_run-2_bold.nii.gz&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-2_bold_vol0.nii.gz&quot;</span><span class="p">)</span>
+<span class="n">index_img</span><span class="p">(</span><span class="s2">"./ds000102/sub-08/func/sub-08_task-flanker_run-1_bold.nii.gz"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s2">"./FSL_preproc/sub-08_task-flanker_run-1_bold_vol0.nii.gz"</span><span class="p">)</span>
+<span class="n">index_img</span><span class="p">(</span><span class="s2">"./ds000102/sub-08/func/sub-08_task-flanker_run-2_bold.nii.gz"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s2">"./FSL_preproc/sub-08_task-flanker_run-2_bold_vol0.nii.gz"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -761,7 +708,7 @@ action summary:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># anatomical image</span>
 <span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./ds000102/sub-08/anat/sub-08_T1w.nii.gz&quot;</span><span class="p">}])</span>
+<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./ds000102/sub-08/anat/sub-08_T1w.nii.gz"</span><span class="p">}])</span>
 <span class="n">nv</span>
 </pre></div>
 </div>
@@ -771,18 +718,18 @@ action summary:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_anat.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_anat.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_anat.png"/></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_anat.png"></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># functional image run 1, first volume</span>
 <span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-1_bold_vol0.nii.gz&quot;</span><span class="p">}])</span>
+<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./FSL_preproc/sub-08_task-flanker_run-1_bold_vol0.nii.gz"</span><span class="p">}])</span>
 <span class="n">nv</span>
 </pre></div>
 </div>
@@ -792,18 +739,18 @@ action summary:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run1.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run1.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run1.png"/></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run1.png"></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># functional image run 2</span>
 <span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-2_bold_vol0.nii.gz&quot;</span><span class="p">}])</span>
+<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./FSL_preproc/sub-08_task-flanker_run-2_bold_vol0.nii.gz"</span><span class="p">}])</span>
 <span class="n">nv</span>
 </pre></div>
 </div>
@@ -813,12 +760,12 @@ action summary:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run2.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run2.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run2.png"/></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_run2.png"></div></div>
 </div>
 </section>
 </section>
@@ -840,7 +787,7 @@ Main bet2 options:
   -o          generate brain surface outline overlaid onto original image
   -m          generate binary brain mask
   -s          generate approximate skull image
-  -n          don&#39;t generate segmented brain image output
+  -n          don't generate segmented brain image output
   -f &lt;f&gt;      fractional intensity threshold (0-&gt;1); default=0.5; smaller values give larger brain outline estimates
   -g &lt;g&gt;      vertical gradient in fractional intensity threshold (-1-&gt;1); default=0; positive values give larger brain outline at bottom, smaller at top
   -r &lt;r&gt;      head radius (mm not voxels); initial surface sphere is set to half of this
@@ -861,7 +808,7 @@ Variations on default bet2 functionality (mutually exclusive options):
 Miscellaneous options:
   -v          verbose (switch on diagnostic messages)
   -h          display this help, then exits
-  -d          debug (don&#39;t delete temporary intermediate images)
+  -d          debug (don't delete temporary intermediate images)
 </pre></div>
 </div>
 </div>
@@ -883,8 +830,8 @@ Miscellaneous options:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the skull-stripped (red) on top of the original T1 anatomical image</span>
 <span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
 <span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([</span>
-    <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./ds000102/sub-08/anat/sub-08_T1w.nii.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;T1w&quot;</span><span class="p">,</span> <span class="s2">&quot;colormap&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./FSL_preproc/sub-08_T1w_brain.nii.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;T1w_brain&quot;</span><span class="p">,</span> <span class="s2">&quot;colormap&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+    <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./ds000102/sub-08/anat/sub-08_T1w.nii.gz"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"T1w"</span><span class="p">,</span> <span class="s2">"colormap"</span><span class="p">:</span> <span class="s2">"gray"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./FSL_preproc/sub-08_T1w_brain.nii.gz"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"T1w_brain"</span><span class="p">,</span> <span class="s2">"colormap"</span><span class="p">:</span> <span class="s2">"red"</span><span class="p">,</span> <span class="s2">"opacity"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
 <span class="p">])</span> 
 <span class="n">nv</span>
 </pre></div>
@@ -895,12 +842,12 @@ Miscellaneous options:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_05.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_05.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_05.png"/></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_05.png"></div></div>
 </div>
 </section>
 </section>
@@ -919,8 +866,8 @@ Miscellaneous options:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Overlay brain extacted image with f=0.2 in red color ontop of the previous one with f=0.5 (gray)</span>
 <span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
 <span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([</span>
-    <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./FSL_preproc/sub-08_T1w_brain_f02.nii.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;colormap&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./FSL_preproc/sub-08_T1w_brain.nii.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;colormap&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./FSL_preproc/sub-08_T1w_brain_f02.nii.gz"</span><span class="p">,</span> <span class="s2">"colormap"</span><span class="p">:</span> <span class="s2">"gray"</span><span class="p">,</span> <span class="s2">"opacity"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./FSL_preproc/sub-08_T1w_brain.nii.gz"</span><span class="p">,</span> <span class="s2">"colormap"</span><span class="p">:</span> <span class="s2">"red"</span><span class="p">,</span> <span class="s2">"opacity"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
 <span class="p">])</span> 
 <span class="n">nv</span>
 </pre></div>
@@ -931,12 +878,12 @@ Miscellaneous options:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_02.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_02.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_02.png"/></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_bet_02.png"></div></div>
 </div>
 </section>
 <section id="motion-correction">
@@ -986,8 +933,8 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the middle volume indices (timepoints) for each file</span>
-<span class="n">middle_index1</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth.nii.gz&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">middle_index2</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth.nii.gz&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">middle_index1</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth.nii.gz"</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">middle_index2</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth.nii.gz"</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">middle_index1</span><span class="p">)</span>
 </pre></div>
@@ -1027,14 +974,14 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract the mni template</span>
 <span class="n">fsl_path</span> <span class="o">=</span> <span class="o">!</span>which<span class="w"> </span>fsl
-<span class="n">fsl_version</span> <span class="o">=</span> <span class="n">fsl_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">fsl_version</span> <span class="o">=</span> <span class="n">fsl_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="n">MNI_BRAIN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-    <span class="s1">&#39;/opt&#39;</span><span class="p">,</span>
-    <span class="sa">f</span><span class="s1">&#39;fsl-</span><span class="si">{</span><span class="n">fsl_version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;data&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;standard&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;MNI152_T1_2mm_brain.nii.gz&#39;</span>
+    <span class="s1">'/opt'</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s1">'fsl-</span><span class="si">{</span><span class="n">fsl_version</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+    <span class="s1">'data'</span><span class="p">,</span>
+    <span class="s1">'standard'</span><span class="p">,</span>
+    <span class="s1">'MNI152_T1_2mm_brain.nii.gz'</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">MNI_BRAIN</span><span class="p">)</span>
@@ -1050,7 +997,7 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register the T1w image to the MNI template and concatenate the transformation matrices</span>
-<span class="o">!</span>flirt<span class="w"> </span>-in<span class="w"> </span>./FSL_preproc/sub-08_T1w_brain_f02.nii.gz<span class="w"> </span>-ref<span class="w"> </span><span class="s2">&quot;{MNI_BRAIN}&quot;</span><span class="w"> </span>-out<span class="w"> </span>./FSL_preproc/sub-08_T1w_brain_f02_flirt.nii.gz<span class="w"> </span>-omat<span class="w"> </span>./FSL_preproc/sub-08_T1w_brain_f02_flirt.mat<span class="w"> </span>-searchrx<span class="w"> </span>-180<span class="w"> </span><span class="m">180</span><span class="w"> </span>-searchry<span class="w"> </span>-180<span class="w"> </span><span class="m">180</span><span class="w"> </span>-searchrz<span class="w"> </span>-180<span class="w"> </span><span class="m">180</span><span class="w"> </span>-dof<span class="w"> </span><span class="m">12</span>
+<span class="o">!</span>flirt<span class="w"> </span>-in<span class="w"> </span>./FSL_preproc/sub-08_T1w_brain_f02.nii.gz<span class="w"> </span>-ref<span class="w"> </span><span class="s2">"{MNI_BRAIN}"</span><span class="w"> </span>-out<span class="w"> </span>./FSL_preproc/sub-08_T1w_brain_f02_flirt.nii.gz<span class="w"> </span>-omat<span class="w"> </span>./FSL_preproc/sub-08_T1w_brain_f02_flirt.mat<span class="w"> </span>-searchrx<span class="w"> </span>-180<span class="w"> </span><span class="m">180</span><span class="w"> </span>-searchry<span class="w"> </span>-180<span class="w"> </span><span class="m">180</span><span class="w"> </span>-searchrz<span class="w"> </span>-180<span class="w"> </span><span class="m">180</span><span class="w"> </span>-dof<span class="w"> </span><span class="m">12</span>
 </pre></div>
 </div>
 </div>
@@ -1075,8 +1022,8 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the concatenated transformation matrices to the functional images</span>
-<span class="o">!</span>flirt<span class="w"> </span>-in<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth.nii.gz<span class="w"> </span>-ref<span class="w"> </span><span class="s2">&quot;{MNI_BRAIN}&quot;</span><span class="w"> </span>-out<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni.nii.gz<span class="w"> </span>-applyxfm<span class="w"> </span>-init<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni.mat
-<span class="o">!</span>flirt<span class="w"> </span>-in<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth.nii.gz<span class="w"> </span>-ref<span class="w"> </span><span class="s2">&quot;{MNI_BRAIN}&quot;</span><span class="w"> </span>-out<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.nii.gz<span class="w"> </span>-applyxfm<span class="w"> </span>-init<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.mat
+<span class="o">!</span>flirt<span class="w"> </span>-in<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth.nii.gz<span class="w"> </span>-ref<span class="w"> </span><span class="s2">"{MNI_BRAIN}"</span><span class="w"> </span>-out<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni.nii.gz<span class="w"> </span>-applyxfm<span class="w"> </span>-init<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni.mat
+<span class="o">!</span>flirt<span class="w"> </span>-in<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth.nii.gz<span class="w"> </span>-ref<span class="w"> </span><span class="s2">"{MNI_BRAIN}"</span><span class="w"> </span>-out<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.nii.gz<span class="w"> </span>-applyxfm<span class="w"> </span>-init<span class="w"> </span>./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.mat
 </pre></div>
 </div>
 </div>
@@ -1088,7 +1035,7 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 <p>To visualize the alignment of functional run 1 in MNI space, the middle volume of the 4D dataset will be extracted and used as an overlay. Extracting a single volume instead of displaying the full 4D image reduces file size and computational load, making it more efficient for visualization and suitable for interactive display tools such as NiiVue.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_img</span><span class="p">(</span><span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.nii.gz&quot;</span><span class="p">,</span> <span class="n">middle_index1</span><span class="p">)</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni_middle_3d.nii.gz&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_img</span><span class="p">(</span><span class="s2">"./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.nii.gz"</span><span class="p">,</span> <span class="n">middle_index1</span><span class="p">)</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s2">"./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni_middle_3d.nii.gz"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1098,8 +1045,8 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify the registration by overlaying the functional image on MNI</span>
 <span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>  
 <span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([</span>
-    <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/cvmfs/neurodesk.ardc.edu.au/containers/fsl_6.0.7.16_20250131/fsl_6.0.7.16_20250131.simg/opt/fsl-6.0.7.16/data/standard/MNI152_T1_2mm_brain.nii.gz&quot;</span><span class="p">,</span>  <span class="s2">&quot;colormap&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni_middle_3d.nii.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;colormap&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">}</span>
+    <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/cvmfs/neurodesk.ardc.edu.au/containers/fsl_6.0.7.16_20250131/fsl_6.0.7.16_20250131.simg/opt/fsl-6.0.7.16/data/standard/MNI152_T1_2mm_brain.nii.gz"</span><span class="p">,</span>  <span class="s2">"colormap"</span><span class="p">:</span> <span class="s2">"gray"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni_middle_3d.nii.gz"</span><span class="p">,</span> <span class="s2">"colormap"</span><span class="p">:</span> <span class="s2">"red"</span><span class="p">,</span> <span class="s2">"opacity"</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">}</span>
 <span class="p">])</span>
 <span class="n">nv</span>
 </pre></div>
@@ -1110,57 +1057,57 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_alignment.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_alignment.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_alignment.png"/></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/fsl_preproc_alignment.png"></div></div>
 </div>
 <p><strong>Motion parameters</strong></p>
 <p>The motion plots show translation and rotation over time, with each timepoint (volume) on the x-axis. For translation, values are in millimeters. Look for sudden spikes greater than half the voxel size, or gradual drifts exceeding a full voxel. For example, with 3 mm isotropic voxels, relative motion over 1.5 mm between volumes or absolute shifts over 3 mm across the run may warrant closer inspection.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load motion parameters</span>
-<span class="n">motion_params_run1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf.nii.gz.par&#39;</span><span class="p">)</span>
-<span class="n">motion_params_run2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf.nii.gz.par&#39;</span><span class="p">)</span>
+<span class="n">motion_params_run1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf.nii.gz.par'</span><span class="p">)</span>
+<span class="n">motion_params_run2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf.nii.gz.par'</span><span class="p">)</span>
 
 <span class="c1"># Create subplots</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Run 1</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">motion_params_run1</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Translation (mm)&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Run 1: Translation&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Translation (mm)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"Z"</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Run 1: Translation"</span><span class="p">)</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">motion_params_run1</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rotation (rad)&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Pitch&quot;</span><span class="p">,</span> <span class="s2">&quot;Roll&quot;</span><span class="p">,</span> <span class="s2">&quot;Yaw&quot;</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Run 1: Rotation&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Rotation (rad)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Pitch"</span><span class="p">,</span> <span class="s2">"Roll"</span><span class="p">,</span> <span class="s2">"Yaw"</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Run 1: Rotation"</span><span class="p">)</span>
 
 <span class="c1"># Run 2</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">motion_params_run2</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Translation (mm)&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time (TR)&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Run 2: Translation&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Translation (mm)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Time (TR)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"Z"</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Run 2: Translation"</span><span class="p">)</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">motion_params_run2</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rotation (rad)&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time (TR)&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Pitch&quot;</span><span class="p">,</span> <span class="s2">&quot;Roll&quot;</span><span class="p">,</span> <span class="s2">&quot;Yaw&quot;</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Run 2: Rotation&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Rotation (rad)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Time (TR)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"Pitch"</span><span class="p">,</span> <span class="s2">"Roll"</span><span class="p">,</span> <span class="s2">"Yaw"</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Run 2: Rotation"</span><span class="p">)</span>
 
 <span class="c1"># Adjust layout</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Motion Parameters for Both Runs&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Motion Parameters for Both Runs"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c1fbf652efccbaf3afe98085a7446b683f9344d234ccb340dc8e520074158edc.png" src="../_images/c1fbf652efccbaf3afe98085a7446b683f9344d234ccb340dc8e520074158edc.png" />
+<img alt="../_images/c1fbf652efccbaf3afe98085a7446b683f9344d234ccb340dc8e520074158edc.png" src="../_images/c1fbf652efccbaf3afe98085a7446b683f9344d234ccb340dc8e520074158edc.png">
 </div>
 </div>
 </section>
@@ -1174,7 +1121,7 @@ To apply smoothing using <code class="docutils literal notranslate"><span class=
 <p><em>NOTE</em>: This script only extracts the trials in which the subject made a correct response. Accuracy is nearly 100% for all subjects, but as an exercise you can modify this to extract the incorrect trials as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download timing file from Andy&#39;s FSL_Scripts repository</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download timing file from Andy's FSL_Scripts repository</span>
 <span class="o">!</span>wget<span class="w"> </span>-O<span class="w"> </span>./ds000102/make_FSL_Timings.sh<span class="w"> </span>https://raw.githubusercontent.com/andrewjahn/FSL_Scripts/master/make_FSL_Timings.sh
 </pre></div>
 </div>
@@ -1211,14 +1158,14 @@ fi
 
 #Loop over all subjects and format timing files into FSL format
 for subj in `cat subjList.txt` ; do
-        cd $subj/func #Navigate to the subject&#39;s func directory, which contains the timing files
+        cd $subj/func #Navigate to the subject's func directory, which contains the timing files
         
         #Extract the onset times for the incongruent and congruent trials for each run. NOTE: This script only extracts the trials in which the subject made a correct response. Accuracy is nearly 100% for all subjects, but as an exercise the student can modify this to extract the incorrect trials as well.
-        cat ${subj}_task-flanker_run-1_events.tsv | awk &#39;{if ($3==&quot;incongruent_correct&quot;) {print $1, $2, &quot;1&quot;}}&#39; &gt; incongruent_run1.txt
-        cat ${subj}_task-flanker_run-1_events.tsv | awk &#39;{if ($3==&quot;congruent_correct&quot;) {print $1, $2, &quot;1&quot;}}&#39; &gt; congruent_run1.txt
+        cat ${subj}_task-flanker_run-1_events.tsv | awk '{if ($3=="incongruent_correct") {print $1, $2, "1"}}' &gt; incongruent_run1.txt
+        cat ${subj}_task-flanker_run-1_events.tsv | awk '{if ($3=="congruent_correct") {print $1, $2, "1"}}' &gt; congruent_run1.txt
 
-        cat ${subj}_task-flanker_run-2_events.tsv | awk &#39;{if ($3==&quot;incongruent_correct&quot;) {print $1, $2, &quot;1&quot;}}&#39; &gt; incongruent_run2.txt
-        cat ${subj}_task-flanker_run-2_events.tsv | awk &#39;{if ($3==&quot;congruent_correct&quot;) {print $1, $2, &quot;1&quot;}}&#39; &gt; congruent_run2.txt
+        cat ${subj}_task-flanker_run-2_events.tsv | awk '{if ($3=="incongruent_correct") {print $1, $2, "1"}}' &gt; incongruent_run2.txt
+        cat ${subj}_task-flanker_run-2_events.tsv | awk '{if ($3=="congruent_correct") {print $1, $2, "1"}}' &gt; congruent_run2.txt
         
         cd ../..
 done
@@ -1306,8 +1253,8 @@ Three contrasts are defined:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get parameters for the design files</span>
 <span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">img1</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni.nii.gz&#39;</span><span class="p">)</span>
-<span class="n">img2</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.nii.gz&#39;</span><span class="p">)</span>
+<span class="n">img1</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'./FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni.nii.gz'</span><span class="p">)</span>
+<span class="n">img2</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'./FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni.nii.gz'</span><span class="p">)</span>
 <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">img1</span><span class="o">.</span><span class="n">shape</span>
 <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">img2</span><span class="o">.</span><span class="n">shape</span>
 <span class="n">TR1</span> <span class="o">=</span> <span class="n">img1</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">get_zooms</span><span class="p">()[</span><span class="mi">3</span><span class="p">]</span>
@@ -1315,25 +1262,25 @@ Three contrasts are defined:</p>
 
 <span class="c1"># Define run-specific parameters</span>
 <span class="n">runs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;run1&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;outputdir&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;feat_run_1&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;TR&quot;</span><span class="p">:</span> <span class="n">TR1</span><span class="p">,</span>
-        <span class="s2">&quot;npts&quot;</span><span class="p">:</span> <span class="n">t1</span><span class="p">,</span>
-        <span class="s2">&quot;total_voxels&quot;</span><span class="p">:</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">y1</span> <span class="o">*</span> <span class="n">z1</span> <span class="o">*</span> <span class="n">t1</span><span class="p">,</span>
-        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;incongruent&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;ds000102/sub-08/func/incongruent_run1.txt&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;congruent&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;ds000102/sub-08/func/congruent_run1.txt&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;design_file&quot;</span><span class="p">:</span> <span class="s2">&quot;design_run1.fsf&quot;</span>
+    <span class="s2">"run1"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"outputdir"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'feat_run_1'</span><span class="p">),</span>
+        <span class="s2">"TR"</span><span class="p">:</span> <span class="n">TR1</span><span class="p">,</span>
+        <span class="s2">"npts"</span><span class="p">:</span> <span class="n">t1</span><span class="p">,</span>
+        <span class="s2">"total_voxels"</span><span class="p">:</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">y1</span> <span class="o">*</span> <span class="n">z1</span> <span class="o">*</span> <span class="n">t1</span><span class="p">,</span>
+        <span class="s2">"func"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'FSL_preproc/sub-08_task-flanker_run-1_bold_mcf_smooth_flirt2mni'</span><span class="p">),</span>
+        <span class="s2">"incongruent"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'ds000102/sub-08/func/incongruent_run1.txt'</span><span class="p">),</span>
+        <span class="s2">"congruent"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'ds000102/sub-08/func/congruent_run1.txt'</span><span class="p">),</span>
+        <span class="s2">"design_file"</span><span class="p">:</span> <span class="s2">"design_run1.fsf"</span>
     <span class="p">},</span>
-    <span class="s2">&quot;run2&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;outputdir&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;feat_run_2&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;TR&quot;</span><span class="p">:</span> <span class="n">TR2</span><span class="p">,</span>
-        <span class="s2">&quot;npts&quot;</span><span class="p">:</span> <span class="n">t2</span><span class="p">,</span>
-        <span class="s2">&quot;total_voxels&quot;</span><span class="p">:</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">y2</span> <span class="o">*</span> <span class="n">z2</span> <span class="o">*</span> <span class="n">t2</span><span class="p">,</span>
-        <span class="s2">&quot;func&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;incongruent&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;ds000102/sub-08/func/incongruent_run2.txt&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;congruent&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">&#39;ds000102/sub-08/func/congruent_run2.txt&#39;</span><span class="p">),</span>
-        <span class="s2">&quot;design_file&quot;</span><span class="p">:</span> <span class="s2">&quot;design_run2.fsf&quot;</span>
+    <span class="s2">"run2"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"outputdir"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'feat_run_2'</span><span class="p">),</span>
+        <span class="s2">"TR"</span><span class="p">:</span> <span class="n">TR2</span><span class="p">,</span>
+        <span class="s2">"npts"</span><span class="p">:</span> <span class="n">t2</span><span class="p">,</span>
+        <span class="s2">"total_voxels"</span><span class="p">:</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">y2</span> <span class="o">*</span> <span class="n">z2</span> <span class="o">*</span> <span class="n">t2</span><span class="p">,</span>
+        <span class="s2">"func"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'FSL_preproc/sub-08_task-flanker_run-2_bold_mcf_smooth_flirt2mni'</span><span class="p">),</span>
+        <span class="s2">"incongruent"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'ds000102/sub-08/func/incongruent_run2.txt'</span><span class="p">),</span>
+        <span class="s2">"congruent"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s1">'ds000102/sub-08/func/congruent_run2.txt'</span><span class="p">),</span>
+        <span class="s2">"design_file"</span><span class="p">:</span> <span class="s2">"design_run2.fsf"</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1344,8 +1291,8 @@ Three contrasts are defined:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create feat design files for both runs</span>
 <span class="k">for</span> <span class="n">run_key</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">runs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;design_file&quot;</span><span class="p">],</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"design_file"</span><span class="p">],</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"""</span>
 <span class="s2"># FEAT version number</span>
 <span class="s2">set fmri(version) 6.00</span>
 
@@ -1377,13 +1324,13 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(sscleanup_yn) 0</span>
 
 <span class="s2"># Output directory</span>
-<span class="s2">set fmri(outputdir)  &quot;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;outputdir&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">set fmri(outputdir)  "</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">'outputdir'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
 
 <span class="s2"># TR(s)</span>
-<span class="s2">set fmri(tr) </span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;TR&#39;</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">set fmri(tr) </span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">'TR'</span><span class="p">]</span><span class="si">}</span>
 
 <span class="s2"># Total volumes</span>
-<span class="s2">set fmri(npts) </span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;npts&#39;</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">set fmri(npts) </span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">'npts'</span><span class="p">]</span><span class="si">}</span>
 
 <span class="s2"># Delete volumes</span>
 <span class="s2">set fmri(ndelete) 0</span>
@@ -1426,7 +1373,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(regunwarp_yn) 0</span>
 
 <span class="s2"># GDC Test</span>
-<span class="s2">set fmri(gdc) &quot;&quot;</span>
+<span class="s2">set fmri(gdc) ""</span>
 
 <span class="s2"># EPI dwell time (ms)</span>
 <span class="s2">set fmri(dwell) 0.0</span>
@@ -1450,7 +1397,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(st) 0</span>
 
 <span class="s2"># Slice timings file</span>
-<span class="s2">set fmri(st_file) &quot;&quot;</span>
+<span class="s2">set fmri(st_file) ""</span>
 
 <span class="s2"># BET brain extraction</span>
 <span class="s2">set fmri(bet_yn) 1</span>
@@ -1483,8 +1430,8 @@ Three contrasts are defined:</p>
 <span class="s2"># 0 : No</span>
 <span class="s2"># 1 : Yes</span>
 <span class="s2">set fmri(motionevs) 0</span>
-<span class="s2">set fmri(motionevsbeta) &quot;&quot;</span>
-<span class="s2">set fmri(scriptevsbeta) &quot;&quot;</span>
+<span class="s2">set fmri(motionevsbeta) ""</span>
+<span class="s2">set fmri(scriptevsbeta) ""</span>
 
 <span class="s2"># Robust outlier detection in FLAME?</span>
 <span class="s2">set fmri(robust_yn) 0</span>
@@ -1519,7 +1466,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(poststats_yn) 0</span>
 
 <span class="s2"># Pre-threshold masking?</span>
-<span class="s2">set fmri(threshmask) &quot;&quot;</span>
+<span class="s2">set fmri(threshmask) ""</span>
 
 <span class="s2"># Thresholding</span>
 <span class="s2"># 0 : None</span>
@@ -1592,7 +1539,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(alternateReference_yn) 0</span>
 
 <span class="s2"># Standard image</span>
-<span class="s2">set fmri(regstandard) &quot;</span><span class="si">{</span><span class="n">MNI_BRAIN</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">set fmri(regstandard) "</span><span class="si">{</span><span class="n">MNI_BRAIN</span><span class="si">}</span><span class="s2">"</span>
 
 <span class="s2"># Search space for registration to standard space</span>
 <span class="s2"># 0   : No search</span>
@@ -1613,20 +1560,20 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(paradigm_hp) 100</span>
 
 <span class="s2"># Total voxels</span>
-<span class="s2">set fmri(totalVoxels) </span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;total_voxels&#39;</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">set fmri(totalVoxels) </span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">'total_voxels'</span><span class="p">]</span><span class="si">}</span>
 
 
 <span class="s2"># Number of lower-level copes feeding into higher-level analysis</span>
 <span class="s2">set fmri(ncopeinputs) 0</span>
 
 <span class="s2"># 4D AVW data or FEAT directory (1)</span>
-<span class="s2">set feat_files(1) &quot;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;func&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">set feat_files(1) "</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">'func'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
 
 <span class="s2"># Add confound EVs text file</span>
 <span class="s2">set fmri(confoundevs) 0</span>
 
 <span class="s2"># EV 1 title</span>
-<span class="s2">set fmri(evtitle1) &quot;incongruent&quot;</span>
+<span class="s2">set fmri(evtitle1) "incongruent"</span>
 
 <span class="s2"># Basic waveform shape (EV 1)</span>
 <span class="s2"># 0 : Square</span>
@@ -1658,7 +1605,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(deriv_yn1) 0</span>
 
 <span class="s2"># Custom EV file (EV 1)</span>
-<span class="s2">set fmri(custom1) &quot;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;incongruent&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">set fmri(custom1) "</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">'incongruent'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
 
 <span class="s2"># Gamma sigma (EV 1)</span>
 <span class="s2">set fmri(gammasigma1) 3</span>
@@ -1676,7 +1623,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(ortho1.2) 0</span>
 
 <span class="s2"># EV 2 title</span>
-<span class="s2">set fmri(evtitle2) &quot;congruent&quot;</span>
+<span class="s2">set fmri(evtitle2) "congruent"</span>
 
 <span class="s2"># Basic waveform shape (EV 2)</span>
 <span class="s2"># 0 : Square</span>
@@ -1708,7 +1655,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(deriv_yn2) 0</span>
 
 <span class="s2"># Custom EV file (EV 2)</span>
-<span class="s2">set fmri(custom2) &quot;</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;congruent&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">set fmri(custom2) "</span><span class="si">{</span><span class="n">params</span><span class="p">[</span><span class="s1">'congruent'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
 
 <span class="s2"># Gamma sigma (EV 2)</span>
 <span class="s2">set fmri(gammasigma2) 3</span>
@@ -1735,7 +1682,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(conpic_real.1) 1</span>
 
 <span class="s2"># Title for contrast_real 1</span>
-<span class="s2">set fmri(conname_real.1) &quot;incongruent&quot;</span>
+<span class="s2">set fmri(conname_real.1) "incongruent"</span>
 
 <span class="s2"># Real contrast_real vector 1 element 1</span>
 <span class="s2">set fmri(con_real1.1) 1</span>
@@ -1747,7 +1694,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(conpic_real.2) 1</span>
 
 <span class="s2"># Title for contrast_real 2</span>
-<span class="s2">set fmri(conname_real.2) &quot;congruent&quot;</span>
+<span class="s2">set fmri(conname_real.2) "congruent"</span>
 
 <span class="s2"># Real contrast_real vector 2 element 1</span>
 <span class="s2">set fmri(con_real2.1) 0</span>
@@ -1759,7 +1706,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(conpic_real.3) 1</span>
 
 <span class="s2"># Title for contrast_real 3</span>
-<span class="s2">set fmri(conname_real.3) &quot;incongruent-congruent&quot;</span>
+<span class="s2">set fmri(conname_real.3) "incongruent-congruent"</span>
 
 <span class="s2"># Real contrast_real vector 3 element 1</span>
 <span class="s2">set fmri(con_real3.1) 1.0</span>
@@ -1771,7 +1718,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(conpic_orig.1) 1</span>
 
 <span class="s2"># Title for contrast_orig 1</span>
-<span class="s2">set fmri(conname_orig.1) &quot;incongruent&quot;</span>
+<span class="s2">set fmri(conname_orig.1) "incongruent"</span>
 
 <span class="s2"># Real contrast_orig vector 1 element 1</span>
 <span class="s2">set fmri(con_orig1.1) 1</span>
@@ -1783,7 +1730,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(conpic_orig.2) 1</span>
 
 <span class="s2"># Title for contrast_orig 2</span>
-<span class="s2">set fmri(conname_orig.2) &quot;congruent&quot;</span>
+<span class="s2">set fmri(conname_orig.2) "congruent"</span>
 
 <span class="s2"># Real contrast_orig vector 2 element 1</span>
 <span class="s2">set fmri(con_orig2.1) 0</span>
@@ -1795,7 +1742,7 @@ Three contrasts are defined:</p>
 <span class="s2">set fmri(conpic_orig.3) 1</span>
 
 <span class="s2"># Title for contrast_orig 3</span>
-<span class="s2">set fmri(conname_orig.3) &quot;incongruent-congruent&quot;</span>
+<span class="s2">set fmri(conname_orig.3) "incongruent-congruent"</span>
 
 <span class="s2"># Real contrast_orig vector 3 element 1</span>
 <span class="s2">set fmri(con_orig3.1) 1.0</span>
@@ -1827,7 +1774,7 @@ Three contrasts are defined:</p>
 <span class="s2"># Do contrast masking at all?</span>
 <span class="s2">set fmri(conmask1_1) 0</span>
 
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="s2">"""</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1849,12 +1796,12 @@ feat design_run2
 <p>Below, the design matrix and selected results from the first run are shown. Since both runs use the same design and contrasts, the results of the second run can be explored using the same approach.</p>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">design</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./feat_run_1.feat/design.png&#39;</span><span class="p">)</span>
-<span class="n">design_cov</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./feat_run_1.feat/design_cov.png&#39;</span><span class="p">)</span>
-<span class="n">rendered_thresh_zstats1</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./feat_run_1.feat/rendered_thresh_zstat1.png&#39;</span><span class="p">)</span>
-<span class="n">rendered_thresh_zstats2</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./feat_run_1.feat/rendered_thresh_zstat2.png&#39;</span><span class="p">)</span>
-<span class="n">rendered_thresh_zstats3</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./feat_run_1.feat/rendered_thresh_zstat3.png&#39;</span><span class="p">)</span>
-<span class="n">tsplotzstats1_ev1</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./feat_run_1.feat/tsplot/ps_tsplot_zstat1_ev1.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">design</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'./feat_run_1.feat/design.png'</span><span class="p">)</span>
+<span class="n">design_cov</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'./feat_run_1.feat/design_cov.png'</span><span class="p">)</span>
+<span class="n">rendered_thresh_zstats1</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'./feat_run_1.feat/rendered_thresh_zstat1.png'</span><span class="p">)</span>
+<span class="n">rendered_thresh_zstats2</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'./feat_run_1.feat/rendered_thresh_zstat2.png'</span><span class="p">)</span>
+<span class="n">rendered_thresh_zstats3</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'./feat_run_1.feat/rendered_thresh_zstat3.png'</span><span class="p">)</span>
+<span class="n">tsplotzstats1_ev1</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'./feat_run_1.feat/tsplot/ps_tsplot_zstat1_ev1.png'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1867,8 +1814,8 @@ feat design_run2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/49ba66f3bb9f64e4b759f6acb2ad6aaf10996dcc4f2cd682a6652a7402f98cbe.png" src="../_images/49ba66f3bb9f64e4b759f6acb2ad6aaf10996dcc4f2cd682a6652a7402f98cbe.png" />
-<img alt="../_images/0a55eb2fc97cfcf10fe9f0bad1858a535d856797bfa8276926a5c05a7d74cb15.png" src="../_images/0a55eb2fc97cfcf10fe9f0bad1858a535d856797bfa8276926a5c05a7d74cb15.png" />
+<img alt="../_images/49ba66f3bb9f64e4b759f6acb2ad6aaf10996dcc4f2cd682a6652a7402f98cbe.png" src="../_images/49ba66f3bb9f64e4b759f6acb2ad6aaf10996dcc4f2cd682a6652a7402f98cbe.png">
+<img alt="../_images/0a55eb2fc97cfcf10fe9f0bad1858a535d856797bfa8276926a5c05a7d74cb15.png" src="../_images/0a55eb2fc97cfcf10fe9f0bad1858a535d856797bfa8276926a5c05a7d74cb15.png">
 </div>
 </div>
 <p>Let’s now display the <strong>thresholded activation maps</strong>. A voxelwise threshold of Z &gt; 3.1 was applied, followed by cluster-level correction at p &lt; 0.05 (corrected for multiple comparisons).</p>
@@ -1879,35 +1826,35 @@ feat design_run2
 </ul>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;#### Incongruent&quot;</span><span class="p">),</span> <span class="n">rendered_thresh_zstats1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">"#### Incongruent"</span><span class="p">),</span> <span class="n">rendered_thresh_zstats1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <h4 class="rubric" id="incongruent">Incongruent</h4>
-<img alt="../_images/70d5bfb32d2a8973b754c774eced45152182f409aafa62669cc919fc7ad0d510.png" src="../_images/70d5bfb32d2a8973b754c774eced45152182f409aafa62669cc919fc7ad0d510.png" />
+<img alt="../_images/70d5bfb32d2a8973b754c774eced45152182f409aafa62669cc919fc7ad0d510.png" src="../_images/70d5bfb32d2a8973b754c774eced45152182f409aafa62669cc919fc7ad0d510.png">
 </div>
 </div>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;#### Congruent&quot;</span><span class="p">),</span> <span class="n">rendered_thresh_zstats2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">"#### Congruent"</span><span class="p">),</span> <span class="n">rendered_thresh_zstats2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <h4 class="rubric" id="congruent">Congruent</h4>
-<img alt="../_images/44a06c8f44f83b791cb0d9925e1ade580b27cc4adaf8d40b212e5183b80bc0e5.png" src="../_images/44a06c8f44f83b791cb0d9925e1ade580b27cc4adaf8d40b212e5183b80bc0e5.png" />
+<img alt="../_images/44a06c8f44f83b791cb0d9925e1ade580b27cc4adaf8d40b212e5183b80bc0e5.png" src="../_images/44a06c8f44f83b791cb0d9925e1ade580b27cc4adaf8d40b212e5183b80bc0e5.png">
 </div>
 </div>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;#### Incongruent-Congruent&quot;</span><span class="p">),</span> <span class="n">rendered_thresh_zstats3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">"#### Incongruent-Congruent"</span><span class="p">),</span> <span class="n">rendered_thresh_zstats3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <h4 class="rubric" id="incongruent-congruent">Incongruent-Congruent</h4>
-<img alt="../_images/ba2fba80e8d612fb38016c27e85e4da1eeb292d9df37f4b7b6e58be02c5d9975.png" src="../_images/ba2fba80e8d612fb38016c27e85e4da1eeb292d9df37f4b7b6e58be02c5d9975.png" />
+<img alt="../_images/ba2fba80e8d612fb38016c27e85e4da1eeb292d9df37f4b7b6e58be02c5d9975.png" src="../_images/ba2fba80e8d612fb38016c27e85e4da1eeb292d9df37f4b7b6e58be02c5d9975.png">
 </div>
 </div>
 </section>
@@ -1944,18 +1891,14 @@ feat design_run2
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="AFNI_preprocessing_plus_glm_group.html"
-       title="previous page">
+    <a class="left-prev" href="AFNI_preprocessing_plus_glm_group.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">AFNI Preprocessing &amp; Group Analysis</p>
       </div>
     </a>
-    <a class="right-next"
-       href="FSLnets_course_practical.html"
-       title="next page">
+    <a class="right-next" href="FSLnets_course_practical.html" title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Resting state with FSLnets</p>
@@ -2032,7 +1975,7 @@ By Neurodesk Team
   <p class="copyright">
     
       © Copyright 2023.
-      <br/>
+      <br>
     
   </p>
 
@@ -2060,5 +2003,5 @@ By Neurodesk Team
 
   <footer class="bd-footer">
   </footer>
-  </body>
-</html>
+  
+</body></html>
