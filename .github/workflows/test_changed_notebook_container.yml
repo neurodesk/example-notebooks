@@ -47,7 +47,7 @@ jobs:
       runner: ${{ steps.select_runner.outputs.runner }}
       neurodesk_image: ${{ steps.get_image.outputs.neurodesk_image }}
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@4
       - name: Select runner
         id: select_runner
         run: |
