@@ -1,0 +1,163 @@
+# This workflows executes new or modified example notebooks.
+
+name: test_changed_notebooks_cvmfs
+
+defaults:
+  run:
+    shell: bash  # To override PowerShell on Windows
+
+on:
+  # Trigger the workflow on push or PR to any branch
+  push:
+    paths:
+      - '**/*.ipynb'
+  pull_request:
+    paths:
+      - '**/*.ipynb'
+    # don't trigger for draft PRs
+    types: [ opened, synchronize, reopened, ready_for_review ]
+  # Trigger the workflow on manual dispatch
+  workflow_dispatch:
+
+jobs:
+  select-runner:
+    runs-on: ubuntu-22.04
+    outputs:
+      runner: ${{ steps.select_runner.outputs.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select runner
+        id: select_runner
+        run: |
+          if [ "${{ github.repository }}" = "neurodesk/example-notebooks" ]; then
+            echo "runner=self-hosted" >> $GITHUB_OUTPUT
+          else
+            echo "runner=ubuntu-22.04" >> $GITHUB_OUTPUT
+          fi
+          
+  get-notebooks:
+    runs-on: ubuntu-22.04
+    outputs:
+      notebook_list: ${{ steps.list_changed_notebooks.outputs.notebook_list }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Find all notebooks with changes
+      id: find_changed_notebooks
+      uses: tj-actions/changed-files@v45.0.3
+      with:
+        path: "./books"
+        files: |
+          **/*.ipynb
+          *.md
+        dir_names_exclude_current_dir: "true"
+    - name: Filter down to changed notebooks
+      id: list_changed_notebooks
+      run: |
+        echo ${{ steps.find_changed_notebooks.outputs.all_changed_files }}
+        changed_notebooks=$(echo "${{ steps.find_changed_notebooks.outputs.all_changed_files }}")
+        
+        notebook_list='['
+        for NOTEBOOK in $(echo "${changed_notebooks}"); do
+          notebook_list+="\"${NOTEBOOK}\","
+        done
+        notebook_list=$(sed '$s/,$//' <<< $notebook_list)
+        notebook_list+=']'
+        echo "notebook_list=${notebook_list}"
+        echo "notebook_list=${notebook_list}" >> $GITHUB_OUTPUT
+
+  test-notebooks:
+    needs: [ select-runner, get-notebooks ]
+    if: ${{ needs.get-notebooks.outputs.notebook_list != '[]' }}
+    runs-on: ${{ needs.select-runner.outputs.runner }}
+    container: 
+      image: vnmd/neurodesktop:latest
+      volumes:
+        - /home/runner/:/home/
+      options: --user root
+    timeout-minutes: 1500
+    strategy:
+      fail-fast: false
+      matrix:
+        notebooks: ${{ fromJson(needs.get-notebooks.outputs.notebook_list) }}
+    steps:
+    - uses: actions/checkout@v4
+
+    # - name: Test singularity and cvmfs before pushing to neurocommand
+    #   run: 
+    #     /bin/bash .github/scripts/setup-cvmfs.sh
+      
+    - name: Install dependencies
+      shell: bash
+      run: |
+        mamba install -c conda-forge -y r-irkernel ipykernel -c pypi -y "jupyter-book<2.0.0" ghp-import
+
+    - name: Run ${{ matrix.notebooks }}
+      shell: bash
+      timeout-minutes: 1500
+      working-directory: ./books
+      run: |
+        echo ${{ github.workspace }}
+        echo $GITHUB_WORKSPACE
+        export PATH=$HOME/.local/bin:$PATH
+        echo "PATH=$PATH"
+        echo "NOTEBOOK=$(basename -s .ipynb ${{ matrix.notebooks }})"
+        echo "DIRNAME=$(dirname ${{ matrix.notebooks }})"
+        echo "NOTEBOOK=$(basename -s .ipynb ${{ matrix.notebooks }})" >> $GITHUB_ENV
+        echo "DIRNAME=$(dirname ${{ matrix.notebooks }})" >> $GITHUB_ENV
+        jb build ${{ matrix.notebooks }}
+
+    - name: Restructure
+      shell: bash
+      run: |
+        tree ./books/_build/**/**/html
+        mkdir -p ./books/_build/**/**/html/$DIRNAME
+        if [ "$NOTEBOOK" == "intro.md" ]; then
+          echo "The directories are the same. Skipping the next step."
+        else
+          cp -R ./books/_build/**/**/html/_static ./books/_build/**/**/html/$DIRNAME
+        fi
+        if [ -d ./books/_build/**/**/html/_images && "$NOTEBOOK" != "intro.md" ]; then
+          cp -R ./books/_build/**/**/html/_images ./books/_build/**/**/html/$DIRNAME
+        fi
+        if [ "$NOTEBOOK" == "intro.md" ]; then
+          echo "The files are the same. Skipping the next step."
+        else
+          cp ./books/_build/**/**/html/$NOTEBOOK.html ./books/_build/**/**/html/$DIRNAME
+        fi
+
+    - name: Clean build dir
+      run: |
+        rm -rf /home/ubuntu/actions_github_pages_*
+
+  build-structure:
+    if: ${{ needs.test-notebooks.result != 'failure' }}
+    needs: [ test-notebooks ]
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        mamba install -c conda-forge -y r-irkernel ipykernel -c pypi "jupyter-book<2.0.0" ghp-import
+
+    - name: Run all
+      shell: bash
+      working-directory: ./books
+      run: |
+        export PATH=$HOME/.local/bin:$PATH
+        /bin/bash ../.github/scripts/write-toc-entry.sh
+        sed -i 's/execute_notebooks: .*/execute_notebooks: off/' _config.yml
+        cat _config.yml
+        jb build .
+
+
+    - name: Push to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4.0.0
+      if: github.event_name != 'pull_request'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./books/_build/html
+        keep_files: true
+        cname: neurodesk.org

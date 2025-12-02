@@ -1,6 +1,6 @@
 # This workflows executes new or modified example notebooks.
 
-name: test_changed_notebooks
+name: test_changed_notebooks_container
 
 defaults:
   run:
@@ -110,23 +110,28 @@ jobs:
     needs: [ select-runner, get-notebooks ]
     if: ${{ needs.get-notebooks.outputs.notebook_list != '[]' }}
     runs-on: ${{ needs.select-runner.outputs.runner }}
-    container: 
-      image: ${{ needs.select-runner.outputs.neurodesk_image }}
-      volumes:
-        - /home/runner/:/home/
-      options: --user root
     timeout-minutes: 1500
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         notebooks: ${{ fromJson(needs.get-notebooks.outputs.notebook_list) }}
     steps:
     - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+    - name: Start Neurodesk Container
+      run: |
+        docker run -d --name nb-runner \
+          --user root --privileged --shm-size=1gb \
+          -e NB_UID=1001 -e NB_GID=1001 \
+          -v /home/runner/:/home/ \
+          -v neurodesk-home:/home/jovyan \
+          -v ${{ github.workspace }}:${{ github.workspace }} \
+          ${{ needs.select-runner.outputs.neurodesk_image }} \
+          tail -f /dev/null
 
     - name: Install dependencies
       shell: bash
       run: |
-        mamba install -c conda-forge -y r-irkernel ipykernel "jupyter-book<2.0.0" ghp-import
+        docker exec nb-runner bash -c "pip install papermill ghp-import"
 
     - name: Run ${{ matrix.notebooks }}
       shell: bash
@@ -135,51 +140,79 @@ jobs:
       env: 
         GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        set -e
+        set -o pipefail
+
         echo ${{ github.workspace }}
         echo $GITHUB_WORKSPACE
-        export PATH=/opt/conda/bin:$HOME/.local/bin:$PATH
-        echo "PATH=$PATH"
-        echo "NOTEBOOK=$(basename -s .ipynb ${{ matrix.notebooks }})"
-        echo "DIRNAME=$(dirname ${{ matrix.notebooks }})"
-        echo "NOTEBOOK=$(basename -s .ipynb ${{ matrix.notebooks }})" >> $GITHUB_ENV
-        echo "DIRNAME=$(dirname ${{ matrix.notebooks }})" >> $GITHUB_ENV
         
-        # Debugging
-        echo "Checking for jupyter-book..."
-        which jupyter-book || echo "jupyter-book not found in PATH"
-        ls -l /opt/conda/bin/jupyter-book || echo "/opt/conda/bin/jupyter-book not found"
-        
-        jupyter-book build ${{ matrix.notebooks }}
+        NOTEBOOK_PATH="${{ matrix.notebooks }}"
+        NOTEBOOK_BASE="$(basename -s .ipynb "$NOTEBOOK_PATH")"
+        NOTEBOOK_DIR="$(dirname "$NOTEBOOK_PATH")"
+        NOTEBOOK_OUTPUT="${NOTEBOOK_DIR}/${NOTEBOOK_BASE}_out.ipynb"
+        NOTEBOOK_ARTIFACT="${NOTEBOOK_BASE}_out"   # Safe artifact name (no slashes)
 
-    - name: Restructure
-      shell: bash
+        echo "NOTEBOOK_PATH=$NOTEBOOK_PATH" >> $GITHUB_ENV
+        echo "NOTEBOOK_BASE=$NOTEBOOK_BASE" >> $GITHUB_ENV
+        echo "NOTEBOOK_DIR=$NOTEBOOK_DIR" >> $GITHUB_ENV
+        echo "NOTEBOOK_OUTPUT=$NOTEBOOK_OUTPUT" >> $GITHUB_ENV
+        echo "NOTEBOOK_ARTIFACT=$NOTEBOOK_ARTIFACT" >> $GITHUB_ENV
+        echo "CURRENT_DIR=$(pwd)" >> $GITHUB_ENV
+
+        docker exec -e GITHUB_PAT=$GITHUB_PAT \
+          -w ${{ github.workspace }}/books \
+          nb-runner bash -c "export PATH=/opt/conda/bin:\$HOME/.local/bin:\$PATH && papermill \"$NOTEBOOK_PATH\" \"$NOTEBOOK_OUTPUT\" --kernel python3"
+
+    - name: Check Notebook Execution Result
+      if: always()
+      working-directory: ./books
+      env:
+        ERROR_PATTERNS: "SyntaxError,Traceback,EOFError,NameError,Exception,ModuleNotFoundError,ImportError,OSError,FileNotFoundError,IndentationError,ValueError,TypeError,AttributeError,KeyError,ZeroDivisionError,RuntimeError,MemoryError,TimeoutError,IndexError,PermissionError,Cell execution timed out,Killed,FAILED,Failing,Aborted,Segmentation fault,Kernel Restarting,EnvironmentError,ConnectionError,HTTPError,NotJSONError"
       run: |
-        tree ./books/_build/**/**/html
-        mkdir -p ./books/_build/**/**/html/$DIRNAME
-        if [ "$NOTEBOOK" == "intro.md" ]; then
-          echo "The directories are the same. Skipping the next step."
+        set -e
+
+        # Check if output file exists
+        ls -la $NOTEBOOK_OUTPUT
+        
+        # Split patterns into array
+        IFS=',' read -ra ERROR_PATTERNS_ARR <<< "${ERROR_PATTERNS}"
+
+        echo ""
+        echo "Checking for error patterns in output (case-insensitive)..."
+        ERROR_FOUND=0
+        for pattern in "${ERROR_PATTERNS_ARR[@]}"; do
+            if error_lines=$(grep -i "${pattern// /}" "$NOTEBOOK_OUTPUT") && [ -n "$error_lines" ]; then
+                echo "⚠️ Found error pattern: $pattern"
+                echo "Error lines: $error_lines"
+                ERROR_FOUND=$((ERROR_FOUND + 1))
+            fi
+        done
+        
+        # Check papermill metadata for exceptions
+        resp=$(cat "$NOTEBOOK_OUTPUT")
+        exception=$(echo "$resp" | jq -r '.metadata.papermill.exception // empty')
+        if [[ -n "$exception" ]]; then
+            echo "⚠️ Found papermill exception: $exception"
+            ERROR_FOUND=$((ERROR_FOUND + 1))
+        fi
+
+        echo "ERROR_FOUND=$ERROR_FOUND" >> $GITHUB_ENV
+        echo "ERROR_PATTERNS_TOTAL=${#ERROR_PATTERNS_ARR[@]}" >> $GITHUB_ENV
+
+        if [ $ERROR_FOUND -eq 0 ]; then
+            echo "✅ Notebook execution successful! ($ERROR_FOUND/${#ERROR_PATTERNS_ARR[@]} error patterns found)"
+            echo "NOTEBOOK_SUCCESS=true" >> $GITHUB_ENV
         else
-          cp -R ./books/_build/**/**/html/_static ./books/_build/**/**/html/$DIRNAME
+            echo "❌ Notebook execution may have failed ($ERROR_FOUND/${#ERROR_PATTERNS_ARR[@]} error patterns found)"
+            echo "NOTEBOOK_SUCCESS=false" >> $GITHUB_ENV
         fi
-        if [ -d ./books/_build/**/**/html/_images && "$NOTEBOOK" != "intro.md" ]; then
-          cp -R ./books/_build/**/**/html/_images ./books/_build/**/**/html/$DIRNAME
-        fi
-        if [ "$NOTEBOOK" == "intro.md" ]; then
-          echo "The files are the same. Skipping the next step."
-        else
-          cp ./books/_build/**/**/html/$NOTEBOOK.html ./books/_build/**/**/html/$DIRNAME
-        fi
-    - name: Increase git post buffer size
-      run: git config --global http.postBuffer 524288000
-      
-    - name: Push to GitHub Pages
-      uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e
-      if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.force_deploy_pages == true)
+
+    - name: Upload output notebook as artifact
+      if: always()
+      uses: actions/upload-artifact@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./books/_build/**/**/html
-        keep_files: true
-        cname: neurodesk.org
+        name: ${{ env.NOTEBOOK_ARTIFACT }}
+        path: ${{ env.CURRENT_DIR }}/${{ env.NOTEBOOK_OUTPUT }}
 
     - name: Clean build dir
       run: |
@@ -189,18 +222,23 @@ jobs:
     if: ${{ needs.test-notebooks.result != 'failure' }}
     needs: [ test-notebooks, select-runner ]
     runs-on: ubuntu-22.04
-    container: 
-      image: ${{ needs.select-runner.outputs.neurodesk_image }}
-      volumes:
-        - /home/runner/:/home/
-      options: --user root
     steps:
     - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+    - name: Start Neurodesk Container
+      run: |
+        docker run -d --name nb-runner \
+          --user root --privileged --shm-size=1gb \
+          -e NB_UID=1001 -e NB_GID=1001 \
+          -v /home/runner/:/home/ \
+          -v neurodesk-home:/home/jovyan \
+          -v ${{ github.workspace }}:${{ github.workspace }} \
+          ${{ needs.select-runner.outputs.neurodesk_image }} \
+          tail -f /dev/null
 
     - name: Install dependencies
       shell: bash
       run: |
-        mamba install -c conda-forge -y r-irkernel ipykernel "jupyter-book<2.0.0" ghp-import
+        docker exec nb-runner bash -c "pip install 'jupyter-book<2.0.0' ghp-import"
 
     - name: Run all
       shell: bash
@@ -208,11 +246,9 @@ jobs:
       env: 
         GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        export PATH=/opt/conda/bin:$HOME/.local/bin:$PATH
-        /bin/bash ../.github/scripts/write-toc-entry.sh
-        sed -i 's/execute_notebooks: .*/execute_notebooks: off/' _config.yml
-        cat _config.yml
-        jupyter-book build .
+        docker exec -e GITHUB_PAT=$GITHUB_PAT \
+          -w ${{ github.workspace }}/books \
+          nb-runner bash -c "export PATH=/opt/conda/bin:\$HOME/.local/bin:\$PATH && /bin/bash ../.github/scripts/write-toc-entry.sh && sed -i 's/execute_notebooks: .*/execute_notebooks: off/' _config.yml && cat _config.yml && jupyter-book build ."
 
 
     - name: Push to GitHub Pages

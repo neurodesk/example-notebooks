@@ -1,0 +1,554 @@
+# This workflows executes new or modified example notebooks.
+
+name: test_changed_notebooks_papermill
+
+defaults:
+  run:
+    shell: bash  # To override PowerShell on Windows
+
+on:
+  # Trigger the workflow on push or PR to any branch
+  push:
+    paths:
+      - '**/*.ipynb'
+  pull_request:
+    paths:
+      - '**/*.ipynb'
+    # don't trigger for draft PRs
+    types: [ opened, synchronize, reopened, ready_for_review ]
+  # Trigger the workflow on manual dispatch
+  workflow_dispatch:
+
+jobs:
+  select-runner:
+    runs-on: ubuntu-22.04
+    outputs:
+      runner: ${{ steps.select_runner.outputs.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select runner
+        id: select_runner
+        run: |
+          if [ "${{ github.repository }}" = "neurodesk/example-notebooks" ]; then
+            echo "runner=self-hosted" >> $GITHUB_OUTPUT
+          else
+            echo "runner=ubuntu-22.04" >> $GITHUB_OUTPUT
+          fi
+          
+  get-notebooks:
+    runs-on: ubuntu-22.04
+    outputs:
+      notebook_list: ${{ steps.list_changed_notebooks.outputs.notebook_list }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Find all notebooks with changes
+      id: find_changed_notebooks
+      uses: tj-actions/changed-files@v45.0.3
+      with:
+        path: "./books"
+        files: |
+          **/*.ipynb
+          *.md
+        dir_names_exclude_current_dir: "true"
+    - name: Filter down to changed notebooks
+      id: list_changed_notebooks
+      run: |
+        echo ${{ steps.find_changed_notebooks.outputs.all_changed_files }}
+        changed_notebooks=$(echo "${{ steps.find_changed_notebooks.outputs.all_changed_files }}")
+        
+        notebook_list='['
+        for NOTEBOOK in $(echo "${changed_notebooks}"); do
+          notebook_list+="\"${NOTEBOOK}\","
+        done
+        notebook_list=$(sed '$s/,$//' <<< $notebook_list)
+        notebook_list+=']'
+        echo "notebook_list=${notebook_list}"
+        echo "notebook_list=${notebook_list}" >> $GITHUB_OUTPUT
+
+  test-notebooks:
+    needs: [ select-runner, get-notebooks ]
+    if: ${{ needs.get-notebooks.outputs.notebook_list != '[]' }}
+    runs-on: ${{ needs.select-runner.outputs.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        notebooks: ${{ fromJson(needs.get-notebooks.outputs.notebook_list) }}
+    env:
+      USER_TOKEN: ${{ secrets.JUPYTER_PLAY_AUS_TOKEN }}
+      USER: "aaf__70rrujda5-_yveeucjlhxjz0rqohejq14uzf6hro04"
+      API_URL: "https://play.neurodesk.cloud.edu.au"
+      SERVER_NAME: "play-aus"
+      ERROR_PATTERNS: "SyntaxError,Traceback,EOFError,NameError,Exception,ModuleNotFoundError,ImportError,OSError,FileNotFoundError,IndentationError,ValueError,TypeError,AttributeError,KeyError,ZeroDivisionError,RuntimeError,MemoryError,TimeoutError,IndexError,PermissionError,Cell execution timed out,Killed,FAILED,Failing,Aborted,Segmentation fault,Kernel Restarting,EnvironmentError,ConnectionError,HTTPError,NotJSONError"
+      TIMEOUT: 1500
+    timeout-minutes: 1500 # Set a maximum timeout for the job (in minutes) here and in the env variable above
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install Required Tools
+      run: |
+        echo "Installing required tools..."
+        sudo apt-get update
+        sudo apt-get install -y jq
+        wget -qO /tmp/websocat https://github.com/vi/websocat/releases/latest/download/websocat.x86_64-unknown-linux-musl
+        sudo chmod +x /tmp/websocat
+        sudo mv /tmp/websocat /usr/local/bin/websocat
+
+    - name: Setup Configuration
+      run: |
+        echo "=== JupyterHub Notebook Testing Started ==="
+        echo "Server: $SERVER_NAME"
+        echo "User: $USER"
+        echo "API URL: $API_URL"
+        echo "Notebook: ${{ matrix.notebooks }}"
+        echo "NOTEBOOK_NAME=$(basename ${{ matrix.notebooks }})" >> $GITHUB_ENV
+        echo "Output: $NOTEBOOK_NAME_output.ipynb"
+        echo "OUTPUT_NAME=$(basename -s .ipynb ${{ matrix.notebooks }})_output.ipynb" >> $GITHUB_ENV
+
+    - name: Start JupyterHub Server
+      run: |
+        echo "=== Starting JupyterHub Server ==="
+        
+        # Check if server is already running and stop it
+        echo "Checking if server is already running..."
+        SERVER_STATUS=$(curl -s -k -H "Authorization: token $USER_TOKEN" $API_URL/hub/api/users/$USER 2>/dev/null || echo "{}")
+
+        # Check if the token is valid
+        if [[ "$SERVER_STATUS" == *"403"* ]]; then
+          echo "❌ Authentication failed - 403 Forbidden. Check your API token."
+          echo "Server response: $SERVER_STATUS"
+          exit 1
+        fi
+        
+        # Check if server is running (server is not null and ready is true)
+        if [[ "$SERVER_STATUS" == *"\"server\": \"/user/$USER/\""* ]] && [[ "$SERVER_STATUS" == *"\"ready\": true"* ]]; then
+          echo "Server is running, stopping it first..."
+          curl -s -k -X DELETE -H "Authorization: token $USER_TOKEN" $API_URL/hub/api/users/$USER/server
+          
+          echo "Waiting for server to stop..."
+          for i in {1..12}; do
+            sleep 10
+            STATUS=$(curl -s -k -H "Authorization: token $USER_TOKEN" $API_URL/hub/api/users/$USER 2>/dev/null || echo "{}")
+            if [[ "$STATUS" == *"\"server\": null"* ]] && [[ "$STATUS" == *"\"pending\": null"* ]]; then
+              echo "✅ Server stopped successfully"
+              break
+            fi
+            echo "Waiting for server to stop... (${i}0s elapsed)"
+          done
+        elif [[ "$SERVER_STATUS" == *"\"pending\": \"spawn\""* ]]; then
+          echo "Server is already starting, waiting for it to complete..."
+        else
+          echo "Server is stopped, ready to start"
+        fi
+        
+        # Start the server
+        echo "Starting server for $USER..."
+        START_RESPONSE=$(curl -s -k -X POST -H "Authorization: token $USER_TOKEN" $API_URL/hub/api/users/$USER/server || echo "Failed to start server")
+        echo "Start server response: ${START_RESPONSE:0:100}..."
+        
+        # Wait for server to start
+        echo "Waiting for server to start..."
+        SERVER_STARTED=false
+        
+        for i in {1..24}; do
+          sleep 10
+          SERVER_STATUS=$(curl -s -k -H "Authorization: token $USER_TOKEN" $API_URL/hub/api/users/$USER 2>/dev/null || echo "{}")
+          
+          if [[ "$SERVER_STATUS" == *"\"server\": \"/user/$USER/\""* ]] && [[ "$SERVER_STATUS" == *"\"ready\": true"* ]] && [[ "$SERVER_STATUS" == *"\"pending\": null"* ]]; then
+            echo "✅ Server started successfully (${i}0s elapsed)"
+            echo "Server status: ${SERVER_STATUS:0:150}..."
+            SERVER_STARTED=true
+            break
+          elif [[ "$SERVER_STATUS" == *"\"pending\": \"spawn\""* ]]; then
+            echo "Server is still starting... (${i}0s elapsed)"
+          else
+            echo "Waiting for server to start... (${i}0s elapsed)"
+          fi
+        done
+        
+        if [ "$SERVER_STARTED" != true ]; then
+          echo "❌ Server failed to start within timeout"
+          exit 1
+        fi
+        
+        # Wait for server to fully initialize
+        echo "Waiting for server to fully initialize..."
+        sleep 15
+
+    - name: Create and Execute ${{ env.NOTEBOOK_NAME }} Notebook
+      working-directory: ./books
+      run: |
+        set +e  # Don't exit on errors, we want to capture them
+
+        echo "=== Creating and Executing $NOTEBOOK_NAME Notebook ==="
+        
+        # Create Notebook in the JupyterHub instance
+
+        jq -n \
+            --arg type "notebook" \
+            --slurpfile content "${{ matrix.notebooks }}" \
+            '{type: $type, content: $content[0]}' > payload.json
+
+        CREATE_RESPONSE=$(curl -k --max-time 300 \
+            --connect-timeout 30 --retry 3 -X PUT \
+            -H "Authorization: token $USER_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data-binary @payload.json \
+            "$API_URL/user/$USER/api/contents/$NOTEBOOK_NAME")
+        
+        if echo "$CREATE_RESPONSE" | grep -q '"name"'; then
+            echo "✅ $NOTEBOOK_NAME Notebook created successfully"
+        else
+            echo "❌ Failed to create notebook"
+            echo "Response: $CREATE_RESPONSE"
+            exit 1
+        fi
+        
+        # Create terminal session
+        echo ""
+        echo "🔍 STEP 2: Create Terminal Session"
+        echo "----------------------------------------"
+        
+        TERMINAL_RESPONSE=$(curl -k -s -X POST \
+            -H "Authorization: token $USER_TOKEN" \
+            "$API_URL/user/$USER/api/terminals")
+        
+        TERMINAL_NAME=$(echo "$TERMINAL_RESPONSE" | jq -r '.name')
+        
+        if [ -n "$TERMINAL_NAME" ] && [ "$TERMINAL_NAME" != "null" ]; then
+            echo "✅ Terminal created: $TERMINAL_NAME"
+            sleep 5
+        else
+            echo "❌ Terminal creation failed"
+            echo "Response: $TERMINAL_RESPONSE"
+            exit 1
+        fi
+        
+        # Setup WebSocket connection function
+        clean_api_url=${API_URL#*//}
+        WS_URL="ws://$clean_api_url/user/$USER/terminals/websocket/$TERMINAL_NAME"
+        
+        execute_command() {
+            local cmd="$1"
+            local timeout="${2:-30}"
+            
+            echo "Executing: $cmd"
+            
+            local output=$(echo "[\"stdin\", \"$cmd\\r\\n\"]" | \
+                timeout $timeout websocat --text "$WS_URL" \
+                -H "Authorization: token $USER_TOKEN" 2>/dev/null | \
+                grep '^\["stdout"' | \
+                sed 's/^\["stdout", *"//; s/"\]$//; s/\\r\\n/\n/g; s/\\n/\n/g' | \
+                tr -d '\000-\037' || echo "")
+            
+            if [ -n "$output" ]; then
+                echo "✅ Command executed successfully"
+                echo "Output: $output"
+                return 0
+            else
+                echo "❌ Command failed or no output"
+                return 1
+            fi
+        }
+        
+        # Install papermill
+        echo ""
+        echo "🔍 STEP 3: Install papermill"
+        echo "----------------------------------------"
+        execute_command "pip install papermill"
+
+        # Execute notebook with papermill
+        echo ""
+        echo "🔍 STEP 5: Execute notebook with papermill"
+        echo "----------------------------------------"
+        execute_command "papermill $NOTEBOOK_NAME $OUTPUT_NAME --kernel python3 > papermill.log 2>&1 & echo \$! > papermill.pid" 30
+
+        # Poll the Jupyter Contents API for notebook completion
+        MAX_WAIT=$(( ${{ env.TIMEOUT }} * 60 ))   # max seconds to wait (25 hours)
+        CHECK_INTERVAL=100       # check every 100 seconds
+
+        echo "⏳ Waiting for notebook execution to complete (timeout: $((MAX_WAIT/60)) min)..."
+
+        for (( elapsed=0; elapsed<$MAX_WAIT; elapsed+=$CHECK_INTERVAL )); do
+            # Query the notebook's metadata
+            resp=$(curl -sk -H "Authorization: token $USER_TOKEN" \
+                "$API_URL/user/$USER/api/contents/$OUTPUT_NAME")
+
+            # Check if notebook file exists
+            notebook_name=$(echo "$resp" | jq -r '.name // empty')
+            if [[ -z "$notebook_name" ]]; then
+                echo "📄 Notebook output not found yet, still waiting..."
+                sleep $CHECK_INTERVAL
+                continue
+            fi
+
+            # Check for papermill end_time to detect completion
+            end_time=$(echo "$resp" | jq -r '.content.metadata.papermill.end_time // empty')
+            if [[ -n "$end_time" ]]; then
+                echo "✅ Notebook execution completed at $end_time"
+                break
+            fi
+
+            echo "⌛ Notebook still running... (elapsed: ${elapsed}s)"
+            sleep $CHECK_INTERVAL
+        done
+
+        # Final timeout check
+        if (( elapsed >= MAX_WAIT )); then
+            echo "❌ Timeout waiting for notebook to finish after $((MAX_WAIT/60)) minutes"
+            exit 1
+        fi
+
+        # Verify papermill completed
+        echo "Checking if papermill completed successfully..."
+        execute_command "echo 'Papermill exit code:' && echo $?" 5
+        execute_command "wc -l $OUTPUT_NAME" 10
+        
+        # Export terminal name for cleanup
+        echo "TERMINAL_NAME=$TERMINAL_NAME" >> $GITHUB_ENV
+
+    - name: Check Notebook Execution Results
+      run: |
+        echo "=== Checking Notebook Execution Results ==="
+        
+        # Setup WebSocket connection function
+        clean_api_url=${API_URL#*//}
+        WS_URL="ws://$clean_api_url/user/$USER/terminals/websocket/$TERMINAL_NAME"
+        
+        execute_command() {
+            local cmd="$1"
+            local timeout="${2:-30}"
+            
+            
+            local output=$(echo "[\"stdin\", \"$cmd\\r\\n\"]" | \
+                timeout $timeout websocat --text "$WS_URL" \
+                -H "Authorization: token $USER_TOKEN" 2>/dev/null | \
+                grep '^\["stdout"' | \
+                sed 's/^\["stdout", *"//; s/"\]$//; s/\\r\\n/\n/g; s/\\n/\n/g' | \
+                tr -d '\000-\037' || echo "")
+            
+            if [ -n "$output" ]; then
+                echo "✅ Command executed successfully"
+                return 0
+            else
+                echo "❌ Command failed or no output"
+                return 1
+            fi
+        }
+        
+        # Check if output file exists
+        execute_command "ls -la $OUTPUT_NAME" 10
+        
+        # Split patterns into array
+        IFS=',' read -ra ERROR_PATTERNS_ARR <<< "${ERROR_PATTERNS}"
+
+        echo ""
+        echo "Checking for error patterns in output (case-insensitive)..."
+        ERROR_FOUND=0
+        for pattern in "${ERROR_PATTERNS_ARR[@]}"; do
+            if error_lines=$(execute_command "grep -i '${pattern// /}' $OUTPUT_NAME" 5) && [ -n "$error_lines" ]; then
+                echo "⚠️ Found error pattern: $pattern"
+                echo "Error lines: $error_lines"
+                ERROR_FOUND=$((ERROR_FOUND + 1))
+            fi
+        done
+        
+        # Check papermill metadata for exceptions
+        exception=$(echo "$resp" | jq -r '.content.metadata.papermill.exception // empty')
+        if [[ -n "$exception" ]]; then
+            echo "⚠️ Found papermill exception: $exception"
+            ERROR_FOUND=$((ERROR_FOUND + 1))
+        fi
+
+        echo "ERROR_FOUND=$ERROR_FOUND" >> $GITHUB_ENV
+        echo "ERROR_PATTERNS_TOTAL=${#ERROR_PATTERNS_ARR[@]}" >> $GITHUB_ENV
+
+        if [ $ERROR_FOUND -eq 0 ]; then
+            echo "✅ Notebook execution successful! ($ERROR_FOUND/${#ERROR_PATTERNS_ARR[@]} error patterns found)"
+            echo "NOTEBOOK_SUCCESS=true" >> $GITHUB_ENV
+        else
+            echo "❌ Notebook execution may have failed ($ERROR_FOUND/${#ERROR_PATTERNS_ARR[@]} error patterns found)"
+            echo "NOTEBOOK_SUCCESS=false" >> $GITHUB_ENV
+        fi
+
+    - name: Cleanup Notebook Files
+      if: always()
+      run: |
+        echo "=== Cleaning up Notebook Files ==="
+        CLEANUP_SUCCESS=✅
+
+        # Setup WebSocket connection function
+        clean_api_url=${API_URL#*//}
+        WS_URL="ws://$clean_api_url/user/$USER/terminals/websocket/$TERMINAL_NAME"
+        
+        execute_command() {
+            local cmd="$1"
+            local timeout="${2:-30}"
+            
+            echo "Executing: $cmd"
+            
+            local output=$(echo "[\"stdin\", \"$cmd\\r\\n\"]" | \
+                timeout $timeout websocat --text "$WS_URL" \
+                -H "Authorization: token $USER_TOKEN" 2>/dev/null | \
+                grep '^\["stdout"' | \
+                sed 's/^\["stdout", *"//; s/"\]$//; s/\\r\\n/\n/g; s/\\n/\n/g' | \
+                tr -d '\000-\037' || echo "")
+            
+            if [ -n "$output" ]; then
+                echo "✅ Command executed successfully"
+                echo "Output: $output"
+                return 0
+            else
+                echo "❌ Command failed or no output"
+                return 1
+            fi
+        }
+        
+        # List files before cleanup
+        echo "Files before cleanup:"
+        if ! execute_command "ls -la *.ipynb" 10; then
+          echo "Warning: Could not list files"
+          CLEANUP_SUCCESS=❌
+        fi
+        
+        # Remove notebook files via terminal
+        echo ""
+        echo "Removing notebook files..."
+        if ! execute_command "rm -f $NOTEBOOK_NAME $OUTPUT_NAME" 10; then
+          echo "Error: Failed to remove files"
+          CLEANUP_SUCCESS=❌
+        fi
+        
+        # Verify files are removed
+        echo ""
+        echo "Verifying files are removed:"
+        if ! execute_command "ls -la *.ipynb || echo 'No notebook files found'" 10; then
+          echo "Warning: Could not verify file removal"
+          CLEANUP_SUCCESS=❌
+        fi
+        
+        # Delete terminal session
+        echo ""
+        echo "Deleting terminal session..."
+        if ! curl -k -s -X DELETE \
+            -H "Authorization: token $USER_TOKEN" \
+            "$API_URL/user/$USER/api/terminals/$TERMINAL_NAME" || true; then
+          echo "Warning: Failed to delete terminal session"
+          CLEANUP_SUCCESS=❌
+        fi
+
+        # Set environment variable for next step
+        echo "CLEANUP_SUCCESS=$CLEANUP_SUCCESS" >> $GITHUB_ENV
+
+        echo "✅ Cleanup completed"
+
+    - name: Stop JupyterHub Server
+      if: always()
+      run: |
+        echo "=== Stopping JupyterHub Server ==="
+        SERVER_STOP_SUCCESS=✅
+
+        # Stop the server
+        echo "Stopping server..."
+        if ! curl -s -k -X DELETE -H "Authorization: token $USER_TOKEN" $API_URL/hub/api/users/$USER/server; then
+          echo "Warning: Failed to stop server"
+          SERVER_STOP_SUCCESS=❌
+        fi
+
+        echo "Waiting for server to stop..."
+        for i in {1..12}; do
+          sleep 10
+          STATUS=$(curl -s -k -H "Authorization: token $USER_TOKEN" $API_URL/hub/api/users/$USER 2>/dev/null || echo "{}")
+          if [[ "$STATUS" != *"\"server\":"* ]]; then
+            echo "✅ Server stopped successfully"
+            break
+          fi
+          echo "Waiting for server to stop... (${i}0s elapsed)"
+        done
+        
+        echo "✅ Server cleanup completed"
+
+    - name: Generate Test Report
+      if: always()
+      run: |
+        echo "=== Final Notebook Test Report ==="
+        
+        ERROR_FOUND=${ERROR_FOUND:-1}
+        ERROR_TOTAL=${ERROR_PATTERNS_TOTAL:-4}
+        NOTEBOOK_STATUS=${NOTEBOOK_SUCCESS:-false}
+        
+        echo "Test Results Summary:"
+        echo "- Server Management: ✅"
+        echo "- Notebook Creation: ✅"
+        echo "- Notebook Execution: $([ "$NOTEBOOK_STATUS" = "true" ] && echo "✅" || echo "❌")"
+        echo "- Error Patterns: $ERROR_FOUND/$ERROR_TOTAL $([ $ERROR_FOUND -eq 0 ] && echo "✅" || echo "❌")"
+        echo "- File Cleanup: $CLEANUP_SUCCESS"
+        echo "- Server Cleanup: $SERVER_STOP_SUCCESS"
+
+        if [ "$NOTEBOOK_STATUS" = "true" ] && [ $ERROR_FOUND -eq 0 ]; then
+          echo ""
+          echo "🎉 NOTEBOOK TEST PASSED!"
+          echo "Server: ${{ env.SERVER_NAME }}"
+          echo "All critical components working correctly."
+          exit 0
+        else
+          echo ""
+          echo "❌ NOTEBOOK TEST FAILED!"
+          echo "Server: ${{ env.SERVER_NAME }}"
+          echo "Check logs above for details."
+          exit 1
+        fi
+
+    # Create issue only for play servers when they fail
+    - name: Generate issue on job failure
+      if: always() && failure() && contains(fromJSON('[ "play-aus"]'), env.SERVER_NAME)
+      uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_WORKFLOW: ${{ github.workflow }}
+        GITHUB_SERVER_URL: ${{ github.server_url }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_RUN_ID: ${{ github.run_id }}
+        SERVER_NAME: ${{ env.SERVER_NAME }}
+        SERVER_URL: ${{ env.SERVER_URL }}
+        ERROR_FOUND: ${{ env.ERROR_FOUND }}
+        NOTEBOOK_SUCCESS: ${{ env.NOTEBOOK_SUCCESS }}
+        NOTEBOOK_NAME: ${{ env.NOTEBOOK_NAME }}
+      with:
+        filename: .github/notebook_failure_issue_template.md
+
+
+  build-structure:
+    if: ${{ needs.test-notebooks.result != 'failure' }}
+    needs: [ test-notebooks ]
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install "jupyter-book<2.0.0" ghp-import 
+
+    - name: Run all
+      shell: bash
+      working-directory: ./books
+      env: 
+        GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        export PATH=$HOME/.local/bin:$PATH
+        /bin/bash ../.github/scripts/write-toc-entry.sh
+        sed -i 's/execute_notebooks: .*/execute_notebooks: off/' _config.yml
+        cat _config.yml
+        jb build .
+
+
+    - name: Push to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4.0.0
+      if: github.event_name != 'pull_request'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./books/_build/html
+        keep_files: true
+        cname: neurodesk.org
