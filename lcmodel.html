@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -242,16 +242,34 @@
       
       <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/lcmodel.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
+   title="Launch on Run in America"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
+    <img alt="Run in America logo" src="_static/images/logo_jupyterhub.svg">
   </span>
-<span class="btn__text-container">JupyterHub</span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/lcmodel.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
 </a>
 </li>
       
@@ -435,7 +453,6 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-cpu-vendor-and-model-for-compatibility-or-performance-considerations">Check CPU vendor and model for compatibility or performance considerations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-software-tools-and-import-python-libraries">Load software tools and import python libraries</a></li>
@@ -459,6 +476,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-lcmodel-output-to-pdf-and-png-formats">Exporting LCModel Output to PDF and PNG Formats</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
 </ul>
 </li>
 </ul>
@@ -479,6 +497,7 @@ document.write(`
 <section id="analyzing-mr-spectra-from-rat-hippocampus">
 <h2>Analyzing MR Spectra from Rat Hippocampus<a class="headerlink" href="#analyzing-mr-spectra-from-rat-hippocampus" title="Link to this heading">#</a></h2>
 <p><strong>Author</strong>: Monika Doerig</p>
+<p><strong>Date</strong>: 12 Aug 2025</p>
 <section id="citation-and-resources">
 <h3>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h3>
 <section id="tools-included-in-this-workflow">
@@ -507,23 +526,6 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="check-cpu-vendor-and-model-for-compatibility-or-performance-considerations">
-<h3>Check CPU vendor and model for compatibility or performance considerations<a class="headerlink" href="#check-cpu-vendor-and-model-for-compatibility-or-performance-considerations" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;vendor&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-<span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;model name&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vendor_id	: AuthenticAMD
-model name	: AMD EPYC-Rome Processor
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="load-software-tools-and-import-python-libraries">
 <h2>Load software tools and import python libraries<a class="headerlink" href="#load-software-tools-and-import-python-libraries" title="Link to this heading">#</a></h2>
@@ -536,37 +538,22 @@ model name	: AMD EPYC-Rome Processor
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Lmod&#39;,
- &#39;Warning:&#39;,
- &#39;The&#39;,
- &#39;environment&#39;,
- &#39;MODULEPATH&#39;,
- &#39;has&#39;,
- &#39;been&#39;,
- &#39;changed&#39;,
- &#39;in&#39;,
- &#39;unexpected&#39;,
- &#39;ways.&#39;,
- &#39;Lmod&#39;,
- &#39;is&#39;,
- &#39;unable&#39;,
- &#39;to&#39;,
- &#39;use&#39;,
- &#39;given&#39;,
- &#39;MODULEPATH.&#39;,
- &#39;It&#39;,
- &#39;is&#39;,
- &#39;using:&#39;,
- &#39;&quot;/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/functional_imaging:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/rodent_imaging:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/image_registration:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/structural_imaging:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/image_segmentation:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/quantitative_imaging:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/workflows:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/hippocampus:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/image_reconstruction:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/data_organisation:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/electrophysiology:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/phase_processing:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/programming:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/machine_learning:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/diffusion_imaging:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/body:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/visualization:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/spectroscopy:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/quality_control:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/statistics:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/shape_analysis:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/spine:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/molecular_biology:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/bids_apps:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/cryo_EM:/cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/other::&quot;.&#39;,
- &#39;Please&#39;,
- &#39;use&#39;,
- &#39;&quot;module&#39;,
- &#39;use&#39;,
- &#39;to&#39;,
- &#39;change&#39;,
- &#39;MODULEPATH&#39;,
- &#39;instead.&#39;,
- &#39;lcmodel/6.3&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+&quot;lcmodel/6.3&quot;
+
+Please check the spelling or version number. Also try &quot;module spider ...&quot;
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load &quot;lcmodel/6.3&quot;
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
 </div>
@@ -580,24 +567,18 @@ model name	: AMD EPYC-Rome Processor
 </div>
 </div>
 <p>The command below updates the package list and installs <code class="docutils literal notranslate"><span class="pre">Ghostscript</span></code>, which provides the <code class="docutils literal notranslate"><span class="pre">ps2pdf</span></code> utility for converting LCModel’s <code class="docutils literal notranslate"><span class="pre">.ps</span></code> output into a <code class="docutils literal notranslate"><span class="pre">PDF</span></code>, as well as tools to convert the <code class="docutils literal notranslate"><span class="pre">.ps</span></code> file into <code class="docutils literal notranslate"><span class="pre">PNG</span></code> images for easier inline viewing in notebooks and web pages.</p>
-<div class="cell docutils container">
+<div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>-qq<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ghostscript<span class="w"> </span>-y<span class="w"> </span>-qq
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ghostscript<span class="w"> </span>-y<span class="w"> </span>-qq
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All packages are up to date.
-ghostscript is already the newest version (9.55.0~dfsg1-0ubuntu5.12).
-The following packages were automatically installed and are no longer required:
-  docker-scan-plugin fuse-overlayfs libsquashfuse0 linux-headers-5.15.0-141
-  linux-headers-5.15.0-141-generic linux-headers-5.15.0-67
-  linux-headers-5.15.0-67-generic linux-image-5.15.0-141-generic
-  linux-image-5.15.0-67-generic linux-modules-5.15.0-141-generic
-  linux-modules-5.15.0-67-generic linux-modules-extra-5.15.0-141-generic
-  linux-modules-extra-5.15.0-67-generic squashfuse
-Use &#39;sudo apt autoremove&#39; to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Package ghostscript is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+<span class=" -Color -Color-Bold -Color-Bold-Red">E: </span>Package &#39;ghostscript&#39; has no installation candidate
 </pre></div>
 </div>
 </div>
@@ -796,11 +777,28 @@ Use &#39;sudo apt autoremove&#39; to remove them.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FID path:          /cvmfs/neurodesk.ardc.edu.au/containers/lcmodel_6.3_20220222/lcmodel_6.3_20220222.simg/opt/datasets/Spectra_hippocampus(rat)_TE02/s_20131015_03_BDL106_scan0/isise_01.fid/fid
-BASIS file:        /cvmfs/neurodesk.ardc.edu.au/containers/lcmodel_6.3_20220222/lcmodel_6.3_20220222.simg/opt/datasets/Spectra_hippocampus(rat)_TE02/Control_files_Basis_set/9T_TE02_smallTMS_simulated-apoL0,2Hz-apoG1,8Hz_MM-ourMM_newGrad750_allRemoved.BASIS
-FID exists?        ✅
-BASIS dir exists?  ✅
-BASIS file exists?  ✅
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">CalledProcessError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># ===  Get path to lcmodel executable</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lcmodel_path</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="s2">&quot;which lcmodel&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># === Extract container base and image path</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">container_base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">lcmodel_path</span><span class="p">)</span>  <span class="c1"># e.g., .../lcmodel_6.3_20220222</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/subprocess.py:472,</span> in <span class="ni">check_output</span><span class="nt">(timeout, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span>         <span class="n">empty</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">empty</span>
+<span class="ne">--&gt; </span><span class="mi">472</span> <span class="k">return</span> <span class="n">run</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">473</span>            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/subprocess.py:577,</span> in <span class="ni">run</span><span class="nt">(input, capture_output, timeout, check, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="n">retcode</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="n">retcode</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">577</span>         <span class="k">raise</span> <span class="n">CalledProcessError</span><span class="p">(</span><span class="n">retcode</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>                                  <span class="n">output</span><span class="o">=</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">stderr</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="k">return</span> <span class="n">CompletedProcess</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">retcode</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">)</span>
+
+<span class="ne">CalledProcessError</span>: Command &#39;which lcmodel&#39; returned non-zero exit status 1.
 </pre></div>
 </div>
 </div>
@@ -960,7 +958,7 @@ $HOME/.lcmodel/varian/bin2raw $DATA_FILE $LCM_DIR $MET_H2O
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f6b16df5fd852fd67734ed450b7798749fbc9ac5b5511f204b57feb76c8d7c26.png" src="_images/f6b16df5fd852fd67734ed450b7798749fbc9ac5b5511f204b57feb76c8d7c26.png" />
+<img alt="_images/dbcae9e6f45bd742aba49863eb7ec9cab14877b89e7b1b1eb16a3fa7dfc7353a.png" src="_images/dbcae9e6f45bd742aba49863eb7ec9cab14877b89e7b1b1eb16a3fa7dfc7353a.png" />
 </div>
 </div>
 <p><strong>Raw Free Induction Decay (FID) Signal</strong>:</p>
@@ -1293,12 +1291,10 @@ For details, see: <a href="http://s-provencher.com/lcmodel.shtml">http://s-prove
 Copyright (C) 2021 Artifex Software, Inc.  All rights reserved.
 This software is supplied under the GNU AGPLv3 and comes with NO WARRANTY:
 see the file COPYING for details.
-Loading NimbusSans-Regular font from /usr/share/ghostscript/9.55.0/Resource/Font/NimbusSans-Regular...
-4466276 2919749 2017472 704520 1 done.
+Loading NimbusSans-Regular font from /usr/share/ghostscript/9.55.0/Resource/Font/NimbusSans-Regular... 4466276 2919749 2017472 704520 1 done.
 Loading NimbusSans-Italic font from /usr/share/ghostscript/9.55.0/Resource/Font/NimbusSans-Italic... 4532388 3109010 2037672 717907 1 done.
-Loading NimbusMonoPS-Bold font from /usr/share/ghostscript/9.55.0/Resource/Font/NimbusMonoPS-Bold... 4719700 3356826 2118472 774027 1 done.
-Loading NimbusMonoPS-Regular font from /usr/share/ghostscript/9.55.0/Resource/Font/NimbusMonoPS-Regular...
-4967612 3596618 2118472 777834 1 done.
+Loading NimbusMonoPS-Bold font from /usr/share/ghostscript/9.55.0/Resource/Font/NimbusMonoPS-Bold... 4719700 3356826 2118472 774028 1 done.
+Loading NimbusMonoPS-Regular font from /usr/share/ghostscript/9.55.0/Resource/Font/NimbusMonoPS-Regular... 4967612 3596618 2118472 777835 1 done.
 </pre></div>
 </div>
 </div>
@@ -1312,8 +1308,8 @@ Loading NimbusMonoPS-Regular font from /usr/share/ghostscript/9.55.0/Resource/Fo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9900dc38e121466d6a861b529b0dfc400fbc18d816cf3e26ef042581deb7106b.png" src="_images/9900dc38e121466d6a861b529b0dfc400fbc18d816cf3e26ef042581deb7106b.png" />
-<img alt="_images/ca095dd803ff469590344b99a2fc4aea1e79faf7a5d99e9cf03a09c2fb4c56b1.png" src="_images/ca095dd803ff469590344b99a2fc4aea1e79faf7a5d99e9cf03a09c2fb4c56b1.png" />
+<img alt="_images/0a69d0ddbfc9ffe67c9ec5a995427d86b47ec3e42b2e4f7adb2317dc2cced608.png" src="_images/0a69d0ddbfc9ffe67c9ec5a995427d86b47ec3e42b2e4f7adb2317dc2cced608.png" />
+<img alt="_images/904b2ab822e06509d8210050d54919c41dda5dac0c746d59a8407ecf8f61fb12.png" src="_images/904b2ab822e06509d8210050d54919c41dda5dac0c746d59a8407ecf8f61fb12.png" />
 </div>
 </div>
 <p><strong>Note on PDF viewing:</strong> PDFs can be displayed directly within Jupyter notebooks using <code class="docutils literal notranslate"><span class="pre">IFrame</span></code>, but this only works in interactive environments (local Jupyter, Colab, etc.). When viewing this notebook on GitHub Pages, the PDFs won’t render due to security restrictions.</p>
@@ -1334,6 +1330,45 @@ Loading NimbusMonoPS-Regular font from /usr/share/ghostscript/9.55.0/Resource/Fo
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/download_png.png"/></div></div>
+</div>
+</section>
+<section id="dependencies-in-jupyter-python">
+<h4>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-10-23T00:40:12.288598+00:00
+
+Python implementation: CPython
+Python version       : 3.11.6
+IPython version      : 8.16.1
+
+Compiler    : GCC 12.3.0
+OS          : Linux
+Release     : 5.4.0-204-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+re        : 2.2.1
+matplotlib: 3.8.4
+IPython   : 8.16.1
+nibabel   : 5.2.1
+numpy     : 2.2.6
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1392,7 +1427,6 @@ Loading NimbusMonoPS-Regular font from /usr/share/ghostscript/9.55.0/Resource/Fo
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-cpu-vendor-and-model-for-compatibility-or-performance-considerations">Check CPU vendor and model for compatibility or performance considerations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-software-tools-and-import-python-libraries">Load software tools and import python libraries</a></li>
@@ -1416,6 +1450,7 @@ Loading NimbusMonoPS-Regular font from /usr/share/ghostscript/9.55.0/Resource/Fo
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-lcmodel-output-to-pdf-and-png-formats">Exporting LCModel Output to PDF and PNG Formats</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
 </ul>
 </li>
 </ul>

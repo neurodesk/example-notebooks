@@ -1,0 +1,93 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# ===  Get path to lcmodel executable
+lcmodel_path = subprocess.check_output("which lcmodel", shell=True, text=True).strip()
+
+# === Extract container base and image path
+container_base = os.path.dirname(lcmodel_path)  # e.g., .../lcmodel_6.3_20220222
+container_id = os.path.basename(container_base)  # e.g., lcmodel_6.3_20220222
+simg_path = os.path.join(container_base, f"{container_id}.simg")
+
+# ===  Construct dataset paths inside 
+fid_path = os.path.join(
+    simg_path,
+    "opt/datasets/Spectra_hippocampus(rat)_TE02/s_20131015_03_BDL106_scan0/isise_01.fid/fid"
+)
+basis_path = os.path.join(
+    simg_path,
+    "opt/datasets/Spectra_hippocampus(rat)_TE02/Control_files_Basis_set"
+)
+# Get single BASIS file (will raise error if not exactly one)
+basis_files = glob.glob(os.path.join(basis_path, "*.BASIS"))
+basis_file = basis_files[0]
+
+
+# === Check existence of the paths
+fid_exists = Path(fid_path).exists()
+basis_dir_exists = Path(basis_path).exists()
+basis_file_exists = Path(basis_file).exists()
+
+# === Report status
+print(f"FID path:          {fid_path}")
+print(f"BASIS file:        {basis_file}")
+print(f"FID exists?        {'✅' if fid_exists else '❌'}")
+print(f"BASIS dir exists?  {'✅' if basis_dir_exists else '❌'}")
+print(f"BASIS file exists?  {'✅' if basis_file_exists else '❌'}")
+
+# Raise error or fallback if paths missing
+if not fid_exists or not basis_file_exists:
+    raise FileNotFoundError("One or more required dataset paths could not be found.")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mCalledProcessError[39m                        Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 2[39m
+[32m      1[39m [38;5;66;03m# ===  Get path to lcmodel executable[39;00m
+[32m----> [39m[32m2[39m lcmodel_path = [43msubprocess[49m[43m.[49m[43mcheck_output[49m[43m([49m[33;43m"[39;49m[33;43mwhich lcmodel[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43mshell[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mtext[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m.strip()
+[32m      4[39m [38;5;66;03m# === Extract container base and image path[39;00m
+[32m      5[39m container_base = os.path.dirname(lcmodel_path)  [38;5;66;03m# e.g., .../lcmodel_6.3_20220222[39;00m
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/subprocess.py:472[39m, in [36mcheck_output[39m[34m(timeout, *popenargs, **kwargs)[39m
+[32m    469[39m         empty = [33mb[39m[33m'[39m[33m'[39m
+[32m    470[39m     kwargs[[33m'[39m[33minput[39m[33m'[39m] = empty
+[32m--> [39m[32m472[39m [38;5;28;01mreturn[39;00m [43mrun[49m[43m([49m[43m*[49m[43mpopenargs[49m[43m,[49m[43m [49m[43mstdout[49m[43m=[49m[43mPIPE[49m[43m,[49m[43m [49m[43mtimeout[49m[43m=[49m[43mtimeout[49m[43m,[49m[43m [49m[43mcheck[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[32m    473[39m [43m           [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m.stdout
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/subprocess.py:577[39m, in [36mrun[39m[34m(input, capture_output, timeout, check, *popenargs, **kwargs)[39m
+[32m    575[39m     retcode = process.poll()
+[32m    576[39m     [38;5;28;01mif[39;00m check [38;5;129;01mand[39;00m retcode:
+[32m--> [39m[32m577[39m         [38;5;28;01mraise[39;00m CalledProcessError(retcode, process.args,
+[32m    578[39m                                  output=stdout, stderr=stderr)
+[32m    579[39m [38;5;28;01mreturn[39;00m CompletedProcess(process.args, retcode, stdout, stderr)
+
+[31mCalledProcessError[39m: Command 'which lcmodel' returned non-zero exit status 1.
+
