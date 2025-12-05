@@ -1,17 +1,30 @@
 Traceback (most recent call last):
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 172, in wrapped
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
     return future.result()
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -39,97 +52,35 @@ fmriprep ds000102/ fmriprep-output participant \
 ------------------
 
 ----- stderr -----
-Traceback (most recent call last):
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/pathlib.py", line 1116, in mkdir
------ stderr -----
-    os.mkdir(self, mode)
------ stderr -----
-FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/.cache/templateflow'
------ stderr -----
-
------ stderr -----
-During handling of the above exception, another exception occurred:
------ stderr -----
-
------ stderr -----
-Traceback (most recent call last):
------ stderr -----
-  File "/opt/conda/envs/fmriprep/bin/fmriprep", line 5, in <module>
------ stderr -----
-    from fmriprep.cli.run import main
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/fmriprep/cli/run.py", line 25, in <module>
------ stderr -----
-    from .. import config
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/fmriprep/config.py", line 94, in <module>
------ stderr -----
-    from templateflow.conf import TF_LAYOUT
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/templateflow/__init__.py", line 42, in <module>
------ stderr -----
-    from . import api
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/templateflow/api.py", line 30, in <module>
------ stderr -----
-    from templateflow.conf import (
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/templateflow/conf/__init__.py", line 56, in <module>
------ stderr -----
-    _init_cache()
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/templateflow/conf/__init__.py", line 53, in _init_cache
------ stderr -----
-    _update_s3(TF_HOME, local=True, overwrite=True)
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/templateflow/conf/_s3.py", line 41, in update
------ stderr -----
-    retval = _update_skeleton(skel_file, dest, overwrite=overwrite, silent=silent)
------ stderr -----
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/site-packages/templateflow/conf/_s3.py", line 81, in _update_skeleton
------ stderr -----
-    dest.mkdir(exist_ok=True, parents=True)
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/pathlib.py", line 1120, in mkdir
------ stderr -----
-    self.parent.mkdir(parents=True, exist_ok=True)
------ stderr -----
-  File "/opt/conda/envs/fmriprep/lib/python3.11/pathlib.py", line 1116, in mkdir
------ stderr -----
-    os.mkdir(self, mode)
------ stderr -----
-FileExistsError: [Errno 17] File exists: '/home/ubuntu/.cache'
+bash: line 11: fmriprep: command not found
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mCalledProcessError[0m                        Traceback (most recent call last)
-Cell [0;32mIn[5], line 1[0m
-[0;32m----> 1[0m [43mget_ipython[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mrun_cell_magic[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mbash[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43m# set up environment variables[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43mexport SUBJECTS_DIR=$PWD/fmriprep-freesurfer-dir[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43mexport APPTAINERENV_SUBJECTS_DIR=$SUBJECTS_DIR[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43mexport ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=2 [39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43mexport MPLCONFIGDIR=~/matplotlib-mpldir [39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m# create subjects directory[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43mmkdir -p $SUBJECTS_DIR[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m# run fmriprep[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43mfmriprep ds000102/ fmriprep-output participant [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m--fs-license-file ~/.license [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m--output-spaces T1w MNI152NLin2009cAsym fsaverage fsnative [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m--participant-label 08 [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m--nprocs $ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m--mem 10000 [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m--skip_bids_validation [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m--fs-subjects-dir $SUBJECTS_DIR [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m-v[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m'[39;49m[43m)[49m
+[31m---------------------------------------------------------------------------[39m
+[31mCalledProcessError[39m                        Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [43mget_ipython[49m[43m([49m[43m)[49m[43m.[49m[43mrun_cell_magic[49m[43m([49m[33;43m'[39;49m[33;43mbash[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[33;43m'[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[33;43m'[39;49m[33;43m# set up environment variables[39;49m[38;5;130;43;01m\n[39;49;00m[33;43mexport SUBJECTS_DIR=$PWD/fmriprep-freesurfer-dir[39;49m[38;5;130;43;01m\n[39;49;00m[33;43mexport APPTAINERENV_SUBJECTS_DIR=$SUBJECTS_DIR[39;49m[38;5;130;43;01m\n[39;49;00m[33;43mexport ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=2 [39;49m[38;5;130;43;01m\n[39;49;00m[33;43mexport MPLCONFIGDIR=~/matplotlib-mpldir [39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m# create subjects directory[39;49m[38;5;130;43;01m\n[39;49;00m[33;43mmkdir -p $SUBJECTS_DIR[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m# run fmriprep[39;49m[38;5;130;43;01m\n[39;49;00m[33;43mfmriprep ds000102/ fmriprep-output participant [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m--fs-license-file ~/.license [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m--output-spaces T1w MNI152NLin2009cAsym fsaverage fsnative [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m--participant-label 08 [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m--nprocs $ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m--mem 10000 [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m--skip_bids_validation [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m--fs-subjects-dir $SUBJECTS_DIR [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;130;43;01m\n[39;49;00m[33;43m-v[39;49m[38;5;130;43;01m\n[39;49;00m[33;43m'[39;49m[43m)[49m
 
-File [0;32m~/.local/lib/python3.10/site-packages/IPython/core/interactiveshell.py:2517[0m, in [0;36mInteractiveShell.run_cell_magic[0;34m(self, magic_name, line, cell)[0m
-[1;32m   2515[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39mbuiltin_trap:
-[1;32m   2516[0m     args [38;5;241m=[39m (magic_arg_s, cell)
-[0;32m-> 2517[0m     result [38;5;241m=[39m [43mfn[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m   2519[0m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
-[1;32m   2520[0m [38;5;66;03m# when using magics with decorator @output_can_be_silenced[39;00m
-[1;32m   2521[0m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
-[1;32m   2522[0m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic[38;5;241m.[39mMAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/IPython/core/interactiveshell.py:2565[39m, in [36mInteractiveShell.run_cell_magic[39m[34m(self, magic_name, line, cell)[39m
+[32m   2563[39m [38;5;28;01mwith[39;00m [38;5;28mself[39m.builtin_trap:
+[32m   2564[39m     args = (magic_arg_s, cell)
+[32m-> [39m[32m2565[39m     result = [43mfn[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m   2567[39m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
+[32m   2568[39m [38;5;66;03m# when using magics with decorator @output_can_be_silenced[39;00m
+[32m   2569[39m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
+[32m   2570[39m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic.MAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
 
-File [0;32m~/.local/lib/python3.10/site-packages/IPython/core/magics/script.py:154[0m, in [0;36mScriptMagics._make_script_magic.<locals>.named_script_magic[0;34m(line, cell)[0m
-[1;32m    152[0m [38;5;28;01melse[39;00m:
-[1;32m    153[0m     line [38;5;241m=[39m script
-[0;32m--> 154[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mshebang[49m[43m([49m[43mline[49m[43m,[49m[43m [49m[43mcell[49m[43m)[49m
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/IPython/core/magics/script.py:160[39m, in [36mScriptMagics._make_script_magic.<locals>.named_script_magic[39m[34m(line, cell)[39m
+[32m    158[39m [38;5;28;01melse[39;00m:
+[32m    159[39m     line = script
+[32m--> [39m[32m160[39m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m.[49m[43mshebang[49m[43m([49m[43mline[49m[43m,[49m[43m [49m[43mcell[49m[43m)[49m
 
-File [0;32m~/.local/lib/python3.10/site-packages/IPython/core/magics/script.py:314[0m, in [0;36mScriptMagics.shebang[0;34m(self, line, cell)[0m
-[1;32m    309[0m [38;5;28;01mif[39;00m args[38;5;241m.[39mraise_error [38;5;129;01mand[39;00m p[38;5;241m.[39mreturncode [38;5;241m!=[39m [38;5;241m0[39m:
-[1;32m    310[0m     [38;5;66;03m# If we get here and p.returncode is still None, we must have[39;00m
-[1;32m    311[0m     [38;5;66;03m# killed it but not yet seen its return code. We don't wait for it,[39;00m
-[1;32m    312[0m     [38;5;66;03m# in case it's stuck in uninterruptible sleep. -9 = SIGKILL[39;00m
-[1;32m    313[0m     rc [38;5;241m=[39m p[38;5;241m.[39mreturncode [38;5;129;01mor[39;00m [38;5;241m-[39m[38;5;241m9[39m
-[0;32m--> 314[0m     [38;5;28;01mraise[39;00m CalledProcessError(rc, cell)
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/IPython/core/magics/script.py:348[39m, in [36mScriptMagics.shebang[39m[34m(self, line, cell)[39m
+[32m    343[39m [38;5;28;01mif[39;00m args.raise_error [38;5;129;01mand[39;00m p.returncode != [32m0[39m:
+[32m    344[39m     [38;5;66;03m# If we get here and p.returncode is still None, we must have[39;00m
+[32m    345[39m     [38;5;66;03m# killed it but not yet seen its return code. We don't wait for it,[39;00m
+[32m    346[39m     [38;5;66;03m# in case it's stuck in uninterruptible sleep. -9 = SIGKILL[39;00m
+[32m    347[39m     rc = p.returncode [38;5;129;01mor[39;00m -[32m9[39m
+[32m--> [39m[32m348[39m     [38;5;28;01mraise[39;00m CalledProcessError(rc, cell)
 
-[0;31mCalledProcessError[0m: Command 'b'# set up environment variables\nexport SUBJECTS_DIR=$PWD/fmriprep-freesurfer-dir\nexport APPTAINERENV_SUBJECTS_DIR=$SUBJECTS_DIR\nexport ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=2 \nexport MPLCONFIGDIR=~/matplotlib-mpldir \n\n# create subjects directory\nmkdir -p $SUBJECTS_DIR\n\n# run fmriprep\nfmriprep ds000102/ fmriprep-output participant \\\n--fs-license-file ~/.license \\\n--output-spaces T1w MNI152NLin2009cAsym fsaverage fsnative \\\n--participant-label 08 \\\n--nprocs $ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS \\\n--mem 10000 \\\n--skip_bids_validation \\\n--fs-subjects-dir $SUBJECTS_DIR \\\n-v\n'' returned non-zero exit status 1.
+[31mCalledProcessError[39m: Command 'b'# set up environment variables\nexport SUBJECTS_DIR=$PWD/fmriprep-freesurfer-dir\nexport APPTAINERENV_SUBJECTS_DIR=$SUBJECTS_DIR\nexport ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=2 \nexport MPLCONFIGDIR=~/matplotlib-mpldir \n\n# create subjects directory\nmkdir -p $SUBJECTS_DIR\n\n# run fmriprep\nfmriprep ds000102/ fmriprep-output participant \\\n--fs-license-file ~/.license \\\n--output-spaces T1w MNI152NLin2009cAsym fsaverage fsnative \\\n--participant-label 08 \\\n--nprocs $ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS \\\n--mem 10000 \\\n--skip_bids_validation \\\n--fs-subjects-dir $SUBJECTS_DIR \\\n-v\n'' returned non-zero exit status 127.
 
