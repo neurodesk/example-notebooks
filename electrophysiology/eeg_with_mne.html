@@ -1,8 +1,14 @@
-<!DOCTYPE html><html lang="en" data-content_root="../"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EEG Analysis with MNE — Neurodesk</title>
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EEG Analysis with MNE &#8212; Neurodesk</title>
   
   
   
@@ -12,41 +18,41 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2">
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079">
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062">
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357">
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b">
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css">
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6">
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e">
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b">
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b">
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4Z9774J59Y"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -55,7 +61,7 @@
                 gtag('config', 'G-4Z9774J59Y');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,14 +70,12 @@
                 gtag('config', 'G-4Z9774J59Y');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'electrophysiology/eeg_with_mne';</script>
-    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/electrophysiology/eeg_with_mne.html">
-    <link rel="icon" href="../_static/neurodesk_logo.svg">
-    <link rel="index" title="Index" href="../genindex.html">
-    <link rel="search" title="Search" href="../search.html">
-    <link rel="prev" title="tedana: TE Dependent ANAlysis" href="../functional_imaging/process_five_echo_dataset.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="docsearch:language" content="en">
+    <script>DOCUMENTATION_OPTIONS.pagename = 'eeg_with_mne';</script>
+    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/eeg_with_mne.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -87,18 +91,33 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox">
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
   <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox">
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
   <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
@@ -116,6 +135,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -135,20 +156,14 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="#">
   
   
   
   
   
-    
-    
-      
-    
-    
-    <img src="../_static/neurodesk_logo.svg" class="logo__image only-light" alt="Neurodesk - Home">
-    <script>document.write(`<img src="../_static/neurodesk_logo.svg" class="logo__image only-dark" alt="Neurodesk - Home"/>`);</script>
   
+    <p class="title logo__title">Neurodesk</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -166,85 +181,13 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Neurodesk environment
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    EEG Analysis with MNE
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../workflows/AA_Neurodesk_demo_tour.html">Neurodesk Tools Demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/MRIQC.html">MRIQC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/PyBIDS.html">PyBIDS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/RISE_slideshow.html">RISE Slideshow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/bids_conversion.html">BIDS conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/nipype_full.html">Nipype on Neurodesk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/nipype_short.html">Basic Nipype</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="../workflows/papermill-slurm-submission-example.html">Papermill Slurm Job Submission</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/pydra_preproc_ants.html">Pydra</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Structural Imaging</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/FSL_course_bet.html">FSL course - BET</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/brain_extraction_different_tools.html">Brain Extraction Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/freesurfer.html">FreeSurfer</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/qsmxt.html">QSMxT</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/sct_toolbox.html">SCT Toolbox</a></li>
-
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectroscopy</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../spectroscopy/lcmodel.html">MR Spectroscopy with LCModel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spectroscopy/osprey.html">MR Spectroscopy with Osprey</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diffusion Imaging</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/Diffusion_TBSS_Demo.html">TBSS Tutorial</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/MRtrix_1.html">MRtrix: Part 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/MRtrix_2.html">MRtrix: Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/MRtrix_3.html">MRtrix: Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/mrtrix3tissue.html">MRtrix3Tissue</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Imaging</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_only.html">AFNI Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_plus_glm.html">AFNI Preprocessing and GLM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_plus_glm_group.html">AFNI Preprocessing &amp; Group Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/FSL_preproc_glm.html">FSL Preprocessing and GLM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/FSLnets_course_practical.html">Resting state with FSLnets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/NiWrap.html">NiWrap and Connectome Workbench</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/aslprep.html">ASLprep</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/deepretinotopy.html">DeepRetinotopy</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/first_and_second_level_spm.html">Nipype-SPM fMRI Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/fmriprep.html">fMRIprep</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/fsl_all_levels_flanker_nipype.html">Nipype-FSL fMRI Analysis</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/intro_to_preprocessing.html">Introduction to Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/mri_vol2surf.html">FreeSurfer: mri_vol2surf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/process_five_echo_dataset.html">tedana: TE Dependent ANAlysis</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electrophysiology</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">EEG Analysis with MNE</a></li>
-</ul>
-
+        
     </div>
 </nav></div>
     </div>
@@ -283,7 +226,7 @@
       
         <div class="header-article-item">
 
-<div class="article-header-buttons"><a href="https://doi.org/10.5072/zenodo.409866" target="_blank" rel="noopener noreferrer" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button">https://doi.org/10.5072/zenodo.409866</a>
+<div class="article-header-buttons">
 
 
 
@@ -297,12 +240,16 @@
       
       
       
-      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/electrophysiology/eeg_with_mne.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in America" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/eeg_with_mne.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in America"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
   
-    <img alt="Run in America logo" src="../_static/images/logo_jupyterhub.svg">
+    <img alt="Run in America logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">Run in America</span>
 </a>
@@ -311,12 +258,16 @@
       
       
       
-      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/electrophysiology/eeg_with_mne.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in Europe" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/eeg_with_mne.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
   
-    <img alt="Run in Europe logo" src="../_static/images/logo_jupyterhub.svg">
+    <img alt="Run in Europe logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">Run in Europe</span>
 </a>
@@ -338,7 +289,11 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank" class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -351,7 +306,11 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/electrophysiology/eeg_with_mne.ipynb" target="_blank" class="btn btn-sm btn-source-edit-button dropdown-item" title="Suggest edit" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/eeg_with_mne.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -364,7 +323,11 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2Felectrophysiology/eeg_with_mne.html&amp;body=Your%20issue%20content%20here." target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item" title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2Feeg_with_mne.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -390,7 +353,11 @@
       
       
       
-      <li><a href="../_sources/electrophysiology/eeg_with_mne.ipynb" target="_blank" class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="_sources/eeg_with_mne.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -404,7 +371,11 @@
       
       
       <li>
-<button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item" title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -420,7 +391,11 @@
 
 
 
-<button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button" title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -476,7 +451,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-this-work-is-based-on">Tutorial this work is based on</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-cpu-vendor-and-model-for-compatibility-or-performance-considerations">Check CPU vendor and model for compatibility or performance considerations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-python-libraries">Install and import python libraries</a></li>
@@ -487,7 +461,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-eeg-channels-and-preprocess">Extract EEG Channels and Preprocess</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epoching-the-data">Epoching the Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fft">FFT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-the-data">Exporting the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-the-data">Exporting the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -503,7 +480,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="eeg-analysis-with-mne">
 <h1>EEG Analysis with MNE<a class="headerlink" href="#eeg-analysis-with-mne" title="Link to this heading">#</a></h1>
-<p><strong>Author</strong>: Angela Renton &amp; Monika Doerig</p>
+<p><strong>Author</strong>: Angela Renton, Monika Doerig</p>
+<p><strong>Date</strong>: 11 Aug 2025</p>
 <section id="citation">
 <h2>Citation:<a class="headerlink" href="#citation" title="Link to this heading">#</a></h2>
 <section id="tools-included-in-this-workflow">
@@ -526,23 +504,6 @@ document.write(`
 <li><p>Renton, A. (2022, April 11). Optimising the classification of feature-based attention in frequency-tagged electroencephalography data. <a class="reference external" href="https://doi.org/10.17605/OSF.IO/C689U">https://doi.org/10.17605/OSF.IO/C689U</a></p></li>
 </ul>
 </section>
-<section id="check-cpu-vendor-and-model-for-compatibility-or-performance-considerations">
-<h3>Check CPU vendor and model for compatibility or performance considerations<a class="headerlink" href="#check-cpu-vendor-and-model-for-compatibility-or-performance-considerations" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'vendor'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-<span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'model name'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vendor_id	: GenuineIntel
-model name	: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="install-and-import-python-libraries">
 <h2>Install and import python libraries<a class="headerlink" href="#install-and-import-python-libraries" title="Link to this heading">#</a></h2>
@@ -550,45 +511,6 @@ model name	: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span> 
 <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">mne</span><span class="o">==</span><span class="mf">1.10.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import mne; mne.sys_info()"</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Platform             Linux-5.4.0-204-generic-x86_64-with-glibc2.35
-Python               3.11.6 | packaged by conda-forge | (main, Oct  3 2023, 10:40:35) [GCC 12.3.0]
-Executable           /opt/conda/bin/python
-CPU                  Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz (32 cores)
-Memory               243.9 GiB
-
-Core
-├☑ mne               1.10.0 (latest release)
-├☑ numpy             1.26.4 (OpenBLAS 0.3.23.dev with 32 threads)
-├☑ scipy             1.13.0
-└☑ matplotlib        3.8.4 (backend=module://matplotlib_inline.backend_inline)
-
-Numerical (optional)
-├☑ sklearn           1.6.1
-├☑ nibabel           5.2.1
-├☑ nilearn           0.12.0
-├☑ dipy              1.10.0
-├☑ pandas            2.2.3
-├☑ h5py              3.12.1
-└☐ unavailable       numba, openmeeg, cupy, h5io
-
-Visualization (optional)
-├☑ vtk               9.3.1
-├☑ ipywidgets        8.1.2
-└☐ unavailable       pyvista, pyvistaqt, qtpy, ipympl, pyqtgraph, mne-qt-browser, trame_client, trame_server, trame_vtk, trame_vuetify
-
-Ecosystem (optional)
-└☐ unavailable       mne-bids, mne-nirs, mne-features, mne-connectivity, mne-icalabel, mne-bids-pipeline, neo, eeglabio, edfio, mffpy, pybv
 </pre></div>
 </div>
 </div>
@@ -613,14 +535,14 @@ Ecosystem (optional)
 <h3>Data download from OSF<a class="headerlink" href="#data-download-from-osf" title="Link to this heading">#</a></h3>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the OSF client to fetch the contents of the OSF project with ID 'C689U' into the current directory</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the OSF client to fetch the contents of the OSF project with ID &#39;C689U&#39; into the current directory</span>
 <span class="c1"># The output is suppressed for cleaner display using &gt; /dev/null 2&gt;&amp;1</span>
 <span class="o">!</span>osf<span class="w"> </span>-p<span class="w"> </span>C689U<span class="w"> </span>fetch<span class="w"> </span>Data_sample.zip<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 
 <span class="c1"># Extract the contents of the downloaded zip file</span>
 <span class="o">!</span><span class="w"> </span>unzip<span class="w"> </span>Data_sample.zip
 
-<span class="c1"># Remove the 'osfstorage' directory to keep things tidy</span>
+<span class="c1"># Remove the &#39;osfstorage&#39; directory to keep things tidy</span>
 <span class="o">!</span>rm<span class="w"> </span>-rf<span class="w"> </span>osfstorage/
 </pre></div>
 </div>
@@ -638,11 +560,13 @@ Ecosystem (optional)
    creating: Data_sample/sourcedata/sub-01/behave/
   inflating: Data_sample/sourcedata/sub-01/behave/sub-01_task-FeatAttnDec_behav.mat  
    creating: Data_sample/sourcedata/sub-01/eeg/
-  inflating: Data_sample/sourcedata/sub-01/eeg/sub-01_task-FeatAttnDec_eeg.mat  
+  inflating: Data_sample/sourcedata/sub-01/eeg/sub-01_task-FeatAttnDec_eeg.mat
+
    creating: Data_sample/sub-01/
    creating: Data_sample/sub-01/eeg/
   inflating: Data_sample/sub-01/eeg/sub-01_task-FeatAttnDec_channels.tsv  
-  inflating: Data_sample/sub-01/eeg/sub-01_task-FeatAttnDec_eeg.eeg  
+  inflating: Data_sample/sub-01/eeg/sub-01_task-FeatAttnDec_eeg.eeg
+
   inflating: Data_sample/sub-01/eeg/sub-01_task-FeatAttnDec_eeg.json  
   inflating: Data_sample/sub-01/eeg/sub-01_task-FeatAttnDec_eeg.vhdr  
   inflating: Data_sample/sub-01/eeg/sub-01_task-FeatAttnDec_eeg.vmrk  
@@ -666,11 +590,11 @@ Ecosystem (optional)
 ├── participants.json
 ├── participants.tsv
 ├── <span class=" -Color -Color-Bold -Color-Bold-Blue">sourcedata</span>
-│&nbsp;&nbsp; └── <span class=" -Color -Color-Bold -Color-Bold-Blue">sub-01</span>
-│&nbsp;&nbsp;     ├── <span class=" -Color -Color-Bold -Color-Bold-Blue">behave</span>
-│&nbsp;&nbsp;     │&nbsp;&nbsp; └── sub-01_task-FeatAttnDec_behav.mat
-│&nbsp;&nbsp;     └── <span class=" -Color -Color-Bold -Color-Bold-Blue">eeg</span>
-│&nbsp;&nbsp;         └── sub-01_task-FeatAttnDec_eeg.mat
+│   └── <span class=" -Color -Color-Bold -Color-Bold-Blue">sub-01</span>
+│       ├── <span class=" -Color -Color-Bold -Color-Bold-Blue">behave</span>
+│       │   └── sub-01_task-FeatAttnDec_behav.mat
+│       └── <span class=" -Color -Color-Bold -Color-Bold-Blue">eeg</span>
+│           └── sub-01_task-FeatAttnDec_eeg.mat
 └── <span class=" -Color -Color-Bold -Color-Bold-Blue">sub-01</span>
     └── <span class=" -Color -Color-Bold -Color-Bold-Blue">eeg</span>
         ├── sub-01_task-FeatAttnDec_channels.tsv
@@ -680,7 +604,7 @@ Ecosystem (optional)
         ├── sub-01_task-FeatAttnDec_eeg.vmrk
         └── sub-01_task-FeatAttnDec_events.tsv
 
-6 directories, 13 files
+7 directories, 13 files
 </pre></div>
 </div>
 </div>
@@ -692,9 +616,9 @@ Ecosystem (optional)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data</span>
-<span class="n">sample_data_folder</span> <span class="o">=</span> <span class="s1">'./Data_sample'</span>
-<span class="n">sample_data_raw_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sample_data_folder</span><span class="p">,</span> <span class="s1">'sub-01'</span><span class="p">,</span> <span class="s1">'eeg'</span><span class="p">,</span>
-                                    <span class="s1">'sub-01_task-FeatAttnDec_eeg.vhdr'</span><span class="p">)</span>
+<span class="n">sample_data_folder</span> <span class="o">=</span> <span class="s1">&#39;./Data_sample&#39;</span>
+<span class="n">sample_data_raw_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sample_data_folder</span><span class="p">,</span> <span class="s1">&#39;sub-01&#39;</span><span class="p">,</span> <span class="s1">&#39;eeg&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;sub-01_task-FeatAttnDec_eeg.vhdr&#39;</span><span class="p">)</span>
 <span class="n">raw</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_raw_brainvision</span><span class="p">(</span><span class="n">sample_data_raw_file</span> <span class="p">,</span> <span class="n">preload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -738,17 +662,17 @@ Reading 0 ... 3706303  =      0.000 ...  3088.586 secs...
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use standard montage </span>
-<span class="n">montage_std</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">make_standard_montage</span><span class="p">(</span><span class="s1">'standard_1020'</span><span class="p">)</span>
-<span class="n">raw</span><span class="o">.</span><span class="n">set_montage</span><span class="p">(</span><span class="n">montage_std</span><span class="p">,</span> <span class="n">match_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_missing</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">)</span>
+<span class="n">montage_std</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">make_standard_montage</span><span class="p">(</span><span class="s1">&#39;standard_1020&#39;</span><span class="p">)</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">set_montage</span><span class="p">(</span><span class="n">montage_std</span><span class="p">,</span> <span class="n">match_case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_missing</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># Check how it looks</span>
-<span class="n">raw</span><span class="o">.</span><span class="n">plot_sensors</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'topomap'</span><span class="p">,</span> <span class="n">show_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">plot_sensors</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;topomap&#39;</span><span class="p">,</span> <span class="n">show_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d464c5c20bc0997fbe9357ead275132e03ba5417e4388e0cdd306b7d2f8f80ec.png" src="../_images/d464c5c20bc0997fbe9357ead275132e03ba5417e4388e0cdd306b7d2f8f80ec.png">
+<img alt="_images/6e4b8dddac73173ddd6a868eb683d092df32a55fa1f0360a32a873a01bf2f64d.png" src="_images/6e4b8dddac73173ddd6a868eb683d092df32a55fa1f0360a32a873a01bf2f64d.png" />
 </div>
 </div>
 <p>Next, let’s visualize the data.</p>
@@ -763,14 +687,14 @@ Reading 0 ... 3706303  =      0.000 ...  3088.586 secs...
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib as 2D backend.
 </pre></div>
 </div>
-<img alt="../_images/d9cd62c152638b1a492fb5954c2045d8b7b847b681545ecfef47d272dc4e2bf5.png" src="../_images/d9cd62c152638b1a492fb5954c2045d8b7b847b681545ecfef47d272dc4e2bf5.png">
+<img alt="_images/8d61799d5813b41bc611af12149868efcda9059347ff55f7d950a09558b7f617.png" src="_images/8d61799d5813b41bc611af12149868efcda9059347ff55f7d950a09558b7f617.png" />
 </div>
 </div>
 <p>If, upon visual inspection, you decide to exclude one or more channels (e.g., due to noise or signal dropout), you can mark them as “bad” by adding them to <code class="docutils literal notranslate"><span class="pre">raw.info['bads']</span></code>.</p>
 <p>For example, to mark channel ‘POz’ as bad:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">'bads'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'POz'</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;bads&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;POz&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -930,10 +854,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tbody><tr class="mne-repr-section-header general-a904bdc0-bda9-4e4c-b679-9cd54a77d137" title="Hide section" onclick="toggleVisibility('general-a904bdc0-bda9-4e4c-b679-9cd54a77d137')">
+<tr class="mne-repr-section-header general-4c96700b-4f02-40e8-ad24-8357a7052497"
+     title="Hide section" 
+    onclick="toggleVisibility('general-4c96700b-4f02-40e8-ad24-8357a7052497')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -942,26 +868,26 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element general-a904bdc0-bda9-4e4c-b679-9cd54a77d137 ">
+<tr class="repr-element general-4c96700b-4f02-40e8-ad24-8357a7052497 ">
     <td class="mne-repr-section-toggle"></td>
     <td>MNE object type</td>
     <td>Info</td>
 </tr>
-<tr class="repr-element general-a904bdc0-bda9-4e4c-b679-9cd54a77d137 ">
+<tr class="repr-element general-4c96700b-4f02-40e8-ad24-8357a7052497 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Measurement date</td>
     
     <td>Unknown</td>
     
 </tr>
-<tr class="repr-element general-a904bdc0-bda9-4e4c-b679-9cd54a77d137 ">
+<tr class="repr-element general-4c96700b-4f02-40e8-ad24-8357a7052497 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Participant</td>
     
     <td>Unknown</td>
     
 </tr>
-<tr class="repr-element general-a904bdc0-bda9-4e4c-b679-9cd54a77d137 ">
+<tr class="repr-element general-4c96700b-4f02-40e8-ad24-8357a7052497 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Experimenter</td>
     
@@ -976,10 +902,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header acquisition-04359d01-2de7-4cc3-b911-dadc1aa67f86" title="Hide section" onclick="toggleVisibility('acquisition-04359d01-2de7-4cc3-b911-dadc1aa67f86')">
+<tr class="mne-repr-section-header acquisition-79000234-7665-480a-8fd5-e22058b2df80"
+     title="Hide section" 
+    onclick="toggleVisibility('acquisition-79000234-7665-480a-8fd5-e22058b2df80')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -995,7 +923,7 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="repr-element acquisition-04359d01-2de7-4cc3-b911-dadc1aa67f86 ">
+<tr class="repr-element acquisition-79000234-7665-480a-8fd5-e22058b2df80 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Sampling frequency</td>
     <td>1200.00 Hz</td>
@@ -1011,10 +939,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header channels-a3610d5c-5bd3-4b0a-a30f-af0f5ff860de" title="Hide section" onclick="toggleVisibility('channels-a3610d5c-5bd3-4b0a-a30f-af0f5ff860de')">
+<tr class="mne-repr-section-header channels-fcc271c3-f7ea-4ad6-9ed5-5bbbbe8f6226"
+     title="Hide section" 
+    onclick="toggleVisibility('channels-fcc271c3-f7ea-4ad6-9ed5-5bbbbe8f6226')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1024,17 +954,17 @@ this file apply (plus whatever default styling the IDE applies).
 
 
     
-<tr class="repr-element channels-a3610d5c-5bd3-4b0a-a30f-af0f5ff860de ">
+<tr class="repr-element channels-fcc271c3-f7ea-4ad6-9ed5-5bbbbe8f6226 ">
     <td class="mne-repr-section-toggle"></td>
     <td>EEG</td>
     <td>
-        <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Good EEG:\n\nIz, Oz, O1, O2, TRIG')" title="(Click to open in popup)Iz, Oz, O1, O2, TRIG">
+        <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Good EEG:\n\nIz, Oz, O1, O2, TRIG')" title="(Click to open in popup)&#13;&#13;Iz, Oz, O1, O2, TRIG">
             5
         </button>
 
         
         
-        and <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Bad EEG:\n\nPOz')" title="(Click to open in popup)POz">
+        and <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Bad EEG:\n\nPOz')" title="(Click to open in popup)&#13;&#13;POz">
             1 bad
         </button>
         
@@ -1042,9 +972,9 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element channels-a3610d5c-5bd3-4b0a-a30f-af0f5ff860de ">
+<tr class="repr-element channels-fcc271c3-f7ea-4ad6-9ed5-5bbbbe8f6226 ">
     <td class="mne-repr-section-toggle"></td>
-    <td>Head &amp; sensor digitization</td>
+    <td>Head & sensor digitization</td>
     
     <td>8 points</td>
     
@@ -1057,10 +987,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header filters-0834ae7a-ea76-4f92-83d2-7a05221585f5" title="Hide section" onclick="toggleVisibility('filters-0834ae7a-ea76-4f92-83d2-7a05221585f5')">
+<tr class="mne-repr-section-header filters-49f04e39-c7ce-4062-a1b9-4b060425fe39"
+     title="Hide section" 
+    onclick="toggleVisibility('filters-49f04e39-c7ce-4062-a1b9-4b060425fe39')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1069,21 +1001,21 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element filters-0834ae7a-ea76-4f92-83d2-7a05221585f5 ">
+<tr class="repr-element filters-49f04e39-c7ce-4062-a1b9-4b060425fe39 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Highpass</td>
     <td>0.00 Hz</td>
 </tr>
 
 
-<tr class="repr-element filters-0834ae7a-ea76-4f92-83d2-7a05221585f5 ">
+<tr class="repr-element filters-49f04e39-c7ce-4062-a1b9-4b060425fe39 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Lowpass</td>
     <td>600.00 Hz</td>
 </tr>
 
 
-</tbody></table></div></div>
+</table></div></div>
 </div>
 <p>To visualize the frequency content of the continuous EEG data, use the <code class="docutils literal notranslate"><span class="pre">compute_psd()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Raw</span></code> object. The resulting <code class="docutils literal notranslate"><span class="pre">Spectrum</span></code> object’s <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method will display the power spectral density (PSD). Since the data contains only EEG channels, the PSD will be shown for those channels.</p>
 <p>To plot the average PSD across all EEG channels, use <code class="docutils literal notranslate"><span class="pre">average=True</span></code> and exclude any channels marked as bad.</p>
@@ -1091,7 +1023,7 @@ this file apply (plus whatever default styling the IDE applies).
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now plotting PSD with spatial info should work</span>
 <span class="n">spectrum</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">compute_psd</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">average</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">picks</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="s2">"bads"</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">average</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">picks</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;bads&quot;</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 </pre></div>
 </div>
@@ -1101,14 +1033,14 @@ this file apply (plus whatever default styling the IDE applies).
 Plotting power spectral density (dB=True).
 </pre></div>
 </div>
-<img alt="../_images/39c9fb48aadab027a696c4b37c9289391be36ddb0be2d79e8aca26f9596a8586.png" src="../_images/39c9fb48aadab027a696c4b37c9289391be36ddb0be2d79e8aca26f9596a8586.png">
+<img alt="_images/1fb5016492b49d4bf05144da76dafb13fb2e5823503f118bc9af756750427007.png" src="_images/1fb5016492b49d4bf05144da76dafb13fb2e5823503f118bc9af756750427007.png" />
 </div>
 </div>
 <p>It is also possible to plot each EEG channel individually, with options for how the spectrum should be computed, color-coding the channels by location, and more.</p>
 <p>For example, the following plot shows the PSD of the four selected sensors (specified via the picks parameter), with color-coding by spatial location enabled using the <code class="docutils literal notranslate"><span class="pre">spatial_colors</span></code> parameter. For full details, see the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method <a class="reference external" href="https://mne.tools/stable/generated/mne.time_frequency.Spectrum.html#mne.time_frequency.Spectrum.plot">documentation</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">picks</span><span class="o">=</span><span class="p">[</span><span class="s2">"Iz"</span><span class="p">,</span> <span class="s2">"Oz"</span><span class="p">,</span> <span class="s2">"O1"</span><span class="p">,</span> <span class="s2">"O2"</span><span class="p">],</span> <span class="n">amplitude</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">spatial_colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">picks</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Iz&quot;</span><span class="p">,</span> <span class="s2">&quot;Oz&quot;</span><span class="p">,</span> <span class="s2">&quot;O1&quot;</span><span class="p">,</span> <span class="s2">&quot;O2&quot;</span><span class="p">],</span> <span class="n">amplitude</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">spatial_colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 </pre></div>
 </div>
@@ -1117,7 +1049,7 @@ Plotting power spectral density (dB=True).
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting power spectral density (dB=True).
 </pre></div>
 </div>
-<img alt="../_images/07e65b7ce038cc059e110b314bb09d658e034688665522ce75bacd421ef31e95.png" src="../_images/07e65b7ce038cc059e110b314bb09d658e034688665522ce75bacd421ef31e95.png">
+<img alt="_images/8617d8aef6533376bf3c34e6b7645168e86669e40fb0a345e5b85d88f2050a26.png" src="_images/8617d8aef6533376bf3c34e6b7645168e86669e40fb0a345e5b85d88f2050a26.png" />
 </div>
 </div>
 <p>It is also possible to visualize spectral power estimates across sensors as scalp topographies using the Spectrum object’s <code class="docutils literal notranslate"><span class="pre">plot_topomap()</span></code> method. By default, this plots power in five frequency bands (δ, θ, α, β, γ), computes power based on magnetometer channels if available, and displays the estimates on a dB-like logarithmic scale.</p>
@@ -1129,7 +1061,7 @@ Plotting power spectral density (dB=True).
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07af9816ae7959648c839f09c2025237acf325b0eee132e43b86c416ed3db7f1.png" src="../_images/07af9816ae7959648c839f09c2025237acf325b0eee132e43b86c416ed3db7f1.png">
+<img alt="_images/ae57ed5786c8e0cb67bf9e790d0f0af22bdb3922e6f3485fbf2d903c1386c991.png" src="_images/ae57ed5786c8e0cb67bf9e790d0f0af22bdb3922e6f3485fbf2d903c1386c991.png" />
 </div>
 </div>
 </section>
@@ -1140,24 +1072,24 @@ Plotting power spectral density (dB=True).
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct trigger scaling</span>
 <span class="n">trigchan</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">trigchan</span> <span class="o">=</span> <span class="n">trigchan</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s1">'TRIG'</span><span class="p">)</span>
+<span class="n">trigchan</span> <span class="o">=</span> <span class="n">trigchan</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="s1">&#39;TRIG&#39;</span><span class="p">)</span>
 <span class="n">trigchan</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">trigchan</span><span class="o">.</span><span class="n">_data</span><span class="o">*</span><span class="mi">1000000</span> <span class="c1"># scale trigger channel properly</span>
 
 <span class="c1"># Extract events</span>
-<span class="n">events</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">find_events</span><span class="p">(</span><span class="n">trigchan</span><span class="p">,</span> <span class="n">stim_channel</span><span class="o">=</span><span class="s1">'TRIG'</span><span class="p">,</span> <span class="n">consecutive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_event</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Found </span><span class="si">%s</span><span class="s1"> events, first five:'</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">))</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">find_events</span><span class="p">(</span><span class="n">trigchan</span><span class="p">,</span> <span class="n">stim_channel</span><span class="o">=</span><span class="s1">&#39;TRIG&#39;</span><span class="p">,</span> <span class="n">consecutive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_event</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%s</span><span class="s1"> events, first five:&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">events</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 
 <span class="c1"># Create colormap</span>
 <span class="n">unique_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">events</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">n_ids</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ids</span><span class="p">)</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">colormaps</span><span class="p">[</span><span class="s1">'tab20'</span><span class="p">]</span><span class="o">.</span><span class="n">resampled</span><span class="p">(</span><span class="n">n_ids</span><span class="p">)</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">colormaps</span><span class="p">[</span><span class="s1">&#39;tab20&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resampled</span><span class="p">(</span><span class="n">n_ids</span><span class="p">)</span>
 
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_ids</span><span class="p">)]</span>
 <span class="n">event_id_to_color</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">unique_ids</span><span class="p">,</span> <span class="n">colors</span><span class="p">))</span>
 
 <span class="c1"># Plot events</span>
-<span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_events</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">'sfreq'</span><span class="p">],</span> <span class="n">raw</span><span class="o">.</span><span class="n">first_samp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">event_id_to_color</span><span class="p">);</span>
+<span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_events</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">raw</span><span class="o">.</span><span class="n">first_samp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">event_id_to_color</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1175,7 +1107,7 @@ Found 1725 events, first five:
  [31968   126   106]]
 </pre></div>
 </div>
-<img alt="../_images/26855033ffb704e30b906956928eff484d51bb70a1ff9a9024afe3a7b9479adc.png" src="../_images/26855033ffb704e30b906956928eff484d51bb70a1ff9a9024afe3a7b9479adc.png">
+<img alt="_images/731b21a73457bfbd8c6561f72e37f8a612da2ba45a438ab13c0ebda01a777138.png" src="_images/731b21a73457bfbd8c6561f72e37f8a612da2ba45a438ab13c0ebda01a777138.png" />
 </div>
 </div>
 </section>
@@ -1185,7 +1117,7 @@ Found 1725 events, first five:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select EEG channels (excluding stimulus channel)</span>
-<span class="n">eeg_data</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">pick_types</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">'TRIG'</span><span class="p">])</span>
+<span class="n">eeg_data</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">pick_types</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TRIG&#39;</span><span class="p">])</span>
 
 <span class="c1"># Set montage (should be a properly scaled mne.channels.DigMontage)</span>
 <span class="n">eeg_data</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">set_montage</span><span class="p">(</span><span class="n">montage_std</span><span class="p">)</span>
@@ -1203,13 +1135,12 @@ Found 1725 events, first five:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
-Setting channel interpolation method to {'eeg': 'spline'}.
+Setting channel interpolation method to {&#39;eeg&#39;: &#39;spline&#39;}.
 Interpolating bad channels.
 Computing interpolation matrix from 4 sensor positions
 Interpolating 1 sensors
 Filtering raw data in 1 contiguous segment
 Setting up band-pass filter from 1 - 45 Hz
-
 FIR filter parameters
 ---------------------
 Designing a one-pass, zero-phase, non-causal bandpass filter:
@@ -1369,10 +1300,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tbody><tr class="mne-repr-section-header general-8c304f24-2d09-4044-8f23-5522268486a7" title="Hide section" onclick="toggleVisibility('general-8c304f24-2d09-4044-8f23-5522268486a7')">
+<tr class="mne-repr-section-header general-5bb82b96-8de7-4b84-a401-7866c1a86638"
+     title="Hide section" 
+    onclick="toggleVisibility('general-5bb82b96-8de7-4b84-a401-7866c1a86638')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1381,7 +1314,7 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element general-8c304f24-2d09-4044-8f23-5522268486a7 ">
+<tr class="repr-element general-5bb82b96-8de7-4b84-a401-7866c1a86638 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Filename(s)</td>
     <td>
@@ -1392,26 +1325,26 @@ this file apply (plus whatever default styling the IDE applies).
     </td>
 </tr>
 
-<tr class="repr-element general-8c304f24-2d09-4044-8f23-5522268486a7 ">
+<tr class="repr-element general-5bb82b96-8de7-4b84-a401-7866c1a86638 ">
     <td class="mne-repr-section-toggle"></td>
     <td>MNE object type</td>
     <td>RawBrainVision</td>
 </tr>
-<tr class="repr-element general-8c304f24-2d09-4044-8f23-5522268486a7 ">
+<tr class="repr-element general-5bb82b96-8de7-4b84-a401-7866c1a86638 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Measurement date</td>
     
     <td>Unknown</td>
     
 </tr>
-<tr class="repr-element general-8c304f24-2d09-4044-8f23-5522268486a7 ">
+<tr class="repr-element general-5bb82b96-8de7-4b84-a401-7866c1a86638 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Participant</td>
     
     <td>Unknown</td>
     
 </tr>
-<tr class="repr-element general-8c304f24-2d09-4044-8f23-5522268486a7 ">
+<tr class="repr-element general-5bb82b96-8de7-4b84-a401-7866c1a86638 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Experimenter</td>
     
@@ -1426,10 +1359,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header acquisition-c71858e7-cea5-4828-bac4-c7c716f89f85" title="Hide section" onclick="toggleVisibility('acquisition-c71858e7-cea5-4828-bac4-c7c716f89f85')">
+<tr class="mne-repr-section-header acquisition-5d345644-9443-453b-9c13-cbd88ad3ad50"
+     title="Hide section" 
+    onclick="toggleVisibility('acquisition-5d345644-9443-453b-9c13-cbd88ad3ad50')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1438,7 +1373,7 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element acquisition-c71858e7-cea5-4828-bac4-c7c716f89f85 ">
+<tr class="repr-element acquisition-5d345644-9443-453b-9c13-cbd88ad3ad50 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Duration</td>
     <td>00:51:29 (HH:MM:SS)</td>
@@ -1451,14 +1386,14 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="repr-element acquisition-c71858e7-cea5-4828-bac4-c7c716f89f85 ">
+<tr class="repr-element acquisition-5d345644-9443-453b-9c13-cbd88ad3ad50 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Sampling frequency</td>
     <td>1200.00 Hz</td>
 </tr>
 
 
-<tr class="repr-element acquisition-c71858e7-cea5-4828-bac4-c7c716f89f85 ">
+<tr class="repr-element acquisition-5d345644-9443-453b-9c13-cbd88ad3ad50 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Time points</td>
     <td>3,706,304</td>
@@ -1473,10 +1408,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header channels-c4c0aad3-824d-43a0-b9b0-52f4b92ac71c" title="Hide section" onclick="toggleVisibility('channels-c4c0aad3-824d-43a0-b9b0-52f4b92ac71c')">
+<tr class="mne-repr-section-header channels-ab76b83f-fba3-4cd1-b258-ad67e61a0750"
+     title="Hide section" 
+    onclick="toggleVisibility('channels-ab76b83f-fba3-4cd1-b258-ad67e61a0750')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1486,11 +1423,11 @@ this file apply (plus whatever default styling the IDE applies).
 
 
     
-<tr class="repr-element channels-c4c0aad3-824d-43a0-b9b0-52f4b92ac71c ">
+<tr class="repr-element channels-ab76b83f-fba3-4cd1-b258-ad67e61a0750 ">
     <td class="mne-repr-section-toggle"></td>
     <td>EEG</td>
     <td>
-        <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Good EEG:\n\nIz, Oz, POz, O1, O2')" title="(Click to open in popup)Iz, Oz, POz, O1, O2">
+        <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Good EEG:\n\nIz, Oz, POz, O1, O2')" title="(Click to open in popup)&#13;&#13;Iz, Oz, POz, O1, O2">
             5
         </button>
 
@@ -1499,9 +1436,9 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element channels-c4c0aad3-824d-43a0-b9b0-52f4b92ac71c ">
+<tr class="repr-element channels-ab76b83f-fba3-4cd1-b258-ad67e61a0750 ">
     <td class="mne-repr-section-toggle"></td>
-    <td>Head &amp; sensor digitization</td>
+    <td>Head & sensor digitization</td>
     
     <td>8 points</td>
     
@@ -1514,10 +1451,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header filters-d4f6fe9c-d992-42a3-8496-e2bb830f44d9" title="Hide section" onclick="toggleVisibility('filters-d4f6fe9c-d992-42a3-8496-e2bb830f44d9')">
+<tr class="mne-repr-section-header filters-b0847f50-fe80-4b8b-85a2-aa6b406e488d"
+     title="Hide section" 
+    onclick="toggleVisibility('filters-b0847f50-fe80-4b8b-85a2-aa6b406e488d')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1526,21 +1465,21 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element filters-d4f6fe9c-d992-42a3-8496-e2bb830f44d9 ">
+<tr class="repr-element filters-b0847f50-fe80-4b8b-85a2-aa6b406e488d ">
     <td class="mne-repr-section-toggle"></td>
     <td>Highpass</td>
     <td>1.00 Hz</td>
 </tr>
 
 
-<tr class="repr-element filters-d4f6fe9c-d992-42a3-8496-e2bb830f44d9 ">
+<tr class="repr-element filters-b0847f50-fe80-4b8b-85a2-aa6b406e488d ">
     <td class="mne-repr-section-toggle"></td>
     <td>Lowpass</td>
     <td>45.00 Hz</td>
 </tr>
 
 
-</tbody></table></div></div>
+</table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1549,14 +1488,14 @@ this file apply (plus whatever default styling the IDE applies).
                      <span class="n">start</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span>                <span class="c1"># seconds into the recording</span>
                      <span class="n">duration</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> 
                      <span class="n">scalings</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="mf">0.00005</span><span class="p">),</span> <span class="c1"># Adjust EEG amplitude scaling</span>
-                     <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span>                  <span class="c1"># EEG trace color (black)</span>
-                     <span class="n">event_color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>            <span class="c1"># Event markers color (red)</span>
+                     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>                  <span class="c1"># EEG trace color (black)</span>
+                     <span class="n">event_color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>            <span class="c1"># Event markers color (red)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9bcb1b76769c398bcaa9e98e068eb5a7460449722454a98fb1b7bc7b7b4a9d47.png" src="../_images/9bcb1b76769c398bcaa9e98e068eb5a7460449722454a98fb1b7bc7b7b4a9d47.png">
+<img alt="_images/28ce4039e80f3cf022662ad774f1514d236d40ea463905544c8ba1bcb6aabd14.png" src="_images/28ce4039e80f3cf022662ad774f1514d236d40ea463905544c8ba1bcb6aabd14.png" />
 </div>
 </div>
 </section>
@@ -1566,7 +1505,7 @@ this file apply (plus whatever default styling the IDE applies).
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Epoch to events of interest</span>
-<span class="n">event_id</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'attend 6Hz K'</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">'attend 7.5Hz K'</span><span class="p">:</span>  <span class="mi">27</span><span class="p">}</span>  
+<span class="n">event_id</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;attend 6Hz K&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;attend 7.5Hz K&#39;</span><span class="p">:</span>  <span class="mi">27</span><span class="p">}</span>  
 
 <span class="c1"># Extract 15 s epochs relative to events, baseline correct, linear detrend, and reject </span>
 <span class="c1"># epochs where eeg amplitude is &gt; 400</span>
@@ -1734,10 +1673,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tbody><tr class="mne-repr-section-header general-474839c7-e25a-458a-99ab-ff3a0e2ce7c1" title="Hide section" onclick="toggleVisibility('general-474839c7-e25a-458a-99ab-ff3a0e2ce7c1')">
+<tr class="mne-repr-section-header general-402c27de-5396-4c49-8bb8-030aa496b539"
+     title="Hide section" 
+    onclick="toggleVisibility('general-402c27de-5396-4c49-8bb8-030aa496b539')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1746,26 +1687,26 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element general-474839c7-e25a-458a-99ab-ff3a0e2ce7c1 ">
+<tr class="repr-element general-402c27de-5396-4c49-8bb8-030aa496b539 ">
     <td class="mne-repr-section-toggle"></td>
     <td>MNE object type</td>
     <td>Epochs</td>
 </tr>
-<tr class="repr-element general-474839c7-e25a-458a-99ab-ff3a0e2ce7c1 ">
+<tr class="repr-element general-402c27de-5396-4c49-8bb8-030aa496b539 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Measurement date</td>
     
     <td>Unknown</td>
     
 </tr>
-<tr class="repr-element general-474839c7-e25a-458a-99ab-ff3a0e2ce7c1 ">
+<tr class="repr-element general-402c27de-5396-4c49-8bb8-030aa496b539 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Participant</td>
     
     <td>Unknown</td>
     
 </tr>
-<tr class="repr-element general-474839c7-e25a-458a-99ab-ff3a0e2ce7c1 ">
+<tr class="repr-element general-402c27de-5396-4c49-8bb8-030aa496b539 ">
     <td class="mne-repr-section-toggle"></td>
     <td>Experimenter</td>
     
@@ -1780,10 +1721,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b" title="Hide section" onclick="toggleVisibility('acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b')">
+<tr class="mne-repr-section-header acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb"
+     title="Hide section" 
+    onclick="toggleVisibility('acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1795,21 +1738,21 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="repr-element acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b ">
+<tr class="repr-element acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb ">
     <td class="mne-repr-section-toggle"></td>
     <td>Total number of events</td>
     <td>40</td>
 </tr>
 
 
-<tr class="repr-element acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b ">
+<tr class="repr-element acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb ">
     <td class="mne-repr-section-toggle"></td>
     <td>Events counts</td>
     
     <td>
         
         attend 6Hz K: 20
-        <br>
+        <br />
         
         attend 7.5Hz K: 20
         
@@ -1819,35 +1762,35 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b ">
+<tr class="repr-element acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb ">
     <td class="mne-repr-section-toggle"></td>
     <td>Time range</td>
     <td>0.000 – 15.000 s</td>
 </tr>
 
 
-<tr class="repr-element acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b ">
+<tr class="repr-element acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb ">
     <td class="mne-repr-section-toggle"></td>
     <td>Baseline</td>
     <td>0.000 – 0.000 s</td>
 </tr>
 
 
-<tr class="repr-element acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b ">
+<tr class="repr-element acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb ">
     <td class="mne-repr-section-toggle"></td>
     <td>Sampling frequency</td>
     <td>1200.00 Hz</td>
 </tr>
 
 
-<tr class="repr-element acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b ">
+<tr class="repr-element acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb ">
     <td class="mne-repr-section-toggle"></td>
     <td>Time points</td>
     <td>18,001</td>
 </tr>
 
 
-<tr class="repr-element acquisition-003bb82c-3d10-4dd3-8655-2a244d75b27b ">
+<tr class="repr-element acquisition-4397d0fb-2098-4962-8f02-6d0e8a5a48bb ">
     <td class="mne-repr-section-toggle"></td>
     <td>Metadata</td>
     <td>No metadata set</td>
@@ -1861,10 +1804,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header channels-fb8bd821-787d-422b-ad4a-17bdb14d47a3" title="Hide section" onclick="toggleVisibility('channels-fb8bd821-787d-422b-ad4a-17bdb14d47a3')">
+<tr class="mne-repr-section-header channels-8eda1497-b5ca-463f-98dd-a544c26f22db"
+     title="Hide section" 
+    onclick="toggleVisibility('channels-8eda1497-b5ca-463f-98dd-a544c26f22db')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1874,11 +1819,11 @@ this file apply (plus whatever default styling the IDE applies).
 
 
     
-<tr class="repr-element channels-fb8bd821-787d-422b-ad4a-17bdb14d47a3 ">
+<tr class="repr-element channels-8eda1497-b5ca-463f-98dd-a544c26f22db ">
     <td class="mne-repr-section-toggle"></td>
     <td>EEG</td>
     <td>
-        <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Good EEG:\n\nIz, Oz, POz, O1, O2')" title="(Click to open in popup)Iz, Oz, POz, O1, O2">
+        <button class="mne-ch-names-btn sd-sphinx-override sd-btn sd-btn-info sd-text-wrap sd-shadow-sm" onclick="alert('Good EEG:\n\nIz, Oz, POz, O1, O2')" title="(Click to open in popup)&#13;&#13;Iz, Oz, POz, O1, O2">
             5
         </button>
 
@@ -1887,9 +1832,9 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element channels-fb8bd821-787d-422b-ad4a-17bdb14d47a3 ">
+<tr class="repr-element channels-8eda1497-b5ca-463f-98dd-a544c26f22db ">
     <td class="mne-repr-section-toggle"></td>
-    <td>Head &amp; sensor digitization</td>
+    <td>Head & sensor digitization</td>
     
     <td>8 points</td>
     
@@ -1902,10 +1847,12 @@ this file apply (plus whatever default styling the IDE applies).
 
 
 
-<tr class="mne-repr-section-header filters-ceceac93-07ab-4f27-bc7f-0f6271af706e" title="Hide section" onclick="toggleVisibility('filters-ceceac93-07ab-4f27-bc7f-0f6271af706e')">
+<tr class="mne-repr-section-header filters-a155893c-0b79-4614-8d41-6d294a8bcefd"
+     title="Hide section" 
+    onclick="toggleVisibility('filters-a155893c-0b79-4614-8d41-6d294a8bcefd')">
     <th class="mne-repr-section-toggle">
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+        <button >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </th>
     <th colspan="2">
@@ -1914,43 +1861,43 @@ this file apply (plus whatever default styling the IDE applies).
 </tr>
 
 
-<tr class="repr-element filters-ceceac93-07ab-4f27-bc7f-0f6271af706e ">
+<tr class="repr-element filters-a155893c-0b79-4614-8d41-6d294a8bcefd ">
     <td class="mne-repr-section-toggle"></td>
     <td>Highpass</td>
     <td>1.00 Hz</td>
 </tr>
 
 
-<tr class="repr-element filters-ceceac93-07ab-4f27-bc7f-0f6271af706e ">
+<tr class="repr-element filters-a155893c-0b79-4614-8d41-6d294a8bcefd ">
     <td class="mne-repr-section-toggle"></td>
     <td>Lowpass</td>
     <td>45.00 Hz</td>
 </tr>
 
 
-</tbody></table></div></div>
+</table></div></div>
 </div>
 <p>We can average these epochs to form Event Related Potentials (ERPs):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Average epochs to form ERPs</span>
-<span class="n">attend6</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">'attend 6Hz K'</span><span class="p">]</span><span class="o">.</span><span class="n">average</span><span class="p">()</span>
-<span class="n">attend75</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">'attend 7.5Hz K'</span><span class="p">]</span><span class="o">.</span><span class="n">average</span><span class="p">()</span>
+<span class="n">attend6</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;attend 6Hz K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">average</span><span class="p">()</span>
+<span class="n">attend75</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;attend 7.5Hz K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">average</span><span class="p">()</span>
 
 <span class="c1"># Plot ERPs</span>
-<span class="n">evokeds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">attend6</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">epochs</span><span class="p">[</span><span class="s1">'attend 6Hz K'</span><span class="p">]</span><span class="o">.</span><span class="n">iter_evoked</span><span class="p">()),</span>
-               <span class="n">attend75</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">epochs</span><span class="p">[</span><span class="s1">'attend 7.5Hz K'</span><span class="p">]</span><span class="o">.</span><span class="n">iter_evoked</span><span class="p">()))</span>
-<span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_compare_evokeds</span><span class="p">(</span><span class="n">evokeds</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">)</span>
+<span class="n">evokeds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">attend6</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;attend 6Hz K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iter_evoked</span><span class="p">()),</span>
+               <span class="n">attend75</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;attend 7.5Hz K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iter_evoked</span><span class="p">()))</span>
+<span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_compare_evokeds</span><span class="p">(</span><span class="n">evokeds</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>combining channels using "mean"
-combining channels using "mean"
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>combining channels using &quot;mean&quot;
+combining channels using &quot;mean&quot;
 </pre></div>
 </div>
-<img alt="../_images/036a5f04036e8c2e86a6a4119b53f11bc2af860645010fc3c024b8044ae52746.png" src="../_images/036a5f04036e8c2e86a6a4119b53f11bc2af860645010fc3c024b8044ae52746.png">
+<img alt="_images/52c13c4425d924ecaaabf17f58e529a271e2c0189f7d13a427fae65a376565ae.png" src="_images/52c13c4425d924ecaaabf17f58e529a271e2c0189f7d13a427fae65a376565ae.png" />
 </div>
 </div>
 <p>In this plot, we can see that the data are frequency tagged. While these data were collected, the participant was performing an attention task in which two visual stimuli were flickering at 6 Hz and 7.5 Hz respectively. On each trial the participant was cued to monitor one of these two stimuli for brief bursts of motion. From previous research, we expect that the steady-state visual evoked potential (SSVEP) should be larger at the attended frequency than the unattended frequency. First, we’ll examine how these frequency-tagged responses evolve over time, then quantify their overall strength. Let’s check if this is true.</p>
@@ -1962,10 +1909,10 @@ combining channels using "mean"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duration</span> <span class="o">=</span> <span class="mi">15</span> <span class="c1"># seconds</span>
 <span class="n">psds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'attend 6Hz K'</span><span class="p">,</span> <span class="s1">'attend 7.5Hz K'</span><span class="p">]:</span>
-    <span class="n">spectrum</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">average</span><span class="p">()</span><span class="o">.</span><span class="n">compute_psd</span><span class="p">(</span><span class="s2">"welch"</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">epochs</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">'sfreq'</span><span class="p">]</span><span class="o">*</span><span class="n">duration</span><span class="p">),</span> <span class="n">n_overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                                                    <span class="n">n_per_seg</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">epochs</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">'sfreq'</span><span class="p">]</span><span class="o">*</span><span class="n">duration</span><span class="p">),</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span>
-                                                    <span class="n">window</span><span class="o">=</span><span class="s2">"boxcar"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;attend 6Hz K&#39;</span><span class="p">,</span> <span class="s1">&#39;attend 7.5Hz K&#39;</span><span class="p">]:</span>
+    <span class="n">spectrum</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">average</span><span class="p">()</span><span class="o">.</span><span class="n">compute_psd</span><span class="p">(</span><span class="s2">&quot;welch&quot;</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">epochs</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">duration</span><span class="p">),</span> <span class="n">n_overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                    <span class="n">n_per_seg</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">epochs</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">duration</span><span class="p">),</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span>
+                                                    <span class="n">window</span><span class="o">=</span><span class="s2">&quot;boxcar&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">psds</span><span class="p">[</span><span class="n">cond</span><span class="p">],</span> <span class="n">freqs</span> <span class="o">=</span> <span class="n">spectrum</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">return_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1975,21 +1922,21 @@ combining channels using "mean"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">cols</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'attend 6Hz K'</span><span class="p">:[</span><span class="mi">78</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">185</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">159</span> <span class="o">/</span> <span class="mi">255</span><span class="p">],</span> <span class="s1">'attend 7.5Hz K'</span><span class="p">:[</span><span class="mi">236</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">85</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">58</span> <span class="o">/</span> <span class="mi">255</span><span class="p">]}</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;attend 6Hz K&#39;</span><span class="p">:[</span><span class="mi">78</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">185</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">159</span> <span class="o">/</span> <span class="mi">255</span><span class="p">],</span> <span class="s1">&#39;attend 7.5Hz K&#39;</span><span class="p">:[</span><span class="mi">236</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">85</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">58</span> <span class="o">/</span> <span class="mi">255</span><span class="p">]}</span>
 
-<span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'attend 6Hz K'</span><span class="p">,</span> <span class="s1">'attend 7.5Hz K'</span><span class="p">]:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">psds</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="s1">'-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">cond</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cols</span><span class="p">[</span><span class="n">cond</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;attend 6Hz K&#39;</span><span class="p">,</span> <span class="s1">&#39;attend 7.5Hz K&#39;</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">psds</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">cond</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cols</span><span class="p">[</span><span class="n">cond</span><span class="p">])</span>
     
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Frequency Spectrum'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Frequency (Hz)'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Amp. (uv)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency Spectrum&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amp. (uv)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6bb31af4a575e5940452cfca08f71d5d0feb7b52fdf36fe46e79e87c7c01b968.png" src="../_images/6bb31af4a575e5940452cfca08f71d5d0feb7b52fdf36fe46e79e87c7c01b968.png">
+<img alt="_images/625ea04ee98e00edbdae061e0c1cf62f5f85b7d56e5cb280dd7015d5fe4f5b17.png" src="_images/625ea04ee98e00edbdae061e0c1cf62f5f85b7d56e5cb280dd7015d5fe4f5b17.png" />
 </div>
 </div>
 </section>
@@ -2000,7 +1947,7 @@ combining channels using "mean"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preallocate</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="n">attend6</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">sampling_freq</span> <span class="o">=</span> <span class="n">attend6</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">'sfreq'</span><span class="p">]</span> <span class="c1"># sampling frequency</span>
+<span class="n">sampling_freq</span> <span class="o">=</span> <span class="n">attend6</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">]</span> <span class="c1"># sampling frequency</span>
 <span class="n">epochs_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="c1"># Get data - averaging across EEG channels</span>
@@ -2027,23 +1974,61 @@ combining channels using "mean"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">fftdat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="s1">'-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'attend 6Hz'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">78</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">185</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">159</span> <span class="o">/</span> <span class="mi">255</span><span class="p">])</span>  
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">fftdat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'attend 7.5Hz'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">236</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">85</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">58</span> <span class="o">/</span> <span class="mi">255</span><span class="p">])</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">fftdat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;attend 6Hz&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">78</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">185</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">159</span> <span class="o">/</span> <span class="mi">255</span><span class="p">])</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">fftdat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;attend 7.5Hz&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">236</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">85</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">58</span> <span class="o">/</span> <span class="mi">255</span><span class="p">])</span>  
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Frequency (Hz)'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Amp. (uv)'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Frequency Spectrum'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amp. (uv)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency Spectrum&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51cc57166a3471458053a23d077703560125b5066dd9ecfb5368be8305aef81f.png" src="../_images/51cc57166a3471458053a23d077703560125b5066dd9ecfb5368be8305aef81f.png">
+<img alt="_images/a767004c98656e6ae289d729a010f120b5299e0b2d19e1ea2d7b33e9192d5988.png" src="_images/a767004c98656e6ae289d729a010f120b5299e0b2d19e1ea2d7b33e9192d5988.png" />
 </div>
 </div>
 <p>This plot shows that the SSVEPs were indeed modulated by attention in the direction we would expect!</p>
+<section id="dependencies-in-jupyter-python">
+<h4>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-12-05T08:14:32.139525+00:00
+
+Python implementation: CPython
+Python version       : 3.13.9
+IPython version      : 9.7.0
+
+Compiler    : GCC 14.3.0
+OS          : Linux
+Release     : 5.15.0-151-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+numpy     : 2.3.5
+scipy     : 1.16.3
+matplotlib: 3.10.7
+mne       : 1.10.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -2061,7 +2046,7 @@ combining channels using "mean"
         },
         kernelOptions: {
             name: "python3",
-            path: "./electrophysiology"
+            path: "./."
         },
         predefinedOutput: true
     }
@@ -2078,13 +2063,6 @@ combining channels using "mean"
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev" href="../functional_imaging/process_five_echo_dataset.html" title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">tedana: TE Dependent ANAlysis</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
@@ -2105,7 +2083,6 @@ combining channels using "mean"
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-this-work-is-based-on">Tutorial this work is based on</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-cpu-vendor-and-model-for-compatibility-or-performance-considerations">Check CPU vendor and model for compatibility or performance considerations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-python-libraries">Install and import python libraries</a></li>
@@ -2116,7 +2093,10 @@ combining channels using "mean"
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-eeg-channels-and-preprocess">Extract EEG Channels and Preprocess</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epoching-the-data">Epoching the Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fft">FFT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-the-data">Exporting the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-the-data">Exporting the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2144,7 +2124,7 @@ By Neurodesk Team
   <p class="copyright">
     
       © Copyright 2023.
-      <br>
+      <br/>
     
   </p>
 
@@ -2167,10 +2147,10 @@ By Neurodesk Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
-  
-</body></html>
+  </body>
+</html>
