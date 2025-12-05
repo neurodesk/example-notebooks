@@ -242,16 +242,34 @@
       
       <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/pydra_preproc_ants.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
+   title="Launch on Run in America"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
+    <img alt="Run in America logo" src="_static/images/logo_jupyterhub.svg">
   </span>
-<span class="btn__text-container">JupyterHub</span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/pydra_preproc_ants.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
 </a>
 </li>
       
@@ -464,6 +482,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-results">5. Visualizing Results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-overview-tasks-inputs-and-outputs">Workflow overview: tasks, inputs, and outputs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-registration-to-mni-space">Functional registration to MNI space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
 </ul>
 </li>
 </ul>
@@ -482,6 +501,7 @@ document.write(`
 <section id="registration-workflow-with-antspy-and-freesurfer-s-synthstrip">
 <h2>Registration Workflow with ANTsPy and FreeSurfer’s SynthStrip<a class="headerlink" href="#registration-workflow-with-antspy-and-freesurfer-s-synthstrip" title="Link to this heading">#</a></h2>
 <p><strong>Author</strong>: Monika Doerig</p>
+<p><strong>Date</strong>: 2 Sep 2025</p>
 <section id="citation-and-resources">
 <h3>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h3>
 <section id="tools-included-in-this-workflow">
@@ -515,7 +535,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pydra</span><span class="o">&gt;=</span><span class="mf">1.0</span><span class="n">a</span> <span class="n">antspyx</span><span class="o">==</span><span class="mf">0.6.1</span> <span class="n">nilearn</span> <span class="n">nibabel</span>
+<span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pydra</span><span class="o">==</span><span class="mf">1.0</span><span class="n">a4</span> <span class="n">antspyx</span><span class="o">==</span><span class="mf">0.6.1</span> <span class="n">nilearn</span> <span class="n">nibabel</span>
 </pre></div>
 </div>
 </div>
@@ -535,22 +555,10 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nilearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_mni152_template</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nilearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">plotting</span><span class="p">,</span> <span class="n">image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nilearn.image</span><span class="w"> </span><span class="kn">import</span> <span class="n">math_img</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ty</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fileformats.generic</span><span class="w"> </span><span class="kn">import</span> <span class="n">File</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nest_asyncio</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pydra.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">python</span><span class="p">,</span> <span class="n">workflow</span><span class="p">,</span> <span class="n">shell</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pydra.engine.submitter</span><span class="w"> </span><span class="kn">import</span> <span class="n">Submitter</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pydra.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_workflow</span><span class="p">,</span> <span class="n">print_help</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pydra.compose&#39;
 </pre></div>
 </div>
 </div>
@@ -572,7 +580,22 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;freesurfer/7.3.2&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+&quot;freesurfer/7.3.2&quot;
+
+Please check the spelling or version number. Also try &quot;module spider ...&quot;
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load &quot;freesurfer/7.3.2&quot;
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
 </div>
@@ -618,7 +641,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning:   0%|                             | 0.00/2.00 [00:00&lt;?, ? candidates/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is highly recommended to configure Git before using DataLad. Set both &#39;user.name&#39; and &#39;user.email&#39; configuration variables.
+Cloning:   0%|                             | 0.00/2.00 [00:00&lt;?, ? candidates/s]
+
 Enumerating: 0.00 Objects [00:00, ? Objects/s]
                                               
 Counting:   0%|                               | 0.00/27.0 [00:00&lt;?, ? Objects/s]
@@ -626,60 +651,30 @@ Counting:   0%|                               | 0.00/27.0 [00:00&lt;?, ? Objects
 Compressing:   0%|                            | 0.00/23.0 [00:00&lt;?, ? Objects/s]
                                                                                 
 Receiving:   0%|                             | 0.00/2.15k [00:00&lt;?, ? Objects/s]
+
                                                                                 
 Resolving:   0%|                                | 0.00/537 [00:00&lt;?, ? Deltas/s]
-[INFO   ] scanning for unlocked files (this may take some time)                 
-[INFO   ] Remote origin not usable by git-annex; setting annex-ignore 
-[INFO   ] access to 1 dataset sibling s3-PRIVATE not auto-enabled, enable with:
-| 		datalad siblings -d &quot;/home/jovyan/Git_repositories/Neurodesk_examples/drafts/ds000102&quot; enable -s s3-PRIVATE 
-<span class=" -Color -Color-Bold">install</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): /home/jovyan/Git_repositories/Neurodesk_examples/drafts/ds000102 (<span class=" -Color -Color-Bold -Color-Bold-Magenta">dataset</span>)
-Total:   0%|                                   | 0.00/66.8M [00:00&lt;?, ? Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   0%|            | 0.00/10.6M [00:00&lt;?, ? Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   1%|     | 139k/10.6M [00:00&lt;00:22, 473k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   3%|▏    | 312k/10.6M [00:00&lt;00:11, 882k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   7%|▎   | 747k/10.6M [00:00&lt;00:04, 1.99M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  11%|▎  | 1.15M/10.6M [00:00&lt;00:03, 2.61M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  19%|▌  | 1.97M/10.6M [00:00&lt;00:01, 4.32M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  37%|█  | 3.88M/10.6M [00:00&lt;00:00, 8.86M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  55%|█▋ | 5.82M/10.6M [00:00&lt;00:00, 12.0M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  86%|██▌| 9.09M/10.6M [00:01&lt;00:00, 13.9M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz: 100%|██▉| 10.6M/10.6M [00:01&lt;00:00, 9.47M Bytes/s]
-Total:  16%|████                      | 10.6M/66.8M [00:02&lt;00:13, 4.05M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   0%|            | 0.00/28.1M [00:00&lt;?, ? Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  16%|▍  | 4.60M/28.1M [00:00&lt;00:01, 23.0M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  29%|▊  | 8.12M/28.1M [00:00&lt;00:01, 19.8M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  36%|█  | 10.1M/28.1M [00:00&lt;00:00, 19.8M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  44%|█▎ | 12.3M/28.1M [00:00&lt;00:00, 20.5M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  58%|█▋ | 16.2M/28.1M [00:00&lt;00:00, 19.8M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  65%|█▉ | 18.3M/28.1M [00:00&lt;00:00, 20.1M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  80%|██▍| 22.5M/28.1M [00:01&lt;00:00, 20.6M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  94%|██▊| 26.5M/28.1M [00:01&lt;00:00, 20.2M Bytes/s]
-Total:  58%|███████████████           | 38.6M/66.8M [00:04&lt;00:03, 8.98M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   0%|            | 0.00/28.1M [00:00&lt;?, ? Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   8%|▎  | 2.36M/28.1M [00:00&lt;00:02, 11.8M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  14%|▍  | 4.03M/28.1M [00:00&lt;00:01, 13.5M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  23%|▋  | 6.60M/28.1M [00:00&lt;00:01, 12.8M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  30%|▉  | 8.48M/28.1M [00:00&lt;00:01, 11.3M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  37%|█  | 10.4M/28.1M [00:00&lt;00:01, 13.1M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  43%|█▎ | 12.1M/28.1M [00:00&lt;00:01, 14.1M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  52%|█▌ | 14.6M/28.1M [00:01&lt;00:01, 13.4M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  57%|█▋ | 16.1M/28.1M [00:01&lt;00:00, 13.8M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  66%|█▉ | 18.7M/28.1M [00:01&lt;00:00, 13.4M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  75%|██▎| 21.2M/28.1M [00:01&lt;00:00, 12.2M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  80%|██▍| 22.5M/28.1M [00:01&lt;00:00, 12.3M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  85%|██▌| 23.9M/28.1M [00:01&lt;00:00, 12.3M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  89%|██▋| 25.2M/28.1M [00:01&lt;00:00, 12.5M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  94%|██▊| 26.5M/28.1M [00:02&lt;00:00, 12.7M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  99%|██▉| 27.8M/28.1M [00:02&lt;00:00, 12.8M Bytes/s]
-                                                                                
-Get sub-01/f .. _bold.nii.gz:   0%|            | 0.00/28.1M [00:00&lt;?, ? Bytes/s]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01/anat/sub-01_T1w.nii.gz (<span class=" -Color -Color-Bold -Color-Bold-Magenta">file</span>) [from s3-PUBLIC...]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz (<span class=" -Color -Color-Bold -Color-Bold-Magenta">file</span>) [from s3-PUBLIC...]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz (<span class=" -Color -Color-Bold -Color-Bold-Magenta">file</span>) [from s3-PUBLIC...]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01 (<span class=" -Color -Color-Bold -Color-Bold-Magenta">directory</span>)
-action summary:
-  get (ok: 4)
 
+                                                                                
+[INFO   ] Remote origin not usable by git-annex; setting annex-ignore 
+[INFO   ] https://github.com/OpenNeuroDatasets/ds000102.git/config download failed: Not Found
+[INFO   ] Author identity unknown
+| 
+| *** Please tell me who you are.
+| 
+| Run
+| 
+|   git config --global user.email &quot;you@example.com&quot;
+|   git config --global user.name &quot;Your Name&quot;
+| 
+| to set your account&#39;s default identity.
+| Omit --global to set the identity only in this repository.
+| 
+| fatal: unable to auto-detect email address (got &#39;root@083bb3f58328.(none)&#39;) 
+[INFO   ] git-annex: user error (git [&quot;--git-dir=.git&quot;,&quot;--work-tree=.&quot;,&quot;--literal-pathspecs&quot;,&quot;-c&quot;,&quot;annex.dotfiles=true&quot;,&quot;commit-tree&quot;,&quot;eef91546d25f1f9bf1bbcfe1c24b1618735a22f0&quot;,&quot;--no-gpg-sign&quot;,&quot;-p&quot;,&quot;refs/heads/git-annex&quot;] exited 128)
+<span class=" -Color -Color-Bold">install</span>(<span class=" -Color -Color-Bold -Color-Bold-Red">error</span>): /tmp/tmpoq8wy55s/ds000102 (<span class=" -Color -Color-Bold -Color-Bold-Magenta">dataset</span>) [CommandError: &#39;git -c diff.ignoreSubmodules=none -c core.quotepath=false annex init -c annex.dotfiles=true&#39; failed with exitcode 1 under /tmp/tmpoq8wy55s/ds000102]<span class=" -Color -Color-Bold -Color-Bold-Red"> [CommandError: &#39;git -c diff.ignoreSubmodules=none -c core.quotepath=false annex init -c annex.dotfiles=true&#39; failed with exitcode 1 under /tmp/tmpoq8wy55s/ds000102]</span>
+
+/bin/bash: line 1: cd: ds000102: No such file or directory
 </pre></div>
 </div>
 </div>
@@ -699,7 +694,7 @@ action summary:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jovyan/Git_repositories/Neurodesk_examples/drafts/mni_template.nii.gz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/tmpoq8wy55s/mni_template.nii.gz
 </pre></div>
 </div>
 </div>
@@ -905,25 +900,7 @@ action summary:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: mri_synthstrip [-h] -i file [-o file] [-m file] [-g] [-b BORDER]
-                      [--no-csf] [--model file]
-
-Robust, universal skull-stripping for brain images of any type. If you use
-SynthStrip in your analysis, please cite: SynthStrip: Skull-Stripping for Any
-Brain Image. A Hoopes, JS Mora, AV Dalca, B Fischl, M Hoffmann. NeuroImage 206
-(2022), 119474. https://doi.org/10.1016/j.neuroimage.2022.119474
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -i file, --image file
-                        Input image to skullstrip.
-  -o file, --out file   Save stripped image to path.
-  -m file, --mask file  Save binary brain mask to path.
-  -g, --gpu             Use the GPU.
-  -b BORDER, --border BORDER
-                        Mask border threshold in mm. Default is 1.
-  --no-csf              Exclude CSF from brain border.
-  --model file          Alternative model weights.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: mri_synthstrip: command not found
 </pre></div>
 </div>
 </div>
@@ -1068,15 +1045,36 @@ Outputs:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">func_run_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./ds000102/sub-01/func&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">anat_sub_01</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./ds000102/sub-01/anat/sub-01_T1w.nii.gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">wf_preproc</span> <span class="o">=</span> <span class="n">PreprocWorkflow</span><span class="p">(</span><span class="n">anat</span><span class="o">=</span> <span class="n">anat_sub_01</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                             <span class="n">template</span><span class="o">=</span><span class="n">template</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>                              <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="p">(</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">func_run_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.nii.gz&quot;</span><span class="p">)))</span> <span class="c1">#only nifti files, ignore json files</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">result_wf</span> <span class="o">=</span> <span class="n">wf_preproc</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/pathlib/_local.py:575,</span> in <span class="ni">Path.iterdir</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Yield path objects of the directory contents.</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span><span class="sd"> The children are yielded in arbitrary order, and the</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span><span class="sd"> special entries &#39;.&#39; and &#39;..&#39; are not included.</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">root_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">575</span> <span class="k">with</span> <span class="n">os</span><span class="o">.</span><span class="n">scandir</span><span class="p">(</span><span class="n">root_dir</span><span class="p">)</span> <span class="k">as</span> <span class="n">scandir_it</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span><span class="o">.</span><span class="n">path</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">scandir_it</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="k">if</span> <span class="n">root_dir</span> <span class="o">==</span> <span class="s1">&#39;.&#39;</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/tmp/tmpoq8wy55s/ds000102/sub-01/func&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_wf</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SplitOutputs(anat_brain=[File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/brain_stripped.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/brain_stripped.nii (1).gz&#39;)], bold_preproc=[File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/sub-01_task-flanker_run-2_bold_mc_mni.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/sub-01_task-flanker_run-1_bold_mc_mni.nii.gz&#39;)])
 </pre></div>
 </div>
 </div>
@@ -1114,7 +1112,7 @@ Outputs:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Split(defn=PreprocWorkflow(anat=&#39;/home/jovyan/Git_repositories/Neurodesk_examples/drafts/ds000102/.git/annex/objects/Pf/6k/MD5E-s10581116--757e697a01eeea5c97a7d6fbc7153373.nii.gz/MD5E-s10581116--757e697a01eeea5c97a7d6fbc7153373.nii.gz&#39;, func=StateArray(&#39;/home/jovyan/Git_repositories/Neurodesk_examples/drafts/ds000102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;, &#39;/home/jovyan/Git_repositories/Neurodesk_examples/drafts/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;), template=&#39;/home/jovyan/Git_repositories/Neurodesk_examples/drafts/mni_template.nii.gz&#39;, constructor=&lt;function PreprocWorkflow at 0x7f8c158e7880&gt;), output_types={&#39;anat_brain&#39;: out(name=&#39;anat_brain&#39;, type=list[fileformats.generic.file.File], default=NO_DEFAULT, help=&#39;&#39;, requires=[], converter=None, validator=None, hash_eq=False), &#39;bold_preproc&#39;: out(name=&#39;bold_preproc&#39;, type=list[fileformats.generic.file.File], default=NO_DEFAULT, help=&#39;&#39;, requires=[], converter=None, validator=None, hash_eq=False)}, environment=Native())
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Split(defn=PreprocWorkflow(anat=&#39;/home/jovyan/Git_repositories/example-notebooks/books/workflows/ds000102/.git/annex/objects/Pf/6k/MD5E-s10581116--757e697a01eeea5c97a7d6fbc7153373.nii.gz/MD5E-s10581116--757e697a01eeea5c97a7d6fbc7153373.nii.gz&#39;, func=StateArray(&#39;/home/jovyan/Git_repositories/example-notebooks/books/workflows/ds000102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;, &#39;/home/jovyan/Git_repositories/example-notebooks/books/workflows/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;), template=&#39;/home/jovyan/Git_repositories/example-notebooks/books/workflows/mni_template.nii.gz&#39;, constructor=&lt;function PreprocWorkflow at 0x7ff62e7853a0&gt;), output_types={&#39;anat_brain&#39;: out(name=&#39;anat_brain&#39;, type=list[fileformats.generic.file.File], default=NO_DEFAULT, help=&#39;&#39;, requires=[], converter=None, validator=None, hash_eq=False), &#39;bold_preproc&#39;: out(name=&#39;bold_preproc&#39;, type=list[fileformats.generic.file.File], default=NO_DEFAULT, help=&#39;&#39;, requires=[], converter=None, validator=None, hash_eq=False)}, environment=Native())
 </pre></div>
 </div>
 </div>
@@ -1126,7 +1124,7 @@ Outputs:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968&#39;)
 </pre></div>
 </div>
 </div>
@@ -1138,7 +1136,7 @@ Outputs:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SplitOutputs(anat_brain=[File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/brain_stripped.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/brain_stripped.nii (1).gz&#39;)], bold_preproc=[File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/sub-01_task-flanker_run-2_bold_mc_mni.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/sub-01_task-flanker_run-1_bold_mc_mni.nii.gz&#39;)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SplitOutputs(anat_brain=[File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/brain_stripped.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/brain_stripped.nii (1).gz&#39;)], bold_preproc=[File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/sub-01_task-flanker_run-2_bold_mc_mni.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/sub-01_task-flanker_run-1_bold_mc_mni.nii.gz&#39;)])
 </pre></div>
 </div>
 </div>
@@ -1177,7 +1175,7 @@ This guard is not required when running inside a Jupyter Notebook.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SplitOutputs(anat_brain=[File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/brain_stripped.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/brain_stripped.nii (1).gz&#39;)], bold_preproc=[File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/sub-01_task-flanker_run-2_bold_mc_mni.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a2/run-cache/workflow-5147aca5e78063f99d30f52d1381f21d/sub-01_task-flanker_run-1_bold_mc_mni.nii.gz&#39;)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SplitOutputs(anat_brain=[File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/brain_stripped.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/brain_stripped.nii (1).gz&#39;)], bold_preproc=[File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/sub-01_task-flanker_run-2_bold_mc_mni.nii.gz&#39;), File(&#39;/home/jovyan/.cache/pydra/1.0a4/run-cache/workflow-5f2076bdbc91e4f34eb3463bf152c968/sub-01_task-flanker_run-1_bold_mc_mni.nii.gz&#39;)])
 </pre></div>
 </div>
 </div>
@@ -1196,7 +1194,7 @@ This guard is not required when running inside a Jupyter Notebook.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5886ab964fe1a8da79f94c96d2620e1dc7db619ff200a4243bdf1d0ecfe19eb2.png" src="_images/5886ab964fe1a8da79f94c96d2620e1dc7db619ff200a4243bdf1d0ecfe19eb2.png" />
+<img alt="_images/3594e88e99f655cd921f770dc7c5a1730bf719f3c66c5e758ff85e54bb9b5f3a.png" src="_images/3594e88e99f655cd921f770dc7c5a1730bf719f3c66c5e758ff85e54bb9b5f3a.png" />
 </div>
 </div>
 </section>
@@ -1222,22 +1220,66 @@ This guard is not required when running inside a Jupyter Notebook.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer at 0x7f8c158f9130&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer at 0x7ff620ef4cd0&gt;
 </pre></div>
 </div>
-<img alt="_images/0866e077bcaa7a3796c85432d3f371f0a18892ea761404969d9916a21c82fcfc.png" src="_images/0866e077bcaa7a3796c85432d3f371f0a18892ea761404969d9916a21c82fcfc.png" />
+<img alt="_images/183233f4a19e0c810bb8f126c04d9a1c5ee510225f992c2610c2f4e3b048d323.png" src="_images/183233f4a19e0c810bb8f126c04d9a1c5ee510225f992c2610c2f4e3b048d323.png" />
 </div>
 </div>
-<p>Let’s use <code class="docutils literal notranslate"><span class="pre">add_edges</span></code> as another visualization option for checking coregistration by overlaying the MNI template as edges (red) on top of mean functional image (background):</p>
+<p>Let’s use <code class="docutils literal notranslate"><span class="pre">add_contours</span></code> as another visualization option for checking coregistration by overlaying the MNI template as contour (red) on top of mean functional image (background):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_anat</span><span class="p">(</span><span class="n">mean_bold</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Edges of MNI template on mean BOLD&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">display</span><span class="o">.</span><span class="n">add_edges</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a binary mask of the template</span>
+<span class="n">template_mask</span> <span class="o">=</span> <span class="n">math_img</span><span class="p">(</span><span class="s2">&quot;img &gt; 0.1&quot;</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="n">template</span><span class="p">)</span>
+
+<span class="n">display</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_anat</span><span class="p">(</span><span class="n">mean_bold</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Edges of MNI template on mean BOLD&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">add_contours</span><span class="p">(</span><span class="n">template_mask</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/58abdb86c45eb90312f97fc985203ecf895ed871ca0225e127a0cc47fd554aa2.png" src="_images/58abdb86c45eb90312f97fc985203ecf895ed871ca0225e127a0cc47fd554aa2.png" />
+<img alt="_images/48ed9b82022b54ee13bb555d46a7ea05e022e73e4b772cd1a3657e3348f82509.png" src="_images/48ed9b82022b54ee13bb555d46a7ea05e022e73e4b772cd1a3657e3348f82509.png" />
+</div>
+</div>
+</section>
+<section id="dependencies-in-jupyter-python">
+<h3>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-10-31T04:06:20.261191+00:00
+
+Python implementation: CPython
+Python version       : 3.11.6
+IPython version      : 8.16.1
+
+Compiler    : GCC 12.3.0
+OS          : Linux
+Release     : 5.4.0-204-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+numpy       : 2.2.6
+nilearn     : 0.12.1
+nest_asyncio: 1.5.8
+pydra       : 1.0a4
+fileformats : 0.16.5
+ants        : 0.6.1
+nibabel     : 5.3.2
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1325,6 +1367,7 @@ This guard is not required when running inside a Jupyter Notebook.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-results">5. Visualizing Results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-overview-tasks-inputs-and-outputs">Workflow overview: tasks, inputs, and outputs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-registration-to-mni-space">Functional registration to MNI space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
 </ul>
 </li>
 </ul>
