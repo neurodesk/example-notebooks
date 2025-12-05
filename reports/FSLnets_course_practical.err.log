@@ -1,0 +1,88 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+run_fslpython('./FSLnets/estimate_network.py')
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [43mrun_fslpython[49m[43m([49m[33;43m'[39;49m[33;43m./FSLnets/estimate_network.py[39;49m[33;43m'[39;49m[43m)[49m
+
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 14[39m, in [36mrun_fslpython[39m[34m(script_path, verbose)[39m
+[32m      3[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mrun_fslpython[39m(script_path, verbose=[38;5;28;01mTrue[39;00m):
+[32m      4[39m [38;5;250m    [39m[33;03m"""[39;00m
+[32m      5[39m [33;03m    Run a Python script using fslpython inside a Jupyter notebook.[39;00m
+[32m      6[39m [33;03m    Prevents hanging by disabling stdin and capturing output.[39;00m
+[32m   (...)[39m[32m     12[39m 
+[32m     13[39m [33;03m    """[39;00m
+[32m---> [39m[32m14[39m     result = [43msubprocess[49m[43m.[49m[43mrun[49m[43m([49m
+[32m     15[39m [43m        [49m[43m[[49m[33;43m"[39;49m[33;43mfslpython[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43mscript_path[49m[43m][49m[43m,[49m
+[32m     16[39m [43m        [49m[43mstdin[49m[43m=[49m[43msubprocess[49m[43m.[49m[43mDEVNULL[49m[43m,[49m[43m      [49m[38;5;66;43;03m# prevent it from waiting for input[39;49;00m
+[32m     17[39m [43m        [49m[43mcapture_output[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m           [49m[38;5;66;43;03m# capture stdout and stderr[39;49;00m
+[32m     18[39m [43m        [49m[43mtext[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m                      [49m[38;5;66;43;03m# decode bytes to string[39;49;00m
+[32m     19[39m [43m    [49m[43m)[49m
+[32m     21[39m     [38;5;28;01mif[39;00m verbose [38;5;129;01mor[39;00m result.stderr:
+[32m     22[39m         [38;5;28;01mif[39;00m result.stdout:
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/subprocess.py:554[39m, in [36mrun[39m[34m(input, capture_output, timeout, check, *popenargs, **kwargs)[39m
+[32m    551[39m     kwargs[[33m'[39m[33mstdout[39m[33m'[39m] = PIPE
+[32m    552[39m     kwargs[[33m'[39m[33mstderr[39m[33m'[39m] = PIPE
+[32m--> [39m[32m554[39m [38;5;28;01mwith[39;00m [43mPopen[49m[43m([49m[43m*[49m[43mpopenargs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m [38;5;28;01mas[39;00m process:
+[32m    555[39m     [38;5;28;01mtry[39;00m:
+[32m    556[39m         stdout, stderr = process.communicate([38;5;28minput[39m, timeout=timeout)
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/subprocess.py:1039[39m, in [36mPopen.__init__[39m[34m(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask, pipesize, process_group)[39m
+[32m   1035[39m         [38;5;28;01mif[39;00m [38;5;28mself[39m.text_mode:
+[32m   1036[39m             [38;5;28mself[39m.stderr = io.TextIOWrapper([38;5;28mself[39m.stderr,
+[32m   1037[39m                     encoding=encoding, errors=errors)
+[32m-> [39m[32m1039[39m     [38;5;28;43mself[39;49m[43m.[49m[43m_execute_child[49m[43m([49m[43margs[49m[43m,[49m[43m [49m[43mexecutable[49m[43m,[49m[43m [49m[43mpreexec_fn[49m[43m,[49m[43m [49m[43mclose_fds[49m[43m,[49m
+[32m   1040[39m [43m                        [49m[43mpass_fds[49m[43m,[49m[43m [49m[43mcwd[49m[43m,[49m[43m [49m[43menv[49m[43m,[49m
+[32m   1041[39m [43m                        [49m[43mstartupinfo[49m[43m,[49m[43m [49m[43mcreationflags[49m[43m,[49m[43m [49m[43mshell[49m[43m,[49m
+[32m   1042[39m [43m                        [49m[43mp2cread[49m[43m,[49m[43m [49m[43mp2cwrite[49m[43m,[49m
+[32m   1043[39m [43m                        [49m[43mc2pread[49m[43m,[49m[43m [49m[43mc2pwrite[49m[43m,[49m
+[32m   1044[39m [43m                        [49m[43merrread[49m[43m,[49m[43m [49m[43merrwrite[49m[43m,[49m
+[32m   1045[39m [43m                        [49m[43mrestore_signals[49m[43m,[49m
+[32m   1046[39m [43m                        [49m[43mgid[49m[43m,[49m[43m [49m[43mgids[49m[43m,[49m[43m [49m[43muid[49m[43m,[49m[43m [49m[43mumask[49m[43m,[49m
+[32m   1047[39m [43m                        [49m[43mstart_new_session[49m[43m,[49m[43m [49m[43mprocess_group[49m[43m)[49m
+[32m   1048[39m [38;5;28;01mexcept[39;00m:
+[32m   1049[39m     [38;5;66;03m# Cleanup if the child failed starting.[39;00m
+[32m   1050[39m     [38;5;28;01mfor[39;00m f [38;5;129;01min[39;00m [38;5;28mfilter[39m([38;5;28;01mNone[39;00m, ([38;5;28mself[39m.stdin, [38;5;28mself[39m.stdout, [38;5;28mself[39m.stderr)):
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/subprocess.py:1972[39m, in [36mPopen._execute_child[39m[34m(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, gid, gids, uid, umask, start_new_session, process_group)[39m
+[32m   1970[39m     err_msg = os.strerror(errno_num)
+[32m   1971[39m [38;5;28;01mif[39;00m err_filename [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m-> [39m[32m1972[39m     [38;5;28;01mraise[39;00m child_exception_type(errno_num, err_msg, err_filename)
+[32m   1973[39m [38;5;28;01melse[39;00m:
+[32m   1974[39m     [38;5;28;01mraise[39;00m child_exception_type(errno_num, err_msg)
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'fslpython'
+
