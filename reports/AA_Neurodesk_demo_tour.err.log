@@ -1,0 +1,66 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import os
+import nibabel as nib
+from scipy import ndimage
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import transforms
+import ants
+from bids.layout import BIDSLayout, BIDSValidator
+from ipyniivue import NiiVue
+from IPython.display import Image, display
+from IPython.core.display import SVG
+from nipype.interfaces import fsl
+from nipype.interfaces import afni
+from dipy.core.gradients import gradient_table
+from dipy.io import read_bvals_bvecs
+from dipy.io.image import load_nifti
+import dipy.reconst.dti as dti
+from dipy.segment.mask import median_otsu
+from dipy.data import get_sphere
+from dipy.viz import actor, window
+from nilearn.image.image import mean_img
+from nilearn.plotting import plot_epi, plot_anat, plot_img, plot_roi, view_img
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 7[39m
+[32m      5[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[34;01m.[39;00m[34;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mplt[39;00m
+[32m      6[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m transforms
+[32m----> [39m[32m7[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mants[39;00m
+[32m      8[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mbids[39;00m[34;01m.[39;00m[34;01mlayout[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m BIDSLayout, BIDSValidator
+[32m      9[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mipyniivue[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m NiiVue
+
+[31mModuleNotFoundError[39m: No module named 'ants'
+
