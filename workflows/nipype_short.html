@@ -1,8 +1,14 @@
-<!DOCTYPE html><html lang="en" data-content_root="../"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Basic Nipype — Neurodesk</title>
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Basic Nipype &#8212; Neurodesk</title>
   
   
   
@@ -12,41 +18,41 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet">
-  <link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin="" href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2">
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079">
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062">
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357">
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b">
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css">
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6">
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e">
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b">
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b">
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4Z9774J59Y"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -55,7 +61,7 @@
                 gtag('config', 'G-4Z9774J59Y');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,15 +70,12 @@
                 gtag('config', 'G-4Z9774J59Y');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'workflows/nipype_short';</script>
-    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/workflows/nipype_short.html">
-    <link rel="icon" href="../_static/neurodesk_logo.svg">
-    <link rel="index" title="Index" href="../genindex.html">
-    <link rel="search" title="Search" href="../search.html">
-    <link rel="next" title="Papermill Slurm Job Submission" href="papermill-slurm-submission-example.html">
-    <link rel="prev" title="Nipype on Neurodesk" href="nipype_full.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="docsearch:language" content="en">
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nipype_short';</script>
+    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/nipype_short.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -88,18 +91,33 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox">
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
   <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox">
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
   <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
@@ -117,6 +135,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -136,20 +156,14 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="#">
   
   
   
   
   
-    
-    
-      
-    
-    
-    <img src="../_static/neurodesk_logo.svg" class="logo__image only-light" alt="Neurodesk - Home">
-    <script>document.write(`<img src="../_static/neurodesk_logo.svg" class="logo__image only-dark" alt="Neurodesk - Home"/>`);</script>
   
+    <p class="title logo__title">Neurodesk</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -167,85 +181,13 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Neurodesk environment
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Basic Nipype
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="AA_Neurodesk_demo_tour.html">Neurodesk Tools Demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRIQC.html">MRIQC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PyBIDS.html">PyBIDS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="RISE_slideshow.html">RISE Slideshow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bids_conversion.html">BIDS conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nipype_full.html">Nipype on Neurodesk</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Basic Nipype</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="papermill-slurm-submission-example.html">Papermill Slurm Job Submission</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pydra_preproc_ants.html">Pydra</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Structural Imaging</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/FSL_course_bet.html">FSL course - BET</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/brain_extraction_different_tools.html">Brain Extraction Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/freesurfer.html">FreeSurfer</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/qsmxt.html">QSMxT</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/sct_toolbox.html">SCT Toolbox</a></li>
-
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectroscopy</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../spectroscopy/lcmodel.html">MR Spectroscopy with LCModel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spectroscopy/osprey.html">MR Spectroscopy with Osprey</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diffusion Imaging</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/Diffusion_TBSS_Demo.html">TBSS Tutorial</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/MRtrix_1.html">MRtrix: Part 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/MRtrix_2.html">MRtrix: Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/MRtrix_3.html">MRtrix: Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../diffusion_imaging/mrtrix3tissue.html">MRtrix3Tissue</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Imaging</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_only.html">AFNI Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_plus_glm.html">AFNI Preprocessing and GLM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_plus_glm_group.html">AFNI Preprocessing &amp; Group Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/FSL_preproc_glm.html">FSL Preprocessing and GLM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/FSLnets_course_practical.html">Resting state with FSLnets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/NiWrap.html">NiWrap and Connectome Workbench</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/aslprep.html">ASLprep</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/deepretinotopy.html">DeepRetinotopy</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/first_and_second_level_spm.html">Nipype-SPM fMRI Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/fmriprep.html">fMRIprep</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/fsl_all_levels_flanker_nipype.html">Nipype-FSL fMRI Analysis</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/intro_to_preprocessing.html">Introduction to Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/mri_vol2surf.html">FreeSurfer: mri_vol2surf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/process_five_echo_dataset.html">tedana: TE Dependent ANAlysis</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electrophysiology</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../electrophysiology/eeg_with_mne.html">EEG Analysis with MNE</a></li>
-</ul>
-
+        
     </div>
 </nav></div>
     </div>
@@ -284,7 +226,7 @@
       
         <div class="header-article-item">
 
-<div class="article-header-buttons"><a href="https://doi.org/10.5072/zenodo.409836" target="_blank" rel="noopener noreferrer" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button">https://doi.org/10.5072/zenodo.409836</a>
+<div class="article-header-buttons">
 
 
 
@@ -298,12 +240,16 @@
       
       
       
-      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/nipype_short.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in America" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/nipype_short.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in America"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
   
-    <img alt="Run in America logo" src="../_static/images/logo_jupyterhub.svg">
+    <img alt="Run in America logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">Run in America</span>
 </a>
@@ -312,12 +258,16 @@
       
       
       
-      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&amp;urlpath=lab/tree/example-notebooks/books/workflows/nipype_short.ipynb&amp;branch=main" target="_blank" class="btn btn-sm dropdown-item" title="Launch on Run in Europe" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/nipype_short.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
   
-    <img alt="Run in Europe logo" src="../_static/images/logo_jupyterhub.svg">
+    <img alt="Run in Europe logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">Run in Europe</span>
 </a>
@@ -339,7 +289,11 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank" class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -352,7 +306,11 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/workflows/nipype_short.ipynb" target="_blank" class="btn btn-sm btn-source-edit-button dropdown-item" title="Suggest edit" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/nipype_short.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -365,7 +323,11 @@
       
       
       
-      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2Fworkflows/nipype_short.html&amp;body=Your%20issue%20content%20here." target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item" title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2Fnipype_short.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -391,7 +353,11 @@
       
       
       
-      <li><a href="../_sources/workflows/nipype_short.ipynb" target="_blank" class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file" data-bs-placement="left" data-bs-toggle="tooltip">
+      <li><a href="_sources/nipype_short.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -405,7 +371,11 @@
       
       
       <li>
-<button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item" title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -421,7 +391,11 @@
 
 
 
-<button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button" title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
   
 
 <span class="btn__icon-container">
@@ -473,12 +447,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information-for-reproducibility">Output CPU information for reproducibility</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-from-osf">Dataset from OSF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-module-system-in-python-and-nipype">Demonstrating the module system in Python and Nipype</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load AFNI and SPM as well</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">download test data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">run nipype pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">Download test data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">Run nipype pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -493,27 +476,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="basic-nipype">
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-nipype">
 <h1>Basic Nipype<a class="headerlink" href="#basic-nipype" title="Link to this heading">#</a></h1>
-<p>Author: Steffen Bollmann</p>
+<p><strong>Author:</strong> Steffen Bollmann</p>
+<p><strong>Date:</strong> 17 Oct 2024</p>
+<section id="citation-and-resources">
+<h2>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h2>
+<section id="dataset-from-osf">
+<h3>Dataset from OSF<a class="headerlink" href="#dataset-from-osf" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Shaw, T., &amp; Bollmann, S. (2020). Dataset for Towards Optimising MRI Methods for ChAracterisation of Tissue (TOMCAT) [Data set]. OSF. <a class="reference external" href="https://doi.org/10.17605/OSF.IO/BT4EZ">https://doi.org/10.17605/OSF.IO/BT4EZ</a></p></li>
+</ul>
 </section>
-<section id="output-cpu-information-for-reproducibility">
-<h1>Output CPU information for reproducibility<a class="headerlink" href="#output-cpu-information-for-reproducibility" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
-cat /proc/cpuinfo | grep 'vendor' | uniq
-cat /proc/cpuinfo | grep 'model name' | uniq
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vendor_id	: GenuineIntel
-model name	: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
-</pre></div>
-</div>
-</div>
-</div>
+<section id="tools-included-in-this-workflow">
+<h3>Tools included in this workflow<a class="headerlink" href="#tools-included-in-this-workflow" title="Link to this heading">#</a></h3>
+<p><strong>Nipype:</strong></p>
+<ul class="simple">
+<li><p>Esteban, O., Markiewicz, C. J., Burns, C., Goncalves, M., Jarecka, D., Ziegler, E., Berleant, S., Ellis, D. G., Pinsard, B., Madison, C., Waskom, M., Notter, M. P., Clark, D., Manhães-Savio, A., Clark, D., Jordan, K., Dayan, M., Halchenko, Y. O., Loney, F., … Ghosh, S. (2025). nipy/nipype: 1.8.6 (1.8.6). Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.15054147">https://doi.org/10.5281/zenodo.15054147</a></p></li>
+</ul>
+<p><strong>FSL:</strong></p>
+<ul class="simple">
+<li><p>M. Jenkinson, C.F. Beckmann, T.E. Behrens, M.W. Woolrich, S.M. Smith. FSL. <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S1053811911010603?via%3Dihub">NeuroImage, 62:782-90, 2012</a></p></li>
+<li><p>Smith S. M. (2002). Fast robust automated brain extraction. Human brain mapping, 17(3), 143–155. <a class="reference external" href="https://doi.org/10.1002/hbm.10062">https://doi.org/10.1002/hbm.10062</a></p></li>
+</ul>
+<p><strong>AFNI:</strong></p>
+<ul class="simple">
+<li><p>Cox RW (1996). AFNI: software for analysis and visualization of functional magnetic resonance neuroimages. Comput Biomed Res 29(3):162-173. doi:10.1006/cbmr.1996.0014 <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8812068/">https://pubmed.ncbi.nlm.nih.gov/8812068/</a></p></li>
+<li><p>RW Cox, JS Hyde (1997). Software tools for analysis and visualization of FMRI Data. NMR in Biomedicine, 10: 171-178.
+<a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/9430344/">https://pubmed.ncbi.nlm.nih.gov/9430344/</a></p></li>
+</ul>
+<p><strong>SPM12:</strong></p>
+<ul class="simple">
+<li><p>Friston, K. J. (2007). Statistical parametric mapping: The analysis of functional brain images (1st ed). Elsevier / Academic Press.</p></li>
+<li><p><a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/doc/books/spm/Statistical_Parametric_Mapping_The_Analysis_of_Functional_Brain_Images.pdf">Online Book</a></p></li>
+</ul>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="demonstrating-the-module-system-in-python-and-nipype">
 <h1>Demonstrating the module system in Python and Nipype<a class="headerlink" href="#demonstrating-the-module-system-in-python-and-nipype" title="Link to this heading">#</a></h1>
@@ -521,27 +519,28 @@ model name	: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can use module to load fsl in a specific version</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">module</span>
-<span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'fsl/6.0.4'</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fsl/6.0.4&#39;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['fsl/6.0.4']
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+&quot;fsl/6.0.4&quot;
+
+Please check the spelling or version number. Also try &quot;module spider ...&quot;
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load &quot;fsl/6.0.4&quot;
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nipype.interfaces.fsl.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Info</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Info</span><span class="o">.</span><span class="n">version</span><span class="p">())</span>
-<span class="c1"># if the FSL version is changed using module above, the kernel of the notebook needs to be restarted!</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
 </div>
@@ -553,34 +552,7 @@ model name	: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Usage:    bet &lt;input&gt; &lt;output&gt; [options]
-
-Main bet2 options:
-  -o          generate brain surface outline overlaid onto original image
-  -m          generate binary brain mask
-  -s          generate approximate skull image
-  -n          don't generate segmented brain image output
-  -f &lt;f&gt;      fractional intensity threshold (0-&gt;1); default=0.5; smaller values give larger brain outline estimates
-  -g &lt;g&gt;      vertical gradient in fractional intensity threshold (-1-&gt;1); default=0; positive values give larger brain outline at bottom, smaller at top
-  -r &lt;r&gt;      head radius (mm not voxels); initial surface sphere is set to half of this
-  -c &lt;x y z&gt;  centre-of-gravity (voxels not mm) of initial mesh surface.
-  -t          apply thresholding to segmented brain image and mask
-  -e          generates brain surface as mesh in .vtk format
-
-Variations on default bet2 functionality (mutually exclusive options):
-  (default)   just run bet2
-  -R          robust brain centre estimation (iterates BET several times)
-  -S          eye &amp; optic nerve cleanup (can be useful in SIENA - disables -o option)
-  -B          bias field &amp; neck cleanup (can be useful in SIENA)
-  -Z          improve BET if FOV is very small in Z (by temporarily padding end slices)
-  -F          apply to 4D FMRI data (uses -f 0.3 and dilates brain mask slightly)
-  -A          run bet2 and then betsurf to get additional skull and scalp surfaces (includes registrations)
-  -A2 &lt;T2&gt;    as with -A, when also feeding in non-brain-extracted T2 (includes registrations)
-
-Miscellaneous options:
-  -v          verbose (switch on diagnostic messages)
-  -h          display this help, then exits
-  -d          debug (don't delete temporary intermediate images)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: bet: command not found
 </pre></div>
 </div>
 </div>
@@ -589,37 +561,65 @@ Miscellaneous options:
 <h2>Load AFNI and SPM as well<a class="headerlink" href="#load-afni-and-spm-as-well" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'afni/22.3.06'</span><span class="p">)</span>
-<span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'spm12/r7771'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;afni/22.3.06&#39;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;spm12/r7771&#39;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['fsl/6.0.4', 'afni/22.3.06', 'spm12/r7771']
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+&quot;afni/22.3.06&quot;
+
+Please check the spelling or version number. Also try &quot;module spider ...&quot;
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load &quot;afni/22.3.06&quot;
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+&quot;spm12/r7771&quot;
+
+Please check the spelling or version number. Also try &quot;module spider ...&quot;
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load &quot;spm12/r7771&quot;
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="download-test-data">
-<h2>download test data<a class="headerlink" href="#download-test-data" title="Link to this heading">#</a></h2>
+<h2>Download test data<a class="headerlink" href="#download-test-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
 if [ -f ./sub-01_ses-01_7T_T1w_defaced.nii ]; then
-    echo "nii Output file exists, not downloading or unpacking again"
+    echo &quot;nii Output file exists, not downloading or unpacking again&quot;
 else
     if [ ! -f ./sub-01_ses-01_7T_T1w_defaced.nii.gz  ]; then
-        echo "nii.gz does not exist. So, it needs to be downloaded."
-        osfURL="osfstorage/TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz"
-        echo "downloading now ..."
+        echo &quot;nii.gz does not exist. So, it needs to be downloaded.&quot;
+        osfURL=&quot;osfstorage/TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz&quot;
+        echo &quot;downloading now ...&quot;
         osf -p bt4ez fetch $osfURL ./sub-01_ses-01_7T_T1w_defaced.nii.gz
     fi
 
     if [  -f ./sub-01_ses-01_7T_T1w_defaced.nii.gz ]; then
-        echo "nii.gz exists. So, it needs to be unpacked and deleted"
-        echo "unpacking now ..."
+        echo &quot;nii.gz exists. So, it needs to be unpacked and deleted&quot;
+        echo &quot;unpacking now ...&quot;
         gunzip ./sub-01_ses-01_7T_T1w_defaced.nii.gz
     fi
 fi
@@ -633,7 +633,26 @@ nii.gz exists. So, it needs to be unpacked and deleted
 unpacking now ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 72.7M/72.7M [00:08&lt;00:00, 8.99Mbytes/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0.00/72.7M [00:00&lt;?, ?bytes/s]
+  0%|          | 115k/72.7M [00:00&lt;01:50, 654kbytes/s]
+  1%|          | 639k/72.7M [00:00&lt;00:26, 2.67Mbytes/s]
+  1%|▏         | 1.02M/72.7M [00:00&lt;00:23, 3.06Mbytes/s]
+  2%|▏         | 1.39M/72.7M [00:00&lt;00:21, 3.28Mbytes/s]
+  2%|▏         | 1.77M/72.7M [00:00&lt;00:20, 3.44Mbytes/s]
+  3%|▎         | 2.16M/72.7M [00:00&lt;00:19, 3.54Mbytes/s]
+  3%|▎         | 2.54M/72.7M [00:00&lt;00:19, 3.61Mbytes/s]
+  4%|▍         | 3.01M/72.7M [00:00&lt;00:17, 3.93Mbytes/s]
+  6%|▌         | 4.05M/72.7M [00:00&lt;00:11, 5.87Mbytes/s]
+  9%|▊         | 6.36M/72.7M [00:01&lt;00:05, 11.1Mbytes/s]
+ 16%|█▌        | 11.6M/72.7M [00:01&lt;00:02, 23.6Mbytes/s]
+ 20%|██        | 14.7M/72.7M [00:01&lt;00:02, 25.3Mbytes/s]
+ 28%|██▊       | 20.1M/72.7M [00:01&lt;00:01, 33.7Mbytes/s]
+ 35%|███▍      | 25.2M/72.7M [00:01&lt;00:01, 35.4Mbytes/s]
+ 46%|████▌     | 33.1M/72.7M [00:01&lt;00:00, 47.6Mbytes/s]
+ 57%|█████▋    | 41.4M/72.7M [00:01&lt;00:00, 57.1Mbytes/s]
+ 70%|███████   | 51.2M/72.7M [00:01&lt;00:00, 65.8Mbytes/s]
+ 84%|████████▎ | 60.8M/72.7M [00:02&lt;00:00, 65.5Mbytes/s]
+100%|██████████| 72.7M/72.7M [00:02&lt;00:00, 34.6Mbytes/s]
 </pre></div>
 </div>
 </div>
@@ -645,16 +664,14 @@ unpacking now ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MRIQC.ipynb           bids_conversion.ipynb  sub-01_ses-01_7T_T1w_defaced.nii
-PyBIDS.ipynb          nipype_full.ipynb
-RISE_slideshow.ipynb  nipype_short.ipynb
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub-01_ses-01_7T_T1w_defaced.nii
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="run-nipype-pipeline">
-<h2>run nipype pipeline<a class="headerlink" href="#run-nipype-pipeline" title="Link to this heading">#</a></h2>
+<h2>Run nipype pipeline<a class="headerlink" href="#run-nipype-pipeline" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -663,52 +680,71 @@ RISE_slideshow.ipynb  nipype_short.ipynb
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nipype.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nipype.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">afni</span>
 
 <span class="n">btr</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">BET</span><span class="p">()</span>
-<span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="s1">'./sub-01_ses-01_7T_T1w_defaced.nii'</span>
+<span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced.nii&#39;</span>
 <span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">frac</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">out_file</span> <span class="o">=</span> <span class="s1">'./sub-01_ses-01_7T_T1w_defaced_brain.nii'</span>
+<span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">out_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced_brain.nii&#39;</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">btr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> 
 
 <span class="n">edge3</span> <span class="o">=</span> <span class="n">afni</span><span class="o">.</span><span class="n">Edge3</span><span class="p">()</span>
-<span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="s1">'./sub-01_ses-01_7T_T1w_defaced.nii'</span>
-<span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">out_file</span> <span class="o">=</span> <span class="s1">'./sub-01_ses-01_7T_T1w_defaced_edges.nii'</span>
-<span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">datum</span> <span class="o">=</span> <span class="s1">'byte'</span>
+<span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced.nii&#39;</span>
+<span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">out_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced_edges.nii&#39;</span>
+<span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">datum</span> <span class="o">=</span> <span class="s1">&#39;byte&#39;</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">edge3</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>250604-03:51:38,804 nipype.interface WARNING:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>251205-08:20:07,530 nipype.interface WARNING:
 	 FSLOUTPUTTYPE environment variable is not set. Setting FSLOUTPUTTYPE=NIFTI
-250604-03:51:49,813 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.813256:++ 3dedge3: AFNI version=AFNI_22.3.06 (Nov 15 2022) [64-bit]
-250604-03:51:49,815 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.815020:** AFNI converts NIFTI_datatype=4 (INT16) in file /home/jovyan/Git_repositories/example-notebooks/books/workflows/sub-01_ses-01_7T_T1w_defaced.nii to FLOAT32
-250604-03:51:49,815 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.815020:     Warnings of this type will be muted for this session.
-250604-03:51:49,815 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.815020:     Set AFNI_NIFTI_TYPE_WARN to YES to see them all, NO to see none.
-250604-03:51:49,823 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697:*+ WARNING:   If you are performing spatial transformations on an oblique dset,
-250604-03:51:49,824 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697:  such as /home/jovyan/Git_repositories/example-notebooks/books/workflows/sub-01_ses-01_7T_T1w_defaced.nii,
-250604-03:51:49,824 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697:  or viewing/combining it with volumes of differing obliquity,
-250604-03:51:49,824 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697:  you should consider running: 
-250604-03:51:49,825 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697:     3dWarp -deoblique 
-250604-03:51:49,825 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697:  on this and  other oblique datasets in the same session.
-250604-03:51:49,825 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697: See 3dWarp -help for details.
-250604-03:51:49,826 nipype.interface INFO:
-	 stderr 2025-06-04T03:51:49.823697:++ Oblique dataset:/home/jovyan/Git_repositories/example-notebooks/books/workflows/sub-01_ses-01_7T_T1w_defaced.nii is 1.253358 degrees from plumb.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">frac</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">out_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced_brain.nii&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">res</span> <span class="o">=</span> <span class="n">btr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">edge3</span> <span class="o">=</span> <span class="n">afni</span><span class="o">.</span><span class="n">Edge3</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced.nii&#39;</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:401,</span> in <span class="ni">BaseInterface.run</span><span class="nt">(self, cwd, ignore_exception, **inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="c1"># Run interface</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pre_run_hook</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">401</span> <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_interface</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post_run_hook</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="c1"># Collect outputs</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/fsl/preprocess.py:163,</span> in <span class="ni">BET._run_interface</span><span class="nt">(self, runtime)</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="k">def</span><span class="w"> </span><span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span>     <span class="c1"># The returncode is meaningless in BET.  So check the output</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span>     <span class="c1"># in stderr and if it&#39;s set, then update the returncode</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="c1"># accordingly.</span>
+<span class="ne">--&gt; </span><span class="mi">163</span>     <span class="n">runtime</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_run_interface</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="k">if</span> <span class="n">runtime</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span>         <span class="bp">self</span><span class="o">.</span><span class="n">raise_exception</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:756,</span> in <span class="ni">CommandLine._run_interface</span><span class="nt">(self, runtime, correct_return_codes)</span>
+<span class="g g-Whitespace">    </span><span class="mi">753</span> <span class="n">cmd_path</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="n">executable_name</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="n">runtime</span><span class="o">.</span><span class="n">environ</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">755</span> <span class="k">if</span> <span class="n">cmd_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">756</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span>         <span class="s1">&#39;No command &quot;</span><span class="si">%s</span><span class="s1">&quot; found on host </span><span class="si">%s</span><span class="s1">. Please check that the &#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span>         <span class="s2">&quot;corresponding package is installed.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span>         <span class="o">%</span> <span class="p">(</span><span class="n">executable_name</span><span class="p">,</span> <span class="n">runtime</span><span class="o">.</span><span class="n">hostname</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span> <span class="n">runtime</span><span class="o">.</span><span class="n">command_path</span> <span class="o">=</span> <span class="n">cmd_path</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span> <span class="n">runtime</span><span class="o">.</span><span class="n">dependencies</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>     <span class="n">get_dependencies</span><span class="p">(</span><span class="n">executable_name</span><span class="p">,</span> <span class="n">runtime</span><span class="o">.</span><span class="n">environ</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">765</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ldd</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>     <span class="k">else</span> <span class="s2">&quot;&lt;skipped&gt;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="p">)</span>
+
+<span class="ne">OSError</span>: No command &quot;bet&quot; found on host 992a9059675a. Please check that the corresponding package is installed.
 </pre></div>
 </div>
 </div>
@@ -720,10 +756,12 @@ RISE_slideshow.ipynb  nipype_short.ipynb
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MRIQC.ipynb            nipype_short.ipynb
-PyBIDS.ipynb           sub-01_ses-01_7T_T1w_defaced.nii
-RISE_slideshow.ipynb   sub-01_ses-01_7T_T1w_defaced_brain.nii.gz
-bids_conversion.ipynb  sub-01_ses-01_7T_T1w_defaced_edges.nii
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AA_Neurodesk_demo_tour.ipynb  nipype_short.ipynb
+MRIQC.ipynb                   papermill-slurm-submission-example.ipynb
+PyBIDS.ipynb                  pydra_preproc_ants.ipynb
+RISE_slideshow.ipynb          sub-01_ses-01_7T_T1w_defaced.nii
+bids_conversion.ipynb         sub-01_ses-01_7T_T1w_defaced_brain.nii.gz
+<span class=" -Color -Color-Bold -Color-Bold-Blue">ds000114</span>/                     sub-01_ses-01_7T_T1w_defaced_edges.nii
 nipype_full.ipynb
 </pre></div>
 </div>
@@ -734,34 +772,34 @@ nipype_full.ipynb
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View 3D data</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">view_slices_3d</span><span class="p">(</span><span class="n">image_3d</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
-<span class="c1">#   print('Matrix size: {}'.format(image_3d.shape))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_slices_3d</span><span class="p">(</span><span class="n">image_3d</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="c1">#   print(&#39;Matrix size: {}&#39;.format(image_3d.shape))</span>
   <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
   <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">image_3d</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Axial'</span><span class="p">);</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">image_3d</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Axial&#39;</span><span class="p">);</span>
 
   <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
   <span class="n">image_rot</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">image_3d</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="mi">90</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_rot</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Coronal'</span><span class="p">);</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_rot</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Coronal&#39;</span><span class="p">);</span>
 
   <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
   <span class="n">image_rot</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">image_3d</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span><span class="mi">90</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_rot</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Sagittal'</span><span class="p">);</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_rot</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sagittal&#39;</span><span class="p">);</span>
   <span class="n">cbar</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_figure</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">"""</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns figure and axis objects to plot on. </span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span> 
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'top'</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'right'</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span> 
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
 </pre></div>
 </div>
@@ -775,25 +813,25 @@ nipype_full.ipynb
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># load data</span>
-<span class="n">brain_full</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'./sub-01_ses-01_7T_T1w_defaced.nii'</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
-<span class="n">brain</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'./sub-01_ses-01_7T_T1w_defaced_brain.nii.gz'</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'./sub-01_ses-01_7T_T1w_defaced_edges.nii'</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+<span class="n">brain_full</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced.nii&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+<span class="n">brain</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced_brain.nii.gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced_edges.nii&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view_slices_3d</span><span class="p">(</span><span class="n">brain_full</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">230</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Brain and Skull'</span><span class="p">)</span>
-<span class="n">view_slices_3d</span><span class="p">(</span><span class="n">brain</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">230</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Brain Extracted'</span><span class="p">)</span>
-<span class="n">view_slices_3d</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">230</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Edges'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view_slices_3d</span><span class="p">(</span><span class="n">brain_full</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">230</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Brain and Skull&#39;</span><span class="p">)</span>
+<span class="n">view_slices_3d</span><span class="p">(</span><span class="n">brain</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">230</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Brain Extracted&#39;</span><span class="p">)</span>
+<span class="n">view_slices_3d</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">230</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Edges&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ce2a6fd373835d876532ba1006e6a81cc6dc284c3483bfa79e7139aa7a5102f2.png" src="../_images/ce2a6fd373835d876532ba1006e6a81cc6dc284c3483bfa79e7139aa7a5102f2.png">
-<img alt="../_images/c1cb7bf236a70505fd7be45c1f660ad54f4dd44de71df0af711874463cf21c92.png" src="../_images/c1cb7bf236a70505fd7be45c1f660ad54f4dd44de71df0af711874463cf21c92.png">
-<img alt="../_images/1c622612e6b91def9e45dec8b36ec92e033858862d7f79f35f20f6d5d1095d4a.png" src="../_images/1c622612e6b91def9e45dec8b36ec92e033858862d7f79f35f20f6d5d1095d4a.png">
+<img alt="_images/5849174e0dca3d1a256da42a70ae778e67566b52f9c86e672df3fcb6a636e097.png" src="_images/5849174e0dca3d1a256da42a70ae778e67566b52f9c86e672df3fcb6a636e097.png" />
+<img alt="_images/a1857e811d1af78c7991c5007a89ff56471665db9f539a24a533657c6ed62228.png" src="_images/a1857e811d1af78c7991c5007a89ff56471665db9f539a24a533657c6ed62228.png" />
+<img alt="_images/ba806652add8c647a969c1564b21281d44fefb3293f22b8f3d0ced7d8a9984c0.png" src="_images/ba806652add8c647a969c1564b21281d44fefb3293f22b8f3d0ced7d8a9984c0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -801,23 +839,23 @@ nipype_full.ipynb
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ipyniivue</span><span class="w"> </span><span class="kn">import</span> <span class="n">NiiVue</span>
 
 <span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./sub-01_ses-01_7T_T1w_defaced_brain.nii.gz"</span><span class="p">}])</span>
+<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./sub-01_ses-01_7T_T1w_defaced_brain.nii.gz&quot;</span><span class="p">}])</span>
 <span class="n">nv</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c02aa10855784e8a92984853a0275cc6", "version_major": 2, "version_minor": 1}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e61fe12660f64ca689630dda4a0c25db", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/sub-01_ses-01_7T_T1w_defaced_brain.png'</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/sub-01_ses-01_7T_T1w_defaced_brain.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/sub-01_ses-01_7T_T1w_defaced_brain.png"></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/sub-01_ses-01_7T_T1w_defaced_brain.png"/></div></div>
 </div>
 <p>SPM can also be used in such a workflow, but unfortunately, this will trigger a warning “stty: ‘standard input’: Inappropriate ioctl for device”, which you can ignore (or help us to find out where it comes from):</p>
 <div class="cell docutils container">
@@ -825,52 +863,93 @@ nipype_full.ipynb
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nipype.interfaces.spm</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">spm</span>
 
 <span class="n">norm12</span> <span class="o">=</span> <span class="n">spm</span><span class="o">.</span><span class="n">Normalize12</span><span class="p">()</span>
-<span class="n">norm12</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">image_to_align</span> <span class="o">=</span> <span class="s1">'./sub-01_ses-01_7T_T1w_defaced.nii'</span>
+<span class="n">norm12</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">image_to_align</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced.nii&#39;</span>
 <span class="n">norm12</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stty: &#39;standard input&#39;: Inappropriate ioctl for device
+stty: &#39;standard input&#39;: Inappropriate ioctl for device
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nipype.interfaces.base.support.InterfaceResult at 0x7fc8c9a78bd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nipype.interfaces.base.support.InterfaceResult at 0x7f7aaa6048d0&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">brain_full</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'./wsub-01_ses-01_7T_T1w_defaced.nii'</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
-<span class="n">view_slices_3d</span><span class="p">(</span><span class="n">brain_full</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Brain normalized to MNI space'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">brain_full</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./wsub-01_ses-01_7T_T1w_defaced.nii&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+<span class="n">view_slices_3d</span><span class="p">(</span><span class="n">brain_full</span><span class="p">,</span> <span class="n">slice_nbr</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Brain normalized to MNI space&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3577abaef0d779efe64e5ab33cdf22fe1db7ebecfd05cdf93f80a74065d161dd.png" src="../_images/3577abaef0d779efe64e5ab33cdf22fe1db7ebecfd05cdf93f80a74065d161dd.png">
+<img alt="_images/a7e6651caea48d2f28da532ef62c8b125372607f35b087dc71b6e9cc4efbd89b.png" src="_images/a7e6651caea48d2f28da532ef62c8b125372607f35b087dc71b6e9cc4efbd89b.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nv</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">"path"</span><span class="p">:</span> <span class="s2">"./wsub-01_ses-01_7T_T1w_defaced.nii"</span><span class="p">}])</span>
+<span class="n">nv</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./wsub-01_ses-01_7T_T1w_defaced.nii&quot;</span><span class="p">}])</span>
 <span class="n">nv</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5d81184cc0be4411b5a09061d9f8459e", "version_major": 2, "version_minor": 1}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "635ddee2d16c43f0916869cd125430b2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/wsub-01_ses-01_7T_T1w_defaced.png'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/wsub-01_ses-01_7T_T1w_defaced.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/wsub-01_ses-01_7T_T1w_defaced.png"></div></div>
+<div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/wsub-01_ses-01_7T_T1w_defaced.png"/></div></div>
 </div>
+<section id="dependencies-in-jupyter-python">
+<h3>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-10-31T00:29:05.110304+00:00
+
+Python implementation: CPython
+Python version       : 3.11.6
+IPython version      : 8.16.1
+
+Compiler    : GCC 12.3.0
+OS          : Linux
+Release     : 5.4.0-204-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+ipyniivue : 2.3.2
+nibabel   : 5.2.1
+matplotlib: 3.8.4
+IPython   : 8.16.1
+numpy     : 2.2.6
+nipype    : 1.8.6
+scipy     : 1.13.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -887,7 +966,7 @@ stty: 'standard input': Inappropriate ioctl for device
         },
         kernelOptions: {
             name: "python3",
-            path: "./workflows"
+            path: "./."
         },
         predefinedOutput: true
     }
@@ -904,20 +983,6 @@ stty: 'standard input': Inappropriate ioctl for device
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev" href="nipype_full.html" title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Nipype on Neurodesk</p>
-      </div>
-    </a>
-    <a class="right-next" href="papermill-slurm-submission-example.html" title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Papermill Slurm Job Submission</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -934,12 +999,21 @@ stty: 'standard input': Inappropriate ioctl for device
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information-for-reproducibility">Output CPU information for reproducibility</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-from-osf">Dataset from OSF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-module-system-in-python-and-nipype">Demonstrating the module system in Python and Nipype</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load AFNI and SPM as well</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">download test data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">run nipype pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">Download test data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">Run nipype pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -968,7 +1042,7 @@ By Neurodesk Team
   <p class="copyright">
     
       © Copyright 2023.
-      <br>
+      <br/>
     
   </p>
 
@@ -991,10 +1065,10 @@ By Neurodesk Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
-  
-</body></html>
+  </body>
+</html>

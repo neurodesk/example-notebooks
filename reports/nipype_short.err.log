@@ -1,27 +1,30 @@
 Traceback (most recent call last):
-  File "/opt/conda/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
-    asyncio.get_running_loop()
-RuntimeError: no running event loop
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/conda/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
     return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -42,27 +45,27 @@ res = edge3.run()
 ------------------
 
 ----- stdout -----
-251124-17:17:28,654 nipype.interface WARNING:
+251205-08:20:07,530 nipype.interface WARNING:
 	 FSLOUTPUTTYPE environment variable is not set. Setting FSLOUTPUTTYPE=NIFTI
 ------------------
 
 [31m---------------------------------------------------------------------------[39m
 [31mOSError[39m                                   Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[9][39m[32m, line 8[39m
+[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 8[39m
 [32m      6[39m btr.inputs.frac = [32m0.4[39m
 [32m      7[39m btr.inputs.out_file = [33m'[39m[33m./sub-01_ses-01_7T_T1w_defaced_brain.nii[39m[33m'[39m
 [32m----> [39m[32m8[39m res = [43mbtr[49m[43m.[49m[43mrun[49m[43m([49m[43m)[49m 
 [32m     10[39m edge3 = afni.Edge3()
 [32m     11[39m edge3.inputs.in_file = [33m'[39m[33m./sub-01_ses-01_7T_T1w_defaced.nii[39m[33m'[39m
 
-[36mFile [39m[32m/opt/conda/lib/python3.12/site-packages/nipype/interfaces/base/core.py:401[39m, in [36mBaseInterface.run[39m[34m(self, cwd, ignore_exception, **inputs)[39m
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:401[39m, in [36mBaseInterface.run[39m[34m(self, cwd, ignore_exception, **inputs)[39m
 [32m    399[39m [38;5;66;03m# Run interface[39;00m
 [32m    400[39m runtime = [38;5;28mself[39m._pre_run_hook(runtime)
 [32m--> [39m[32m401[39m runtime = [38;5;28;43mself[39;49m[43m.[49m[43m_run_interface[49m[43m([49m[43mruntime[49m[43m)[49m
 [32m    402[39m runtime = [38;5;28mself[39m._post_run_hook(runtime)
 [32m    403[39m [38;5;66;03m# Collect outputs[39;00m
 
-[36mFile [39m[32m/opt/conda/lib/python3.12/site-packages/nipype/interfaces/fsl/preprocess.py:163[39m, in [36mBET._run_interface[39m[34m(self, runtime)[39m
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/nipype/interfaces/fsl/preprocess.py:163[39m, in [36mBET._run_interface[39m[34m(self, runtime)[39m
 [32m    159[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_run_interface[39m([38;5;28mself[39m, runtime):
 [32m    160[39m     [38;5;66;03m# The returncode is meaningless in BET.  So check the output[39;00m
 [32m    161[39m     [38;5;66;03m# in stderr and if it's set, then update the returncode[39;00m
@@ -71,7 +74,7 @@ res = edge3.run()
 [32m    164[39m     [38;5;28;01mif[39;00m runtime.stderr:
 [32m    165[39m         [38;5;28mself[39m.raise_exception(runtime)
 
-[36mFile [39m[32m/opt/conda/lib/python3.12/site-packages/nipype/interfaces/base/core.py:756[39m, in [36mCommandLine._run_interface[39m[34m(self, runtime, correct_return_codes)[39m
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:756[39m, in [36mCommandLine._run_interface[39m[34m(self, runtime, correct_return_codes)[39m
 [32m    753[39m cmd_path = which(executable_name, env=runtime.environ)
 [32m    755[39m [38;5;28;01mif[39;00m cmd_path [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
 [32m--> [39m[32m756[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(
@@ -86,5 +89,5 @@ res = edge3.run()
 [32m    766[39m     [38;5;28;01melse[39;00m [33m"[39m[33m<skipped>[39m[33m"[39m
 [32m    767[39m )
 
-[31mOSError[39m: No command "bet" found on host 843a3badfca0. Please check that the corresponding package is installed.
+[31mOSError[39m: No command "bet" found on host 992a9059675a. Please check that the corresponding package is installed.
 

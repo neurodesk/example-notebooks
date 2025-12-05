@@ -447,12 +447,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information-for-reproducibility">Output CPU information for reproducibility</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-from-osf">Dataset from OSF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-module-system-in-python-and-nipype">Demonstrating the module system in Python and Nipype</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load AFNI and SPM as well</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">download test data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">run nipype pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">Download test data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">Run nipype pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -467,27 +476,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="basic-nipype">
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-nipype">
 <h1>Basic Nipype<a class="headerlink" href="#basic-nipype" title="Link to this heading">#</a></h1>
-<p>Author: Steffen Bollmann</p>
+<p><strong>Author:</strong> Steffen Bollmann</p>
+<p><strong>Date:</strong> 17 Oct 2024</p>
+<section id="citation-and-resources">
+<h2>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h2>
+<section id="dataset-from-osf">
+<h3>Dataset from OSF<a class="headerlink" href="#dataset-from-osf" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Shaw, T., &amp; Bollmann, S. (2020). Dataset for Towards Optimising MRI Methods for ChAracterisation of Tissue (TOMCAT) [Data set]. OSF. <a class="reference external" href="https://doi.org/10.17605/OSF.IO/BT4EZ">https://doi.org/10.17605/OSF.IO/BT4EZ</a></p></li>
+</ul>
 </section>
-<section id="output-cpu-information-for-reproducibility">
-<h1>Output CPU information for reproducibility<a class="headerlink" href="#output-cpu-information-for-reproducibility" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
-cat /proc/cpuinfo | grep &#39;vendor&#39; | uniq
-cat /proc/cpuinfo | grep &#39;model name&#39; | uniq
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vendor_id	: AuthenticAMD
-model name	: AMD EPYC-Rome Processor
-</pre></div>
-</div>
-</div>
-</div>
+<section id="tools-included-in-this-workflow">
+<h3>Tools included in this workflow<a class="headerlink" href="#tools-included-in-this-workflow" title="Link to this heading">#</a></h3>
+<p><strong>Nipype:</strong></p>
+<ul class="simple">
+<li><p>Esteban, O., Markiewicz, C. J., Burns, C., Goncalves, M., Jarecka, D., Ziegler, E., Berleant, S., Ellis, D. G., Pinsard, B., Madison, C., Waskom, M., Notter, M. P., Clark, D., Manhães-Savio, A., Clark, D., Jordan, K., Dayan, M., Halchenko, Y. O., Loney, F., … Ghosh, S. (2025). nipy/nipype: 1.8.6 (1.8.6). Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.15054147">https://doi.org/10.5281/zenodo.15054147</a></p></li>
+</ul>
+<p><strong>FSL:</strong></p>
+<ul class="simple">
+<li><p>M. Jenkinson, C.F. Beckmann, T.E. Behrens, M.W. Woolrich, S.M. Smith. FSL. <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S1053811911010603?via%3Dihub">NeuroImage, 62:782-90, 2012</a></p></li>
+<li><p>Smith S. M. (2002). Fast robust automated brain extraction. Human brain mapping, 17(3), 143–155. <a class="reference external" href="https://doi.org/10.1002/hbm.10062">https://doi.org/10.1002/hbm.10062</a></p></li>
+</ul>
+<p><strong>AFNI:</strong></p>
+<ul class="simple">
+<li><p>Cox RW (1996). AFNI: software for analysis and visualization of functional magnetic resonance neuroimages. Comput Biomed Res 29(3):162-173. doi:10.1006/cbmr.1996.0014 <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8812068/">https://pubmed.ncbi.nlm.nih.gov/8812068/</a></p></li>
+<li><p>RW Cox, JS Hyde (1997). Software tools for analysis and visualization of FMRI Data. NMR in Biomedicine, 10: 171-178.
+<a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/9430344/">https://pubmed.ncbi.nlm.nih.gov/9430344/</a></p></li>
+</ul>
+<p><strong>SPM12:</strong></p>
+<ul class="simple">
+<li><p>Friston, K. J. (2007). Statistical parametric mapping: The analysis of functional brain images (1st ed). Elsevier / Academic Press.</p></li>
+<li><p><a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/doc/books/spm/Statistical_Parametric_Mapping_The_Analysis_of_Functional_Brain_Images.pdf">Online Book</a></p></li>
+</ul>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="demonstrating-the-module-system-in-python-and-nipype">
 <h1>Demonstrating the module system in Python and Nipype<a class="headerlink" href="#demonstrating-the-module-system-in-python-and-nipype" title="Link to this heading">#</a></h1>
@@ -517,20 +541,6 @@ Also make sure that all modulefiles written in TCL start with the string
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nipype.interfaces.fsl.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Info</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Info</span><span class="o">.</span><span class="n">version</span><span class="p">())</span>
-<span class="c1"># if the FSL version is changed using module above, the kernel of the notebook needs to be restarted!</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
 </pre></div>
 </div>
 </div>
@@ -593,7 +603,7 @@ Also make sure that all modulefiles written in TCL start with the string
 </div>
 </section>
 <section id="download-test-data">
-<h2>download test data<a class="headerlink" href="#download-test-data" title="Link to this heading">#</a></h2>
+<h2>Download test data<a class="headerlink" href="#download-test-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
@@ -624,16 +634,25 @@ unpacking now ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0.00/72.7M [00:00&lt;?, ?bytes/s]
-  2%|▏         | 1.20M/72.7M [00:00&lt;00:05, 12.0Mbytes/s]
- 12%|█▏        | 8.40M/72.7M [00:00&lt;00:01, 35.3Mbytes/s]
- 24%|██▍       | 17.3M/72.7M [00:00&lt;00:00, 55.9Mbytes/s]
- 35%|███▍      | 25.2M/72.7M [00:00&lt;00:00, 55.8Mbytes/s]
- 49%|████▉     | 35.9M/72.7M [00:00&lt;00:00, 71.6Mbytes/s]
- 63%|██████▎   | 45.6M/72.7M [00:00&lt;00:00, 79.3Mbytes/s]
- 74%|███████▍  | 53.9M/72.7M [00:00&lt;00:00, 78.8Mbytes/s]
- 87%|████████▋ | 63.5M/72.7M [00:00&lt;00:00, 84.1Mbytes/s]
- 99%|█████████▉| 72.1M/72.7M [00:01&lt;00:00, 83.4Mbytes/s]
-100%|██████████| 72.7M/72.7M [00:01&lt;00:00, 71.5Mbytes/s]
+  0%|          | 115k/72.7M [00:00&lt;01:50, 654kbytes/s]
+  1%|          | 639k/72.7M [00:00&lt;00:26, 2.67Mbytes/s]
+  1%|▏         | 1.02M/72.7M [00:00&lt;00:23, 3.06Mbytes/s]
+  2%|▏         | 1.39M/72.7M [00:00&lt;00:21, 3.28Mbytes/s]
+  2%|▏         | 1.77M/72.7M [00:00&lt;00:20, 3.44Mbytes/s]
+  3%|▎         | 2.16M/72.7M [00:00&lt;00:19, 3.54Mbytes/s]
+  3%|▎         | 2.54M/72.7M [00:00&lt;00:19, 3.61Mbytes/s]
+  4%|▍         | 3.01M/72.7M [00:00&lt;00:17, 3.93Mbytes/s]
+  6%|▌         | 4.05M/72.7M [00:00&lt;00:11, 5.87Mbytes/s]
+  9%|▊         | 6.36M/72.7M [00:01&lt;00:05, 11.1Mbytes/s]
+ 16%|█▌        | 11.6M/72.7M [00:01&lt;00:02, 23.6Mbytes/s]
+ 20%|██        | 14.7M/72.7M [00:01&lt;00:02, 25.3Mbytes/s]
+ 28%|██▊       | 20.1M/72.7M [00:01&lt;00:01, 33.7Mbytes/s]
+ 35%|███▍      | 25.2M/72.7M [00:01&lt;00:01, 35.4Mbytes/s]
+ 46%|████▌     | 33.1M/72.7M [00:01&lt;00:00, 47.6Mbytes/s]
+ 57%|█████▋    | 41.4M/72.7M [00:01&lt;00:00, 57.1Mbytes/s]
+ 70%|███████   | 51.2M/72.7M [00:01&lt;00:00, 65.8Mbytes/s]
+ 84%|████████▎ | 60.8M/72.7M [00:02&lt;00:00, 65.5Mbytes/s]
+100%|██████████| 72.7M/72.7M [00:02&lt;00:00, 34.6Mbytes/s]
 </pre></div>
 </div>
 </div>
@@ -652,7 +671,7 @@ unpacking now ...
 </div>
 </section>
 <section id="run-nipype-pipeline">
-<h2>run nipype pipeline<a class="headerlink" href="#run-nipype-pipeline" title="Link to this heading">#</a></h2>
+<h2>Run nipype pipeline<a class="headerlink" href="#run-nipype-pipeline" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -661,7 +680,7 @@ unpacking now ...
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nipype.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nipype.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">afni</span>
@@ -681,27 +700,27 @@ unpacking now ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>251124-17:17:28,654 nipype.interface WARNING:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>251205-08:20:07,530 nipype.interface WARNING:
 	 FSLOUTPUTTYPE environment variable is not set. Setting FSLOUTPUTTYPE=NIFTI
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">frac</span> <span class="o">=</span> <span class="mf">0.4</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">btr</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">out_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced_brain.nii&#39;</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">res</span> <span class="o">=</span> <span class="n">btr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> 
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">edge3</span> <span class="o">=</span> <span class="n">afni</span><span class="o">.</span><span class="n">Edge3</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">edge3</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="s1">&#39;./sub-01_ses-01_7T_T1w_defaced.nii&#39;</span>
 
-<span class="nn">File /opt/conda/lib/python3.12/site-packages/nipype/interfaces/base/core.py:401,</span> in <span class="ni">BaseInterface.run</span><span class="nt">(self, cwd, ignore_exception, **inputs)</span>
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:401,</span> in <span class="ni">BaseInterface.run</span><span class="nt">(self, cwd, ignore_exception, **inputs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="c1"># Run interface</span>
 <span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pre_run_hook</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">401</span> <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_interface</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post_run_hook</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="c1"># Collect outputs</span>
 
-<span class="nn">File /opt/conda/lib/python3.12/site-packages/nipype/interfaces/fsl/preprocess.py:163,</span> in <span class="ni">BET._run_interface</span><span class="nt">(self, runtime)</span>
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/fsl/preprocess.py:163,</span> in <span class="ni">BET._run_interface</span><span class="nt">(self, runtime)</span>
 <span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="k">def</span><span class="w"> </span><span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">160</span>     <span class="c1"># The returncode is meaningless in BET.  So check the output</span>
 <span class="g g-Whitespace">    </span><span class="mi">161</span>     <span class="c1"># in stderr and if it&#39;s set, then update the returncode</span>
@@ -710,7 +729,7 @@ unpacking now ...
 <span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="k">if</span> <span class="n">runtime</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">165</span>         <span class="bp">self</span><span class="o">.</span><span class="n">raise_exception</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 
-<span class="nn">File /opt/conda/lib/python3.12/site-packages/nipype/interfaces/base/core.py:756,</span> in <span class="ni">CommandLine._run_interface</span><span class="nt">(self, runtime, correct_return_codes)</span>
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:756,</span> in <span class="ni">CommandLine._run_interface</span><span class="nt">(self, runtime, correct_return_codes)</span>
 <span class="g g-Whitespace">    </span><span class="mi">753</span> <span class="n">cmd_path</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="n">executable_name</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="n">runtime</span><span class="o">.</span><span class="n">environ</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">755</span> <span class="k">if</span> <span class="n">cmd_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">756</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span>
@@ -725,7 +744,7 @@ unpacking now ...
 <span class="g g-Whitespace">    </span><span class="mi">766</span>     <span class="k">else</span> <span class="s2">&quot;&lt;skipped&gt;&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="p">)</span>
 
-<span class="ne">OSError</span>: No command &quot;bet&quot; found on host 843a3badfca0. Please check that the corresponding package is installed.
+<span class="ne">OSError</span>: No command &quot;bet&quot; found on host 992a9059675a. Please check that the corresponding package is installed.
 </pre></div>
 </div>
 </div>
@@ -737,10 +756,12 @@ unpacking now ...
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MRIQC.ipynb            nipype_short.ipynb
-PyBIDS.ipynb           sub-01_ses-01_7T_T1w_defaced.nii
-RISE_slideshow.ipynb   sub-01_ses-01_7T_T1w_defaced_brain.nii.gz
-bids_conversion.ipynb  sub-01_ses-01_7T_T1w_defaced_edges.nii
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AA_Neurodesk_demo_tour.ipynb  nipype_short.ipynb
+MRIQC.ipynb                   papermill-slurm-submission-example.ipynb
+PyBIDS.ipynb                  pydra_preproc_ants.ipynb
+RISE_slideshow.ipynb          sub-01_ses-01_7T_T1w_defaced.nii
+bids_conversion.ipynb         sub-01_ses-01_7T_T1w_defaced_brain.nii.gz
+<span class=" -Color -Color-Bold -Color-Bold-Blue">ds000114</span>/                     sub-01_ses-01_7T_T1w_defaced_edges.nii
 nipype_full.ipynb
 </pre></div>
 </div>
@@ -808,9 +829,9 @@ nipype_full.ipynb
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ce2a6fd373835d876532ba1006e6a81cc6dc284c3483bfa79e7139aa7a5102f2.png" src="_images/ce2a6fd373835d876532ba1006e6a81cc6dc284c3483bfa79e7139aa7a5102f2.png" />
-<img alt="_images/c1cb7bf236a70505fd7be45c1f660ad54f4dd44de71df0af711874463cf21c92.png" src="_images/c1cb7bf236a70505fd7be45c1f660ad54f4dd44de71df0af711874463cf21c92.png" />
-<img alt="_images/1c622612e6b91def9e45dec8b36ec92e033858862d7f79f35f20f6d5d1095d4a.png" src="_images/1c622612e6b91def9e45dec8b36ec92e033858862d7f79f35f20f6d5d1095d4a.png" />
+<img alt="_images/5849174e0dca3d1a256da42a70ae778e67566b52f9c86e672df3fcb6a636e097.png" src="_images/5849174e0dca3d1a256da42a70ae778e67566b52f9c86e672df3fcb6a636e097.png" />
+<img alt="_images/a1857e811d1af78c7991c5007a89ff56471665db9f539a24a533657c6ed62228.png" src="_images/a1857e811d1af78c7991c5007a89ff56471665db9f539a24a533657c6ed62228.png" />
+<img alt="_images/ba806652add8c647a969c1564b21281d44fefb3293f22b8f3d0ced7d8a9984c0.png" src="_images/ba806652add8c647a969c1564b21281d44fefb3293f22b8f3d0ced7d8a9984c0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -824,7 +845,7 @@ nipype_full.ipynb
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c02aa10855784e8a92984853a0275cc6", "version_major": 2, "version_minor": 1}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e61fe12660f64ca689630dda4a0c25db", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -852,7 +873,7 @@ nipype_full.ipynb
 stty: &#39;standard input&#39;: Inappropriate ioctl for device
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nipype.interfaces.base.support.InterfaceResult at 0x7fc8c9a78bd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nipype.interfaces.base.support.InterfaceResult at 0x7f7aaa6048d0&gt;
 </pre></div>
 </div>
 </div>
@@ -865,7 +886,7 @@ stty: &#39;standard input&#39;: Inappropriate ioctl for device
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3577abaef0d779efe64e5ab33cdf22fe1db7ebecfd05cdf93f80a74065d161dd.png" src="_images/3577abaef0d779efe64e5ab33cdf22fe1db7ebecfd05cdf93f80a74065d161dd.png" />
+<img alt="_images/a7e6651caea48d2f28da532ef62c8b125372607f35b087dc71b6e9cc4efbd89b.png" src="_images/a7e6651caea48d2f28da532ef62c8b125372607f35b087dc71b6e9cc4efbd89b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -877,7 +898,7 @@ stty: &#39;standard input&#39;: Inappropriate ioctl for device
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5d81184cc0be4411b5a09061d9f8459e", "version_major": 2, "version_minor": 1}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "635ddee2d16c43f0916869cd125430b2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -888,6 +909,47 @@ stty: &#39;standard input&#39;: Inappropriate ioctl for device
 <div class="cell_output docutils container">
 <div class="output text_html"><img src="https://raw.githubusercontent.com/NeuroDesk/example-notebooks/refs/heads/main/books/images/wsub-01_ses-01_7T_T1w_defaced.png"/></div></div>
 </div>
+<section id="dependencies-in-jupyter-python">
+<h3>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-10-31T00:29:05.110304+00:00
+
+Python implementation: CPython
+Python version       : 3.11.6
+IPython version      : 8.16.1
+
+Compiler    : GCC 12.3.0
+OS          : Linux
+Release     : 5.4.0-204-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+ipyniivue : 2.3.2
+nibabel   : 5.2.1
+matplotlib: 3.8.4
+IPython   : 8.16.1
+numpy     : 2.2.6
+nipype    : 1.8.6
+scipy     : 1.13.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -937,12 +999,21 @@ stty: &#39;standard input&#39;: Inappropriate ioctl for device
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information-for-reproducibility">Output CPU information for reproducibility</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic Nipype</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-from-osf">Dataset from OSF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-module-system-in-python-and-nipype">Demonstrating the module system in Python and Nipype</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-afni-and-spm-as-well">Load AFNI and SPM as well</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">download test data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">run nipype pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-test-data">Download test data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-nipype-pipeline">Run nipype pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
