@@ -1,0 +1,1269 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Processing task-based FMRI with AFNI and afni_proc.py &#8212; Neurodesk</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4Z9774J59Y"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4Z9774J59Y');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4Z9774J59Y');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AFNI_processing_task_based';</script>
+    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/AFNI_processing_task_based.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Neurodesk</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Processing task-based FMRI with AFNI and afni_proc.py
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/AFNI_processing_task_based.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in America"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in America logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/AFNI_processing_task_based.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/AFNI_processing_task_based.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2FAFNI_processing_task_based.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/AFNI_processing_task_based.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Processing task-based FMRI with AFNI and afni_proc.py</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing task-based FMRI with AFNI and afni_proc.py</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-citations-relevant-for-this-workflow">Tools and citations relevant for this workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-educational-resources">Additional educational resources</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-check-afni-installation">Load and check AFNI installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-please-fix-section">Reading the “Please fix” section</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data">Get the data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#investigate-the-demo-contents">Investigate the demo contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-note"><em>Visualization note</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="processing-task-based-fmri-with-afni-and-afni-proc-py">
+<h1>Processing task-based FMRI with AFNI and afni_proc.py<a class="headerlink" href="#processing-task-based-fmri-with-afni-and-afni-proc-py" title="Link to this heading">#</a></h1>
+<p><strong>Author</strong>: Paul A. Taylor (SSCC, NIMH, NIH, USA)</p>
+<p><strong>Date</strong>: 11 Nov 2025</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This tutorial goes through full single-subject processing of task-based FMRI data. It uses AFNI tools, in particular afni_proc.py to setup the full pipeline, which includes several built-in provenance and QC features.  We discuss checking the data at several points, and how the user can stay close to their data to avoid bad surprises (as much as possible).</p>
+<p>This workflow is based on the standard AFNI Bootcamp demo dataset and processing. It looks at task-based FMRI processing for a volumetric, voxelwise analysis in an adult human subject. We note that this pipeline can be tweaked to cover further cases of ROI-based processing, surface-based analysis, non-human subjects and other age groups.</p>
+<p>In this workflow, you will see the following programs in action (and we keep using several of the acronyms, for brevity and hipness):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gtkyd_check.py</span></code> : Get To Know Your Data (GTKYD) by tabularizing and summarizing properties of many datasets efficiently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gen_ss_review_table.py</span></code> : (GSSRT) sift through textfile-stored properties of many datasets for desired/undesired properties or outliers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">afni_proc.py</span></code> : (AP) create your full, auto-commented FMRI processing pipeline, with built-in QC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3dinfo</span></code> : quickly check properties of one dataset, including the history of its processing (=provenance)</p></li>
+</ul>
+<p>You will also hear about how the following programs can be run prior to AP, and their results helpfully incorporated. (These are run before because they can be long and computationally expensive, and if you re-run your processing in AP, there likely isn’t a need to re-run them.)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sswarper2</span></code> : (SSW) skullstrip your T1w anatomical and generate nonlinear warps to a template space</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recon-all</span></code> : (from FreeSurfer, FS) estimate parcellations and surface meshes from the T1w anatomical</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;SUMA_Make_Spec_FS</span></code> : an AFNI program run immediately after FS to convert volumes to NIFTI format, surfaces to GIFTI format, to standardize surface meshes, and to create useful <code class="docutils literal notranslate"><span class="pre">*.spec</span></code> files relating surface families.</p></li>
+</ul>
+<p><strong>Note</strong> that a very, very important part of processing data is visualizing it both before and after processing (and often looking at intermediate results). In this jupyter-notebook interface, it is difficult to open a GUI, so that part will have to be done separately outside of this (e.g., in a concurrent terminal). We will include snapshots as we discuss features, and we very much encourage users to also use the AFNI GUI to view data and a browser to view the APQC HTML.</p>
+</section>
+<section id="tools-and-citations-relevant-for-this-workflow">
+<h2>Tools and citations relevant for this workflow<a class="headerlink" href="#tools-and-citations-relevant-for-this-workflow" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><em>AFNI the open source, <a class="reference external" href="https://github.com/afni/afni">publicly available</a> toolbox for MRI-related processing:</em><br />
+Cox RW (1996). AFNI: software for analysis and visualization of functional magnetic resonance neuroimages. <a class="reference external" href="https://doi:10.1006/cbmr.1996.0014">Comput Biomed Res 29(3):162-173.</a></p></li>
+<li><p><em>afni_proc.py, a program to make full, detailed processing pipelines for FMRI datasets:</em><br />
+Reynolds RC, Glen DR, Chen G, Saad ZS, Cox RW, Taylor PA (2024). Processing, evaluating and understanding FMRI data with afni_proc.py. <a class="reference external" href="https://doi.org/10.1162/imag_a_00347">Imaging Neuroscience 2:1-52.</a></p></li>
+<li><p><em>AFNI QC tools including the APQC HTML, tools for evaluating both raw and processed data properties for appropriateness:</em><br />
+Taylor PA, Glen DR, Chen G, Cox RW, Hanayik T, Rorden C, Nielson DM, Rajendra JK, Reynolds RC (2024). A Set of FMRI Quality Control Tools in AFNI: Systematic, in-depth and interactive QC with afni_proc.py and more. <a class="reference external" href="https://doi:10.1162/imag_a_00246">Imaging Neuroscience 2: 1–39.</a></p></li>
+<li><p><em>AFNI QC tutorial examples, part of the <a class="reference external" href="https://www.frontiersin.org/research-topics/33922/demonstrating-quality-control-qc-procedures-in-fmri">FMRI Open QC Project</a> on demonstrating quality control in FMRI:</em><br />
+Reynolds RC, Taylor PA, Glen DR (2023). Quality control practices in FMRI analysis: Philosophy, methods and examples using AFNI. <a class="reference external" href="https://doi:10.3389/fnins.2022.1073800">Front. Neurosci. 16:1073800.</a></p></li>
+</ul>
+<p>And some additional related reading:</p>
+<ul class="simple">
+<li><p><em>An earlier discussion of processing choices and using afni_proc.py, with examples:</em><br />
+Taylor PA, Chen G, Glen DR, Rajendra JK, Reynolds RC, Cox RW (2018). FMRI processing with AFNI: Some comments and corrections on ‘Exploring the Impact of Analysis Software on Task fMRI Results’. <a class="reference external" href="https://doi:10.1101/308643">bioRxiv 308643</a></p></li>
+<li><p><em>Why scaling FMRI time series is often a helpful and meaningful processing choice:</em><br />
+Chen G, Taylor PA, Cox RW (2017). Is the statistic value all we should care about in neuroimaging? <a class="reference external" href="https://doi:10.1016/j.neuroimage.2016.09.066">Neuroimage. 147:952-959.</a></p></li>
+<li><p><em>Why do we use lpc and lpa cost functions for alignment?</em><br />
+Saad ZS, Glen DR, Chen G, Beauchamp MS, Desai R, Cox RW (2009). A new method for improving functional-to-structural MRI alignment using local Pearson correlation. <a class="reference external" href="https://doi:10.1016/j.neuroimage.2008.09.037">Neuroimage 44 839–848</a>.</p></li>
+<li><p><em>Why do we use 3dvolreg for motion correction?</em><br />
+Oakes TR, Johnstone T, Ores Walsh KS, Greischar LL, Alexander AL, Fox AS, Davidson RJ (2005). Comparison of fMRI motion correction software tools. <a class="reference internal" href="#doi:10.1016/j.neuroimage.2005.05.058"><span class="xref myst">Neuroimage. 28(3):529-543</span></a>.</p></li>
+<li><p><em>Why it is important to transparently threshold data to really understand it (in addition to QC issues, noted in above papers):</em><br />
+Taylor PA, Reynolds RC, Calhoun V, Gonzalez-Castillo J, Handwerker DA, Bandettini PA, Mejia AF, Chen G (2023). Highlight Results, Don’t Hide Them: Enhance interpretation, reduce biases and improve reproducibility. <a class="reference external" href="https://doi:10.1016/j.neuroimage.2023.120138">Neuroimage 274:120138</a>.</p></li>
+<li><p><em>… and in case you needed more convincing on why it is important to transparently threshold data:</em><br />
+Taylor PA, Aggarwal H, Bandettini PA, Barilari M, Bright M, Caballeros-Gaudes C, Calhoun VD, Chakravarty M, Devenyi G, Evans J, Garza-Villarreal E, Rasgado-Toledo J, Gau R, Glen DR, Goebel R, Gonzalez-Castillo J, Gulban OF, Halchenko Y, Handwerker D, Hanayik T, Lauren PD, Leopold D, Lerch J, Mathys C, McCarthy P, McLeod A, Mejia A, Moia S, Nichols TE, Pernet C, Pessoa L, Pfleiderer B, Rajendra JK, Reyes L, Reynolds RC, Roopchansingh V, Rorden C, Russ BE, Sundermann B, Thirion B, Torrisi S, Chen G (2025). Go Figure: Transparency in neuroscience images preserves context and clarifies interpretation. <a class="reference external" href="https://arxiv.org/abs/2504.07824/">arXiv:2504.07824</a></p></li>
+</ul>
+</section>
+<section id="additional-educational-resources">
+<h2>Additional educational resources<a class="headerlink" href="#additional-educational-resources" title="Link to this heading">#</a></h2>
+<p>Accompanying video tutorials for this processing example, as well as several other topics in MRI data visualization and processing, are available on the AFNI Academy channel: https://www.youtube.com/c/afnibootcamp.</p>
+<p>The AFNI handouts directory for the Bootcamp can be downloaded from a terminal shell with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">O</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">afni</span><span class="o">.</span><span class="n">nimh</span><span class="o">.</span><span class="n">nih</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">edu</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CD</span><span class="o">/</span><span class="n">afni_handouts</span><span class="o">.</span><span class="n">tgz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">afni_handouts</span><span class="o">.</span><span class="n">tgz</span>
+</pre></div>
+</div>
+<p>… or see <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/educational/handouts.html#download-all-afni-handouts">this webpage</a>.</p>
+<p>Additional educational resources are available <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/educational/main_toc.html">here</a>.</p>
+<p>Questions and comments can be posted on the <a class="reference external" href="https://discuss.afni.nimh.nih.gov/">AFNI Message Board</a>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="load-and-check-afni-installation">
+<h1>Load and check AFNI installation<a class="headerlink" href="#load-and-check-afni-installation" title="Link to this heading">#</a></h1>
+<p>Run the following to load the most recent version of AFNI available, and also run the system check to verify the components.</p>
+<p>The AFNI system check (ASC) outputs a lot of useful diagnostic information about dependencies and programs. At the bottom is a “Please fix” section, which contains any particular items to address. Any questions can be posted on the <a class="reference external" href="https://discuss.afni.nimh.nih.gov/">AFNI Message Board</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import some Python packages for this jupyter-notebook tour</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>            <span class="c1"># to interact with files and paths</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">IPython</span>       <span class="c1"># to visualize image files</span>
+
+<span class="c1"># load the AFNI module for neurodesk</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">module</span>    <span class="c1"># to load neurodesk modules</span>
+
+    <span class="c1"># load most recent available AFNI</span>
+    <span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;afni&#39;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;++ Python library &#39;module&#39; not available&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+&quot;afni&quot;
+
+Please check the spelling or version number. Also try &quot;module spider ...&quot;
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load &quot;afni&quot;
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run the system check</span>
+<span class="o">!</span>afni_system_check.py<span class="w"> </span>-check_all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: afni_system_check.py: command not found
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reading-the-please-fix-section">
+<h2>Reading the “Please fix” section<a class="headerlink" href="#reading-the-please-fix-section" title="Link to this heading">#</a></h2>
+<p>There may be some useful things to do, based on the final “summary, please fix” output in the ASC output.</p>
+<p>For example, some of the items that commonly occur, and which you should follow-up on, are (NB: some paths may be different on your system):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">please</span> <span class="pre">run:</span> <span class="pre">apsearch</span> <span class="pre">-update_all_afni_help</span></code><br />
+-&gt; Sets up the TAB-autocompletion of the options for all the AFNI programs.<br />
+You then don’t have to remember each option name in full (but go ahead and memorize them all instead, if you prefer!)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">please</span> <span class="pre">run:</span> <span class="pre">cp</span> <span class="pre">/usr/local/abin/AFNI.afnirc</span> <span class="pre">~/.afnirc</span></code><br />
+-&gt; Sets up default settings file to manage fine control of the AFNI GUI and programs.<br />
+You then open <code class="docutils literal notranslate"><span class="pre">~/.afnirc</span></code> in a text editor and adjust a lot of settings (such as default colors, left-right settings, directories of reference data to always load, and more).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">please</span> <span class="pre">run:</span> <span class="pre">suma</span> <span class="pre">-update_env</span></code><br />
+-&gt; Sets up default settings file to manage fine control of the AFNI GUI and programs.<br />
+You then open <code class="docutils literal notranslate"><span class="pre">~/.sumarc</span></code> in a text editor and adjust a lot of settings (such as rotation angle per click, various colors, and more).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">library</span> <span class="pre">&lt;something&gt;</span> <span class="pre">is</span> <span class="pre">required</span></code><br />
+-&gt; Points out missing Python module dependency for some AFNI functionality.
+On Linux systems, you might be able to install these directly with the package manager.
+If not, or if using macOS, you might find it useful to add these packages using some form of Conda, like Miniconda, for which we have copy+paste instructions <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/miniconda.html#set-up-conda-quick">here</a>.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="get-the-data">
+<h1>Get the data<a class="headerlink" href="#get-the-data" title="Link to this heading">#</a></h1>
+<p>The data used here is part of the standard AFNI Bootcamp teaching data. If you have already downloaded and unpacked the full tutorial data (CD.tgz), you can use those contents. If you don’t have that, and would like just the directory containing demo’s data (plus other examples) you can run the following to download+unpack it, as well as to move into the demo dir itself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download the compressed data directory &quot;AFNI_data7&quot; </span>
+<span class="c1"># (if it doesn&#39;t already exist and if we are&#39;t in the data dir)</span>
+
+<span class="n">have_datadir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;AFNI_data7&#39;</span><span class="p">)</span>          <span class="c1"># demo already downloaded?</span>
+<span class="n">in_demodir</span>   <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;task_demo_ap&#39;</span><span class="p">)</span> <span class="c1"># alread in demo directory?</span>
+
+<span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">have_datadir</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">in_demodir</span><span class="p">)</span> <span class="p">:</span>
+    <span class="c1"># download the compressed data</span>
+    <span class="o">!</span>curl<span class="w"> </span>-O<span class="w"> </span>https://afni.nimh.nih.gov/pub/dist/edu/data/AFNI_data7.tgz
+    <span class="o">!</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;++ Done downloading the data&quot;</span>
+
+    <span class="c1"># unpack/open the directory</span>
+    <span class="o">!</span>tar<span class="w"> </span>-xf<span class="w"> </span>AFNI_data7.tgz
+    <span class="o">!</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;++ Done unpacking the data&quot;</span>
+<span class="k">else</span> <span class="p">:</span>
+    <span class="o">!</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;++ I appear to already have the data directory. Nice!&quot;</span>
+    
+<span class="c1"># move to the directory with unprocessed data (if not already there)</span>
+<span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">in_demodir</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;AFNI_data7/task_demo_ap&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+  0     0   0     0   0     0     0     0  --:--:--  0:00:01 --:--:--     0
+  0 487.6M   0 191886   0     0 78142     0   1:49:04  0:00:02  1:49:02 78129
+  0 487.6M   0  3218k   0     0 968022     0   0:08:48  0:00:03  0:08:45 967954
+  2 487.6M   2 14968k   0     0  3418k     0   0:02:26  0:00:04  0:02:22  3418k
+  5 487.6M   5 26453k   0     0  4969k     0   0:01:40  0:00:05  0:01:35  5288k
+  7 487.6M   7 38413k   0     0  6087k     0   0:01:22  0:00:06  0:01:16  7685k
+ 10 487.6M  10 51429k   0     0  7035k     0   0:01:10  0:00:07  0:01:03 10554k
+ 12 487.6M  12 62913k   0     0  7449k     0   0:01:07  0:00:08  0:00:59 11844k
+ 14 487.6M  14 74554k   0     0  7937k     0   0:01:02  0:00:09  0:00:53 11883k
+ 17 487.6M  17 86124k   0     0  8318k     0   0:01:00  0:00:10  0:00:50 11863k
+ 19 487.6M  19 98156k   0     0  8679k     0   0:00:57  0:00:11  0:00:46 11948k
+ 22 487.6M  22 108.7M   0     0  9050k     0   0:00:55  0:00:12  0:00:43 11993k
+ 24 487.6M  24 121.7M   0     0  9246k     0   0:00:54  0:00:13  0:00:41 12261k
+ 27 487.6M  27 133.1M   0     0  9443k     0   0:00:52  0:00:14  0:00:38 12248k
+ 29 487.6M  29 144.8M   0     0  9626k     0   0:00:51  0:00:15  0:00:36 12309k
+ 32 487.6M  32 156.3M   0     0  9783k     0   0:00:51  0:00:16  0:00:35 12253k
+ 34 487.6M  34 167.6M   0     0  9908k     0   0:00:50  0:00:17  0:00:33 12017k
+ 37 487.6M  37 180.5M   0     0 10076k     0   0:00:49  0:00:18  0:00:31 12370k
+ 39 487.6M  39 192.7M   0     0 10132k     0   0:00:49  0:00:19  0:00:30 12106k
+ 41 487.6M  41 204.0M   0     0 10223k     0   0:00:48  0:00:20  0:00:28 12055k
+ 44 487.6M  44 215.8M   0     0 10326k     0   0:00:48  0:00:21  0:00:27 12094k
+ 46 487.6M  46 225.6M   0     0 10339k     0   0:00:48  0:00:22  0:00:26 11826k
+ 48 487.6M  48 237.7M   0     0 10443k     0   0:00:47  0:00:23  0:00:24 11798k
+ 51 487.6M  51 250.7M   0     0 10556k     0   0:00:47  0:00:24  0:00:23 12261k
+ 54 487.6M  54 263.6M   0     0 10592k     0   0:00:47  0:00:25  0:00:22 12083k
+ 56 487.6M  56 275.4M   0     0 10670k     0   0:00:46  0:00:26  0:00:20 12134k
+ 58 487.6M  58 287.1M   0     0 10717k     0   0:00:46  0:00:27  0:00:19 12381k
+ 61 487.6M  61 298.7M   0     0 10778k     0   0:00:46  0:00:28  0:00:18 12321k
+ 63 487.6M  63 310.2M   0     0 10833k     0   0:00:46  0:00:29  0:00:17 12182k
+ 66 487.6M  66 321.9M   0     0 10872k     0   0:00:45  0:00:30  0:00:15 12350k
+ 68 487.6M  68 335.1M   0     0 10960k     0   0:00:45  0:00:31  0:00:14 12528k
+ 71 487.6M  71 347.6M   0     0 10959k     0   0:00:45  0:00:32  0:00:13 12275k
+ 73 487.6M  73 359.4M   0     0 11011k     0   0:00:45  0:00:33  0:00:12 12320k
+ 76 487.6M  76 371.0M   0     0 11038k     0   0:00:45  0:00:34  0:00:11 12218k
+ 78 487.6M  78 382.7M   0     0 11077k     0   0:00:45  0:00:35  0:00:10 12304k
+ 80 487.6M  80 394.0M   0     0 11104k     0   0:00:44  0:00:36  0:00:08 11998k
+ 83 487.6M  83 405.9M   0     0 11141k     0   0:00:44  0:00:37  0:00:07 12365k
+ 86 487.6M  86 420.2M   0     0 11234k     0   0:00:44  0:00:38  0:00:06 12755k
+ 88 487.6M  88 431.9M   0     0 11202k     0   0:00:44  0:00:39  0:00:05 12317k
+ 90 487.6M  90 443.4M   0     0 11230k     0   0:00:44  0:00:40  0:00:04 12299k
+ 93 487.6M  93 454.9M   0     0 11251k     0   0:00:44  0:00:41  0:00:03 12316k
+ 95 487.6M  95 466.5M   0     0 11276k     0   0:00:44  0:00:42  0:00:02 12274k
+ 98 487.6M  98 477.9M   0     0 11296k     0   0:00:44  0:00:43  0:00:01 11775k
+100 487.6M 100 487.6M   0     0 11334k     0   0:00:44  0:00:44 --:--:-- 12475k
+++ Done downloading the data
+++ Done unpacking the data
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="investigate-the-demo-contents">
+<h1>Investigate the demo contents<a class="headerlink" href="#investigate-the-demo-contents" title="Link to this heading">#</a></h1>
+<p>Let’s go check out the demo contents:</p>
+<ul class="simple">
+<li><p>what data files are present</p></li>
+<li><p>some of the properties and contents</p></li>
+<li><p>what script examples there are</p></li>
+</ul>
+<p><strong>The starting data directories</strong></p>
+<ul class="simple">
+<li><p><strong>sub-000</strong> : the directory of basic/unprocessed FMRI and anatomical data for this participant</p></li>
+<li><p><strong>SSW</strong> : output directory from running AFNI’s <code class="docutils literal notranslate"><span class="pre">sswarper2</span></code>, which skullstrips the participant’s anatomical volume and calculates a nonlinear warp to a chosen template space (here, MNI)</p></li>
+<li><p><strong>SUMA</strong> : output directory from running FreeSurfer’s <code class="docutils literal notranslate"><span class="pre">recon-all</span></code> and AFNI’s <code class="docutils literal notranslate"><span class="pre">&#64;SUMA_Make_Spec_FS</span></code>, which contains anatomical surface meshes and volumetric parcellations</p></li>
+</ul>
+<p><strong>The demo scripts</strong></p>
+<ul class="simple">
+<li><p><strong>do_01_gtkyd.tcsh</strong> : before any processing takes place, run <code class="docutils literal notranslate"><span class="pre">gtykd_check.py</span></code> to Get To Know Your Data (GTKYD), checking for unwanted or inconsistent properties</p></li>
+<li><p><strong>do_12_fs.tcsh</strong> : (<em>already run</em>) run FS’s <code class="docutils literal notranslate"><span class="pre">recon-all</span></code> to perform cortical mesh estimation, tissue segmentation and region parcellation of the anatomical, stored in <code class="docutils literal notranslate"><span class="pre">SUMA/</span></code></p></li>
+<li><p><strong>do_13_ssw.tcsh</strong> : (<em>already run</em>) run <code class="docutils literal notranslate"><span class="pre">sswarper2</span></code> to skullstrip (ss) the anatomical and estimate nonlinear alignment (warping) of it to a template, stored in <code class="docutils literal notranslate"><span class="pre">SSW/</span></code></p></li>
+<li><p><strong>do_14_timing.tcsh</strong> : (<em>already run</em>) run <code class="docutils literal notranslate"><span class="pre">timing_tool.py</span></code> to convert BIDS-format TSV files into AFNI-format timing files, producing <code class="docutils literal notranslate"><span class="pre">sub-000/func/times*txt</span></code></p></li>
+<li><p><strong>do_20_ap_simple.tcsh</strong> : a wrapper command for AP which essentially no options besides input data; useful for simple, quick processing (treats data like rest) to generate the APQC HTML and other QC info</p></li>
+<li><p><strong>do_21_ap_affine.tcsh</strong> : a task-based analysis using the stimulus timing info and more control of options; the primary teaching example, it only uses affine alignment of anatomical-&gt;template space, for faster processing in class</p></li>
+<li><p><strong>do_22_ap_nonlinear.tcsh</strong> : the same as <code class="docutils literal notranslate"><span class="pre">do_21*.tcsh</span></code> but applying nonlinear warping to template space from <code class="docutils literal notranslate"><span class="pre">sswarper2</span></code> (alrady run, via <code class="docutils literal notranslate"><span class="pre">do_13_ssw.tcsh</span></code>), making it a more real example.</p></li>
+<li><p><strong>do_23_ap_surf.tcsh</strong> : a surface-based processing example, using a mesh estimated with FreeSurfer’s <code class="docutils literal notranslate"><span class="pre">recon-all</span></code> (already run, via <code class="docutils literal notranslate"><span class="pre">do_12_fs.tcsh</span></code>)</p></li>
+</ul>
+<p><strong>… and other stuff</strong>, including what will be created as we run the scripts</p>
+<ul class="simple">
+<li><p><strong>README.txt</strong> : description of demo directory contents</p></li>
+<li><p><strong>example_snapshots</strong> : images to support the jupyter-notebook description</p></li>
+<li><p><strong>proc*</strong> : for provenance, verification and education, AP creates a fully commented script of the complete processing; this gets executed to do the work</p></li>
+<li><p><strong>run*</strong> : when running the “simple” AP processing, a copy of the command is saved for reference</p></li>
+<li><p><strong>out*</strong> : for provenance, verification and troubleshooting, we try to execute the <code class="docutils literal notranslate"><span class="pre">proc*</span></code> scripts in a way that logs all terminal text, to these files</p></li>
+<li><p><strong>sub-*.results</strong> : the results directory from running an AP <code class="docutils literal notranslate"><span class="pre">proc*</span></code> script; contains a lot of intermediate outputs and QC items, to assist verification checks</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the files present</span>
+<span class="o">!</span>ls<span class="w"> </span>-1<span class="w"> </span>--color
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>README.txt
+<span class=" -Color -Color-Bold -Color-Bold-Blue">SSW</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">SUMA</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_01_gtkyd.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_12_fs.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_13_ssw.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_14_timing.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_20_ap_simple.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_21_ap_affine.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_22_ap_nonlinear.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">do_23_ap_surf.tcsh</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">example_snapshots</span>
+<span class=" -Color -Color-Bold -Color-Bold-Green">save.proc.sub-000.affine</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">sub-000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The basic input data: brief overview</strong></p>
+<p>This example uses a BIDS-ish data structure and set of names for datasets. AP is flexible and happy to use these as inputs.</p>
+<p>There is one T1-weighted (T1w) anatomical volume: <code class="docutils literal notranslate"><span class="pre">anat/sub-000_T1w.nii.gz</span></code>. This is a 3D volume, typically of higher spatial resolution than the FMRI data and providing clear anatomical information.</p>
+<p>There are 3 EPI-based FMRI datasets, which contain a record of blood oxygen-level dependence (BOLD) signal changes throughout the brain: <code class="docutils literal notranslate"><span class="pre">func/sub-000_task-av_run-0?_bold.nii.gz</span></code>. These were acquired while the subject performed a task (described below), each has a BIDS-formatted record of event timing: <code class="docutils literal notranslate"><span class="pre">func/*events.tsv</span></code>. These are each “4D” datasets, because they have three dimensions of space and one dimension of time. These three runs were all acquired in the same session, so we will process them all together in a single AP command.</p>
+<p>The final two text files that contain (most of) the necessary timing information for the task paradigm performed by the subject during the FMRI runs, in a simple format used by AFNI programs: <code class="docutils literal notranslate"><span class="pre">func/times.*.txt</span></code>. Each text file contains the event timing information for one of the two stimulus class types, during this audio-visual task used here:</p>
+<ul class="simple">
+<li><p>“vis” class: “visual reliable” presentation of a clear image of a person speaking while hearing garbled sound;</p></li>
+<li><p>“aud” class: “audial reliable” presentation of a blurred image of a person speaking while hearing clear sound.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the contents of the basic input data tree</span>
+<span class="c1"># (one participant&#39;s datasets):</span>
+<span class="o">!</span>tree<span class="w"> </span>sub-000
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">sub-000</span>
+├── <span class=" -Color -Color-Bold -Color-Bold-Blue">anat</span>
+│   └── <span class=" -Color -Color-Bold -Color-Bold-Red">sub-000_T1w.nii.gz</span>
+└── <span class=" -Color -Color-Bold -Color-Bold-Blue">func</span>
+    ├── <span class=" -Color -Color-Bold -Color-Bold-Red">sub-000_task-av_run-01_bold.nii.gz</span>
+    ├── sub-000_task-av_run-01_events.tsv
+    ├── <span class=" -Color -Color-Bold -Color-Bold-Red">sub-000_task-av_run-02_bold.nii.gz</span>
+    ├── sub-000_task-av_run-02_events.tsv
+    ├── <span class=" -Color -Color-Bold -Color-Bold-Red">sub-000_task-av_run-03_bold.nii.gz</span>
+    ├── sub-000_task-av_run-03_events.tsv
+    ├── times.aud.txt
+    └── times.vis.txt
+
+3 directories, 9 files
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Timing files</strong></p>
+<p>The two stimulus files are: <code class="docutils literal notranslate"><span class="pre">sub-000/func/times.{aud,vis}.txt</span></code>.</p>
+<p>In this study, each stimulus event lasted for 20s, and the stimuli were all separated by 10s of “rest” (no sound, no image). The ordering of presented stimuli was random. This style of task presentation is called a “block design”, because the events are fairly long. While many modern task paradigms are in a different style with very short (less than a couple seconds) called “event-related”, this is useful for understanding BOLD responses—we can actually see the task-related changes in the BOLD signal. FMRI time series are very noisy, so for very short or more subtle tasks this is usually not possible. NB: mathematics makes that OK, and we can still get useful quantities to evaluate, but it is less helpful for a demo.</p>
+<p>It is important to know the onset times of each event during the processing, and this information is stored in the <code class="docutils literal notranslate"><span class="pre">func/times.*.txt</span></code> files. It is also important to know the duration of each event. In this case, it is a constant 20s, and we just know that we need to remember and provide that number during the AP setup. If the event durations differed, that would be recorded in the timing files.</p>
+<p>The format of these timing files is as follows:</p>
+<ul class="simple">
+<li><p>there are N rows of text, corresponding to each of the N runs of data (here, N=3).</p></li>
+<li><p>within a row, each number corresponds to the onset time of a given event</p></li>
+<li><p>each onset value is the time (in seconds) from the start of the FMRI dataset that is being processed</p>
+<ul>
+<li><p>the onset times here happen to be integers, but they don’t need to be; they don’t even need to fall on a TR</p></li>
+<li><p>if part of processing includes removing initial volumes from the FMRI dataset (like to remove pre-steady state), the timing values need to count from the post-trimmed values—<em>so be sure to account for that in your timing file creation?</em></p></li>
+<li><p>if an FMRI run had no events, you could put just <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span></code> in that row to signify that it is empty</p></li>
+</ul>
+</li>
+</ul>
+<p>You can see the compact contents of the timing files as in the next cell (and similarly for the vis class).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the timing file for the &quot;aud&quot; stimulus class</span>
+<span class="o">!</span>cat<span class="w"> </span>sub-000/func/times.aud.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 30.0 150.0 210.0 270.0 
+0.0 30.0 60.0 90.0 240.0 
+30.0 90.0 180.0 210.0 270.0
+</pre></div>
+</div>
+</div>
+</div>
+<section id="visualization-note">
+<h2><em>Visualization note</em><a class="headerlink" href="#visualization-note" title="Link to this heading">#</a></h2>
+<p>At this point, we reiterate that it is generally useful to visualize your datasets, particularly if they are recently scanned or downloaded. You can learn so much about a dataset’s properties, suitability for an analysis and potential pitfalls to look out for. This qualitative information gathering will be complemented by quantitative ones, too, described below.</p>
+<p><strong>Anatomical volume</strong></p>
+<p>This volume provides useful structural and anatomical information for the participant, since it is much less distorted than the EPI-based FMRI dataset(s) and has better tissue contrast.</p>
+<p>This can best be appreciated by visualizing the anatomical in AFNI:</p>
+<ul class="simple">
+<li><p>Open the AFNI GUI, loading all dsets recursively in the source data dir: <code class="docutils literal notranslate"><span class="pre">afni</span> <span class="pre">-R</span> <span class="pre">-all_dsets</span> <span class="pre">sub-000</span></code></p></li>
+<li><p>Anatomical may be default dset, or click “Underlay” -&gt; “sub-000/anat/sub-000_T1w.nii.gz” -&gt; “Set”</p></li>
+<li><p>Navigate the crosshairs to the coordinate origin of the dset:</p>
+<ul>
+<li><p>AFNI uses (x, y, z) coordinates (physical units of mm) for locations</p></li>
+<li><p>Coordinates are shown in the upper left corner, in RAI sign convention (Right/Ant/Inf are negative)</p></li>
+<li><p>In any image window, right-click -&gt; “Jump to (xyz)” -&gt; enter <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">0</span> <span class="pre">0</span></code> -&gt; Set</p></li>
+<li><p>NB: actual location will be voxel centroid closest to coordinate origin.</p></li>
+</ul>
+</li>
+</ul>
+<p>A screenshot of the described GUI setup is shown, below.</p>
+<p>NB: this dataset has not been defaced/refaced (and is shared with the scanner participant’s permission!), but that could be done in AFNI with <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/tutorials/refacer/refacer_run.html">&#64;afni_refacer_run</a>, which has been rated a <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fpsyt.2021.617997/full">top defacing/refacing tool in independent comparisons</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display a screenshot of the AFNI GUI with the T1w anatomical loaded</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example_snapshots/img_00_afnigui_anat_000.png&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7eb05cde5e7fce5b5d1faf25480060f15311a7a9f394dfa17f6b7858d7ae8786.png" src="_images/7eb05cde5e7fce5b5d1faf25480060f15311a7a9f394dfa17f6b7858d7ae8786.png" />
+</div>
+</div>
+<p>One would check the anatomical dataset for appropriate coverage, spatial resolution, tissue contrast, and other desired properties.</p>
+<p>At some stages of processing, the following steps usually happen with this T1w dataset:</p>
+<ol class="arabic simple">
+<li><p>It is skullstripped to identify just the brain part within the FOV.</p></li>
+<li><p>A single volume from the FMRI data is aligned to it, for structural and anatomical reference.</p></li>
+<li><p>In many volume-based studies, it may be aligned to a template volume, to have all data in the same reference space (typically done with nonlinear warping, in a real analysis).</p></li>
+<li><p>In surface-based studies, a surface mesh will be estimated from this volume, to project data onto (in AFNI, this mesh is standardized).</p></li>
+</ol>
+<p>In standard AFNI processing, Items #2 and 3 are typically performed prior to running AP (simultaneously using AFNI’s <code class="docutils literal notranslate"><span class="pre">sswarper2</span></code>), and then relevant data are provided via options. Indeed, we have done that prior anatomical processing here, with the <code class="docutils literal notranslate"><span class="pre">SSW</span></code> directory (discussed above) containing the <code class="docutils literal notranslate"><span class="pre">sswarper2</span></code> outputs.</p>
+<p>Additionally, Item #4 would also typically be performed before running AP (using FS’s <code class="docutils literal notranslate"><span class="pre">recon-all</span></code>), and the relevant data are provided via options. We have done so here, with the <code class="docutils literal notranslate"><span class="pre">SUMA</span></code> directory (discussed above) containing the <code class="docutils literal notranslate"><span class="pre">recon-all</span></code> outputs.</p>
+<p><strong>FMRI volumes</strong></p>
+<p>FMRI volumes don’t have the high spatial resolution of anatomical datasets—they are typically 2-3mm per edge—but they are acquired in a way to provide a time series-view of what is happening every couple seconds (a typical TR is about 2s). The standard scan technique for acquiring FMRI is called echo planar imaging (EPI), and we use the terms interchangeably here.</p>
+<p>Again, we can appreciate some properties of the EPI dataset best by visualizing it in AFNI (the first step repeats from above, so you can skip it if the GUI is still open):</p>
+<ul class="simple">
+<li><p>Open the AFNI GUI, loading all dsets recursively in the source data dir: <code class="docutils literal notranslate"><span class="pre">afni</span> <span class="pre">-R</span> <span class="pre">-all_dsets</span> <span class="pre">sub-000</span></code></p></li>
+<li><p>To select the first run of EPI data, click “Underlay” -&gt; “sub-000/func/sub-000_task-av_run-01_bold.nii.gz” -&gt; “Set”</p></li>
+<li><p>Open a Graph Viewer by clicking the “Graph” button in the GUI (left panel, next to a yellow Image button; we chose the graph in the Sagittal slice)</p></li>
+<li><p>Navigate the crosshairs to the coordinate origin of the dset:</p>
+<ul>
+<li><p>AFNI uses (x, y, z) coordinates (physical units of mm) for locations</p></li>
+<li><p>Coordinates are shown in the upper left corner, in RAI sign convention (Right/Ant/Inf are negative)</p></li>
+<li><p>In any image window, right-click -&gt; “Jump to (xyz)” -&gt; enter <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">0</span> <span class="pre">0</span></code> -&gt; Set</p></li>
+<li><p>NB: actual location will be voxel centroid closest to coordinate origin.</p></li>
+</ul>
+</li>
+</ul>
+<p>A screenshot of the described GUI setup is shown, below.</p>
+<p>In the Image panels, you see a fuzzy-looking brain, with some cortical patterns visible, but tissue boundaries and regions probably aren’t as obvious as in the anatomical dataset view, above.</p>
+<p>In the Graph panel, you are seeing a montage of time series from a (default) 3x3 grid of voxels in the given sagittal slice. In this subcortical region, the time series have a lot of fluctuations and don’t have a recognizable pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display a screenshot of the AFNI GUI with the first EPI run loaded, seen at coordinate origin</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example_snapshots/img_01_afnigui_epi_r01_000.png&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/230cc87850086d0cc51017fcc155a583ecb39e569916ab90b26550ade057de65.png" src="_images/230cc87850086d0cc51017fcc155a583ecb39e569916ab90b26550ade057de65.png" />
+</div>
+</div>
+<p><em>EPI feature: spikes</em></p>
+<p>Click around and see how different parts of the brain appear. For example, if you end up at the location (x,y,z) ~ (8, 31, 60), you will see some spikes that are <em>very</em> big relative to the other fluctuations. These are due to a subject motion event about a quarter of the way through the run.</p>
+<p>Some spikes are up, some are down, and some time series don’t appear to have any. This heterogeneity of motion-induced spikiness is one major reason why participant motion is so hard to navigate well in processing and analysis.</p>
+<p>Up above, and here as well, you might also notice a subtle thing that appears in all time series at their very start—a different kind of spike. (It is hiding a bit, because of the y-axis there, but look closely.) This one is different because it is <em>always</em> upwards, uniformly. This has a different root cause. Each dataset <em>looks</em> normal there as a 3D volume, but in fact the recorded values are uniformly higher in the first few volumes than the rest—this is a “pre-steady state” phenomenon. It occurs generally in FMRI as the acquisition sequence settles into a steady state. Some scanners or initial data-streams clip out these time points, while others don’t. It is good to be aware that these can occur.</p>
+<p>You can tell afni_proc.py to remove the first few EPI volumes, if the input data <em>does</em> include such pre-steady state volumes. And afni_proc.py will automatically check and warn you if it appears that the user did not account for some pre-steady state volumes that appear to be present. (And we note that participant motion <em>can</em> occur in the first few volumes, so sometimes it is hard to tell which affect might be happening, or if both are.) In any case, you need to make sure that your task-based timing files stay synchronous with the EPI datasets as processed!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display a screenshot of the AFNI GUI with the first EPI run loaded, checking out spikes</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example_snapshots/img_02_afnigui_epi_r01_spikes.png&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/46131ddfd698370db628152f22b5707ca1f78f9b0515788c32fe949500047e05.png" src="_images/46131ddfd698370db628152f22b5707ca1f78f9b0515788c32fe949500047e05.png" />
+</div>
+</div>
+<p><em>EPI feature: task response</em></p>
+<p>The task performed during this FMRI scan was an audio-visual one. So, let’s check out how things look in the visual cortex.  Well, see see some notable patterns, such as at the location (x,y,z) ~ (16, 78, 3.3), as below. While the earlier-noted motion and pre-steady state spikes apparent, we now see some very regular pattern of hills. And indeed, these are signatures of task-related BOLD response for this block design paradigm (we could load the idealized response time series into the graph viewer, too, to help verify this).</p>
+<p>Specifically, this paradigm has the start of a block that contains either a blurred or clear visual component every 30s and a duration of 20s, so seeing regular response in the visual cortex is not unexpected. The fact that we see a few time series in this graph montage with the task signature reflects our spatial sampling: the voxel edges are roughly the same diameter as GM cortex. Notice also that the response shapes aren’t perfectly rectangular—the BOLD response is not on/off, but has a ramp up and ramp down—and that notable plus/minus noise bumps are still present.</p>
+<p>Later, we will look at performing real processing to get a more detailed description of task responses: quantifying each stimulus class, perhaps comparing them (i.e., evaluating their “contrast”), trying to boost their signal-to-noise ratio while also reducing spikes and other noise features. That is the job of the real processing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display a screenshot of the AFNI GUI with the first EPI run loaded</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example_snapshots/img_03_afnigui_epi_r01_taskresp.png&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/df242a56362284883d4e5b72322ff8de8574fb812b73727711a90463314798b7.png" src="_images/df242a56362284883d4e5b72322ff8de8574fb812b73727711a90463314798b7.png" />
+</div>
+</div>
+<p><em>FMRI comments</em></p>
+<p>FMRI datasets are useful windows into the whole brain, at reasonable spatio- and temporal resolutions. As with any modality, it has pluses and minuses and trade-offs to consider.</p>
+<p>First, these are some key pluses:</p>
+<ul class="simple">
+<li><p><strong>MR safety:</strong> MRI and FMRI are generally considered quite safe, because the electromagnetic frequencies involved are in the radio range. So, there are not concerns of ionizing radiation, and some people have literally had hundreds of scans performed on them without adverse consequences.</p></li>
+<li><p><strong>Noninvasive:</strong> Standard FMRI is noninvasive, in that no cutting or insertion of devices is needed, and no contrast agents or dyes need to be ingested.</p></li>
+<li><p><strong>Reasonable spatial resolution:</strong> We can acquire FMRI datasets with typical voxels edge lengths of 2-3mm.  This allows researchers to resolve functional gray matter regions at a useful scale.</p></li>
+<li><p><strong>Reasonable temporal sampling:</strong> We can acquire repeated whole brain volumes at a typical rate of every 1-2s. This allows researchers to study functional changes at a useful time sampling.</p></li>
+<li><p><strong>Whole brain:</strong> While MEG and EEG have much higher temporal sampling (order of ms), FMRI provides better spatial resolution and localization, as well as the ability to view into to the interior depths of the brain.</p></li>
+<li><p><strong>Length of scan:</strong> Participants can stay in the scanner safely for a long time, so one can acquire a lot of functional data, either from a single or multiple runs. However, one must balance duration with participant comfort, ability to perform the task reasonably (e.g., not getting bored, falling asleep, failing to respond, learning task too well, etc.). There are also practical considerations of coil heating and baseline changes over time, that can make regression modeling more difficult.</p></li>
+<li><p><strong>Flexible task design:</strong> A large number of tasks can be performed by the participant in the scanner, allowing researchers to focus on different aspects of brain function. This includes reading, viewing images/movies, finger tapping/button pushing, imagining, neurofeedback, resting, and much more.</p></li>
+<li><p><strong>Reasonable signal strength:</strong>  While the measured BOLD data have a lot of non-neuronal sources that contribute both structured and unstructured noise, we can still observe useful BOLD signals to work with.</p></li>
+</ul>
+<p>… and also some challenging considerations:</p>
+<ul class="simple">
+<li><p><strong>Tight voxel sampling:</strong> Considering spatial scales, EPI voxel edges are generally about the same length as the human cortical ribbon. This means we are not deeply sampling the GM as we would want, leading to partial voluming (mixing GM, WM and CSF) of information within a voxel.</p></li>
+<li><p><strong>Sensitivity to motion:</strong> FMRI is highly, highly, highly susceptiple to motion by the participant, even at annoyingly small amounts like &lt;0.5 mm. This makes it difficult to acquire reasonable data for many patient populations, or for certain tasks that might induce motion, or for very long runs. Limiting motion, esp. task-correlated motion, is one of the primary arts of study design and data acquisition; post-processing can only do so much to reduce its impact. There will be up and down spikes inserted into many time series, as well as the fact that a given time series will gather signals from different parts of the brain.</p></li>
+<li><p><strong>Geometric distortions:</strong> EPI is highly susceptible to geometric distortions. Along the “phase encoding” axis (which is generally along the anterior-posterior axis), one edge of the brain will get stretched out and signals attenuated and the other squashed with signals piled-up.</p></li>
+<li><p><strong>BOLD measures:</strong> FMRI measures an indirect quantity—blood oxygenation level dependent (BOLD) responses—that arises from the neuronal firing which we are <em>actually</em> most interested in. There are many other sources of BOLD fluctuations, such as breathing and heartrate, and other noise sources due to the physics of the acquisition and practical realities of scanning live participants (like motion). So, we need to take this into account for our processing, modeling and interpretations. Oh, and BOLD measures have no physical units, making interpretation more challenging (but we can navigate this a bit in processing).</p></li>
+<li><p><strong>Poor tissue contrast:</strong> In general, EPI datasets are a bit fuzzy and it can be hard to distinguish where tissue boundaries end/start. (This is one reason for acquiring a higher-resolution anatomical, to give a better map of what is what in the brain).</p></li>
+<li><p><strong>Brightness inhomogeneity:</strong> EPI signals are often not homogeneous across the brain or a given tissue type, meaning that the baseline measures might be higher in one patch than another. Typically, parts of the brain physically closer to MRI coils have higher signal, meaning the edges are very bright. Like the challenge with not having BOLD measures, this is something we don’t want to affect final analyses, and we try to account for this in processing.</p></li>
+<li><p><strong>FMRI signal strength:</strong> FMRI data are very noisy, in the sense that there are many non-BOLD sources with large magnitudes mixed into the data. This is often quantified via the temporal signal to noise ratio (TSNR). But more generally this means we often need many events of a task-based design, and generally acquire multiple partipants to be able to generalize robust results for more subtle questions of interest.</p></li>
+<li><p><strong>Signal loss:</strong> EPI signal will often get lost near boundaries with air, so the part of the brain near the sinuses will get very distorted and low-strength; this greatly affects the inferiofrontal regions and ventromedial prefrontral cortex (VMPFC).</p></li>
+<li><p><strong>Slicewise acquisition:</strong> The full EPI volume is not acquired in a single snapshot, but instead slice-by-slice over the full duration of the TR; even more interestingly, to reduce signal mixing across slices this is done <em>every other slice</em>, so a voxel’s “upstairs” and “downstairs” neighbors are often about TR/2 seconds out of sync.</p></li>
+<li><p><strong>Field of view considerations:</strong> Voxels at the very edge of the FOV are typically distorted, so some slices of “padding” should be included around areas of interest. Sometimes to have smaller voxels or shorter TR, researchers trim the coverage and don’t acquire some parts of the brain, like the cerebellum.</p></li>
+<li><p><strong>Time-space trade-offs:</strong> To get better time sampling (shorter TR), researchers could decrease spatial resolution (larger voxel sizes). Trimming the FOV (note above) can be used to improve either.</p></li>
+<li><p><strong>Multiband and slice acceleration:</strong> To increase spatial and/or temporal resolution, researchers can use acquisition tricks, like acquiring multiple (non-neighboring) slices simultaneously or subsampling within a slice. These can provide benefits, but they will also provide increasing distortions so that one has to make sure that the trade-off remains reasonable for data usage.</p></li>
+</ul>
+<p>In the end, there are many considerations when designing an experiment. We will highlight subject motion as one that should be limited as much as possible from the beginning, with acclimating participants to MRI scanners and the FMRI task and careful study design. Geometric distortions will <em>always</em> be present, participant motion will be a problem, the asynchrony of FMRI slices can be an issue, and our data of interest are an indirect measure of neuronal activity, gathered in a noisy environment.  These facts influence many aspects of our processing, which therefore may include:</p>
+<ol class="arabic simple">
+<li><p>Cross-EPI alignment to a reference time point, which helps with a couple things:</p>
+<ul class="simple">
+<li><p>try make it look more like the brain didn’t move during the scan, so that each voxel’s time series is from a consistent location</p></li>
+<li><p>provides time series estimates of relative motion (3 translation and 3 rotation), which can be used as regressors in time series modeling as well as to censor out time points where “too much” motion occurred</p></li>
+<li><p>… in general, these are referred to as “motion correction”, though we can never get rid of all of these affects.</p></li>
+</ul>
+</li>
+<li><p>Because motion can put in somewhat arbitrary spikes into time series, one can perform de-spiking to try to reduce their impact and spread.</p></li>
+<li><p>In AFNI, we generally recommend scaling each time series by its mean value, transforming the unitless data into a meaningful “BOLD percent signal change”. This also helps reduce the effects of spatial brightness inhomogeneity.</p></li>
+<li><p>To synchonize the data within a volume, one can perform slice-timing correction (or time-shifting), if one has the information of the slice timing pattern.</p></li>
+<li><p>To reduce geometric distortions, one can acquire a short, supplemental dataset to unwarp the EPI:</p>
+<ul class="simple">
+<li><p>A short reverse phase-encoded dataset, which is aligned to the main EPI and the “half-way” point of the matching is considered more fiducial to the actual brain</p></li>
+<li><p>A phase map, which should encode the B0 field inhomogeneity that actually causes the distortion, and hence can be applied inversely to unwarp</p></li>
+</ul>
+</li>
+<li><p>Blurring the data will reduce spatial resolution further, but it can provide a way to boost signal TSNR, with the idea that random noise cancels out a bit while neighboring signal reinforces. Doing this on a surface may provide the best boost.</p></li>
+<li><p>Regression modeling includes a lot of options for dealing with motion, task design, BOLD response and more. It is something to consider from the beginning in the study design.</p></li>
+</ol>
+<p><strong>Checking dataset properties</strong></p>
+<p>A lot of features have to be verified to help ensure that the data at hand are as appropriate as possible for the current study. Above we have looked at some important visualization aspects of how the data look. We want to be sure to partner that with some investigation of their “meta-data” or “header” features.</p>
+<p>One simple way to do that is to check the header information directly, using <strong>3dinfo</strong>.  You can display the full header information directly by just providing a dataset name, as below.</p>
+<p>In doing so, we see a lot of properties. Ignoring some of the ones at the top of the output for the moment, we focus on seeing things like:</p>
+<ul class="simple">
+<li><p>the stored dataset orientation on disk (<code class="docutils literal notranslate"><span class="pre">[-orient</span> <span class="pre">RAI]</span></code>),</p></li>
+<li><p>the size of the voxels (<code class="docutils literal notranslate"><span class="pre">2.75</span> <span class="pre">mm...</span> <span class="pre">2.750</span> <span class="pre">mm...</span> <span class="pre">3.000</span> <span class="pre">mmm</span></code>),</p></li>
+<li><p>the number of volumes (<code class="docutils literal notranslate"><span class="pre">Number</span> <span class="pre">of</span> <span class="pre">time</span> <span class="pre">steps</span> <span class="pre">=</span> <span class="pre">152</span></code>),</p></li>
+<li><p>the TR (<code class="docutils literal notranslate"><span class="pre">Time</span> <span class="pre">step</span> <span class="pre">=</span> <span class="pre">2.00000s</span></code>),</p></li>
+<li><p>the min-max range for each volume (<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">to</span>&#160;&#160;&#160; <span class="pre">3272</span></code>, etc.),</p></li>
+</ul>
+<p>… and more.</p>
+<p>An important and unique feature in AFNI is seeing the stored <strong>history</strong> for the dataset. As AFNI commands are run, each is saved in an accumulating list in a file, so you can be sure of what steps have happened. The history also notes the version of AFNI used, the time stamp and the computer name. Having this kind of <em>provenance</em> during processing is extremely useful in general. (Here, this dataset was just copied twice, basically since the author of this was indecisive about the best name and also wanted to keep a long filename as short as possible.)</p>
+<p>As a second example below, we show how you can output one or more specific pieces of the header info with one or more options. This can be very useful for scripting. You can also output information for more than one dataset at a time, which can be useful for checking consistency (more on another tool for comparing conveniently on a larger scale, below). When inputting multiple datasets, I like to include <code class="docutils literal notranslate"><span class="pre">-prefix</span></code> so I know which attributes go with with one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display full header information for a dataset</span>
+<span class="o">!</span>3dinfo<span class="w"> </span>sub-000/func/sub-000_task-av_run-01_bold.nii.gz
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: 3dinfo: command not found
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display specific pieces of info and for multiple datasets</span>
+<span class="o">!</span>3dinfo<span class="w"> </span>-tr<span class="w"> </span>-orient<span class="w"> </span>-prefix<span class="w"> </span>sub-000/func/sub*bold.nii.gz
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: 3dinfo: command not found
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Checking dataset properties on a large scale</strong></p>
+<p>Using 3dinfo is great for individual or a small number of datasets, but it is also nice to able to summarize and check properties across a large number of datasets—even across multiple subjects. That can be useful for checking consistency, as well as sifting through for potentially unwanted/odd properties in datasets.</p>
+<p>Therefore, AFNI has the <strong>gtkyd_check.py</strong> program, for Getting To Know Your Data. This will gather together lots of pieces of header information: both those from AFNI’s BRIK/HEAD and, if the dataset type is NIFTI, then NIFTI; in modern code, it can even query the existence and values of JSON sidecar keys that may be present. In the example here, we look at applying it to the 3 EPI datasets for sub-000, but in general we would probably apply it across all <code class="docutils literal notranslate"><span class="pre">sub-*</span></code> in a study.</p>
+<p>The basic usage is to provide a set of input datasets, and then an output prefix. It probably makes most sense to run this across a single kind of dataset, like all EPIs that might be considered in a group together, and then separately across all anatomicals for that group. That will make consistency checks for voxel size and other features more reasonable.</p>
+<p>In the demo script <code class="docutils literal notranslate"><span class="pre">do_01_gtkyd.tcsh</span></code>, the following is the first gtkyd_check.py command, to make a summary table and a set of supplementary text files for the EPI datasets here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gtkyd_check</span><span class="o">.</span><span class="n">py</span>                                            \
+    <span class="o">-</span><span class="n">infiles</span>           <span class="n">sub</span><span class="o">-</span><span class="mi">000</span><span class="o">/</span><span class="n">func</span><span class="o">/</span><span class="n">sub</span><span class="o">-*</span><span class="n">task</span><span class="o">-</span><span class="n">av</span><span class="o">*</span><span class="n">nii</span><span class="o">*</span>     \
+    <span class="o">-</span><span class="n">outdir</span>            <span class="n">data_01_gtkyd</span><span class="o">/</span><span class="n">all_epi</span>
+</pre></div>
+</div>
+<p>This creates the following outputs in the data_1_gtkyd directory:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">all_epi.xls</span></code> : a spreadsheet where there is 1 row per file, and each column is one of the header properties of interest</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all_epi</span></code> : a directory of supplementary text files; we will use <code class="docutils literal notranslate"><span class="pre">all_epi/dset*.txt</span></code> for a follow-up command shortly</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run a script of gtkyd_check.py and follow-up gen_ss_review_table.py </span>
+<span class="c1"># commands on both EPI and anatomical datasets (if not run already)</span>
+
+
+<span class="c1"># Run GTKYD only if output folder does not exist</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;sub-000.gtkyd&#39;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;sub-000.gtkyd&#39;</span><span class="p">)</span>
+    <span class="o">!</span>tcsh<span class="w"> </span>do_01_gtkyd.tcsh
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>++ Generate: make table+supplements of properties from FMRI dsets
+gtkyd_check.py: Command not found.
+
+++ Review: query for specific data properties that we want to avoid
+
+gen_ss_review_table.py: No match.
+</pre></div>
+</div>
+</div>
+</div>
+<p>… and on the command line, one could open the created spreadsheet of EPI dataset properties created by gtkyd_check.py with, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">afni_open</span> <span class="o">-</span><span class="n">s</span> <span class="n">sub</span><span class="o">-</span><span class="mf">000.</span><span class="n">gtkyd</span><span class="o">/</span><span class="n">all_epi</span><span class="o">.</span><span class="n">xls</span>
+</pre></div>
+</div>
+<p>This is shown below. The first set of properties are from 3dinfo (“n3” is the 3D matrix dimensions; “nv” is the number of volumes; and see the program <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/programs/alpha/3dinfo_sphx.html">help</a> for further descriptions). Since the dataset format is NIFTI, further checks for NIFTI-specific header properties are checked (“datatype” is a code for being short/float/etc.; “sform_code” is a numeric coding of the space being original/template/etc.; and see the nifti_tool’s <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/programs/alpha/nifti_tool_sphx.html">help</a> for further descriptions).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display a screenshot of the spreadsheet of EPI properties created by gtkyd_check.py</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example_snapshots/img_05_gtkyd_xls_epi.png&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/78faf7bc75e042deb66bf3ae6f99136c179cc54efd7d18833ad87485b8b83b7c.png" src="_images/78faf7bc75e042deb66bf3ae6f99136c179cc54efd7d18833ad87485b8b83b7c.png" />
+</div>
+</div>
+<p>It is possible to scan columns for consistency or unexpected values, but it is also nice to let the computer do that work for you. The AFNI program <strong>gen_ss_review_table.py</strong> can effectively query the values columnwise for</p>
+<ul class="simple">
+<li><p>comparisons: does any dataset have a voxel dimension &gt;=2.8 mm? are any TRs &lt;= 1.5s? etc.</p></li>
+<li><p>exact variations: is the matrix size of any dataset different than the rest?</p></li>
+<li><p>variations with plus/minus tolerance: do voxel sizes vary, outside of floating point roundoff?</p></li>
+<li><p>equality: is any participant’s raw data somehow labeled as being in a template space?
+and more.  Please see the program’s <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/programs/alpha/gen_ss_review_scripts.py_sphx.html">help</a> for further description.</p></li>
+</ul>
+<p>This program queries text files in a simple dictionary format (colon-separated columns, or JSON). Fortunately, gtkyd_check.py is aware of this fact and has created a set of these for datasets it received as input—these were the <code class="docutils literal notranslate"><span class="pre">all_epi/dset*.txt</span></code> files alluded to, above. In the demo script <code class="docutils literal notranslate"><span class="pre">do_01_gtkyd.tcsh</span></code>, the following is the first gen_ss_review_table.py command, to make a small table of any datasets that have a particular property we were interested in, such as variable voxel dimension or a short TR, etc.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gen_ss_review_table</span><span class="o">.</span><span class="n">py</span>                                    \
+    <span class="o">-</span><span class="n">outlier_sep</span> <span class="n">space</span>                                    \
+    <span class="o">-</span><span class="n">infiles</span>            <span class="n">data_01_gtkyd</span><span class="o">/</span><span class="n">all_epi</span><span class="o">/</span><span class="n">dset</span><span class="o">*</span><span class="n">txt</span>    \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;subject ID&#39;</span>     <span class="n">SHOW</span>             \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;av_space&#39;</span>       <span class="n">EQ</span>    <span class="s2">&quot;+tlrc&quot;</span>    \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;n3&#39;</span>             <span class="n">VARY</span>             \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;nv&#39;</span>             <span class="n">VARY</span>             \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;orient&#39;</span>         <span class="n">VARY</span>             \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;datum&#39;</span>          <span class="n">VARY</span>             \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;ad3&#39;</span>            <span class="n">VARY_PM</span> <span class="mf">0.001</span>    \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;tr&#39;</span>             <span class="n">VARY_PM</span> <span class="mf">0.001</span>    \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;ad3&#39;</span>            <span class="n">GE</span>   <span class="mf">2.8</span>         \
+    <span class="o">-</span><span class="n">report_outliers</span>    <span class="s1">&#39;tr&#39;</span>             <span class="n">LE</span>   <span class="mf">1.5</span>         \
+    <span class="o">|&amp;</span> <span class="n">tee</span>              <span class="n">data_01_gtkyd</span><span class="o">/</span><span class="n">all_epi_gssrt</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>NB: since this program outputs text to the terminal, the <code class="docutils literal notranslate"><span class="pre">|&amp;</span> <span class="pre">tee</span> <span class="pre">...</span></code> part at the end is to store a copy of the output terminal text into the given <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> text file, for later readability.</p>
+<p>If we display the contents of that text file (see below), we see that there are a lot of columns (because we checked a lot of properties) and in fact there were datasets that were a “hit” for at least one of the given criteria.  If we can view the full <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> file clearly, we see that one voxel dimension for each EPI dataset was &gt;=2.8 mm, and so it would output in the table.</p>
+<p>Note, in this case, we aren’t really worried about that property, but for example purposes we used that criterion to have <em>something</em> be output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>sub-000.gtkyd/all_epi_gssrt.dat
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gen_ss_review_table.py: No match.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dependencies-in-jupyter-python">
+<h2>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-12-05T08:10:23.943934+00:00
+
+Python implementation: CPython
+Python version       : 3.13.9
+IPython version      : 9.7.0
+
+Compiler    : GCC 14.3.0
+OS          : Linux
+Release     : 5.15.0-151-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+IPython: 9.7.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing task-based FMRI with AFNI and afni_proc.py</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-citations-relevant-for-this-workflow">Tools and citations relevant for this workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-educational-resources">Additional educational resources</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-check-afni-installation">Load and check AFNI installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-please-fix-section">Reading the “Please fix” section</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data">Get the data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#investigate-the-demo-contents">Investigate the demo contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-note"><em>Visualization note</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Neurodesk Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
