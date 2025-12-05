@@ -242,16 +242,34 @@
       
       <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/qsmxt.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
+   title="Launch on Run in America"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
+    <img alt="Run in America logo" src="_static/images/logo_jupyterhub.svg">
   </span>
-<span class="btn__text-container">JupyterHub</span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/qsmxt.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
 </a>
 </li>
       
@@ -430,7 +448,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">QSMxT</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information">Output CPU information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#qsmxt-interactive-notebook">QSMxT Interactive Notebook</a><ul class="visible nav section-nav flex-column">
@@ -445,12 +467,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-dicom-to-bids">Convert DICOM to BIDS</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-input-data">Inspect input data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-input-data">Inspect input data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-display-using-niivue">Interactive Display using Niivue</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-qsmxt">Run QSMxT</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#view-results">View results</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qsm-results">QSM results</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segmentations">Segmentations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-csvs">Analysis CSVs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-csvs">Analysis CSVs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -468,27 +496,22 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="qsmxt">
 <h1>QSMxT<a class="headerlink" href="#qsmxt" title="Link to this heading">#</a></h1>
 <p><strong>Author:</strong> Ashley Stewart</p>
-<p><strong>Citation:</strong></p>
+<p><strong>Date:</strong> 25 Aug 2025</p>
+<section id="citation-and-resources">
+<h2>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h2>
+<section id="tools-included-in-this-workflow">
+<h3>Tools included in this workflow<a class="headerlink" href="#tools-included-in-this-workflow" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>QSMxT: Stewart AW, Robinson SD, O’Brien K, et al. QSMxT: Robust masking and artifact reduction for quantitative susceptibility mapping. Magnetic Resonance in Medicine. 2022;87(3):1289-1300. <a class="reference external" href="https://doi.org/10.1002/mrm.29048">doi:10.1002/mrm.29048</a></p></li>
 <li><p>QSMxT: Stewart AW, Bollman S, et al. QSMxT/QSMxT. GitHub; 2022<a class="reference external" href="https://github.com/QSMxT/QSMxT">. https://github.com/QSMxT/QSM</a></p></li>
 </ul>
-<section id="output-cpu-information">
-<h2>Output CPU information<a class="headerlink" href="#output-cpu-information" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;vendor&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-<span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;model name&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vendor_id	: AuthenticAMD
-model name	: AMD EPYC-Rome Processor
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="dataset">
+<h3>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Bollmann, S., &amp; Stewart, A. (2023, August 7). QSM DICOM testdata for QSMxT pipeline. Retrieved from <a class="reference external" href="https://osf.io/ru43c">osf.io/ru43c</a></p></li>
+</ul>
+</section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="qsmxt-interactive-notebook">
@@ -574,14 +597,6 @@ There are 1216 unsorted DICOMs in ./dicoms-unsorted/
 <p>To load QSMxT inside a notebook, we can use the available module system:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MODULEPATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/cvmfs/neurodesk.ardc.edu.au/containers/modules:&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MODULEPATH&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">module</span>
 <span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;qsmxt/8.1.1&#39;</span><span class="p">)</span>
 <span class="o">!</span>qsmxt<span class="w"> </span>--version
@@ -589,7 +604,11 @@ There are 1216 unsorted DICOMs in ./dicoms-unsorted/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod has detected the following error: The following module(s) are unknown:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
 &quot;qsmxt/8.1.1&quot;
 
 Please check the spelling or version number. Also try &quot;module spider ...&quot;
@@ -646,7 +665,7 @@ Also make sure that all modulefiles written in TCL start with the string
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">seaborn</span> <span class="n">numpy</span> <span class="n">nibabel</span> <span class="n">pandas</span> <span class="n">ipyniivue</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">seaborn</span> <span class="n">numpy</span> <span class="n">nibabel</span> <span class="n">pandas</span>
 </pre></div>
 </div>
 </div>
@@ -697,7 +716,7 @@ Also make sure that all modulefiles written in TCL start with the string
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">show_nii</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;bids/sub-*/ses-*/anat/*mag*T2starw*nii*&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Magnitude&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">show_nii</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;bids/sub-*/ses-*/anat/*phase*T2starw*nii*&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Phase&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">show_nii</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;bids/sub-*/ses-*/anat/*T1w*nii*&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;T1-weighted&quot;</span><span class="p">)</span>
@@ -707,19 +726,21 @@ Also make sure that all modulefiles written in TCL start with the string
 </div>
 </div>
 </div>
-<p>Interactive Display using Niivue</p>
+<section id="interactive-display-using-niivue">
+<h2>Interactive Display using Niivue<a class="headerlink" href="#interactive-display-using-niivue" title="Link to this heading">#</a></h2>
+<p>Uncomment the next cell if you want to inspect the T1-weighted image interactively</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ipyniivue</span><span class="w"> </span><span class="kn">import</span> <span class="n">NiiVue</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from ipyniivue import NiiVue</span>
 
-<span class="n">nv_T1</span> <span class="o">=</span> <span class="n">NiiVue</span><span class="p">()</span>
-<span class="n">nv_T1</span><span class="o">.</span><span class="n">load_volumes</span><span class="p">([{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="n">glob</span><span class="p">(</span><span class="s2">&quot;bids/sub-*/ses-*/anat/*T1w*nii*&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]}])</span>
-<span class="c1"># Uncomment the following line to interact with the image</span>
+<span class="c1"># nv_T1 = NiiVue()</span>
+<span class="c1"># nv_T1.load_volumes([{&quot;path&quot;: glob(&quot;bids/sub-*/ses-*/anat/*T1w*nii*&quot;)[0]}])</span>
 <span class="c1"># nv_T1</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="run-qsmxt">
 <h1>Run QSMxT<a class="headerlink" href="#run-qsmxt" title="Link to this heading">#</a></h1>
@@ -761,850 +782,990 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[INFO]: QSMxT v8.1.1
 [INFO]: Python interpreter: /opt/miniconda-4.12.0/bin/python3.8
-[INFO]: Command: qsmxt /home/ashley/repos/example-notebooks/books/structural_imaging/bids --premade &#39;fast&#39; --do_qsm --do_segmentation --do_analysis --auto_yes
+[INFO]: Command: qsmxt /home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids --premade &#39;fast&#39; --do_qsm --do_segmentation --do_analysis --auto_yes
 [WARNING]: Pipeline is NOT guidelines compliant (see https://doi.org/10.1002/mrm.30006):; Phase-quality-based masking recommended
-[INFO]: Available memory: 12.85 GB
+[INFO]: Available memory: 195.188 GB
 [INFO]: Creating QSMxT workflow for sub-1.ses-20170705.acq-acqmp2ragehighres0p5isoslab.T1w...
 [INFO]: Creating QSMxT workflow for sub-1.ses-20170705.acq-acqqsmp21mmisote20.T2starw...
 [INFO]: Creating QSMxT workflow for sub-2.ses-20170705.acq-acqmp2ragehighres0p5isoslab.T1w...
 [INFO]: Creating QSMxT workflow for sub-2.ses-20170705.acq-acqqsmp21mmisote20.T2starw...
-[INFO]: Running using MultiProc plugin with n_procs=14
-250825-03:41:40,962 nipype.workflow INFO:
+[INFO]: Running using MultiProc plugin with n_procs=32
+251030-02:01:26,143 nipype.workflow INFO:
 	 Workflow qsmxt-workflow settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;, &#39;monitoring&#39;]
-250825-03:41:40,978 nipype.workflow INFO:
+251030-02:01:26,393 nipype.workflow INFO:
 	 Running in parallel.
-250825-03:41:40,984 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 24 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-03:41:41,75 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-me&quot;.
-250825-03:41:41,76 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_as-canonical&quot;.
-250825-03:41:41,77 nipype.workflow INFO:
-	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:41:41,78 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/fastsurfer_segment-t1&quot;.
-250825-03:41:41,78 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.000476s.
-250825-03:41:41,78 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_as-canonical&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:41:41,79 nipype.workflow INFO:
-	 [Node] Executing &quot;fastsurfer_segment-t1&quot; &lt;qsmxt.interfaces.nipype_interface_fastsurfer.FastSurferInterface&gt;
-250825-03:41:41,87 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.007659s.
-250825-03:41:41,76 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_read-nii&quot;.
-250825-03:41:41,77 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-me&quot;.
-250825-03:41:41,129 nipype.workflow INFO:
+251030-02:01:26,407 nipype.workflow INFO:
+	 [MultiProc] Running 0 tasks, and 24 jobs ready. Free memory (GB): 219.48/219.48, Free processors: 32/32.
+251030-02:01:27,160 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-me&quot;.
+251030-02:01:27,163 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_read-nii&quot;.
+251030-02:01:27,171 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-se&quot;.
+251030-02:01:27,191 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/fastsurfer_segment-t1&quot;.
+251030-02:01:27,197 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_register-t1-to-qsm&quot;.
+251030-02:01:27,208 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_as-canonical&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_as-canonical&quot;.
+251030-02:01:27,219 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_read-nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_read-nii&quot;.
+251030-02:01:27,254 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel_read-nii&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:41:41,130 nipype.workflow INFO:
-	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:41:41,131 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.000454s.
-250825-03:41:41,133 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.002607s.
-250825-03:41:41,75 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-se&quot;.
-250825-03:41:41,78 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-se&quot;.
-250825-03:41:41,179 nipype.workflow INFO:
+251030-02:01:27,266 nipype.workflow INFO:
 	 [Node] Executing &quot;func_read-json-se&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:41:41,181 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.000784s.
-250825-03:41:41,181 nipype.workflow INFO:
-	 [Node] Executing &quot;func_read-json-se&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:41:41,183 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.0007s.
-250825-03:41:42,985 nipype.workflow INFO:
-	 [Job 0] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me).
-250825-03:41:42,986 nipype.workflow INFO:
-	 [Job 1] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se).
-250825-03:41:42,986 nipype.workflow INFO:
-	 [Job 2] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii).
-250825-03:41:42,987 nipype.workflow INFO:
-	 [Job 3] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical).
-250825-03:41:42,987 nipype.workflow INFO:
-	 [Job 6] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me).
-250825-03:41:42,987 nipype.workflow INFO:
-	 [Job 7] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se).
-250825-03:41:42,988 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 18 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-03:41:43,44 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_register-t1-to-qsm&quot;.
-250825-03:41:43,48 nipype.workflow INFO:
+251030-02:01:27,274 nipype.workflow INFO:
 	 [Node] Executing &quot;ants_register-t1-to-qsm&quot; &lt;nipype.interfaces.ants.registration.RegistrationSynQuick&gt;
-250825-03:41:44,986 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 17 jobs ready. Free memory (GB): 7.72/27.72, Free processors: 0/14.
+251030-02:01:27,274 nipype.workflow INFO:
+	 [Node] Executing &quot;fastsurfer_segment-t1&quot; &lt;qsmxt.interfaces.nipype_interface_fastsurfer.FastSurferInterface&gt;
+251030-02:01:27,226 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/fastsurfer_segment-t1&quot;.
+251030-02:01:27,169 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_as-canonical&quot;.
+251030-02:01:27,209 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-me&quot;.
+251030-02:01:27,301 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_read-nii&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,301 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.028565s.
+251030-02:01:27,313 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.015641s.
+251030-02:01:27,319 nipype.workflow INFO:
+	 [Node] Executing &quot;fastsurfer_segment-t1&quot; &lt;qsmxt.interfaces.nipype_interface_fastsurfer.FastSurferInterface&gt;
+251030-02:01:27,285 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_as-canonical&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,191 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-me&quot;.
+251030-02:01:27,336 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_as-canonical&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,214 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-se&quot;.
+251030-02:01:27,350 nipype.workflow INFO:
+	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,358 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.031016s.
+251030-02:01:27,192 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-se&quot;.
+251030-02:01:27,392 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.025958s.
+251030-02:01:27,403 nipype.workflow INFO:
+	 [Node] Executing &quot;func_read-json-se&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,416 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.009522s.
+251030-02:01:27,285 nipype.workflow INFO:
+	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,390 nipype.workflow INFO:
+	 [Node] Executing &quot;func_read-json-se&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,392 nipype.workflow INFO:
+	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:27,457 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.008337s.
+251030-02:01:27,458 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.007277s.
+251030-02:01:27,457 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.007988s.
+251030-02:01:27,945 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.594592s.
+251030-02:01:27,946 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.608775s.
+251030-02:01:28,408 nipype.workflow INFO:
+	 [Job 0] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me).
+251030-02:01:28,412 nipype.workflow INFO:
+	 [Job 1] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se).
+251030-02:01:28,413 nipype.workflow INFO:
+	 [Job 2] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii).
+251030-02:01:28,415 nipype.workflow INFO:
+	 [Job 3] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical).
+251030-02:01:28,416 nipype.workflow INFO:
+	 [Job 6] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me).
+251030-02:01:28,417 nipype.workflow INFO:
+	 [Job 7] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se).
+251030-02:01:28,419 nipype.workflow INFO:
+	 [Job 8] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_read-nii).
+251030-02:01:28,420 nipype.workflow INFO:
+	 [Job 9] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_as-canonical).
+251030-02:01:28,422 nipype.workflow INFO:
+	 [Job 12] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me).
+251030-02:01:28,423 nipype.workflow INFO:
+	 [Job 13] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se).
+251030-02:01:28,426 nipype.workflow INFO:
+	 [MultiProc] Running 3 tasks, and 14 jobs ready. Free memory (GB): 187.48/219.48, Free processors: 10/32.
                      Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-03:46:45,202 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 302.14979s.
-250825-03:46:47,386 nipype.workflow INFO:
-	 [Job 5] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm).
-250825-03:46:47,391 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 17 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-03:46:47,591 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_read-nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_read-nii&quot;.
-250825-03:46:47,596 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-se&quot;.
-250825-03:46:47,597 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_as-canonical&quot;.
-250825-03:46:47,622 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_read-nii&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:46:47,590 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_as-canonical&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_as-canonical&quot;.
-250825-03:46:47,599 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_read-nii&quot;.
-250825-03:46:47,658 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_read-nii&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:46:47,668 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.007757s.
-250825-03:46:47,622 nipype.workflow INFO:
+251030-02:01:28,647 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_as-canonical&quot;.
+251030-02:01:28,655 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-se&quot;.
+251030-02:01:28,656 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-me&quot;.
+251030-02:01:28,657 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_register-t1-to-qsm&quot;.
+251030-02:01:28,694 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel_as-canonical&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:46:47,622 nipype.workflow INFO:
+251030-02:01:28,701 nipype.workflow INFO:
 	 [Node] Executing &quot;func_read-json-se&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:46:47,685 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.002565s.
-250825-03:46:47,591 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_read-json-me&quot;.
-250825-03:46:47,645 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.018221s.
-250825-03:46:47,700 nipype.workflow INFO:
-	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:46:47,652 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_as-canonical&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:46:47,704 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.001192s.
-250825-03:46:47,706 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.028843s.
-250825-03:46:47,720 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.013783s.
-250825-03:46:49,387 nipype.workflow INFO:
-	 [Job 8] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_read-nii).
-250825-03:46:49,389 nipype.workflow INFO:
-	 [Job 9] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_as-canonical).
-250825-03:46:49,391 nipype.workflow INFO:
-	 [Job 12] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-me).
-250825-03:46:49,392 nipype.workflow INFO:
-	 [Job 13] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_read-json-se).
-250825-03:46:49,393 nipype.workflow INFO:
-	 [Job 14] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii).
-250825-03:46:49,394 nipype.workflow INFO:
-	 [Job 15] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical).
-250825-03:46:49,396 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 14 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-03:46:49,475 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_register-t1-to-qsm&quot;.
-250825-03:46:49,486 nipype.workflow INFO:
+251030-02:01:28,655 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_read-nii&quot;.
+251030-02:01:28,721 nipype.workflow INFO:
 	 [Node] Executing &quot;ants_register-t1-to-qsm&quot; &lt;nipype.interfaces.ants.registration.RegistrationSynQuick&gt;
-250825-03:46:51,389 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 13 jobs ready. Free memory (GB): 7.72/27.72, Free processors: 0/14.
+251030-02:01:28,729 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.017923s.
+251030-02:01:28,701 nipype.workflow INFO:
+	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:28,752 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_read-nii&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:28,780 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.066453s.
+251030-02:01:28,794 nipype.workflow INFO:
+	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.014706s.
+251030-02:01:28,822 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.044388s.
+251030-02:01:30,408 nipype.workflow INFO:
+	 [Job 14] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_read-nii).
+251030-02:01:30,410 nipype.workflow INFO:
+	 [Job 15] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_as-canonical).
+251030-02:01:30,411 nipype.workflow INFO:
+	 [Job 18] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me).
+251030-02:01:30,413 nipype.workflow INFO:
+	 [Job 19] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se).
+251030-02:01:30,415 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 10 jobs ready. Free memory (GB): 179.48/219.48, Free processors: 4/32.
                      Currently running:
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-03:49:39,869 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 170.380782s.
-250825-03:49:41,621 nipype.workflow INFO:
-	 [Job 11] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm).
-250825-03:49:41,623 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 13 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-03:49:41,679 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_register-t1-to-qsm&quot;.
-250825-03:49:41,686 nipype.workflow INFO:
-	 [Node] Executing &quot;ants_register-t1-to-qsm&quot; &lt;nipype.interfaces.ants.registration.RegistrationSynQuick&gt;
-250825-03:49:43,626 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 12 jobs ready. Free memory (GB): 7.72/27.72, Free processors: 0/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-03:50:45,932 nipype.workflow INFO:
-	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 544.851713s.
-250825-03:50:47,699 nipype.workflow INFO:
-	 [Job 4] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1).
-250825-03:50:47,701 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 13 jobs ready. Free memory (GB): 19.72/27.72, Free processors: 8/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
-250825-03:50:47,782 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/fastsurfer_segment-t1&quot;.
-250825-03:50:47,787 nipype.workflow INFO:
-	 [Node] Executing &quot;fastsurfer_segment-t1&quot; &lt;qsmxt.interfaces.nipype_interface_fastsurfer.FastSurferInterface&gt;
-250825-03:50:49,700 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 12 jobs ready. Free memory (GB): 7.72/27.72, Free processors: 0/14.
-                     Currently running:
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
-250825-03:55:21,170 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 339.48211s.
-250825-03:55:22,49 nipype.workflow INFO:
-	 [Job 17] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm).
-250825-03:55:22,51 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 12 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:55:22,172 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-me&quot;.
-250825-03:55:22,177 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_read-json-se&quot;.
-250825-03:55:22,190 nipype.workflow INFO:
-	 [Node] Executing &quot;func_read-json-se&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:55:22,190 nipype.workflow INFO:
-	 [Node] Executing &quot;func_read-json-me&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:55:22,188 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_getfirst-canonical-magnitude&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_getfirst-canonical-magnitude&quot;.
-250825-03:55:22,188 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_as-canonical&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_as-canonical&quot;.
-250825-03:55:22,198 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-se&quot;, elapsed time 0.002381s.
-250825-03:55:22,200 nipype.workflow INFO:
-	 [Node] Finished &quot;func_read-json-me&quot;, elapsed time 0.004421s.
-250825-03:55:22,198 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/numpy_numpy_nibabel_mgz2nii&quot;.
-250825-03:55:22,202 nipype.workflow INFO:
-	 [Node] Executing &quot;func_getfirst-canonical-magnitude&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:55:22,205 nipype.workflow INFO:
-	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.0008s.
-250825-03:55:22,208 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:01:30,499 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_as-canonical&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_as-canonical&quot;.
+251030-02:01:30,500 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_getfirst-canonical-magnitude&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_getfirst-canonical-magnitude&quot;.
+251030-02:01:30,513 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel_as-canonical&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:55:22,225 nipype.workflow INFO:
-	 [Node] Executing &quot;numpy_numpy_nibabel_mgz2nii&quot; &lt;qsmxt.interfaces.nipype_interface_mgz2nii.Mgz2NiiInterface&gt;
-250825-03:55:22,240 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.023386s.
-250825-03:55:22,190 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_read-nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_read-nii&quot;.
-250825-03:55:22,253 nipype.workflow INFO:
+251030-02:01:30,515 nipype.workflow INFO:
+	 [Node] Executing &quot;func_getfirst-canonical-magnitude&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:30,517 nipype.workflow INFO:
+	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.000813s.
+251030-02:01:30,524 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_as-canonical&quot;, elapsed time 0.008307s.
+251030-02:01:30,499 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_read-nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_read-nii&quot;.
+251030-02:01:30,500 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_scale-phase&quot;.
+251030-02:01:30,556 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel_read-nii&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:55:22,274 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.017205s.
-250825-03:55:22,452 nipype.workflow INFO:
-	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.222932s.
-250825-03:55:24,51 nipype.workflow INFO:
-	 [Job 18] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-me).
-250825-03:55:24,53 nipype.workflow INFO:
-	 [Job 19] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_read-json-se).
-250825-03:55:24,54 nipype.workflow INFO:
+251030-02:01:30,558 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_scale-phase&quot; &lt;qsmxt.interfaces.nipype_interface_processphase.ScalePhaseInterface&gt;
+251030-02:01:30,563 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_read-nii&quot;, elapsed time 0.005143s.
+251030-02:01:32,424 nipype.workflow INFO:
 	 [Job 20] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_read-nii).
-250825-03:55:24,55 nipype.workflow INFO:
+251030-02:01:32,431 nipype.workflow INFO:
 	 [Job 21] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_as-canonical).
-250825-03:55:24,56 nipype.workflow INFO:
+251030-02:01:32,433 nipype.workflow INFO:
 	 [Job 24] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_getfirst-canonical-magnitude).
-250825-03:55:24,64 nipype.workflow INFO:
-	 [Job 25] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii).
-250825-03:55:24,68 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 10 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
+251030-02:01:32,435 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 8 jobs ready. Free memory (GB): 177.48/219.48, Free processors: 3/32.
                      Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:55:24,195 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_register-t1-to-qsm&quot;.
-250825-03:55:24,207 nipype.workflow INFO:
-	 [Node] Executing &quot;ants_register-t1-to-qsm&quot; &lt;nipype.interfaces.ants.registration.RegistrationSynQuick&gt;
-250825-03:55:26,55 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 9 jobs ready. Free memory (GB): 7.72/27.72, Free processors: 0/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:58:56,46 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 211.834933s.
-250825-03:58:56,404 nipype.workflow INFO:
-	 [Job 23] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm).
-250825-03:58:56,406 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 9 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:58:56,492 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_scale-phase&quot;.
-250825-03:58:56,496 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_getfirst-canonical-magnitude&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_getfirst-canonical-magnitude&quot;.
-250825-03:58:56,501 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_scale-phase&quot;.
-250825-03:58:56,504 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_getfirst-canonical-magnitude&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_getfirst-canonical-magnitude&quot;.
-250825-03:58:56,515 nipype.workflow INFO:
-	 [Node] Executing &quot;func_getfirst-canonical-magnitude&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:58:56,521 nipype.workflow INFO:
-	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.002173s.
-250825-03:58:56,525 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:01:32,584 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_getfirst-canonical-magnitude&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_getfirst-canonical-magnitude&quot;.
+251030-02:01:32,593 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_scale-phase&quot;.
+251030-02:01:32,592 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_getfirst-canonical-magnitude&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/func_getfirst-canonical-magnitude&quot;.
+251030-02:01:32,667 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel_numpy_scale-phase&quot; &lt;qsmxt.interfaces.nipype_interface_processphase.ScalePhaseInterface&gt;
-250825-03:58:56,526 nipype.workflow INFO:
+251030-02:01:32,668 nipype.workflow INFO:
 	 [Node] Executing &quot;func_getfirst-canonical-magnitude&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:58:56,528 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_scale-phase&quot; &lt;qsmxt.interfaces.nipype_interface_processphase.ScalePhaseInterface&gt;
-250825-03:58:56,535 nipype.workflow INFO:
-	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.002478s.
-250825-03:58:56,497 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
-250825-03:58:56,554 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
-250825-03:58:56,502 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_getfirst-canonical-magnitude&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_getfirst-canonical-magnitude&quot;.
-250825-03:58:56,574 nipype.workflow INFO:
+251030-02:01:32,677 nipype.workflow INFO:
+	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.001213s.
+251030-02:01:32,686 nipype.workflow INFO:
 	 [Node] Executing &quot;func_getfirst-canonical-magnitude&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:58:56,581 nipype.workflow INFO:
-	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.002977s.
-250825-03:58:57,198 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_scale-phase&quot;, elapsed time 0.666212s.
-250825-03:58:57,246 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_scale-phase&quot;, elapsed time 0.713249s.
-250825-03:58:58,406 nipype.workflow INFO:
+251030-02:01:32,701 nipype.workflow INFO:
+	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.006979s.
+251030-02:01:33,267 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_scale-phase&quot;, elapsed time 2.706454s.
+251030-02:01:34,420 nipype.workflow INFO:
 	 [Job 26] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase).
-250825-03:58:58,408 nipype.workflow INFO:
+251030-02:01:34,428 nipype.workflow INFO:
 	 [Job 27] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_getfirst-canonical-magnitude).
-250825-03:58:58,409 nipype.workflow INFO:
+251030-02:01:34,429 nipype.workflow INFO:
 	 [Job 29] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.func_getfirst-canonical-magnitude).
-250825-03:58:58,410 nipype.workflow INFO:
+251030-02:01:34,436 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 6 jobs ready. Free memory (GB): 177.48/219.48, Free processors: 3/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:01:34,564 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_scale-phase&quot;, elapsed time 1.889243s.
+251030-02:01:34,582 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_axial-resampling&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_axial-resampling&quot;.
+251030-02:01:34,589 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_nilearn_axial-resampling&quot; &lt;qsmxt.interfaces.nipype_interface_axialsampling.AxialSamplingInterface&gt;
+251030-02:01:34,596 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_axial-resampling&quot;, elapsed time 0.004848s.
+251030-02:01:34,582 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_getfirst-canonical-magnitude&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/func_getfirst-canonical-magnitude&quot;.
+251030-02:01:34,639 nipype.workflow INFO:
+	 [Node] Executing &quot;func_getfirst-canonical-magnitude&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:01:34,641 nipype.workflow INFO:
+	 [Node] Finished &quot;func_getfirst-canonical-magnitude&quot;, elapsed time 0.00079s.
+251030-02:01:36,424 nipype.workflow INFO:
 	 [Job 31] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_scale-phase).
-250825-03:58:58,411 nipype.workflow INFO:
+251030-02:01:36,425 nipype.workflow INFO:
 	 [Job 32] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.func_getfirst-canonical-magnitude).
-250825-03:58:58,413 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 5 jobs ready. Free memory (GB): 13.72/27.72, Free processors: 5/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:58:58,556 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_transform-segmentation-to-qsm&quot;.
-250825-03:58:58,558 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_axial-resampling&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_axial-resampling&quot;.
-250825-03:58:58,562 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_axial-resampling&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_axial-resampling&quot;.
-250825-03:58:58,567 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_nilearn_axial-resampling&quot; &lt;qsmxt.interfaces.nipype_interface_axialsampling.AxialSamplingInterface&gt;
-250825-03:58:58,574 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_nilearn_axial-resampling&quot; &lt;qsmxt.interfaces.nipype_interface_axialsampling.AxialSamplingInterface&gt;
-250825-03:58:58,586 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_axial-resampling&quot;, elapsed time 0.016913s.
-250825-03:58:58,605 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_axial-resampling&quot;, elapsed time 0.026816s.
-250825-03:58:58,615 nipype.workflow INFO:
-	 [Node] Executing &quot;ants_transform-segmentation-to-qsm&quot; &lt;nipype.interfaces.ants.resampling.ApplyTransforms&gt;
-250825-03:59:00,412 nipype.workflow INFO:
+251030-02:01:36,427 nipype.workflow INFO:
 	 [Job 36] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_axial-resampling).
-250825-03:59:00,433 nipype.workflow INFO:
+251030-02:01:36,430 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 7 jobs ready. Free memory (GB): 179.48/219.48, Free processors: 4/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:01:36,515 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_axial-resampling&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_axial-resampling&quot;.
+251030-02:01:36,517 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/mrt_romeo&quot;.
+251030-02:01:36,523 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_nilearn_axial-resampling&quot; &lt;qsmxt.interfaces.nipype_interface_axialsampling.AxialSamplingInterface&gt;
+251030-02:01:36,525 nipype.workflow INFO:
+	 [Node] Executing &quot;mrt_romeo&quot; &lt;qsmxt.interfaces.nipype_interface_romeo.RomeoB0Interface&gt;
+251030-02:01:36,530 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_axial-resampling&quot;, elapsed time 0.004856s.
+251030-02:01:38,423 nipype.workflow INFO:
 	 [Job 41] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_axial-resampling).
-250825-03:59:00,455 nipype.workflow INFO:
-	 [MultiProc] Running 3 tasks, and 6 jobs ready. Free memory (GB): 11.72/27.72, Free processors: 4/14.
+251030-02:01:38,425 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 7 jobs ready. Free memory (GB): 177.15/219.48, Free processors: 3/32.
                      Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:59:00,773 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/mrt_romeo&quot;.
-250825-03:59:00,778 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/mrt_romeo&quot;.
-250825-03:59:00,820 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:01:38,557 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/mrt_romeo&quot;.
+251030-02:01:38,643 nipype.workflow INFO:
 	 [Node] Executing &quot;mrt_romeo&quot; &lt;qsmxt.interfaces.nipype_interface_romeo.RomeoB0Interface&gt;
-250825-03:59:00,840 nipype.workflow INFO:
-	 [Node] Executing &quot;mrt_romeo&quot; &lt;qsmxt.interfaces.nipype_interface_romeo.RomeoB0Interface&gt;
-250825-03:59:02,435 nipype.workflow INFO:
-	 [MultiProc] Running 5 tasks, and 4 jobs ready. Free memory (GB): 7.04/27.72, Free processors: 2/14.
+251030-02:01:40,425 nipype.workflow INFO:
+	 [MultiProc] Running 6 tasks, and 6 jobs ready. Free memory (GB): 174.81/219.48, Free processors: 2/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:59:08,172 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 9.55001s.
-250825-03:59:08,429 nipype.workflow INFO:
-	 [Job 35] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm).
-250825-03:59:08,444 nipype.workflow INFO:
-	 [MultiProc] Running 4 tasks, and 4 jobs ready. Free memory (GB): 9.04/27.72, Free processors: 3/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:59:14,847 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 18.288881s.
-250825-03:59:16,449 nipype.workflow INFO:
-	 [Job 34] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled).
-250825-03:59:16,477 nipype.workflow INFO:
-	 [MultiProc] Running 3 tasks, and 5 jobs ready. Free memory (GB): 11.04/27.72, Free processors: 4/14.
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:04:27,72 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 178.333576s.
+251030-02:04:28,679 nipype.workflow INFO:
+	 [Job 11] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm).
+251030-02:04:28,682 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 6 jobs ready. Free memory (GB): 182.81/219.48, Free processors: 8/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:59:17,17 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/copyfile&quot;.
-250825-03:59:17,72 nipype.workflow INFO:
-	 [Node] Executing &quot;copyfile&quot; &lt;qsmxt.interfaces.nipype_interface_copyfile.DynamicCopyFiles&gt;
-250825-03:59:18,484 nipype.workflow INFO:
-	 [MultiProc] Running 4 tasks, and 4 jobs ready. Free memory (GB): 10.84/27.72, Free processors: 3/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:59:19,38 nipype.workflow INFO:
-	 [Node] Finished &quot;copyfile&quot;, elapsed time 1.958106s.
-250825-03:59:20,459 nipype.workflow INFO:
-	 [Job 44] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile).
-250825-03:59:20,514 nipype.workflow INFO:
-	 [MultiProc] Running 3 tasks, and 4 jobs ready. Free memory (GB): 11.04/27.72, Free processors: 4/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-03:59:43,804 nipype.workflow INFO:
-	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 536.014169s.
-250825-03:59:44,477 nipype.workflow INFO:
-	 [Job 10] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1).
-250825-03:59:44,480 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 5 jobs ready. Free memory (GB): 23.04/27.72, Free processors: 12/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-250825-03:59:44,538 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/numpy_numpy_nibabel_mgz2nii&quot;.
-250825-03:59:44,538 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/fastsurfer_segment-t1&quot;.
-250825-03:59:44,540 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:04:28,775 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/fastsurfer_segment-t1&quot;.
+251030-02:04:28,789 nipype.workflow INFO:
 	 [Node] Executing &quot;fastsurfer_segment-t1&quot; &lt;qsmxt.interfaces.nipype_interface_fastsurfer.FastSurferInterface&gt;
-250825-03:59:44,540 nipype.workflow INFO:
-	 [Node] Executing &quot;numpy_numpy_nibabel_mgz2nii&quot; &lt;qsmxt.interfaces.nipype_interface_mgz2nii.Mgz2NiiInterface&gt;
-250825-03:59:44,683 nipype.workflow INFO:
-	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.142189s.
-250825-03:59:46,478 nipype.workflow INFO:
-	 [Job 28] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.numpy_numpy_nibabel_mgz2nii).
-250825-03:59:46,481 nipype.workflow INFO:
-	 [MultiProc] Running 3 tasks, and 5 jobs ready. Free memory (GB): 11.04/27.72, Free processors: 4/14.
+251030-02:04:30,683 nipype.workflow INFO:
+	 [MultiProc] Running 6 tasks, and 5 jobs ready. Free memory (GB): 170.81/219.48, Free processors: 0/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-250825-03:59:46,538 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
-250825-03:59:46,539 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_transform-segmentation-to-qsm&quot;.
-250825-03:59:46,541 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
-250825-03:59:46,548 nipype.workflow INFO:
-	 [Node] Executing &quot;ants_transform-segmentation-to-qsm&quot; &lt;nipype.interfaces.ants.resampling.ApplyTransforms&gt;
-250825-03:59:47,32 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 0.48324s.
-250825-03:59:48,480 nipype.workflow INFO:
-	 [Job 38] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm).
-250825-03:59:48,482 nipype.workflow INFO:
-	 [MultiProc] Running 4 tasks, and 4 jobs ready. Free memory (GB): 9.04/27.72, Free processors: 3/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-250825-03:59:48,534 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists2&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists2&quot;.
-250825-03:59:48,536 nipype.workflow INFO:
-	 [Node] Executing &quot;combine_lists2&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-03:59:48,538 nipype.workflow INFO:
-	 [Node] Finished &quot;combine_lists2&quot;, elapsed time 0.001084s.
-250825-03:59:49,713 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 3.171211s.
-250825-03:59:50,482 nipype.workflow INFO:
-	 [Job 37] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled).
-250825-03:59:50,483 nipype.workflow INFO:
-	 [Job 47] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists2).
-250825-03:59:50,485 nipype.workflow INFO:
-	 [MultiProc] Running 3 tasks, and 3 jobs ready. Free memory (GB): 11.04/27.72, Free processors: 4/14.
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:09:33,926 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 486.632802s.
+251030-02:09:35,496 nipype.workflow INFO:
+	 [Job 5] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm).
+251030-02:09:35,509 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 5 jobs ready. Free memory (GB): 178.81/219.48, Free processors: 6/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-250825-04:07:17,604 nipype.workflow INFO:
-	 [Node] Finished &quot;mrt_romeo&quot;, elapsed time 496.77802s.
-250825-04:07:19,31 nipype.workflow INFO:
-	 [Job 50] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo).
-250825-04:07:19,34 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 4 jobs ready. Free memory (GB): 13.38/27.72, Free processors: 5/14.
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:09:35,719 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_register-t1-to-qsm&quot;.
+251030-02:09:35,802 nipype.workflow INFO:
+	 [Node] Executing &quot;ants_register-t1-to-qsm&quot; &lt;nipype.interfaces.ants.registration.RegistrationSynQuick&gt;
+251030-02:09:37,499 nipype.workflow INFO:
+	 [MultiProc] Running 6 tasks, and 4 jobs ready. Free memory (GB): 170.81/219.48, Free processors: 0/32.
                      Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
                        * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-250825-04:07:19,118 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.nibabel-numpy_normalize-phase&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/nibabel-numpy_normalize-phase&quot;.
-250825-04:07:19,130 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel-numpy_normalize-phase&quot; &lt;qsmxt.interfaces.nipype_interface_processphase.PhaseToNormalizedInterface&gt;
-250825-04:07:19,216 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel-numpy_normalize-phase&quot;, elapsed time 0.084208s.
-250825-04:07:21,33 nipype.workflow INFO:
-	 [Job 55] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.nibabel-numpy_normalize-phase).
-250825-04:07:21,34 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 3 jobs ready. Free memory (GB): 13.38/27.72, Free processors: 5/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo
-250825-04:08:00,673 nipype.workflow INFO:
-	 [Node] Finished &quot;mrt_romeo&quot;, elapsed time 539.809623s.
-250825-04:08:01,78 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:12:37,199 nipype.workflow INFO:
+	 [Node] Finished &quot;mrt_romeo&quot;, elapsed time 658.543122s.
+251030-02:12:37,206 nipype.workflow INFO:
+	 [Node] Finished &quot;mrt_romeo&quot;, elapsed time 660.680345s.
+251030-02:12:37,838 nipype.workflow INFO:
 	 [Job 46] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo).
-250825-04:08:01,80 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 4 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
+251030-02:12:37,850 nipype.workflow INFO:
+	 [Job 50] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.mrt_romeo).
+251030-02:12:37,851 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 6 jobs ready. Free memory (GB): 175.48/219.48, Free processors: 2/32.
                      Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-04:08:01,156 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.nibabel-numpy_normalize-phase&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/nibabel-numpy_normalize-phase&quot;.
-250825-04:08:01,171 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:12:38,84 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.nibabel-numpy_normalize-phase&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/nibabel-numpy_normalize-phase&quot;.
+251030-02:12:38,246 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel-numpy_normalize-phase&quot; &lt;qsmxt.interfaces.nipype_interface_processphase.PhaseToNormalizedInterface&gt;
-250825-04:08:01,350 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel-numpy_normalize-phase&quot;, elapsed time 0.177227s.
-250825-04:08:03,80 nipype.workflow INFO:
+251030-02:12:39,208 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel-numpy_normalize-phase&quot;, elapsed time 0.953909s.
+251030-02:12:39,840 nipype.workflow INFO:
 	 [Job 53] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.nibabel-numpy_normalize-phase).
-250825-04:08:03,82 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 3 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
+251030-02:12:39,842 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 5 jobs ready. Free memory (GB): 175.48/219.48, Free processors: 2/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:12:39,935 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.nibabel-numpy_normalize-phase&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/nibabel-numpy_normalize-phase&quot;.
+251030-02:12:39,963 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel-numpy_normalize-phase&quot; &lt;qsmxt.interfaces.nipype_interface_processphase.PhaseToNormalizedInterface&gt;
+251030-02:12:40,144 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel-numpy_normalize-phase&quot;, elapsed time 0.179565s.
+251030-02:12:41,845 nipype.workflow INFO:
+	 [Job 55] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.nibabel-numpy_normalize-phase).
+251030-02:12:41,847 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 4 jobs ready. Free memory (GB): 175.48/219.48, Free processors: 2/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:16:47,604 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 431.799179s.
+251030-02:16:50,358 nipype.workflow INFO:
+	 [Job 17] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_register-t1-to-qsm).
+251030-02:16:50,364 nipype.workflow INFO:
+	 [MultiProc] Running 3 tasks, and 4 jobs ready. Free memory (GB): 183.48/219.48, Free processors: 8/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
-250825-04:08:12,404 nipype.workflow INFO:
-	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 507.863076s.
-250825-04:08:13,90 nipype.workflow INFO:
-	 [Job 16] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1).
-250825-04:08:13,92 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 4 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:08:13,132 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/numpy_numpy_nibabel_mgz2nii&quot;.
-250825-04:08:13,132 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/fastsurfer_segment-t1&quot;.
-250825-04:08:13,134 nipype.workflow INFO:
-	 [Node] Executing &quot;numpy_numpy_nibabel_mgz2nii&quot; &lt;qsmxt.interfaces.nipype_interface_mgz2nii.Mgz2NiiInterface&gt;
-250825-04:08:13,135 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:16:50,595 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/fastsurfer_segment-t1&quot;.
+251030-02:16:50,651 nipype.workflow INFO:
 	 [Node] Executing &quot;fastsurfer_segment-t1&quot; &lt;qsmxt.interfaces.nipype_interface_fastsurfer.FastSurferInterface&gt;
-250825-04:08:13,268 nipype.workflow INFO:
-	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.132617s.
-250825-04:08:15,92 nipype.workflow INFO:
-	 [Job 30] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii).
-250825-04:08:15,94 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 4 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
+251030-02:16:52,362 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 3 jobs ready. Free memory (GB): 171.48/219.48, Free processors: 0/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-04:08:15,135 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
-250825-04:08:15,137 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:16:57,826 nipype.workflow INFO:
+	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 930.488019s.
+251030-02:16:57,849 nipype.workflow INFO:
+	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 930.553816s.
+251030-02:16:58,383 nipype.workflow INFO:
+	 [Job 4] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1).
+251030-02:16:58,391 nipype.workflow INFO:
+	 [Job 10] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1).
+251030-02:16:58,402 nipype.workflow INFO:
+	 [MultiProc] Running 2 tasks, and 5 jobs ready. Free memory (GB): 195.48/219.48, Free processors: 16/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:16:58,589 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_register-t1-to-qsm&quot;.
+251030-02:16:58,610 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/numpy_numpy_nibabel_mgz2nii&quot;.
+251030-02:16:58,630 nipype.workflow INFO:
+	 [Node] Executing &quot;ants_register-t1-to-qsm&quot; &lt;nipype.interfaces.ants.registration.RegistrationSynQuick&gt;
+251030-02:16:58,638 nipype.workflow INFO:
+	 [Node] Executing &quot;numpy_numpy_nibabel_mgz2nii&quot; &lt;qsmxt.interfaces.nipype_interface_mgz2nii.Mgz2NiiInterface&gt;
+251030-02:16:58,602 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/fsl-bet&quot;.
+251030-02:16:58,615 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/numpy_numpy_nibabel_mgz2nii&quot;.
+251030-02:16:58,689 nipype.workflow INFO:
+	 [Node] Executing &quot;fsl-bet&quot; &lt;qsmxt.interfaces.nipype_interface_bet2.Bet2Interface&gt;
+251030-02:16:58,690 nipype.workflow INFO:
+	 [Node] Executing &quot;numpy_numpy_nibabel_mgz2nii&quot; &lt;qsmxt.interfaces.nipype_interface_mgz2nii.Mgz2NiiInterface&gt;
+251030-02:16:59,257 nipype.workflow INFO:
+	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.617801s.
+251030-02:16:59,259 nipype.workflow INFO:
+	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.56043s.
+251030-02:17:00,379 nipype.workflow INFO:
+	 [Job 25] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii).
+251030-02:17:00,381 nipype.workflow INFO:
+	 [Job 28] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.numpy_numpy_nibabel_mgz2nii).
+251030-02:17:00,385 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 5 jobs ready. Free memory (GB): 185.48/219.48, Free processors: 2/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:00,493 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_transform-segmentation-to-qsm&quot;.
+251030-02:17:00,500 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
+251030-02:17:00,521 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
-250825-04:08:15,135 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_transform-segmentation-to-qsm&quot;.
-250825-04:08:15,191 nipype.workflow INFO:
+251030-02:17:00,526 nipype.workflow INFO:
 	 [Node] Executing &quot;ants_transform-segmentation-to-qsm&quot; &lt;nipype.interfaces.ants.resampling.ApplyTransforms&gt;
-250825-04:08:15,975 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 0.782673s.
-250825-04:08:17,94 nipype.workflow INFO:
+251030-02:17:02,390 nipype.workflow INFO:
+	 [MultiProc] Running 6 tasks, and 3 jobs ready. Free memory (GB): 181.48/219.48, Free processors: 0/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:04,171 nipype.workflow INFO:
+	 [Node] Finished &quot;fsl-bet&quot;, elapsed time 5.480773s.
+251030-02:17:04,384 nipype.workflow INFO:
+	 [Job 45] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet).
+251030-02:17:04,386 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 4 jobs ready. Free memory (GB): 183.48/219.48, Free processors: 8/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:04,475 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
+251030-02:17:04,505 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_transform-segmentation-to-qsm&quot;.
+251030-02:17:04,522 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
+251030-02:17:04,546 nipype.workflow INFO:
+	 [Node] Executing &quot;ants_transform-segmentation-to-qsm&quot; &lt;nipype.interfaces.ants.resampling.ApplyTransforms&gt;
+251030-02:17:04,488 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/scipy_numpy_nibabel_bet_erode&quot;.
+251030-02:17:04,566 nipype.workflow INFO:
+	 [Node] Executing &quot;scipy_numpy_nibabel_bet_erode&quot; &lt;qsmxt.interfaces.nipype_interface_erode.ErosionInterface&gt;
+251030-02:17:05,557 nipype.workflow INFO:
+	 [Node] Finished &quot;scipy_numpy_nibabel_bet_erode&quot;, elapsed time 0.989792s.
+251030-02:17:06,401 nipype.workflow INFO:
+	 [Job 52] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode).
+251030-02:17:06,422 nipype.workflow INFO:
+	 [MultiProc] Running 7 tasks, and 2 jobs ready. Free memory (GB): 179.48/219.48, Free processors: 6/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:06,598 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_vsharp&quot;.
+251030-02:17:06,672 nipype.workflow INFO:
+	 [Node] Executing &quot;qsmjl_vsharp&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.VsharpInterface&gt;
+251030-02:17:06,848 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 2.300818s.
+251030-02:17:08,301 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 7.760466s.
+251030-02:17:08,396 nipype.workflow INFO:
+	 [Job 35] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm).
+251030-02:17:08,398 nipype.workflow INFO:
+	 [Job 38] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm).
+251030-02:17:08,400 nipype.workflow INFO:
+	 [MultiProc] Running 6 tasks, and 2 jobs ready. Free memory (GB): 181.48/219.48, Free processors: 6/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:08,506 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists2&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists2&quot;.
+251030-02:17:08,539 nipype.workflow INFO:
+	 [Node] Executing &quot;combine_lists2&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:17:08,555 nipype.workflow INFO:
+	 [Node] Finished &quot;combine_lists2&quot;, elapsed time 0.000945s.
+251030-02:17:08,610 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 8.080448s.
+251030-02:17:10,405 nipype.workflow INFO:
+	 [Job 34] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled).
+251030-02:17:10,411 nipype.workflow INFO:
+	 [Job 47] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists2).
+251030-02:17:10,413 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 2 jobs ready. Free memory (GB): 183.48/219.48, Free processors: 7/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:10,674 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/copyfile&quot;.
+251030-02:17:10,723 nipype.workflow INFO:
+	 [Node] Executing &quot;copyfile&quot; &lt;qsmxt.interfaces.nipype_interface_copyfile.DynamicCopyFiles&gt;
+251030-02:17:11,575 nipype.workflow INFO:
+	 [Node] Finished &quot;copyfile&quot;, elapsed time 0.848245s.
+251030-02:17:12,400 nipype.workflow INFO:
+	 [Job 44] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile).
+251030-02:17:12,403 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 1 jobs ready. Free memory (GB): 183.48/219.48, Free processors: 7/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:12,632 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 8.108064s.
+251030-02:17:14,407 nipype.workflow INFO:
+	 [Job 37] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled).
+251030-02:17:14,409 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 1 jobs ready. Free memory (GB): 185.48/219.48, Free processors: 8/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:14,637 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/fsl-bet&quot;.
+251030-02:17:14,806 nipype.workflow INFO:
+	 [Node] Executing &quot;fsl-bet&quot; &lt;qsmxt.interfaces.nipype_interface_bet2.Bet2Interface&gt;
+251030-02:17:16,433 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 0 jobs ready. Free memory (GB): 183.48/219.48, Free processors: 0/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:26,117 nipype.workflow INFO:
+	 [Node] Finished &quot;fsl-bet&quot;, elapsed time 11.288238s.
+251030-02:17:26,443 nipype.workflow INFO:
+	 [Job 49] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet).
+251030-02:17:26,452 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 1 jobs ready. Free memory (GB): 185.48/219.48, Free processors: 8/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:26,758 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/scipy_numpy_nibabel_bet_erode&quot;.
+251030-02:17:26,908 nipype.workflow INFO:
+	 [Node] Executing &quot;scipy_numpy_nibabel_bet_erode&quot; &lt;qsmxt.interfaces.nipype_interface_erode.ErosionInterface&gt;
+251030-02:17:28,446 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 0 jobs ready. Free memory (GB): 183.48/219.48, Free processors: 7/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:29,151 nipype.workflow INFO:
+	 [Node] Finished &quot;scipy_numpy_nibabel_bet_erode&quot;, elapsed time 2.2210739999999998s.
+251030-02:17:30,447 nipype.workflow INFO:
+	 [Job 54] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode).
+251030-02:17:30,450 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 1 jobs ready. Free memory (GB): 185.48/219.48, Free processors: 8/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:30,544 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_vsharp&quot;.
+251030-02:17:30,553 nipype.workflow INFO:
+	 [Node] Executing &quot;qsmjl_vsharp&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.VsharpInterface&gt;
+251030-02:17:32,451 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 0 jobs ready. Free memory (GB): 183.48/219.48, Free processors: 6/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1
+251030-02:17:41,342 nipype.workflow INFO:
+	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 792.549331s.
+251030-02:17:42,460 nipype.workflow INFO:
+	 [Job 16] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.fastsurfer_segment-t1).
+251030-02:17:42,468 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 1 jobs ready. Free memory (GB): 195.48/219.48, Free processors: 14/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:17:42,575 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/numpy_numpy_nibabel_mgz2nii&quot;.
+251030-02:17:42,596 nipype.workflow INFO:
+	 [Node] Executing &quot;numpy_numpy_nibabel_mgz2nii&quot; &lt;qsmxt.interfaces.nipype_interface_mgz2nii.Mgz2NiiInterface&gt;
+251030-02:17:42,924 nipype.workflow INFO:
+	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.325727s.
+251030-02:17:44,461 nipype.workflow INFO:
+	 [Job 30] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.numpy_numpy_nibabel_mgz2nii).
+251030-02:17:44,463 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 2 jobs ready. Free memory (GB): 195.48/219.48, Free processors: 14/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:17:44,575 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/ants_transform-segmentation-to-qsm&quot;.
+251030-02:17:44,576 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
+251030-02:17:44,598 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
+251030-02:17:44,600 nipype.workflow INFO:
+	 [Node] Executing &quot;ants_transform-segmentation-to-qsm&quot; &lt;nipype.interfaces.ants.resampling.ApplyTransforms&gt;
+251030-02:17:46,464 nipype.workflow INFO:
+	 [MultiProc] Running 6 tasks, and 0 jobs ready. Free memory (GB): 191.48/219.48, Free processors: 12/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:17:47,662 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 3.060115s.
+251030-02:17:48,463 nipype.workflow INFO:
 	 [Job 40] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.ants_transform-segmentation-to-qsm).
-250825-04:08:17,96 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 2 jobs ready. Free memory (GB): 13.72/27.72, Free processors: 5/14.
+251030-02:17:48,477 nipype.workflow INFO:
+	 [MultiProc] Running 5 tasks, and 0 jobs ready. Free memory (GB): 193.48/219.48, Free processors: 13/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-04:08:17,621 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 2.483173s.
-250825-04:08:19,96 nipype.workflow INFO:
+251030-02:17:51,517 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 6.916225s.
+251030-02:17:52,467 nipype.workflow INFO:
 	 [Job 39] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.nibabel_numpy_nilearn_t1w-seg-resampled).
-250825-04:08:19,98 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 3 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
+251030-02:17:52,469 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 1 jobs ready. Free memory (GB): 195.48/219.48, Free processors: 14/32.
                      Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-04:08:19,168 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/copyfile&quot;.
-250825-04:08:19,173 nipype.workflow INFO:
+251030-02:17:52,553 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqmp2ragehighres0p5isoslab_T1w/copyfile&quot;.
+251030-02:17:52,613 nipype.workflow INFO:
 	 [Node] Executing &quot;copyfile&quot; &lt;qsmxt.interfaces.nipype_interface_copyfile.DynamicCopyFiles&gt;
-250825-04:08:19,359 nipype.workflow INFO:
-	 [Node] Finished &quot;copyfile&quot;, elapsed time 0.1851s.
-250825-04:08:21,99 nipype.workflow INFO:
+251030-02:17:53,530 nipype.workflow INFO:
+	 [Node] Finished &quot;copyfile&quot;, elapsed time 0.907036s.
+251030-02:17:54,469 nipype.workflow INFO:
 	 [Job 48] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqmp2ragehighres0p5isoslab_T1w.copyfile).
-250825-04:08:21,265 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 2 jobs ready. Free memory (GB): 15.72/27.72, Free processors: 6/14.
+251030-02:17:54,471 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 0 jobs ready. Free memory (GB): 195.48/219.48, Free processors: 14/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:18:57,672 nipype.workflow INFO:
+	 [Node] Finished &quot;qsmjl_vsharp&quot;, elapsed time 110.992297s.
+251030-02:18:58,580 nipype.workflow INFO:
+	 [Job 56] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp).
+251030-02:18:58,583 nipype.workflow INFO:
+	 [MultiProc] Running 3 tasks, and 1 jobs ready. Free memory (GB): 197.48/219.48, Free processors: 16/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:18:58,695 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_rts&quot;.
+251030-02:18:58,742 nipype.workflow INFO:
+	 [Node] Executing &quot;qsmjl_rts&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.RtsQsmInterface&gt;
+251030-02:19:00,582 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 0 jobs ready. Free memory (GB): 195.08/219.48, Free processors: 14/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:07,509 nipype.workflow INFO:
+	 [Node] Finished &quot;qsmjl_vsharp&quot;, elapsed time 96.954908s.
+251030-02:19:08,589 nipype.workflow INFO:
+	 [Job 57] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp).
+251030-02:19:08,591 nipype.workflow INFO:
+	 [MultiProc] Running 3 tasks, and 1 jobs ready. Free memory (GB): 197.08/219.48, Free processors: 16/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:08,694 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_rts&quot;.
+251030-02:19:08,730 nipype.workflow INFO:
+	 [Node] Executing &quot;qsmjl_rts&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.RtsQsmInterface&gt;
+251030-02:19:10,593 nipype.workflow INFO:
+	 [MultiProc] Running 4 tasks, and 0 jobs ready. Free memory (GB): 194.67/219.48, Free processors: 14/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:14,22 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_register-t1-to-qsm&quot;, elapsed time 135.383104s.
+251030-02:19:14,597 nipype.workflow INFO:
+	 [Job 23] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_register-t1-to-qsm).
+251030-02:19:14,600 nipype.workflow INFO:
+	 [MultiProc] Running 3 tasks, and 0 jobs ready. Free memory (GB): 202.67/219.48, Free processors: 20/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:47,482 nipype.workflow INFO:
+	 [Node] Finished &quot;qsmjl_rts&quot;, elapsed time 48.738805s.
+251030-02:19:48,106 nipype.workflow INFO:
+	 [Node] Finished &quot;qsmjl_rts&quot;, elapsed time 39.368049s.
+251030-02:19:48,638 nipype.workflow INFO:
+	 [Job 58] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts).
+251030-02:19:48,641 nipype.workflow INFO:
+	 [Job 59] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts).
+251030-02:19:48,645 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 2 jobs ready. Free memory (GB): 207.48/219.48, Free processors: 24/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
-250825-04:16:20,275 nipype.workflow INFO:
-	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 487.088796s.
-250825-04:16:21,669 nipype.workflow INFO:
+251030-02:19:48,734 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-average&quot;.
+251030-02:19:48,771 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_qsm-average&quot; &lt;qsmxt.interfaces.nipype_interface_nonzeroaverage.NonzeroAverageInterface&gt;
+251030-02:19:48,772 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_qsm-average&quot;, elapsed time 0.000347s.
+251030-02:19:48,734 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-average&quot;.
+251030-02:19:48,799 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_qsm-average&quot; &lt;qsmxt.interfaces.nipype_interface_nonzeroaverage.NonzeroAverageInterface&gt;
+251030-02:19:48,801 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_qsm-average&quot;, elapsed time 0.00041s.
+251030-02:19:50,637 nipype.workflow INFO:
+	 [Job 60] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average).
+251030-02:19:50,639 nipype.workflow INFO:
+	 [Job 61] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average).
+251030-02:19:50,640 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 2 jobs ready. Free memory (GB): 207.48/219.48, Free processors: 24/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:50,732 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_qsm-resampled&quot;.
+251030-02:19:50,741 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_qsm-resampled&quot;.
+251030-02:19:50,777 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_nilearn_qsm-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
+251030-02:19:50,780 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_nilearn_qsm-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
+251030-02:19:50,782 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_qsm-resampled&quot;, elapsed time 0.003792s.
+251030-02:19:50,785 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_qsm-resampled&quot;, elapsed time 0.00363s.
+251030-02:19:52,639 nipype.workflow INFO:
+	 [Job 62] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled).
+251030-02:19:52,641 nipype.workflow INFO:
+	 [Job 63] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled).
+251030-02:19:52,642 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 4 jobs ready. Free memory (GB): 207.48/219.48, Free processors: 24/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:52,716 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-referenced&quot;.
+251030-02:19:52,738 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists1&quot;.
+251030-02:19:52,745 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists1&quot;.
+251030-02:19:52,762 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_qsm-referenced&quot; &lt;qsmxt.interfaces.nipype_interface_qsm_referencing.ReferenceQSMInterface&gt;
+251030-02:19:52,778 nipype.workflow INFO:
+	 [Node] Executing &quot;combine_lists1&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:19:52,780 nipype.workflow INFO:
+	 [Node] Executing &quot;combine_lists1&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:19:52,788 nipype.workflow INFO:
+	 [Node] Finished &quot;combine_lists1&quot;, elapsed time 0.007968s.
+251030-02:19:52,789 nipype.workflow INFO:
+	 [Node] Finished &quot;combine_lists1&quot;, elapsed time 0.000789s.
+251030-02:19:52,738 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-referenced&quot;.
+251030-02:19:52,801 nipype.workflow INFO:
+	 [Node] Executing &quot;nibabel_numpy_qsm-referenced&quot; &lt;qsmxt.interfaces.nipype_interface_qsm_referencing.ReferenceQSMInterface&gt;
+251030-02:19:53,925 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_qsm-referenced&quot;, elapsed time 1.161757s.
+251030-02:19:53,934 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_qsm-referenced&quot;, elapsed time 1.13148s.
+251030-02:19:54,643 nipype.workflow INFO:
+	 [Job 64] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced).
+251030-02:19:54,645 nipype.workflow INFO:
+	 [Job 65] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1).
+251030-02:19:54,647 nipype.workflow INFO:
+	 [Job 66] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced).
+251030-02:19:54,648 nipype.workflow INFO:
+	 [Job 67] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1).
+251030-02:19:54,649 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 3 jobs ready. Free memory (GB): 207.48/219.48, Free processors: 24/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:54,769 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copy_qsm_json_sidecar&quot;.
+251030-02:19:54,773 nipype.workflow INFO:
+	 [Node] Executing &quot;copy_qsm_json_sidecar&quot; &lt;qsmxt.interfaces.nipype_interface_copy_json_sidecar.CopyJsonSidecarInterface&gt;
+251030-02:19:54,775 nipype.workflow INFO:
+	 [Node] Finished &quot;copy_qsm_json_sidecar&quot;, elapsed time 0.000943s.
+251030-02:19:54,785 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copy_qsm_json_sidecar&quot;.
+251030-02:19:54,790 nipype.workflow INFO:
+	 [Node] Executing &quot;copy_qsm_json_sidecar&quot; &lt;qsmxt.interfaces.nipype_interface_copy_json_sidecar.CopyJsonSidecarInterface&gt;
+251030-02:19:54,802 nipype.workflow INFO:
+	 [Node] Finished &quot;copy_qsm_json_sidecar&quot;, elapsed time 0.010119s.
+251030-02:19:54,769 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.create_permutations&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/create_permutations&quot;.
+251030-02:19:54,823 nipype.workflow INFO:
+	 [Node] Executing &quot;create_permutations&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
+251030-02:19:54,831 nipype.workflow INFO:
+	 [Node] Finished &quot;create_permutations&quot;, elapsed time 0.007179s.
+251030-02:19:56,643 nipype.workflow INFO:
+	 [Job 68] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar).
+251030-02:19:56,645 nipype.workflow INFO:
+	 [Job 69] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.create_permutations).
+251030-02:19:56,646 nipype.workflow INFO:
+	 [Job 70] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar).
+251030-02:19:56,647 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 207.48/219.48, Free processors: 24/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:19:56,739 nipype.workflow INFO:
+	 [Node] Setting-up &quot;_nibabel_numpy_analyse-qsm0&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_analyse-qsm/mapflow/_nibabel_numpy_analyse-qsm0&quot;.
+251030-02:19:56,741 nipype.workflow INFO:
+	 [Node] Executing &quot;_nibabel_numpy_analyse-qsm0&quot; &lt;qsmxt.interfaces.nipype_interface_analyse.AnalyseInterface&gt;
+251030-02:19:58,646 nipype.workflow INFO:
+	 [MultiProc] Running 2 tasks, and 0 jobs ready. Free memory (GB): 205.48/219.48, Free processors: 23/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:21:27,616 nipype.workflow INFO:
+	 [Node] Finished &quot;_nibabel_numpy_analyse-qsm0&quot;, elapsed time 90.873416s.
+251030-02:21:28,770 nipype.workflow INFO:
+	 [Job 72] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm).
+251030-02:21:28,773 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 207.48/219.48, Free processors: 24/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:21:28,882 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copyfile&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copyfile&quot;.
+251030-02:21:28,906 nipype.workflow INFO:
+	 [Node] Executing &quot;copyfile&quot; &lt;qsmxt.interfaces.nipype_interface_copyfile.DynamicCopyFiles&gt;
+251030-02:21:29,472 nipype.workflow INFO:
+	 [Node] Finished &quot;copyfile&quot;, elapsed time 0.564569s.
+251030-02:21:30,771 nipype.workflow INFO:
+	 [Job 74] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copyfile).
+251030-02:21:30,773 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 0 jobs ready. Free memory (GB): 207.48/219.48, Free processors: 24/32.
+                     Currently running:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1
+251030-02:23:26,750 nipype.workflow INFO:
+	 [Node] Finished &quot;fastsurfer_segment-t1&quot;, elapsed time 396.090615s.
+251030-02:23:26,905 nipype.workflow INFO:
 	 [Job 22] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.fastsurfer_segment-t1).
-250825-04:16:21,670 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 3 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:16:21,726 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/numpy_numpy_nibabel_mgz2nii&quot;.
-250825-04:16:21,727 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/fsl-bet&quot;.
-250825-04:16:21,729 nipype.workflow INFO:
+251030-02:23:26,907 nipype.workflow INFO:
+	 [MultiProc] Running 0 tasks, and 1 jobs ready. Free memory (GB): 219.48/219.48, Free processors: 32/32.
+251030-02:23:26,986 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.numpy_numpy_nibabel_mgz2nii&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/numpy_numpy_nibabel_mgz2nii&quot;.
+251030-02:23:26,997 nipype.workflow INFO:
 	 [Node] Executing &quot;numpy_numpy_nibabel_mgz2nii&quot; &lt;qsmxt.interfaces.nipype_interface_mgz2nii.Mgz2NiiInterface&gt;
-250825-04:16:21,731 nipype.workflow INFO:
-	 [Node] Executing &quot;fsl-bet&quot; &lt;qsmxt.interfaces.nipype_interface_bet2.Bet2Interface&gt;
-250825-04:16:21,869 nipype.workflow INFO:
-	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.140142s.
-250825-04:16:23,587 nipype.workflow INFO:
-	 [Node] Finished &quot;fsl-bet&quot;, elapsed time 1.855826s.
-250825-04:16:23,671 nipype.workflow INFO:
+251030-02:23:27,393 nipype.workflow INFO:
+	 [Node] Finished &quot;numpy_numpy_nibabel_mgz2nii&quot;, elapsed time 0.394689s.
+251030-02:23:28,907 nipype.workflow INFO:
 	 [Job 33] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.numpy_numpy_nibabel_mgz2nii).
-250825-04:16:23,672 nipype.workflow INFO:
-	 [Job 45] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet).
-250825-04:16:23,673 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 4 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:16:23,733 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
-250825-04:16:23,733 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/fsl-bet&quot;.
-250825-04:16:23,734 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/scipy_numpy_nibabel_bet_erode&quot;.
-250825-04:16:23,734 nipype.workflow INFO:
+251030-02:23:28,909 nipype.workflow INFO:
+	 [MultiProc] Running 0 tasks, and 2 jobs ready. Free memory (GB): 219.48/219.48, Free processors: 32/32.
+251030-02:23:28,988 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_t1w-seg-resampled&quot;.
+251030-02:23:29,6 nipype.workflow INFO:
 	 [Node] Executing &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
-250825-04:16:23,735 nipype.workflow INFO:
-	 [Node] Executing &quot;scipy_numpy_nibabel_bet_erode&quot; &lt;qsmxt.interfaces.nipype_interface_erode.ErosionInterface&gt;
-250825-04:16:23,737 nipype.workflow INFO:
-	 [Node] Executing &quot;fsl-bet&quot; &lt;qsmxt.interfaces.nipype_interface_bet2.Bet2Interface&gt;
-250825-04:16:23,733 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_transform-segmentation-to-qsm&quot;.
-250825-04:16:23,796 nipype.workflow INFO:
+251030-02:23:28,998 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/ants_transform-segmentation-to-qsm&quot;.
+251030-02:23:29,24 nipype.workflow INFO:
 	 [Node] Executing &quot;ants_transform-segmentation-to-qsm&quot; &lt;nipype.interfaces.ants.resampling.ApplyTransforms&gt;
-250825-04:16:24,180 nipype.workflow INFO:
-	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 0.383082s.
-250825-04:16:24,428 nipype.workflow INFO:
-	 [Node] Finished &quot;scipy_numpy_nibabel_bet_erode&quot;, elapsed time 0.691406s.
-250825-04:16:25,577 nipype.workflow INFO:
-	 [Node] Finished &quot;fsl-bet&quot;, elapsed time 1.839091s.
-250825-04:16:25,673 nipype.workflow INFO:
+251030-02:23:30,449 nipype.workflow INFO:
+	 [Node] Finished &quot;ants_transform-segmentation-to-qsm&quot;, elapsed time 1.414784s.
+251030-02:23:30,909 nipype.workflow INFO:
 	 [Job 43] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.ants_transform-segmentation-to-qsm).
-250825-04:16:25,674 nipype.workflow INFO:
-	 [Job 49] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.fsl-bet).
-250825-04:16:25,675 nipype.workflow INFO:
-	 [Job 52] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode).
-250825-04:16:25,677 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 3 jobs ready. Free memory (GB): 25.72/27.72, Free processors: 13/14.
+251030-02:23:30,911 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 217.48/219.48, Free processors: 31/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled
-250825-04:16:25,723 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists2&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists2&quot;.
-250825-04:16:25,723 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_vsharp&quot;.
-250825-04:16:25,725 nipype.workflow INFO:
+251030-02:23:30,987 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists2&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists2&quot;.
+251030-02:23:30,992 nipype.workflow INFO:
 	 [Node] Executing &quot;combine_lists2&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-04:16:25,726 nipype.workflow INFO:
-	 [Node] Finished &quot;combine_lists2&quot;, elapsed time 0.000421s.
-250825-04:16:25,729 nipype.workflow INFO:
-	 [Node] Executing &quot;qsmjl_vsharp&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.VsharpInterface&gt;
-250825-04:16:25,723 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/mask_workflow/scipy_numpy_nibabel_bet_erode&quot;.
-250825-04:16:25,776 nipype.workflow INFO:
-	 [Node] Executing &quot;scipy_numpy_nibabel_bet_erode&quot; &lt;qsmxt.interfaces.nipype_interface_erode.ErosionInterface&gt;
-250825-04:16:26,319 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 2.583818s.
-250825-04:16:26,371 nipype.workflow INFO:
-	 [Node] Finished &quot;scipy_numpy_nibabel_bet_erode&quot;, elapsed time 0.594512s.
-250825-04:16:27,675 nipype.workflow INFO:
-	 [Job 42] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled).
-250825-04:16:27,676 nipype.workflow INFO:
+251030-02:23:31,0 nipype.workflow INFO:
+	 [Node] Finished &quot;combine_lists2&quot;, elapsed time 0.000689s.
+251030-02:23:32,911 nipype.workflow INFO:
 	 [Job 51] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists2).
-250825-04:16:27,676 nipype.workflow INFO:
-	 [Job 54] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.mask_workflow.scipy_numpy_nibabel_bet_erode).
-250825-04:16:27,677 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 25.72/27.72, Free processors: 12/14.
+251030-02:23:32,913 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 217.48/219.48, Free processors: 31/32.
                      Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
-250825-04:16:27,717 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_vsharp&quot;.
-250825-04:16:27,721 nipype.workflow INFO:
-	 [Node] Executing &quot;qsmjl_vsharp&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.VsharpInterface&gt;
-250825-04:16:29,677 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 0 jobs ready. Free memory (GB): 23.72/27.72, Free processors: 10/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
-250825-04:18:42,179 nipype.workflow INFO:
-	 [Node] Finished &quot;qsmjl_vsharp&quot;, elapsed time 136.449863s.
-250825-04:18:43,810 nipype.workflow INFO:
-	 [Job 56] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp).
-250825-04:18:43,815 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 25.72/27.72, Free processors: 12/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp
-250825-04:18:43,865 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_rts&quot;.
-250825-04:18:43,868 nipype.workflow INFO:
-	 [Node] Executing &quot;qsmjl_rts&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.RtsQsmInterface&gt;
-250825-04:18:45,70 nipype.workflow INFO:
-	 [Node] Finished &quot;qsmjl_vsharp&quot;, elapsed time 137.348991s.
-250825-04:18:45,812 nipype.workflow INFO:
-	 [Job 57] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_vsharp).
-250825-04:18:45,813 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 25.31/27.72, Free processors: 12/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
-250825-04:18:45,855 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/qsm_workflow/qsmjl_rts&quot;.
-250825-04:18:45,857 nipype.workflow INFO:
-	 [Node] Executing &quot;qsmjl_rts&quot; &lt;qsmxt.interfaces.nipype_interface_qsmjl.RtsQsmInterface&gt;
-250825-04:18:47,814 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 0 jobs ready. Free memory (GB): 22.90/27.72, Free processors: 10/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
-250825-04:19:33,687 nipype.workflow INFO:
-	 [Node] Finished &quot;qsmjl_rts&quot;, elapsed time 49.818341s.
-250825-04:19:33,859 nipype.workflow INFO:
-	 [Job 58] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts).
-250825-04:19:33,861 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 25.31/27.72, Free processors: 12/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts
-250825-04:19:33,907 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-average&quot;.
-250825-04:19:33,909 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_qsm-average&quot; &lt;qsmxt.interfaces.nipype_interface_nonzeroaverage.NonzeroAverageInterface&gt;
-250825-04:19:33,910 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_qsm-average&quot;, elapsed time 0.000119s.
-250825-04:19:34,836 nipype.workflow INFO:
-	 [Node] Finished &quot;qsmjl_rts&quot;, elapsed time 48.978322s.
-250825-04:19:35,861 nipype.workflow INFO:
-	 [Job 59] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.qsm_workflow.qsmjl_rts).
-250825-04:19:35,863 nipype.workflow INFO:
-	 [Job 60] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average).
-250825-04:19:35,865 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 2 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:19:35,905 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-average&quot;.
-250825-04:19:35,905 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_qsm-resampled&quot;.
-250825-04:19:35,907 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_qsm-average&quot; &lt;qsmxt.interfaces.nipype_interface_nonzeroaverage.NonzeroAverageInterface&gt;
-250825-04:19:35,907 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_qsm-average&quot;, elapsed time 9.4e-05s.
-250825-04:19:35,909 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_nilearn_qsm-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
-250825-04:19:35,913 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_qsm-resampled&quot;, elapsed time 0.002452s.
-250825-04:19:37,863 nipype.workflow INFO:
-	 [Job 61] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-average).
-250825-04:19:37,864 nipype.workflow INFO:
-	 [Job 62] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled).
-250825-04:19:37,865 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 3 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:19:37,905 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-referenced&quot;.
-250825-04:19:37,907 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_qsm-referenced&quot; &lt;qsmxt.interfaces.nipype_interface_qsm_referencing.ReferenceQSMInterface&gt;
-250825-04:19:37,905 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists1&quot;.
-250825-04:19:37,957 nipype.workflow INFO:
-	 [Node] Executing &quot;combine_lists1&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-04:19:37,958 nipype.workflow INFO:
-	 [Node] Finished &quot;combine_lists1&quot;, elapsed time 0.000764s.
-250825-04:19:37,905 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_nilearn_qsm-resampled&quot;.
-250825-04:19:38,9 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_nilearn_qsm-resampled&quot; &lt;qsmxt.interfaces.nipype_interface_resample_like.ResampleLikeInterface&gt;
-250825-04:19:38,12 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_nilearn_qsm-resampled&quot;, elapsed time 0.002644s.
-250825-04:19:38,277 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_qsm-referenced&quot;, elapsed time 0.369526s.
-250825-04:19:39,865 nipype.workflow INFO:
-	 [Job 63] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_qsm-resampled).
-250825-04:19:39,868 nipype.workflow INFO:
-	 [Job 64] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced).
-250825-04:19:39,869 nipype.workflow INFO:
-	 [Job 65] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1).
-250825-04:19:39,870 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 4 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:19:39,912 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_qsm-referenced&quot;.
-250825-04:19:39,912 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copy_qsm_json_sidecar&quot;.
-250825-04:19:39,913 nipype.workflow INFO:
-	 [Node] Executing &quot;nibabel_numpy_qsm-referenced&quot; &lt;qsmxt.interfaces.nipype_interface_qsm_referencing.ReferenceQSMInterface&gt;
-250825-04:19:39,914 nipype.workflow INFO:
-	 [Node] Executing &quot;copy_qsm_json_sidecar&quot; &lt;qsmxt.interfaces.nipype_interface_copy_json_sidecar.CopyJsonSidecarInterface&gt;
-250825-04:19:39,917 nipype.workflow INFO:
-	 [Node] Finished &quot;copy_qsm_json_sidecar&quot;, elapsed time 0.002302s.
-250825-04:19:39,912 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/combine_lists1&quot;.
-250825-04:19:39,912 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.create_permutations&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/create_permutations&quot;.
-250825-04:19:39,965 nipype.workflow INFO:
-	 [Node] Executing &quot;combine_lists1&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-04:19:39,966 nipype.workflow INFO:
-	 [Node] Finished &quot;combine_lists1&quot;, elapsed time 0.000361s.
-250825-04:19:39,967 nipype.workflow INFO:
+                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled
+251030-02:23:32,983 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.create_permutations&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/create_permutations&quot;.
+251030-02:23:32,987 nipype.workflow INFO:
 	 [Node] Executing &quot;create_permutations&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-04:19:39,968 nipype.workflow INFO:
-	 [Node] Finished &quot;create_permutations&quot;, elapsed time 0.000416s.
-250825-04:19:40,306 nipype.workflow INFO:
-	 [Node] Finished &quot;nibabel_numpy_qsm-referenced&quot;, elapsed time 0.392569s.
-250825-04:19:41,867 nipype.workflow INFO:
-	 [Job 66] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_qsm-referenced).
-250825-04:19:41,867 nipype.workflow INFO:
-	 [Job 67] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.combine_lists1).
-250825-04:19:41,868 nipype.workflow INFO:
-	 [Job 68] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar).
-250825-04:19:41,868 nipype.workflow INFO:
-	 [Job 69] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.create_permutations).
-250825-04:19:41,869 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 3 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:19:41,906 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.create_permutations&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/create_permutations&quot;.
-250825-04:19:41,906 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copy_qsm_json_sidecar&quot;.
-250825-04:19:41,908 nipype.workflow INFO:
-	 [Node] Executing &quot;create_permutations&quot; &lt;nipype.interfaces.utility.wrappers.Function&gt;
-250825-04:19:41,908 nipype.workflow INFO:
-	 [Node] Finished &quot;create_permutations&quot;, elapsed time 0.000223s.
-250825-04:19:41,908 nipype.workflow INFO:
-	 [Node] Executing &quot;copy_qsm_json_sidecar&quot; &lt;qsmxt.interfaces.nipype_interface_copy_json_sidecar.CopyJsonSidecarInterface&gt;
-250825-04:19:41,911 nipype.workflow INFO:
-	 [Node] Setting-up &quot;_nibabel_numpy_analyse-qsm0&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_analyse-qsm/mapflow/_nibabel_numpy_analyse-qsm0&quot;.
-250825-04:19:41,911 nipype.workflow INFO:
-	 [Node] Finished &quot;copy_qsm_json_sidecar&quot;, elapsed time 0.002299s.
-250825-04:19:41,912 nipype.workflow INFO:
-	 [Node] Executing &quot;_nibabel_numpy_analyse-qsm0&quot; &lt;qsmxt.interfaces.nipype_interface_analyse.AnalyseInterface&gt;
-250825-04:19:43,869 nipype.workflow INFO:
-	 [Job 70] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copy_qsm_json_sidecar).
-250825-04:19:43,870 nipype.workflow INFO:
+251030-02:23:32,989 nipype.workflow INFO:
+	 [Node] Finished &quot;create_permutations&quot;, elapsed time 0.000541s.
+251030-02:23:34,366 nipype.workflow INFO:
+	 [Node] Finished &quot;nibabel_numpy_nilearn_t1w-seg-resampled&quot;, elapsed time 5.354482s.
+251030-02:23:34,914 nipype.workflow INFO:
+	 [Job 42] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_nilearn_t1w-seg-resampled).
+251030-02:23:34,915 nipype.workflow INFO:
 	 [Job 71] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.create_permutations).
-250825-04:19:43,872 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 25.72/27.72, Free processors: 13/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm
-250825-04:19:43,937 nipype.workflow INFO:
-	 [Node] Setting-up &quot;_nibabel_numpy_analyse-qsm0&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_analyse-qsm/mapflow/_nibabel_numpy_analyse-qsm0&quot;.
-250825-04:19:43,939 nipype.workflow INFO:
+251030-02:23:34,916 nipype.workflow INFO:
+	 [MultiProc] Running 0 tasks, and 1 jobs ready. Free memory (GB): 219.48/219.48, Free processors: 32/32.
+251030-02:23:34,990 nipype.workflow INFO:
+	 [Node] Setting-up &quot;_nibabel_numpy_analyse-qsm0&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/nibabel_numpy_analyse-qsm/mapflow/_nibabel_numpy_analyse-qsm0&quot;.
+251030-02:23:34,992 nipype.workflow INFO:
 	 [Node] Executing &quot;_nibabel_numpy_analyse-qsm0&quot; &lt;qsmxt.interfaces.nipype_interface_analyse.AnalyseInterface&gt;
-250825-04:19:45,872 nipype.workflow INFO:
-	 [MultiProc] Running 2 tasks, and 0 jobs ready. Free memory (GB): 23.72/27.72, Free processors: 12/14.
+251030-02:23:36,916 nipype.workflow INFO:
+	 [MultiProc] Running 1 tasks, and 0 jobs ready. Free memory (GB): 217.48/219.48, Free processors: 31/32.
                      Currently running:
                        * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm
-                       * qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm
-250825-04:20:46,897 nipype.workflow INFO:
-	 [Node] Finished &quot;_nibabel_numpy_analyse-qsm0&quot;, elapsed time 64.984031s.
-250825-04:20:47,931 nipype.workflow INFO:
-	 [Job 72] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm).
-250825-04:20:47,932 nipype.workflow INFO:
-	 [MultiProc] Running 1 tasks, and 1 jobs ready. Free memory (GB): 25.72/27.72, Free processors: 13/14.
-                     Currently running:
-                       * qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm
-250825-04:20:47,982 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copyfile&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-1/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copyfile&quot;.
-250825-04:20:47,989 nipype.workflow INFO:
-	 [Node] Executing &quot;copyfile&quot; &lt;qsmxt.interfaces.nipype_interface_copyfile.DynamicCopyFiles&gt;
-250825-04:20:48,126 nipype.workflow INFO:
-	 [Node] Finished &quot;copyfile&quot;, elapsed time 0.13606s.
-250825-04:20:48,444 nipype.workflow INFO:
-	 [Node] Finished &quot;_nibabel_numpy_analyse-qsm0&quot;, elapsed time 64.504081s.
-250825-04:20:49,933 nipype.workflow INFO:
+251030-02:24:46,223 nipype.workflow INFO:
+	 [Node] Finished &quot;_nibabel_numpy_analyse-qsm0&quot;, elapsed time 71.229384s.
+251030-02:24:46,989 nipype.workflow INFO:
 	 [Job 73] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.nibabel_numpy_analyse-qsm).
-250825-04:20:49,934 nipype.workflow INFO:
-	 [Job 74] Completed (qsmxt-workflow.sub-1.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copyfile).
-250825-04:20:49,934 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 1 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
-250825-04:20:49,977 nipype.workflow INFO:
-	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copyfile&quot; in &quot;/home/ashley/repos/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copyfile&quot;.
-250825-04:20:49,980 nipype.workflow INFO:
+251030-02:24:46,991 nipype.workflow INFO:
+	 [MultiProc] Running 0 tasks, and 1 jobs ready. Free memory (GB): 219.48/219.48, Free processors: 32/32.
+251030-02:24:47,75 nipype.workflow INFO:
+	 [Node] Setting-up &quot;qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copyfile&quot; in &quot;/home/jovyan/Git_repositories/example-notebooks/books/structural_imaging/bids/derivatives/workflow/qsmxt-workflow/sub-2/ses-20170705/qsm_acq-acqqsmp21mmisote20_T2starw/copyfile&quot;.
+251030-02:24:47,91 nipype.workflow INFO:
 	 [Node] Executing &quot;copyfile&quot; &lt;qsmxt.interfaces.nipype_interface_copyfile.DynamicCopyFiles&gt;
-250825-04:20:50,37 nipype.workflow INFO:
-	 [Node] Finished &quot;copyfile&quot;, elapsed time 0.056167s.
-250825-04:20:51,935 nipype.workflow INFO:
+251030-02:24:47,878 nipype.workflow INFO:
+	 [Node] Finished &quot;copyfile&quot;, elapsed time 0.785195s.
+251030-02:24:48,991 nipype.workflow INFO:
 	 [Job 75] Completed (qsmxt-workflow.sub-2.ses-20170705.qsm_acq-acqqsmp21mmisote20_T2starw.copyfile).
-250825-04:20:51,937 nipype.workflow INFO:
-	 [MultiProc] Running 0 tasks, and 0 jobs ready. Free memory (GB): 27.72/27.72, Free processors: 14/14.
+251030-02:24:48,993 nipype.workflow INFO:
+	 [MultiProc] Running 0 tasks, and 0 jobs ready. Free memory (GB): 219.48/219.48, Free processors: 32/32.
 [INFO]: Warnings occurred!
 [INFO]: Finished
 </pre></div>
@@ -1622,7 +1783,7 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">bids/derivatives/qsmxt-2025-08-25-034120</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">bids/derivatives/qsmxt-2025-10-30-020038</span>
 ├── <span class=" -Color -Color-Bold -Color-Bold-Blue">sub-1</span>
 │   └── <span class=" -Color -Color-Bold -Color-Bold-Blue">ses-20170705</span>
 │       ├── <span class=" -Color -Color-Bold -Color-Bold-Blue">anat</span>
@@ -1655,7 +1816,7 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
 ├── references.txt
 └── settings.json
 
-9 directories, 23 files
+8 directories, 23 files
 </pre></div>
 </div>
 </div>
@@ -1713,7 +1874,7 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1793834b4ee72135a15eeb92f58d9ce76a8f70582c68c745dfefc99cefd4db71.png" src="_images/1793834b4ee72135a15eeb92f58d9ce76a8f70582c68c745dfefc99cefd4db71.png" />
+<img alt="_images/383cd9afb7e67c1d40f43e144bb1dc339f2330d88de4dfe6fa1a7303b9963cf6.png" src="_images/383cd9afb7e67c1d40f43e144bb1dc339f2330d88de4dfe6fa1a7303b9963cf6.png" />
 </div>
 </div>
 </section>
@@ -1727,7 +1888,7 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/64d07a66b65daca4990331d91acbf82aa9485e747598bf6f393275d279ab517f.png" src="_images/64d07a66b65daca4990331d91acbf82aa9485e747598bf6f393275d279ab517f.png" />
+<img alt="_images/f082e4a34f77eff03b92aca56a7e47f32be6f9a74cd035dbcae3084a9708adb0.png" src="_images/f082e4a34f77eff03b92aca56a7e47f32be6f9a74cd035dbcae3084a9708adb0.png" />
 </div>
 </div>
 </section>
@@ -1783,52 +1944,52 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
     <tr>
       <th>0</th>
       <td>3rd-Ventricle</td>
-      <td>606</td>
-      <td>-0.236484</td>
-      <td>0.194673</td>
-      <td>-0.020096</td>
-      <td>-0.022283</td>
-      <td>0.034961</td>
+      <td>587</td>
+      <td>-0.234321</td>
+      <td>0.054945</td>
+      <td>-0.018367</td>
+      <td>-0.021842</td>
+      <td>0.033371</td>
     </tr>
     <tr>
       <th>1</th>
       <td>4th-Ventricle</td>
-      <td>1558</td>
-      <td>-0.128288</td>
-      <td>0.032236</td>
-      <td>-0.048718</td>
-      <td>-0.050211</td>
-      <td>0.028352</td>
+      <td>1544</td>
+      <td>-0.126117</td>
+      <td>0.052944</td>
+      <td>-0.044766</td>
+      <td>-0.045198</td>
+      <td>0.030768</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Brain-Stem</td>
-      <td>19086</td>
-      <td>-0.142628</td>
-      <td>0.214565</td>
-      <td>-0.044262</td>
-      <td>-0.040350</td>
-      <td>0.028972</td>
+      <td>18687</td>
+      <td>-0.750579</td>
+      <td>0.184913</td>
+      <td>-0.045976</td>
+      <td>-0.042085</td>
+      <td>0.029045</td>
     </tr>
     <tr>
       <th>3</th>
       <td>CSF</td>
-      <td>787</td>
-      <td>-1.398799</td>
-      <td>0.946090</td>
-      <td>0.024578</td>
-      <td>0.026632</td>
-      <td>0.142303</td>
+      <td>834</td>
+      <td>-1.393693</td>
+      <td>0.945752</td>
+      <td>0.030098</td>
+      <td>0.033957</td>
+      <td>0.140176</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Left-Accumbens-area</td>
-      <td>510</td>
-      <td>-0.143215</td>
-      <td>0.129016</td>
-      <td>0.021351</td>
-      <td>0.020700</td>
-      <td>0.029128</td>
+      <td>524</td>
+      <td>-0.141920</td>
+      <td>0.128334</td>
+      <td>0.025588</td>
+      <td>0.022306</td>
+      <td>0.031363</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1843,52 +2004,52 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
     <tr>
       <th>91</th>
       <td>ctx-rh-superiorfrontal</td>
-      <td>29949</td>
-      <td>-0.133219</td>
-      <td>0.252426</td>
-      <td>-0.004022</td>
-      <td>-0.009384</td>
-      <td>0.024877</td>
+      <td>29626</td>
+      <td>-0.133274</td>
+      <td>0.251870</td>
+      <td>-0.003875</td>
+      <td>-0.009282</td>
+      <td>0.024289</td>
     </tr>
     <tr>
       <th>92</th>
       <td>ctx-rh-superiorparietal</td>
-      <td>12138</td>
-      <td>-0.083912</td>
-      <td>0.307323</td>
-      <td>-0.015906</td>
-      <td>-0.015151</td>
-      <td>0.021828</td>
+      <td>12072</td>
+      <td>-0.084225</td>
+      <td>0.306628</td>
+      <td>-0.015670</td>
+      <td>-0.014582</td>
+      <td>0.022277</td>
     </tr>
     <tr>
       <th>93</th>
       <td>ctx-rh-superiortemporal</td>
-      <td>16633</td>
-      <td>-0.091664</td>
-      <td>0.249151</td>
-      <td>0.006783</td>
-      <td>0.012637</td>
-      <td>0.024330</td>
+      <td>16251</td>
+      <td>-0.090982</td>
+      <td>0.248737</td>
+      <td>0.006754</td>
+      <td>0.012995</td>
+      <td>0.024299</td>
     </tr>
     <tr>
       <th>94</th>
       <td>ctx-rh-supramarginal</td>
-      <td>12084</td>
-      <td>-0.082145</td>
-      <td>0.240087</td>
-      <td>0.018040</td>
-      <td>0.018828</td>
-      <td>0.022929</td>
+      <td>11992</td>
+      <td>-0.056940</td>
+      <td>0.239688</td>
+      <td>0.019331</td>
+      <td>0.019976</td>
+      <td>0.022774</td>
     </tr>
     <tr>
       <th>95</th>
       <td>ctx-rh-transversetemporal</td>
       <td>1255</td>
-      <td>-0.004546</td>
-      <td>0.111561</td>
-      <td>0.034362</td>
-      <td>0.034584</td>
-      <td>0.013029</td>
+      <td>-0.004825</td>
+      <td>0.129559</td>
+      <td>0.034543</td>
+      <td>0.035700</td>
+      <td>0.013951</td>
     </tr>
   </tbody>
 </table>
@@ -1980,38 +2141,38 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
   <tbody>
     <tr>
       <th>Brain stem</th>
-      <td>-0.040</td>
+      <td>-0.042</td>
       <td>0.029</td>
     </tr>
     <tr>
       <th>White matter</th>
       <td>-0.002</td>
-      <td>0.028</td>
-    </tr>
-    <tr>
-      <th>CSF</th>
       <td>0.027</td>
-      <td>0.142</td>
     </tr>
     <tr>
       <th>Thalamus</th>
       <td>0.030</td>
-      <td>0.035</td>
+      <td>0.034</td>
+    </tr>
+    <tr>
+      <th>CSF</th>
+      <td>0.034</td>
+      <td>0.140</td>
     </tr>
     <tr>
       <th>Pallidum</th>
-      <td>0.033</td>
-      <td>0.059</td>
-    </tr>
-    <tr>
-      <th>Caudate</th>
-      <td>0.047</td>
-      <td>0.024</td>
+      <td>0.034</td>
+      <td>0.060</td>
     </tr>
     <tr>
       <th>Putamen</th>
-      <td>0.048</td>
+      <td>0.047</td>
       <td>0.033</td>
+    </tr>
+    <tr>
+      <th>Caudate</th>
+      <td>0.048</td>
+      <td>0.023</td>
     </tr>
   </tbody>
 </table>
@@ -2042,9 +2203,49 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2188076306ab77ae1c723122bcbdd97c5e98c4a04814473f0d61b7322cf3170b.png" src="_images/2188076306ab77ae1c723122bcbdd97c5e98c4a04814473f0d61b7322cf3170b.png" />
+<img alt="_images/028aaa1413e90a78673006eb0dd636e028dd674cd2d2c3630e5583d5167e3e79.png" src="_images/028aaa1413e90a78673006eb0dd636e028dd674cd2d2c3630e5583d5167e3e79.png" />
 </div>
 </div>
+<section id="dependencies-in-jupyter-python">
+<h3>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-10-30T02:24:57.856137+00:00
+
+Python implementation: CPython
+Python version       : 3.11.6
+IPython version      : 8.16.1
+
+Compiler    : GCC 12.3.0
+OS          : Linux
+Release     : 5.4.0-204-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+nibabel   : 5.2.1
+numpy     : 2.2.6
+pandas    : 2.3.3
+seaborn   : 0.13.2
+matplotlib: 3.8.4
+ipyniivue : 2.3.2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -2095,7 +2296,11 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">QSMxT</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-cpu-information">Output CPU information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#qsmxt-interactive-notebook">QSMxT Interactive Notebook</a><ul class="visible nav section-nav flex-column">
@@ -2110,12 +2315,18 @@ nextqsm: Applies suggested settings for running the NeXtQSM algorithm (assumes h
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-dicom-to-bids">Convert DICOM to BIDS</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-input-data">Inspect input data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-input-data">Inspect input data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-display-using-niivue">Interactive Display using Niivue</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-qsmxt">Run QSMxT</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#view-results">View results</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qsm-results">QSM results</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segmentations">Segmentations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-csvs">Analysis CSVs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-csvs">Analysis CSVs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
