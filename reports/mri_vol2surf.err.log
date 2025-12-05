@@ -1,50 +1,143 @@
 Traceback (most recent call last):
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 172, in wrapped
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
     return future.result()
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/home/ubuntu/.local/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-our_newly_sampled_data = nib.load("../new_data/sub-01_ses-01_task-fixedbar_run-1_space-T1w_desc-preproc_bold_depth-1.0.func.gii").agg_data()
-previous_sampled_data = nib.load("derivatives/fmriprep/sub-01/ses-01/func/sub-01_ses-01_task-fixedbar_run-1_hemi-L_space-fsnative_bold.func.gii").agg_data()
-
-assert our_newly_sampled_data.shape == previous_sampled_data.shape, "Sampled data is not correct!"
+!datalad install https://github.com/OpenNeuroDatasets/ds004698.git # install NYU retinotopy dataset
+os.chdir('ds004698') # change directories
+subject='sub-01'
+cmd1=f"""datalad get derivatives/freesurfer/{subject}/*""" # download all freesurfer files from subject
+cmd2=f"""datalad get derivatives/fmriprep/sub-01/ses-01/func/sub-01_ses-01_task-fixedbar_run-1_*""" #download all preprocessed functional volumes from subject
+os.system(cmd1)
+os.system(cmd2)
 ------------------
 
+----- stdout -----
+It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+----- stdout -----
+Cloning:   0%|                             | 0.00/2.00 [00:00<?, ? candidates/s]
+----- stdout -----
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-File [0;32m~/.local/lib/python3.10/site-packages/nibabel/loadsave.py:101[0m, in [0;36mload[0;34m(filename, **kwargs)[0m
-[1;32m    100[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 101[0m     stat_result [38;5;241m=[39m [43mos[49m[38;5;241;43m.[39;49m[43mstat[49m[43m([49m[43mfilename[49m[43m)[49m
-[1;32m    102[0m [38;5;28;01mexcept[39;00m [38;5;167;01mOSError[39;00m:
+Enumerating: 0.00 Objects [00:00, ? Objects/s][A
+                                              [A
+Counting:   0%|                              | 0.00/99.6k [00:00<?, ? Objects/s][A
+----- stdout -----
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../new_data/sub-01_ses-01_task-fixedbar_run-1_space-T1w_desc-preproc_bold_depth-1.0.func.gii'
+                                                                                [A
+Compressing:   0%|                           | 0.00/68.8k [00:00<?, ? Objects/s][A
+----- stdout -----
 
-During handling of the above exception, another exception occurred:
+Compressing:  50%|█████████▌         | 34.4k/68.8k [00:00<00:00, 299k Objects/s][A
+----- stdout -----
 
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[9], line 1[0m
-[0;32m----> 1[0m our_newly_sampled_data [38;5;241m=[39m [43mnib[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m../new_data/sub-01_ses-01_task-fixedbar_run-1_space-T1w_desc-preproc_bold_depth-1.0.func.gii[39;49m[38;5;124;43m"[39;49m[43m)[49m[38;5;241m.[39magg_data()
-[1;32m      2[0m previous_sampled_data [38;5;241m=[39m nib[38;5;241m.[39mload([38;5;124m"[39m[38;5;124mderivatives/fmriprep/sub-01/ses-01/func/sub-01_ses-01_task-fixedbar_run-1_hemi-L_space-fsnative_bold.func.gii[39m[38;5;124m"[39m)[38;5;241m.[39magg_data()
-[1;32m      4[0m [38;5;28;01massert[39;00m our_newly_sampled_data[38;5;241m.[39mshape [38;5;241m==[39m previous_sampled_data[38;5;241m.[39mshape, [38;5;124m"[39m[38;5;124mSampled data is not correct![39m[38;5;124m"[39m
+Compressing:  94%|█████████████████▊ | 64.7k/68.8k [00:00<00:00, 238k Objects/s][A
+                                                                                [A
+Receiving:   0%|                             | 0.00/99.6k [00:00<?, ? Objects/s][A
+----- stdout -----
 
-File [0;32m~/.local/lib/python3.10/site-packages/nibabel/loadsave.py:103[0m, in [0;36mload[0;34m(filename, **kwargs)[0m
-[1;32m    101[0m     stat_result [38;5;241m=[39m os[38;5;241m.[39mstat(filename)
-[1;32m    102[0m [38;5;28;01mexcept[39;00m [38;5;167;01mOSError[39;00m:
-[0;32m--> 103[0m     [38;5;28;01mraise[39;00m [38;5;167;01mFileNotFoundError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mNo such file or no access: [39m[38;5;124m'[39m[38;5;132;01m{[39;00mfilename[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m"[39m)
-[1;32m    104[0m [38;5;28;01mif[39;00m stat_result[38;5;241m.[39mst_size [38;5;241m<[39m[38;5;241m=[39m [38;5;241m0[39m:
-[1;32m    105[0m     [38;5;28;01mraise[39;00m ImageFileError([38;5;124mf[39m[38;5;124m"[39m[38;5;124mEmpty file: [39m[38;5;124m'[39m[38;5;132;01m{[39;00mfilename[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m"[39m)
+Receiving:   3%|▌                   | 2.99k/99.6k [00:00<00:03, 29.8k Objects/s][A
+----- stdout -----
 
-[0;31mFileNotFoundError[0m: No such file or no access: '../new_data/sub-01_ses-01_task-fixedbar_run-1_space-T1w_desc-preproc_bold_depth-1.0.func.gii'
+Receiving:  10%|██                  | 9.96k/99.6k [00:00<00:01, 49.9k Objects/s][A
+----- stdout -----
+
+Receiving:  20%|████                | 19.9k/99.6k [00:00<00:01, 67.0k Objects/s][A
+----- stdout -----
+
+Receiving:  30%|██████              | 29.9k/99.6k [00:00<00:00, 78.0k Objects/s][A
+----- stdout -----
+
+Receiving:  42%|████████▍           | 41.8k/99.6k [00:00<00:00, 91.7k Objects/s][A
+----- stdout -----
+
+Receiving:  59%|████████████▍        | 58.8k/99.6k [00:00<00:00, 116k Objects/s][A
+----- stdout -----
+
+Receiving:  73%|███████████████▎     | 72.7k/99.6k [00:00<00:00, 120k Objects/s][A
+----- stdout -----
+
+Receiving:  86%|██████████████████   | 85.7k/99.6k [00:00<00:00, 116k Objects/s][A
+----- stdout -----
+
+                                                                                [A
+----- stdout -----
+
+Resolving:   0%|                              | 0.00/28.4k [00:00<?, ? Deltas/s][A
+----- stdout -----
+
+Resolving:  22%|████▌                | 6.24k/28.4k [00:00<00:00, 61.5k Deltas/s][A
+----- stdout -----
+
+Resolving:  49%|██████████▎          | 13.9k/28.4k [00:00<00:00, 70.3k Deltas/s][A
+----- stdout -----
+
+Resolving:  74%|███████████████▌     | 21.0k/28.4k [00:00<00:00, 55.9k Deltas/s][A
+----- stdout -----
+
+Resolving:  98%|████████████████████▌| 27.8k/28.4k [00:00<00:00, 59.3k Deltas/s][A
+----- stdout -----
+
+                                                                                [A
+----- stdout -----
+
+----- stdout -----
+[INFO   ] Remote origin not usable by git-annex; setting annex-ignore 
+[INFO   ] https://github.com/OpenNeuroDatasets/ds004698.git/config download failed: Not Found
+----- stdout -----
+[INFO   ] Cannot run git-annex-remote-openneuro -- It is not installed in PATH (/usr/lib/git-core:/opt/conda/bin:/github/home/.local/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin) 
+[INFO   ] Cannot run git-annex-remote-openneuro -- It is not installed in PATH (/usr/lib/git-core:/opt/conda/bin:/github/home/.local/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin) 
+[INFO   ] unable to use external special remote git-annex-remote-openneuro
+----- stdout -----
+[INFO   ] Author identity unknown
+| 
+| *** Please tell me who you are.
+| 
+| Run
+| 
+|   git config --global user.email "you@example.com"
+|   git config --global user.name "Your Name"
+| 
+| to set your account's default identity.
+| Omit --global to set the identity only in this repository. 
+[INFO   ] fatal: unable to auto-detect email address (got 'root@b9bf9defb41b.(none)') 
+[INFO   ] git-annex: user error (git ["--git-dir=.git","--work-tree=.","--literal-pathspecs","-c","annex.dotfiles=true","commit-tree","7973d7d20f09ae44d26caacd6481fdd2f3a62956","--no-gpg-sign","-p","refs/heads/git-annex"] exited 128) 
+[1;1minstall[0m([1;31merror[0m): /tmp/tmpo_pd0xw1/ds004698 ([1;35mdataset[0m) [CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false annex init -c annex.dotfiles=true' failed with exitcode 1 under /tmp/tmpo_pd0xw1/ds004698][1;31m [CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false annex init -c annex.dotfiles=true' failed with exitcode 1 under /tmp/tmpo_pd0xw1/ds004698][0m
+----- stdout -----
+[0m
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 2[39m
+[32m      1[39m get_ipython().system([33m'[39m[33mdatalad install https://github.com/OpenNeuroDatasets/ds004698.git # install NYU retinotopy dataset[39m[33m'[39m)
+[32m----> [39m[32m2[39m [43mos[49m[43m.[49m[43mchdir[49m[43m([49m[33;43m'[39;49m[33;43mds004698[39;49m[33;43m'[39;49m[43m)[49m [38;5;66;03m# change directories[39;00m
+[32m      3[39m subject=[33m'[39m[33msub-01[39m[33m'[39m
+[32m      4[39m cmd1=[33mf[39m[33m"""[39m[33mdatalad get derivatives/freesurfer/[39m[38;5;132;01m{[39;00msubject[38;5;132;01m}[39;00m[33m/*[39m[33m"""[39m [38;5;66;03m# download all freesurfer files from subject[39;00m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'ds004698'
 
