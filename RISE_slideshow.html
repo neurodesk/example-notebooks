@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -447,8 +447,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#of-a-jupyter-notebook">Of a Jupyter Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-neurodesk">Setup Neurodesk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#of-a-jupyter-notebook">Of a Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-rise">Introduction to RISE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-slideshows">1. How to create slideshows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-slideshows-in-jupyterlab-on-neurodesk">2. Running slideshows in JupyterLab on Neurodesk</a></li>
@@ -458,6 +460,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-rise">3. Customize RISE</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-editor">Settings Editor</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-metadata">Notebook metadata</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
 </ul>
 </li>
 </ul>
@@ -477,37 +480,17 @@ document.write(`
 <h1>RISE Slideshow<a class="headerlink" href="#rise-slideshow" title="Link to this heading">#</a></h1>
 <section id="of-a-jupyter-notebook">
 <h2>Of a Jupyter Notebook<a class="headerlink" href="#of-a-jupyter-notebook" title="Link to this heading">#</a></h2>
-<p>Author: Monika Doerig</p>
-<p>Citation:</p>
+<p><strong>Author:</strong> Monika Doerig</p>
+<p><strong>Date:</strong> 13 June 2024</p>
+<section id="citation-and-resources">
+<h3>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Full documentation of the <a class="reference external" href="http://rise.readthedocs.io/">RISE notebook extension</a></p></li>
+<li><p>Full documentation of the <a class="reference external" href="http://rise.readthedocs.io/">RISE notebook extension</a> and <a class="reference external" href="https://github.com/jupyterlab-contrib/rise">RISE JupyterLab extension</a></p></li>
 </ul>
 <p>Press <code class="docutils literal notranslate"><span class="pre">Space</span></code> to proceed.</p>
-<p>Before getting to the introduction and details of creating a slideshow, let’s set up this notebook to run in Google Colab.</p>
-<p>Keep pressing <code class="docutils literal notranslate"><span class="pre">Space</span></code> to proceed.</p>
-</section>
-<section id="setup-neurodesk">
-<h2>Setup Neurodesk<a class="headerlink" href="#setup-neurodesk" title="Link to this heading">#</a></h2>
 <p>In code cells you press <code class="docutils literal notranslate"><span class="pre">Shift-Enter</span></code> (as usual) to evaluate your code and directly move to the next cell if it is already displayed.
 Press <code class="docutils literal notranslate"><span class="pre">Ctrl-Enter</span></code> to run a command without direclty moving to the next cell.</p>
-<p>Press Shift-Enter to run the following command to set up the Neurodesk environment.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Press Ctrl-Enter to run the following commands to see the output (and not move directly to the next slide).</span>
-
-<span class="c1"># Output CPU information:</span>
-<span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;vendor&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-<span class="o">!</span>cat<span class="w"> </span>/proc/cpuinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;model name&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vendor_id	: AuthenticAMD
-model name	: AMD EPYC-Rome Processor
-</pre></div>
-</div>
-</div>
-</div>
+</section>
 </section>
 <section id="introduction-to-rise">
 <h2>Introduction to RISE<a class="headerlink" href="#introduction-to-rise" title="Link to this heading">#</a></h2>
@@ -519,6 +502,7 @@ model name	: AMD EPYC-Rome Processor
 <p><em>You should be able to scroll down if the entire image is not displayed.</em></p>
 <p><img alt="../images/property_inspector.png" src="_images/property_inspector.png" /></p>
 <p>To prepare a slideshow, select a <code class="docutils literal notranslate"><span class="pre">Slide</span> <span class="pre">Type</span></code> for each cell from the dropdown menu. It can be chosen between the following types:</p>
+<p><em>You should be able to scroll down</em></p>
 <ul class="simple">
 <li><p><strong>Slide:</strong> This cell is the beginning of a new slide. These slides run from left to right.</p></li>
 <li><p><strong>Subslide:</strong> This cell is the beginning of a new sub-slide, which is a new slide, but is displayed below the previous one and runs form top to bottom (instead of left to right):</p></li>
@@ -544,8 +528,16 @@ model name	: AMD EPYC-Rome Processor
 <p>To evaluate code, press <code class="docutils literal notranslate"><span class="pre">Shift-Enter</span></code> (as usual) to run it. This will move to the next cell if it is already displayed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is where you press Shift-Enter</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is where you press Shift-Enter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
@@ -627,6 +619,41 @@ model name	: AMD EPYC-Rome Processor
 </ol>
 <p><img alt="../images/change_metadata_notebook.png" src="_images/change_metadata_notebook.png" /></p>
 </section>
+<section id="dependencies-in-jupyter-python">
+<h4>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-12-05T08:16:15.053279+00:00
+
+Python implementation: CPython
+Python version       : 3.13.9
+IPython version      : 9.7.0
+
+Compiler    : GCC 14.3.0
+OS          : Linux
+Release     : 5.15.0-151-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+numpy: 2.3.5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -677,8 +704,10 @@ model name	: AMD EPYC-Rome Processor
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#of-a-jupyter-notebook">Of a Jupyter Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-neurodesk">Setup Neurodesk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#of-a-jupyter-notebook">Of a Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-rise">Introduction to RISE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-slideshows">1. How to create slideshows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-slideshows-in-jupyterlab-on-neurodesk">2. Running slideshows in JupyterLab on Neurodesk</a></li>
@@ -688,6 +717,7 @@ model name	: AMD EPYC-Rome Processor
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-rise">3. Customize RISE</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-editor">Settings Editor</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-metadata">Notebook metadata</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
 </ul>
 </li>
 </ul>
