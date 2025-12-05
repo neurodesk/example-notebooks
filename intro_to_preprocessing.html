@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Introduction to Preprocessing &#8212; Neurodesk</title>
   
@@ -15,65 +14,64 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/algolia.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3.3.3/dist/umd/index.js"></script>
-    <script src="_static/algolia.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4Z9774J59Y"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4Z9774J59Y');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4Z9774J59Y');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro_to_preprocessing';</script>
-    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/intro.html/intro_to_preprocessing.html" />
+    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/intro_to_preprocessing.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -85,28 +83,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -128,12 +121,22 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -150,6 +153,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="#">
   
@@ -161,7 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Neurodesk</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -185,7 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -194,14 +210,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -224,18 +240,36 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/NeuroDesk/example-notebooks/blob/main/books/intro_to_preprocessing.ipynb" target="_blank"
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/intro_to_preprocessing.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Run in America"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Run in America logo" src="_static/images/logo_jupyterhub.svg">
   </span>
-<span class="btn__text-container">Colab</span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/intro_to_preprocessing.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
 </a>
 </li>
       
@@ -374,10 +408,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -385,14 +419,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -413,11 +447,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fsl-and-mcflirt">FSL and MCFLIRT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nipype-interfaces">Nipype Interfaces</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-motion-parameters">Plotting Motion Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-motion-parameters">Additional Motion Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-motion-parameters">Additional Motion Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -427,11 +470,37 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-preprocessing">
-<h1>Introduction to Preprocessing<a class="headerlink" href="#introduction-to-preprocessing" title="Permalink to this heading">#</a></h1>
-<p>Author: Marla Pinkert</p>
+<h1>Introduction to Preprocessing<a class="headerlink" href="#introduction-to-preprocessing" title="Link to this heading">#</a></h1>
+<p><strong>Author</strong>: Marla Pinkert</p>
+<p><strong>Date</strong>: 10 Nov 2024</p>
+<section id="citation-and-resources">
+<h2>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h2>
+<section id="tools-included-in-this-workflow">
+<h3>Tools included in this workflow<a class="headerlink" href="#tools-included-in-this-workflow" title="Link to this heading">#</a></h3>
+<p><strong>FSL:</strong></p>
+<ul class="simple">
+<li><p>M. Jenkinson, C.F. Beckmann, T.E. Behrens, M.W. Woolrich, S.M. Smith. FSL. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2011.09.015">NeuroImage, 62:782-90, 2012</a></p></li>
+</ul>
+<p><strong>Nipype:</strong></p>
+<ul class="simple">
+<li><p>Esteban, O., Markiewicz, C. J., Burns, C., Goncalves, M., Jarecka, D., Ziegler, E., Berleant, S., Ellis, D. G., Pinsard, B., Madison, C., Waskom, M., Notter, M. P., Clark, D., Manhães-Savio, A., Clark, D., Jordan, K., Dayan, M., Halchenko, Y. O., Loney, F., … Ghosh, S. (2025). nipy/nipype: 1.8.6 (1.8.6). Zenodo <a class="reference external" href="https://doi.org/10.5281/zenodo.15054147">https://doi.org/10.5281/zenodo.15054147</a></p></li>
+</ul>
+</section>
+<section id="dataset">
+<h3>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h3>
+<p><strong>Flanker Task dataset from OpenNeuro</strong>:</p>
+<ul class="simple">
+<li><p>Kelly AMC and Uddin LQ and Biswal BB and Castellanos FX and Milham MP (2018). Flanker task (event-related). <a class="reference external" href="https://openneuro.org/datasets/ds000102/versions/00001/">OpenNeuro Dataset ds000102</a></p></li>
+<li></li>
+</ul>
+<p>Kelly, A.M., Uddin, L.Q., Biswal, B.B., Castellanos, F.X., Milham, M.P. (2008). Competition between functional brain networks mediates behavioral variability. Neuroimage, 39(1):527-37</p>
+</section>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>This notebook is geared towards people who are taking their <strong>first steps</strong> preprocessing fMRI data and want to learn more, and also towards people who are interested in <strong>teaching</strong> using Neurodesk and want to check out an example to see whether this might be a fit for them. Specifically, we will look at how to deal with <strong>motion</strong>. There will be explanations on what we are doing along the way!</p>
 <p>We will use the <a class="reference external" href="https://openneuro.org/datasets/ds000102/versions/00001">NYU Slow Flanker dataset from Openneuro</a>. In this study, healthy adults underwent MRI scanning while performing an event-related <a class="reference external" href="https://en.wikipedia.org/wiki/Eriksen_flanker_task">Eriksen Flanker task</a>.</p>
 <p>Objectives:</p>
@@ -441,18 +510,21 @@ document.write(`
 <li><p>Learning how to do quality checks regarding motion</p></li>
 </ul>
 <p>There are many different packages and software used to preprocess MRI data. Installing them locally can be complicated and frustrating. Especially for teaching, when you have to make sure everyone is able install specific software, or as a student, when you are just starting out. We will therefore use Neurodesk to provide us with an environment which already comes with all we need - no complicated set-up.</p>
+</section>
 <section id="data-preparation">
-<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h2>
+<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h2>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download data</span>
-<span class="o">!</span>datalad install https://github.com/OpenNeuroDatasets/ds000102.git
-<span class="o">!</span><span class="nb">cd</span> ds000102 <span class="o">&amp;&amp;</span> datalad get sub-01
+<span class="o">!</span>datalad<span class="w"> </span>install<span class="w"> </span>https://github.com/OpenNeuroDatasets/ds000102.git
+<span class="o">!</span><span class="nb">cd</span><span class="w"> </span>ds000102<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>datalad<span class="w"> </span>get<span class="w"> </span>sub-01
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clone attempt:   0%|              | 0.00/2.00 [00:00&lt;?, ? Candidate locations/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is highly recommended to configure Git before using DataLad. Set both &#39;user.name&#39; and &#39;user.email&#39; configuration variables.
+Cloning:   0%|                             | 0.00/2.00 [00:00&lt;?, ? candidates/s]
+
 Enumerating: 0.00 Objects [00:00, ? Objects/s]
                                               
 Counting:   0%|                               | 0.00/27.0 [00:00&lt;?, ? Objects/s]
@@ -460,127 +532,70 @@ Counting:   0%|                               | 0.00/27.0 [00:00&lt;?, ? Objects
 Compressing:   0%|                            | 0.00/23.0 [00:00&lt;?, ? Objects/s]
                                                                                 
 Receiving:   0%|                             | 0.00/2.15k [00:00&lt;?, ? Objects/s]
+
+Receiving:   4%|▉                      | 86.0/2.15k [00:00&lt;00:04, 441 Objects/s]
+
+Receiving:  19%|████▏                 | 409/2.15k [00:00&lt;00:01, 1.16k Objects/s]
+
+Receiving:  48%|█████████▌          | 1.03k/2.15k [00:00&lt;00:00, 2.09k Objects/s]
                                                                                 
 Resolving:   0%|                                | 0.00/537 [00:00&lt;?, ? Deltas/s]
-[INFO   ] scanning for unlocked files (this may take some time) 
-[INFO   ] Remote origin not usable by git-annex; setting annex-ignore 
-[INFO   ] access to 1 dataset sibling s3-PRIVATE not auto-enabled, enable with:
-| 		datalad siblings -d &quot;/storage/tmp/tmpbip70fk2/ds000102&quot; enable -s s3-PRIVATE 
-<span class=" -Color -Color-Bold">install</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): /storage/tmp/tmpbip70fk2/ds000102 (<span class=" -Color -Color-Bold -Color-Bold-Magenta">dataset</span>)
-Total:   0%|                                   | 0.00/66.8M [00:00&lt;?, ? Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   0%|            | 0.00/10.6M [00:00&lt;?, ? Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   0%|    | 16.4k/10.6M [00:00&lt;01:37, 108k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   0%|   | 33.4k/10.6M [00:00&lt;02:31, 69.5k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   1%|   | 68.2k/10.6M [00:01&lt;03:02, 57.7k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   1%|   | 85.6k/10.6M [00:01&lt;02:52, 60.9k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   1%|    | 103k/10.6M [00:01&lt;02:42, 64.6k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   1%|    | 120k/10.6M [00:01&lt;02:34, 67.9k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   1%|    | 138k/10.6M [00:02&lt;02:28, 70.2k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   1%|    | 155k/10.6M [00:02&lt;02:32, 68.5k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   2%|    | 173k/10.6M [00:02&lt;02:20, 74.3k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   2%|    | 207k/10.6M [00:02&lt;02:14, 77.0k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   2%|    | 225k/10.6M [00:03&lt;02:12, 78.3k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   2%|    | 260k/10.6M [00:03&lt;01:43, 99.5k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   3%|▏    | 294k/10.6M [00:03&lt;01:30, 114k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   3%|▏    | 347k/10.6M [00:03&lt;01:14, 138k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   4%|▏    | 382k/10.6M [00:04&lt;01:07, 151k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   4%|▏    | 416k/10.6M [00:04&lt;00:55, 182k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   5%|▏    | 503k/10.6M [00:04&lt;00:49, 202k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   5%|▎    | 556k/10.6M [00:04&lt;00:41, 243k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   6%|▎    | 643k/10.6M [00:04&lt;00:38, 257k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   7%|▎    | 712k/10.6M [00:05&lt;00:34, 285k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   8%|▍    | 800k/10.6M [00:05&lt;00:26, 363k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:   9%|▍    | 939k/10.6M [00:05&lt;00:26, 369k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  10%|▍   | 1.06M/10.6M [00:05&lt;00:22, 416k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  11%|▍   | 1.20M/10.6M [00:06&lt;00:19, 472k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  13%|▌   | 1.34M/10.6M [00:06&lt;00:15, 582k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  14%|▌   | 1.51M/10.6M [00:06&lt;00:16, 565k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  16%|▋   | 1.70M/10.6M [00:06&lt;00:13, 642k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  18%|▋   | 1.90M/10.6M [00:06&lt;00:10, 794k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  20%|▊   | 2.10M/10.6M [00:07&lt;00:10, 830k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  22%|▉   | 2.37M/10.6M [00:07&lt;00:09, 839k Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  24%|▋  | 2.57M/10.6M [00:07&lt;00:07, 1.02M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  28%|▊  | 2.92M/10.6M [00:07&lt;00:07, 1.01M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  30%|▉  | 3.17M/10.6M [00:08&lt;00:06, 1.21M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  33%|▉  | 3.51M/10.6M [00:08&lt;00:05, 1.31M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  37%|█  | 3.95M/10.6M [00:08&lt;00:05, 1.26M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  41%|█▏ | 4.35M/10.6M [00:08&lt;00:04, 1.40M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  45%|█▎ | 4.75M/10.6M [00:08&lt;00:03, 1.78M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  49%|█▍ | 5.13M/10.6M [00:09&lt;00:03, 1.78M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  53%|█▌ | 5.64M/10.6M [00:09&lt;00:02, 1.91M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  58%|█▋ | 6.16M/10.6M [00:09&lt;00:02, 2.03M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  63%|█▉ | 6.72M/10.6M [00:09&lt;00:01, 2.16M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  69%|██ | 7.33M/10.6M [00:10&lt;00:01, 2.32M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  75%|██▎| 7.97M/10.6M [00:10&lt;00:01, 2.47M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  82%|██▍| 8.66M/10.6M [00:10&lt;00:00, 2.63M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  89%|██▋| 9.37M/10.6M [00:10&lt;00:00, 2.78M Bytes/s]
-Get sub-01/a .. 1_T1w.nii.gz:  96%|██▉| 10.2M/10.6M [00:11&lt;00:00, 2.99M Bytes/s]
-                                                                                
-Get sub-01/a .. 1_T1w.nii.gz:   0%|            | 0.00/10.6M [00:00&lt;?, ? Bytes/s]
-Total:  16%|████▎                      | 10.6M/66.8M [00:12&lt;01:07, 834k Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   0%|            | 0.00/28.1M [00:00&lt;?, ? Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   3%|    | 855k/28.1M [00:00&lt;00:05, 4.65M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   6%|▏  | 1.58M/28.1M [00:00&lt;00:04, 5.78M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  10%|▎  | 2.72M/28.1M [00:00&lt;00:06, 3.68M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  13%|▍  | 3.72M/28.1M [00:00&lt;00:06, 3.98M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  17%|▌  | 4.79M/28.1M [00:01&lt;00:05, 4.19M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  21%|▋  | 5.92M/28.1M [00:01&lt;00:04, 4.44M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  25%|▊  | 7.10M/28.1M [00:01&lt;00:04, 4.67M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  30%|▉  | 8.36M/28.1M [00:01&lt;00:04, 4.92M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  34%|█  | 9.67M/28.1M [00:02&lt;00:03, 5.19M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  39%|█▏ | 11.0M/28.1M [00:02&lt;00:02, 6.27M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  44%|█▎ | 12.4M/28.1M [00:02&lt;00:02, 6.44M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  49%|█▍ | 13.8M/28.1M [00:02&lt;00:02, 6.35M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  55%|█▋ | 15.3M/28.1M [00:02&lt;00:01, 6.43M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  61%|█▊ | 17.0M/28.1M [00:03&lt;00:01, 6.69M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  66%|█▉ | 18.5M/28.1M [00:03&lt;00:01, 6.79M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  73%|██▏| 20.4M/28.1M [00:03&lt;00:01, 7.14M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  76%|██▎| 21.4M/28.1M [00:03&lt;00:00, 6.92M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  82%|██▍| 23.0M/28.1M [00:03&lt;00:00, 7.37M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  86%|██▌| 24.2M/28.1M [00:03&lt;00:00, 8.05M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  90%|██▋| 25.1M/28.1M [00:04&lt;00:00, 7.86M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  97%|██▉| 27.3M/28.1M [00:04&lt;00:00, 8.50M Bytes/s]
-Total:  58%|███████████████           | 38.6M/66.8M [00:17&lt;00:12, 2.20M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   0%|            | 0.00/28.1M [00:00&lt;?, ? Bytes/s]
-Get sub-01/f .. _bold.nii.gz:   7%|▏  | 1.92M/28.1M [00:00&lt;00:02, 13.1M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  13%|▍  | 3.71M/28.1M [00:00&lt;00:02, 11.0M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  21%|▌  | 5.86M/28.1M [00:00&lt;00:02, 10.1M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  28%|▊  | 8.00M/28.1M [00:00&lt;00:02, 9.80M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  36%|█  | 10.2M/28.1M [00:01&lt;00:01, 9.77M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  44%|█▎ | 12.3M/28.1M [00:01&lt;00:01, 9.54M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  51%|█▌ | 14.5M/28.1M [00:01&lt;00:01, 9.52M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  57%|█▋ | 16.0M/28.1M [00:01&lt;00:01, 9.19M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  62%|█▊ | 17.5M/28.1M [00:01&lt;00:01, 9.07M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  67%|██ | 18.8M/28.1M [00:01&lt;00:00, 9.74M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  74%|██▏| 20.9M/28.1M [00:02&lt;00:00, 9.69M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  83%|██▍| 23.3M/28.1M [00:02&lt;00:00, 9.81M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  91%|██▋| 25.5M/28.1M [00:02&lt;00:00, 9.78M Bytes/s]
-Get sub-01/f .. _bold.nii.gz:  99%|██▉| 27.9M/28.1M [00:02&lt;00:00, 9.95M Bytes/s]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01/anat/sub-01_T1w.nii.gz (<span class=" -Color -Color-Bold -Color-Bold-Magenta">file</span>) [from s3-PUBLIC...]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz (<span class=" -Color -Color-Bold -Color-Bold-Magenta">file</span>) [from s3-PUBLIC...]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz (<span class=" -Color -Color-Bold -Color-Bold-Magenta">file</span>) [from s3-PUBLIC...]
-<span class=" -Color -Color-Bold">get</span>(<span class=" -Color -Color-Bold -Color-Bold-Green">ok</span>): sub-01 (<span class=" -Color -Color-Bold -Color-Bold-Magenta">directory</span>)
-action summary:
-  get (ok: 4)
 
+                                                                                
+[INFO   ] Remote origin not usable by git-annex; setting annex-ignore
+[INFO   ] https://github.com/OpenNeuroDatasets/ds000102.git/config download failed: Not Found
+[INFO   ] Author identity unknown
+| 
+| *** Please tell me who you are.
+| 
+| Run
+| 
+|   git config --global user.email &quot;you@example.com&quot;
+|   git config --global user.name &quot;Your Name&quot;
+| 
+| to set your account&#39;s default identity.
+| Omit --global to set the identity only in this repository.
+| 
+| fatal: unable to auto-detect email address (got &#39;root@611dce10da42.(none)&#39;) 
+[INFO   ] git-annex: user error (git [&quot;--git-dir=.git&quot;,&quot;--work-tree=.&quot;,&quot;--literal-pathspecs&quot;,&quot;-c&quot;,&quot;annex.dotfiles=true&quot;,&quot;commit-tree&quot;,&quot;1dc2c6b242fb5e4cbf1e4271fac13ec390548bbc&quot;,&quot;--no-gpg-sign&quot;,&quot;-p&quot;,&quot;refs/heads/git-annex&quot;] exited 128) 
+<span class=" -Color -Color-Bold">install</span>(<span class=" -Color -Color-Bold -Color-Bold-Red">error</span>): /tmp/tmppwzlc_j7/ds000102 (<span class=" -Color -Color-Bold -Color-Bold-Magenta">dataset</span>) [CommandError: &#39;git -c diff.ignoreSubmodules=none -c core.quotepath=false annex init -c annex.dotfiles=true&#39; failed with exitcode 1 under /tmp/tmppwzlc_j7/ds000102]<span class=" -Color -Color-Bold -Color-Bold-Red"> [CommandError: &#39;git -c diff.ignoreSubmodules=none -c core.quotepath=false annex init -c annex.dotfiles=true&#39; failed with exitcode 1 under /tmp/tmppwzlc_j7/ds000102]</span>
+
+/bin/bash: line 1: cd: ds000102: No such file or directory
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="fsl-and-mcflirt">
-<h2>FSL and MCFLIRT<a class="headerlink" href="#fsl-and-mcflirt" title="Permalink to this heading">#</a></h2>
+<h2>FSL and MCFLIRT<a class="headerlink" href="#fsl-and-mcflirt" title="Link to this heading">#</a></h2>
 <p><strong>FSL</strong> is a commonly used <strong>library of analysis tools</strong> for fMRI. It has a GUI, but can be used via the command line as well. We can use it for both preprocessing and first- and second-level analysis, however, we will use it for <strong>preprocessing</strong> only. Although you would often combine different tools, so you can cherry pick the best ones, it is completely possible to do every preprocessing step within FSL.</p>
 <p><strong>MCFLIRT</strong> is an FSL tool which we can use for <strong>realigning</strong> our functional data and calculation of <strong>motion parameters</strong>. We can not only run it using the command line, but also via a Nipype interface.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This enables us to access FSL using Neurodesk</span>
-<span class="kn">import</span> <span class="nn">module</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">module</span>
 <span class="k">await</span> <span class="n">module</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fsl/6.0.4&#39;</span><span class="p">)</span>
 
 <span class="c1"># this makes it so FSL knows how we want our output files</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;FSLOUTPUTTYPE&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;NIFTI_GZ&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lmod Warning: MODULEPATH is undefined.
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+&quot;fsl/6.0.4&quot;
+
+Please check the spelling or version number. Also try &quot;module spider ...&quot;
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load &quot;fsl/6.0.4&quot;
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
 </pre></div>
 </div>
 </div>
@@ -590,38 +605,12 @@ action summary:
 <p>Let’s first check which flags the command line tool MCLFLIRT needs:</p>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mcflirt -help
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mcflirt<span class="w"> </span>-help
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Usage: mcflirt -in &lt;infile&gt; [options]
-
-  Available options are:
-        -out, -o &lt;outfile&gt;               (default is infile_mcf)
-        -cost {mutualinfo,woods,corratio,normcorr,normmi,leastsquares}        (default is normcorr)
-        -bins &lt;number of histogram bins&gt;   (default is 256)
-        -dof  &lt;number of transform dofs&gt;   (default is 6)
-        -refvol &lt;number of reference volume&gt; (default is no_vols/2)- registers to (n+1)th volume in series
-        -reffile, -r &lt;filename&gt;            use a separate 3d image file as the target for registration (overrides refvol option)
-        -scaling &lt;num&gt;                             (6.0 is default)
-        -smooth &lt;num&gt;                      (1.0 is default - controls smoothing in cost function)
-        -rotation &lt;num&gt;                    specify scaling factor for rotation optimization tolerances
-        -verbose &lt;num&gt;                     (0 is least and default)
-        -stages &lt;number of search levels&gt;  (default is 3 - specify 4 for final sinc interpolation)
-        -fov &lt;num&gt;                         (default is 20mm - specify size of field of view when padding 2d volume)
-        -2d                                Force padding of volume
-        -sinc_final                        (applies final transformations using sinc interpolation)
-        -spline_final                      (applies final transformations using spline interpolation)
-        -nn_final                          (applies final transformations using Nearest Neighbour interpolation)
-        -init &lt;filename&gt;                   (initial transform matrix to apply to all vols)
-        -gdt                               (run search on gradient images)
-        -meanvol                           register timeseries to mean volume (overrides refvol and reffile options)
-        -stats                             produce variance and std. dev. images
-        -mats                              save transformation matricies in subdirectory outfilename.mat
-        -plots                             save transformation parameters in file outputfilename.par
-        -report                            report progress to screen
-        -help
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: mcflirt: command not found
 </pre></div>
 </div>
 </div>
@@ -630,7 +619,12 @@ action summary:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run mcflirt</span>
-<span class="o">!</span>mcflirt -in ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz -plots
+<span class="o">!</span>mcflirt<span class="w"> </span>-in<span class="w"> </span>ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz<span class="w"> </span>-plots
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: mcflirt: command not found
 </pre></div>
 </div>
 </div>
@@ -638,7 +632,7 @@ action summary:
 <p>In the <code class="docutils literal notranslate"><span class="pre">/func</span></code> folder of our first subject, two new files have appeared: <code class="docutils literal notranslate"><span class="pre">sub-01_task-flanker_run-1_bold_mcf.nii.gz</span></code> and <code class="docutils literal notranslate"><span class="pre">sub-01_task-flanker_run-1_bold_mcf.par</span></code>. The NIfTI file is our <strong>realigned</strong> functional file, the .par file contains our <strong>motion parameters</strong>!</p>
 </section>
 <section id="nipype-interfaces">
-<h2>Nipype Interfaces<a class="headerlink" href="#nipype-interfaces" title="Permalink to this heading">#</a></h2>
+<h2>Nipype Interfaces<a class="headerlink" href="#nipype-interfaces" title="Link to this heading">#</a></h2>
 <p>It is possible to do this exact same thing (using <code class="docutils literal notranslate"><span class="pre">MCFLIRT</span></code>) in Python using a <strong>Nipype</strong> interface. Nipype is an open-source project that allows for integrating a variety of different neuroimaging softwares into a single workflow. Nipype provides “wrappers” (= <strong>interfaces</strong>) for tools and software that is written in other languages than Python.</p>
 <p>When we use Nipype, we use the interface <strong>classes</strong> provided by Nipype to instantiate <strong>objects</strong> we can use for analysis.</p>
 <p>So, what are objects and classes? One way to think about <strong>classes</strong> is to view them as a sort of construction plan, or blueprint. Imagine a development area in a town where many very similar looking family homes are being built. Usually, these sorts of building projects still offer buyers certain customization options - such as the color, the doors, whether there is a garage. So, the construction plan (class) already contains all the information for building the house, and the custommized houses themselves would then correspond to different <strong>objects</strong> derived fromm the <strong>class</strong>.</p>
@@ -648,7 +642,7 @@ action summary:
 <p>For <code class="docutils literal notranslate"><span class="pre">MCFLIRT</span></code>, we will import the <code class="docutils literal notranslate"><span class="pre">fsl</span></code> module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces</span> <span class="kn">import</span> <span class="n">fsl</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nipype.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsl</span>
 </pre></div>
 </div>
 </div>
@@ -665,12 +659,12 @@ action summary:
 
 class MCFLIRT(nipype.interfaces.fsl.base.FSLCommand)
  |  MCFLIRT(**inputs)
- |  
+ |
  |  FSL MCFLIRT wrapper for within-modality motion correction
- |  
+ |
  |  For complete details, see the `MCFLIRT Documentation.
  |  &lt;https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT&gt;`_
- |  
+ |
  |  Examples
  |  --------
  |  &gt;&gt;&gt; from nipype.interfaces import fsl
@@ -681,7 +675,7 @@ class MCFLIRT(nipype.interfaces.fsl.base.FSLCommand)
  |  &gt;&gt;&gt; mcflt.cmdline
  |  &#39;mcflirt -in functional.nii -cost mutualinfo -out moco.nii&#39;
  |  &gt;&gt;&gt; res = mcflt.run()  # doctest: +SKIP
- |  
+ |
  |  Method resolution order:
  |      MCFLIRT
  |      nipype.interfaces.fsl.base.FSLCommand
@@ -689,130 +683,130 @@ class MCFLIRT(nipype.interfaces.fsl.base.FSLCommand)
  |      nipype.interfaces.base.core.BaseInterface
  |      nipype.interfaces.base.core.Interface
  |      builtins.object
- |  
+ |
  |  Data and other attributes defined here:
- |  
+ |
  |  input_spec = &lt;class &#39;nipype.interfaces.fsl.preprocess.MCFLIRTInputSpec...
- |  
+ |
  |  output_spec = &lt;class &#39;nipype.interfaces.fsl.preprocess.MCFLIRTOutputSp...
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Methods inherited from nipype.interfaces.fsl.base.FSLCommand:
- |  
+ |
  |  __init__(self, **inputs)
  |      Subclasses must implement __init__
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Class methods inherited from nipype.interfaces.fsl.base.FSLCommand:
- |  
- |  set_default_output_type(output_type) from builtins.type
+ |
+ |  set_default_output_type(output_type)
  |      Set the default output type for FSL classes.
- |      
+ |
  |      This method is used to set the default output type for all fSL
  |      subclasses.  However, setting this will not update the output
  |      type for any existing instances.  For these, assign the
  |      &lt;instance&gt;.inputs.output_type.
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Readonly properties inherited from nipype.interfaces.fsl.base.FSLCommand:
- |  
+ |
  |  version
  |      interfaces should implement a version property
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Methods inherited from nipype.interfaces.base.core.CommandLine:
- |  
+ |
  |  raise_exception(self, runtime)
- |  
+ |
  |  version_from_command(self, flag=&#39;-v&#39;, cmd=None)
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Class methods inherited from nipype.interfaces.base.core.CommandLine:
- |  
- |  set_default_terminal_output(output_type) from builtins.type
+ |
+ |  set_default_terminal_output(output_type)
  |      Set the default terminal output for CommandLine Interfaces.
- |      
+ |
  |      This method is used to set default terminal output for
  |      CommandLine Interfaces.  However, setting this will not
  |      update the output type for any existing instances.  For these,
  |      assign the &lt;instance&gt;.terminal_output.
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Readonly properties inherited from nipype.interfaces.base.core.CommandLine:
- |  
+ |
  |  cmd
  |      sets base command, immutable
- |  
+ |
  |  cmdline
  |      `command` plus any arguments (args)
  |      validates arguments and generates command line
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Data descriptors inherited from nipype.interfaces.base.core.CommandLine:
- |  
+ |
  |  terminal_output
- |  
+ |
  |  write_cmdline
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Methods inherited from nipype.interfaces.base.core.BaseInterface:
- |  
+ |
  |  aggregate_outputs(self, runtime=None, needed_outputs=None)
  |      Collate expected outputs and apply output traits validation.
- |  
+ |
  |  load_inputs_from_json(self, json_file, overwrite=True)
  |      A convenient way to load pre-set inputs from a JSON file.
- |  
+ |
  |  run(self, cwd=None, ignore_exception=None, **inputs)
  |      Execute this interface.
- |      
+ |
  |      This interface will not raise an exception if runtime.returncode is
  |      non-zero.
- |      
+ |
  |      Parameters
  |      ----------
  |      cwd : specify a folder where the interface should be run
  |      inputs : allows the interface settings to be updated
- |      
+ |
  |      Returns
  |      -------
  |      results :  :obj:`nipype.interfaces.base.support.InterfaceResult`
  |          A copy of the instance that was executed, provenance information and,
  |          if successful, results
- |  
+ |
  |  save_inputs_to_json(self, json_file)
  |      A convenient way to save current inputs to a JSON file.
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Data and other attributes inherited from nipype.interfaces.base.core.BaseInterface:
- |  
+ |
  |  resource_monitor = True
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Class methods inherited from nipype.interfaces.base.core.Interface:
- |  
- |  help(returnhelp=False) from builtins.type
+ |
+ |  help(returnhelp=False)
  |      Prints class help
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Readonly properties inherited from nipype.interfaces.base.core.Interface:
- |  
+ |
  |  always_run
  |      Should the interface be always run even if the inputs were not changed?
  |      Only applies to interfaces being run within a workflow context.
- |  
+ |
  |  can_resume
  |      Defines if the interface can reuse partial results after interruption.
  |      Only applies to interfaces being run within a workflow context.
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Data descriptors inherited from nipype.interfaces.base.core.Interface:
- |  
+ |
  |  __dict__
- |      dictionary for instance variables (if defined)
- |  
+ |      dictionary for instance variables
+ |
  |  __weakref__
- |      list of weak references to the object (if defined)
+ |      list of weak references to the object
 </pre></div>
 </div>
 </div>
@@ -821,6 +815,68 @@ class MCFLIRT(nipype.interfaces.fsl.base.FSLCommand)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moco</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">in_file</span> <span class="o">=</span> <span class="s2">&quot;ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&quot;</span><span class="p">,</span> <span class="n">out_file</span> <span class="o">=</span> <span class="s2">&quot;ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_mfc.nii.gz&quot;</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TraitError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">moco</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">in_file</span> <span class="o">=</span> <span class="s2">&quot;ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&quot;</span><span class="p">,</span> <span class="n">out_file</span> <span class="o">=</span> <span class="s2">&quot;ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_mfc.nii.gz&quot;</span><span class="p">,</span><span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/fsl/base.py:171,</span> in <span class="ni">FSLCommand.__init__</span><span class="nt">(self, **inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_update</span><span class="p">,</span> <span class="s2">&quot;output_type&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:633,</span> in <span class="ni">CommandLine.__init__</span><span class="nt">(self, command, terminal_output, write_cmdline, **inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">630</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">631</span>     <span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">terminal_output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">write_cmdline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span> <span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">633</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">634</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_environ</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">635</span>     <span class="c1"># Set command. Input argument takes precedence</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/core.py:204,</span> in <span class="ni">BaseInterface.__init__</span><span class="nt">(self, from_file, resource_monitor, ignore_exception, **inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">202</span> <span class="k">if</span> <span class="n">unavailable_traits</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span>     <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">trait_set</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">Undefined</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">unavailable_traits</span><span class="p">})</span>
+<span class="ne">--&gt; </span><span class="mi">204</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">trait_set</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="bp">self</span><span class="o">.</span><span class="n">ignore_exception</span> <span class="o">=</span> <span class="n">ignore_exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">if</span> <span class="n">resource_monitor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/traits/has_traits.py:1458,</span> in <span class="ni">HasTraits.trait_set</span><span class="nt">(self, trait_change_notify, **traits)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1456</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1457</span>     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">traits</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1458</span>         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span> <span class="k">return</span> <span class="bp">self</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/traits_extension.py:325,</span> in <span class="ni">File.validate</span><span class="nt">(self, objekt, name, value, return_pathlike)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objekt</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">return_pathlike</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Validate a value change.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">325</span>     <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">objekt</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">return_pathlike</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exts</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">fname</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">name</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/nipype/interfaces/base/traits_extension.py:135,</span> in <span class="ni">BasePath.validate</span><span class="nt">(self, objekt, name, value, return_pathlike)</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exists</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">135</span>         <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">objekt</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_file</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">objekt</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+<span class="nn">File /opt/conda/lib/python3.13/site-packages/traits/base_trait_handler.py:74,</span> in <span class="ni">BaseTraitHandler.error</span><span class="nt">(self, object, name, value)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="k">def</span><span class="w"> </span><span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Raises a TraitError exception.</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="sd">     This method is called by the validate() method when an assigned value</span>
+<span class="sd">   (...)     72         The proposed new value for the attribute.</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">74</span>     <span class="k">raise</span> <span class="n">TraitError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="nb">object</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_info</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">value</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="p">)</span>
+
+<span class="ne">TraitError</span>: The &#39;in_file&#39; trait of a MCFLIRTInputSpec instance must be a pathlike object or string representing an existing file, but a value of &#39;ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39; &lt;class &#39;str&#39;&gt; was specified.
 </pre></div>
 </div>
 </div>
@@ -862,8 +918,8 @@ class MCFLIRT(nipype.interfaces.fsl.base.FSLCommand)
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mat_file = &lt;undefined&gt;
 mean_img = &lt;undefined&gt;
-out_file = /storage/tmp/tmpbip70fk2/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_mfc.nii.gz
-par_file = /storage/tmp/tmpbip70fk2/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_mfc.nii.gz.par
+out_file = /home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_mfc.nii.gz
+par_file = /home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_mfc.nii.gz.par
 rms_files = &lt;undefined&gt;
 std_img = &lt;undefined&gt;
 variance_img = &lt;undefined&gt;
@@ -873,19 +929,19 @@ variance_img = &lt;undefined&gt;
 </div>
 </section>
 <section id="plotting-motion-parameters">
-<h2>Plotting Motion Parameters<a class="headerlink" href="#plotting-motion-parameters" title="Permalink to this heading">#</a></h2>
+<h2>Plotting Motion Parameters<a class="headerlink" href="#plotting-motion-parameters" title="Link to this heading">#</a></h2>
 <p>Now that we calculated our motion parameters, we can get to <strong>plotting</strong> them. First, we load them into memory using numpy, and have a look at their <strong>shape</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
-!pip install numpy pandas
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">pandas</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">motion_path</span> <span class="o">=</span> <span class="s2">&quot;ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_mcf.par&quot;</span>
 <span class="n">motion_parameters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">motion_path</span><span class="p">)</span>
@@ -937,7 +993,7 @@ variance_img = &lt;undefined&gt;
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Create plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -962,14 +1018,14 @@ variance_img = &lt;undefined&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f955ef57b0a09ab58ae4c48f597170786fba6866aa2d7f289c6e7ed56f6de15f.png" src="_images/f955ef57b0a09ab58ae4c48f597170786fba6866aa2d7f289c6e7ed56f6de15f.png" />
+<img alt="_images/a5af5988fa7b839f328a311fed80f8e056ab0ac4c5c1d8016376f17fe41e0cff.png" src="_images/a5af5988fa7b839f328a311fed80f8e056ab0ac4c5c1d8016376f17fe41e0cff.png" />
 </div>
 </div>
 <p>Sometimes, we might introduce motion due to our task. If you like to check whether this is true for your data, it may make sense to check by plotting the timings of the task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in events</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">events_path</span> <span class="o">=</span> <span class="s2">&quot;./ds000102/sub-01/func/sub-01_task-flanker_run-1_events.tsv&quot;</span>
 <span class="n">events</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">events_path</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -1013,7 +1069,7 @@ variance_img = &lt;undefined&gt;
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Subject 1, Flanker-Task Run 1: Motion Parameters&#39;)
 </pre></div>
 </div>
-<img alt="_images/559ad8739728e74deb67556a576f8bd62033717532bda0ab3ae53e8c2ed4a877.png" src="_images/559ad8739728e74deb67556a576f8bd62033717532bda0ab3ae53e8c2ed4a877.png" />
+<img alt="_images/e23b2c818d60c634e0cf6ad08299a15a8abaed30e8733423f21821e7297a3e2c.png" src="_images/e23b2c818d60c634e0cf6ad08299a15a8abaed30e8733423f21821e7297a3e2c.png" />
 </div>
 </div>
 <p>A student in my class had the idea to plot the motion parameters in 3D space, which I thought was fun. See below:</p>
@@ -1032,12 +1088,12 @@ variance_img = &lt;undefined&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4223d17bf67b55757fe461abff8c84a7e712583acab8621c731a61af70bdf53f.png" src="_images/4223d17bf67b55757fe461abff8c84a7e712583acab8621c731a61af70bdf53f.png" />
+<img alt="_images/f0aaa0a9384ddc27e075382c978dd0e875e2be824ccb264daf85bff2c95f8784.png" src="_images/f0aaa0a9384ddc27e075382c978dd0e875e2be824ccb264daf85bff2c95f8784.png" />
 </div>
 </div>
 </section>
 <section id="additional-motion-parameters">
-<h2>Additional Motion Parameters<a class="headerlink" href="#additional-motion-parameters" title="Permalink to this heading">#</a></h2>
+<h2>Additional Motion Parameters<a class="headerlink" href="#additional-motion-parameters" title="Link to this heading">#</a></h2>
 <p>So far, we have inspected all motion parameters visually. That is an important part of figuring out whether our participants moved too much. However, we can also calculate additional parameters. We will use <code class="docutils literal notranslate"><span class="pre">fsl.MotionOutliers</span></code>, which is a wrapper for the FSL tool <code class="docutils literal notranslate"><span class="pre">fsl_motion_outliers</span></code>, to calculate <strong>mean &amp; maximum framewise displacement</strong>, as well as <strong>outliers</strong>. See <a class="reference external" href="https://nipype.readthedocs.io/en/0.12.1/interfaces/generated/nipype.interfaces.fsl.utils.html#motionoutliers">here</a> for the documentation.</p>
 <p>We start with instantiating our object with the necessary parameters.</p>
 <div class="cell docutils container">
@@ -1081,9 +1137,9 @@ variance_img = &lt;undefined&gt;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>out_file = /storage/tmp/tmpbip70fk2/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_outliers.txt
-out_metric_plot = /storage/tmp/tmpbip70fk2/sub-01_task-flanker_run-1_bold_metrics.png
-out_metric_values = /storage/tmp/tmpbip70fk2/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_fdrms.par
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>out_file = /home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_outliers.txt
+out_metric_plot = /home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/sub-01_task-flanker_run-1_bold_metrics.png
+out_metric_values = /home/jovyan/Git_repositories/example-notebooks/books/functional_imaging/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold_fdrms.par
 </pre></div>
 </div>
 </div>
@@ -1108,6 +1164,44 @@ There is a mean framewise displacement of 0.05534307294520548 mm.
 </div>
 </div>
 </div>
+<section id="dependencies-in-jupyter-python">
+<h3>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-11-03T00:10:55.353324+00:00
+
+Python implementation: CPython
+Python version       : 3.11.6
+IPython version      : 8.16.1
+
+Compiler    : GCC 12.3.0
+OS          : Linux
+Release     : 5.4.0-204-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+nipype    : 1.8.6
+numpy     : 2.2.6
+matplotlib: 3.8.4
+pandas    : 2.2.3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1138,7 +1232,7 @@ There is a mean framewise displacement of 0.05534307294520548 mm.
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -1150,17 +1244,27 @@ There is a mean framewise displacement of 0.05534307294520548 mm.
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fsl-and-mcflirt">FSL and MCFLIRT</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nipype-interfaces">Nipype Interfaces</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-motion-parameters">Plotting Motion Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-motion-parameters">Additional Motion Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-motion-parameters">Additional Motion Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -1185,7 +1289,7 @@ By Neurodesk Team
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1209,8 +1313,8 @@ By Neurodesk Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
