@@ -1,0 +1,135 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+%%time
+dset_dir5_extern_out = f"{dset_dir5}tedana_external_regress_processed"
+files = sorted(glob(op.join(dset_dir5, 'p06*.nii.gz')))
+tes = [15.4, 29.7, 44.0, 58.3, 72.6]
+tedana_workflow(files, tes, 
+    tree="demo_external_regressors_motion_task_models",
+    external_regressors=op.join(dset_dir5,"external_regressors.tsv"),
+    mixing_file=op.join(dset_dir5,"tedana_processed", "desc-ICA_mixing.tsv"),
+    out_dir=dset_dir5_extern_out
+    )
+------------------
+
+----- stderr -----
+INFO     tedana:tedana_workflow:608 Using output directory: /tmp/tmpzwzv0mi9/five-echo-dataset/tedana_external_regress_processed
+----- stderr -----
+INFO     tedana:tedana_workflow:627 Initializing and validating component selection tree
+----- stderr -----
+INFO     component_selector:__init__:333 Performing component selection with demo_external_regressors_motion_task_models
+----- stderr -----
+INFO     component_selector:__init__:334 Demonstration based on the minimal decision tree that uses partial F stats on a model with multiple external regressors divided by category and task regressors to bias towards keeping.
+----- stderr -----
+INFO     tedana:tedana_workflow:630 Loading input data: ['five-echo-dataset/p06.SBJ01_S09_Task11_e1.sm.nii.gz', 'five-echo-dataset/p06.SBJ01_S09_Task11_e2.sm.nii.gz', 'five-echo-dataset/p06.SBJ01_S09_Task11_e3.sm.nii.gz', 'five-echo-dataset/p06.SBJ01_S09_Task11_e4.sm.nii.gz', 'five-echo-dataset/p06.SBJ01_S09_Task11_e5.sm.nii.gz']
+----- stdout -----
+CPU times: user 2.49 s, sys: 590 ms, total: 3.08 s
+Wall time: 3.07 s
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mRegressError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[14][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [43mget_ipython[49m[43m([49m[43m)[49m[43m.[49m[43mrun_cell_magic[49m[43m([49m[33;43m'[39;49m[33;43mtime[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[33;43m'[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[33;43m'[39;49m[33;43mdset_dir5_extern_out = f[39;49m[33;43m"[39;49m[38;5;132;43;01m{dset_dir5}[39;49;00m[33;43mtedana_external_regress_processed[39;49m[33;43m"[39;49m[38;5;130;43;01m\n[39;49;00m[33;43mfiles = sorted(glob(op.join(dset_dir5, [39;49m[38;5;130;43;01m\'[39;49;00m[33;43mp06*.nii.gz[39;49m[38;5;130;43;01m\'[39;49;00m[33;43m)))[39;49m[38;5;130;43;01m\n[39;49;00m[33;43mtes = [15.4, 29.7, 44.0, 58.3, 72.6][39;49m[38;5;130;43;01m\n[39;49;00m[33;43mtedana_workflow(files, tes, [39;49m[38;5;130;43;01m\n[39;49;00m[33;43m    tree=[39;49m[33;43m"[39;49m[33;43mdemo_external_regressors_motion_task_models[39;49m[33;43m"[39;49m[33;43m,[39;49m[38;5;130;43;01m\n[39;49;00m[33;43m    external_regressors=op.join(dset_dir5,[39;49m[33;43m"[39;49m[33;43mexternal_regressors.tsv[39;49m[33;43m"[39;49m[33;43m),[39;49m[38;5;130;43;01m\n[39;49;00m[33;43m    mixing_file=op.join(dset_dir5,[39;49m[33;43m"[39;49m[33;43mtedana_processed[39;49m[33;43m"[39;49m[33;43m, [39;49m[33;43m"[39;49m[33;43mdesc-ICA_mixing.tsv[39;49m[33;43m"[39;49m[33;43m),[39;49m[38;5;130;43;01m\n[39;49;00m[33;43m    out_dir=dset_dir5_extern_out[39;49m[38;5;130;43;01m\n[39;49;00m[33;43m    )[39;49m[38;5;130;43;01m\n[39;49;00m[33;43m'[39;49m[43m)[49m
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/IPython/core/interactiveshell.py:2565[39m, in [36mInteractiveShell.run_cell_magic[39m[34m(self, magic_name, line, cell)[39m
+[32m   2563[39m [38;5;28;01mwith[39;00m [38;5;28mself[39m.builtin_trap:
+[32m   2564[39m     args = (magic_arg_s, cell)
+[32m-> [39m[32m2565[39m     result = [43mfn[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m   2567[39m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
+[32m   2568[39m [38;5;66;03m# when using magics with decorator @output_can_be_silenced[39;00m
+[32m   2569[39m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
+[32m   2570[39m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic.MAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/IPython/core/magics/execution.py:1452[39m, in [36mExecutionMagics.time[39m[34m(self, line, cell, local_ns)[39m
+[32m   1450[39m [38;5;28;01mif[39;00m interrupt_occured:
+[32m   1451[39m     [38;5;28;01mif[39;00m exit_on_interrupt [38;5;129;01mand[39;00m captured_exception:
+[32m-> [39m[32m1452[39m         [38;5;28;01mraise[39;00m captured_exception
+[32m   1453[39m     [38;5;28;01mreturn[39;00m
+[32m   1454[39m [38;5;28;01mreturn[39;00m out
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/IPython/core/magics/execution.py:1421[39m, in [36mExecutionMagics.time[39m[34m(self, line, cell, local_ns)[39m
+[32m   1419[39m     [38;5;28;01mif[39;00m expr_val [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m   1420[39m         code_2 = [38;5;28mself[39m.shell.compile(expr_val, source, [33m'[39m[33meval[39m[33m'[39m)
+[32m-> [39m[32m1421[39m         out = [38;5;28;43meval[39;49m[43m([49m[43mcode_2[49m[43m,[49m[43m [49m[43mglob[49m[43m,[49m[43m [49m[43mlocal_ns[49m[43m)[49m
+[32m   1422[39m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyboardInterrupt[39;00m [38;5;28;01mas[39;00m e:
+[32m   1423[39m     captured_exception = e
+
+[36mFile [39m[32m<timed exec>:4[39m
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/tedana/workflows/tedana.py:641[39m, in [36mtedana_workflow[39m[34m(data, tes, out_dir, mask, convention, prefix, dummy_scans, masktype, fittype, combmode, n_independent_echos, tree, external_regressors, ica_method, n_robust_runs, tedpca, fixed_seed, maxit, maxrestart, tedort, gscontrol, no_reports, png_cmap, verbose, low_mem, debug, quiet, overwrite, t2smap, mixing_file, tedana_command)[39m
+[32m    633[39m [38;5;66;03m# Load external regressors if provided[39;00m
+[32m    634[39m [38;5;66;03m# Decided to do the validation here so that, if there are issues, an error[39;00m
+[32m    635[39m [38;5;66;03m#  will be raised before PCA/ICA[39;00m
+[32m    636[39m [38;5;28;01mif[39;00m (
+[32m    637[39m     [33m"[39m[33mexternal_regressor_config[39m[33m"[39m [38;5;129;01min[39;00m [38;5;28mset[39m(selector.tree.keys())
+[32m    638[39m     [38;5;129;01mand[39;00m selector.tree[[33m"[39m[33mexternal_regressor_config[39m[33m"[39m] [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[32m    639[39m ):
+[32m    640[39m     external_regressors, selector.tree[[33m"[39m[33mexternal_regressor_config[39m[33m"[39m] = (
+[32m--> [39m[32m641[39m         [43mmetrics[49m[43m.[49m[43mexternal[49m[43m.[49m[43mload_validate_external_regressors[49m[43m([49m
+[32m    642[39m [43m            [49m[43mexternal_regressors[49m[43m=[49m[43mexternal_regressors[49m[43m,[49m
+[32m    643[39m [43m            [49m[43mexternal_regressor_config[49m[43m=[49m[43mselector[49m[43m.[49m[43mtree[49m[43m[[49m[33;43m"[39;49m[33;43mexternal_regressor_config[39;49m[33;43m"[39;49m[43m][49m[43m,[49m
+[32m    644[39m [43m            [49m[43mn_vols[49m[43m=[49m[43mdata_cat[49m[43m.[49m[43mshape[49m[43m[[49m[32;43m2[39;49m[43m][49m[43m,[49m
+[32m    645[39m [43m            [49m[43mdummy_scans[49m[43m=[49m[43mdummy_scans[49m[43m,[49m
+[32m    646[39m [43m        [49m[43m)[49m
+[32m    647[39m     )
+[32m    649[39m io_generator = io.OutputGenerator(
+[32m    650[39m     ref_img,
+[32m    651[39m     convention=convention,
+[32m   (...)[39m[32m    656[39m     verbose=verbose,
+[32m    657[39m )
+[32m    659[39m [38;5;66;03m# Record inputs to OutputGenerator[39;00m
+[32m    660[39m [38;5;66;03m# TODO: turn this into an IOManager since this isn't really output[39;00m
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/tedana/metrics/external.py:60[39m, in [36mload_validate_external_regressors[39m[34m(external_regressors, external_regressor_config, n_vols, dummy_scans)[39m
+[32m     57[39m [38;5;28;01mexcept[39;00m [38;5;167;01mFileNotFoundError[39;00m:
+[32m     58[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33mf[39m[33m"[39m[33mCannot load tsv file with external regressors: [39m[38;5;132;01m{[39;00mexternal_regressors[38;5;132;01m}[39;00m[33m"[39m)
+[32m---> [39m[32m60[39m external_regressor_config = [43mvalidate_extern_regress[49m[43m([49m
+[32m     61[39m [43m    [49m[43mexternal_regressors[49m[43m=[49m[43mexternal_regressors[49m[43m,[49m
+[32m     62[39m [43m    [49m[43mexternal_regressor_config[49m[43m=[49m[43mexternal_regressor_config[49m[43m,[49m
+[32m     63[39m [43m    [49m[43mn_vols[49m[43m=[49m[43mn_vols[49m[43m,[49m
+[32m     64[39m [43m    [49m[43mdummy_scans[49m[43m=[49m[43mdummy_scans[49m[43m,[49m
+[32m     65[39m [43m[49m[43m)[49m
+[32m     67[39m [38;5;28;01mreturn[39;00m external_regressors, external_regressor_config
+
+[36mFile [39m[32m/opt/conda/lib/python3.13/site-packages/tedana/metrics/external.py:238[39m, in [36mvalidate_extern_regress[39m[34m(external_regressors, external_regressor_config, n_vols, dummy_scans)[39m
+[32m    231[39m         err_msg += (
+[32m    232[39m             [33mf[39m[33m"[39m[33mExternal regressors have [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(external_regressors.index)[38;5;132;01m}[39;00m[33m timepoints [39m[33m"[39m
+[32m    233[39m             [33mf[39m[33m"[39m[33mwhile fMRI data have [39m[38;5;132;01m{[39;00mn_vols[38;5;132;01m}[39;00m[33m timepoints, of which [39m[38;5;132;01m{[39;00mdummy_scans[38;5;132;01m}[39;00m[33m are dummy [39m[33m"[39m
+[32m    234[39m             [33m"[39m[33mscans.[39m[38;5;130;01m\n[39;00m[33m"[39m
+[32m    235[39m         )
+[32m    237[39m [38;5;28;01mif[39;00m err_msg:
+[32m--> [39m[32m238[39m     [38;5;28;01mraise[39;00m RegressError(err_msg)
+[32m    240[39m [38;5;28;01mreturn[39;00m external_regressor_config
+
+[31mRegressError[39m: External regressors have 0 timepoints while fMRI data have 160 timepoints, of which 0 are dummy scans.
+
+
