@@ -1,27 +1,30 @@
 Traceback (most recent call last):
-  File "/opt/conda/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
-    asyncio.get_running_loop()
-RuntimeError: no running event loop
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/conda/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/conda/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
     return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+           ~~~~~~~~~~~~~^^
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/conda/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/opt/conda/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -49,24 +52,24 @@ basis_path = os.path.join(
 
 [31m---------------------------------------------------------------------------[39m
 [31mCalledProcessError[39m                        Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[6][39m[32m, line 2[39m
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 2[39m
 [32m      1[39m [38;5;66;03m# Get path to Osprey executable.[39;00m
 [32m----> [39m[32m2[39m osprey_path = [43msubprocess[49m[43m.[49m[43mcheck_output[49m[43m([49m[33;43m"[39;49m[33;43mwhich ospreyCMD[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43mshell[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mtext[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m.strip()
 [32m      4[39m [38;5;66;03m# Extract container base and image path.[39;00m
 [32m      5[39m container_base = os.path.dirname(osprey_path)
 
-[36mFile [39m[32m/opt/conda/lib/python3.12/subprocess.py:466[39m, in [36mcheck_output[39m[34m(timeout, *popenargs, **kwargs)[39m
-[32m    463[39m         empty = [33mb[39m[33m'[39m[33m'[39m
-[32m    464[39m     kwargs[[33m'[39m[33minput[39m[33m'[39m] = empty
-[32m--> [39m[32m466[39m [38;5;28;01mreturn[39;00m [43mrun[49m[43m([49m[43m*[49m[43mpopenargs[49m[43m,[49m[43m [49m[43mstdout[49m[43m=[49m[43mPIPE[49m[43m,[49m[43m [49m[43mtimeout[49m[43m=[49m[43mtimeout[49m[43m,[49m[43m [49m[43mcheck[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
-[32m    467[39m [43m           [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m.stdout
+[36mFile [39m[32m/opt/conda/lib/python3.13/subprocess.py:472[39m, in [36mcheck_output[39m[34m(timeout, *popenargs, **kwargs)[39m
+[32m    469[39m         empty = [33mb[39m[33m'[39m[33m'[39m
+[32m    470[39m     kwargs[[33m'[39m[33minput[39m[33m'[39m] = empty
+[32m--> [39m[32m472[39m [38;5;28;01mreturn[39;00m [43mrun[49m[43m([49m[43m*[49m[43mpopenargs[49m[43m,[49m[43m [49m[43mstdout[49m[43m=[49m[43mPIPE[49m[43m,[49m[43m [49m[43mtimeout[49m[43m=[49m[43mtimeout[49m[43m,[49m[43m [49m[43mcheck[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[32m    473[39m [43m           [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m.stdout
 
-[36mFile [39m[32m/opt/conda/lib/python3.12/subprocess.py:571[39m, in [36mrun[39m[34m(input, capture_output, timeout, check, *popenargs, **kwargs)[39m
-[32m    569[39m     retcode = process.poll()
-[32m    570[39m     [38;5;28;01mif[39;00m check [38;5;129;01mand[39;00m retcode:
-[32m--> [39m[32m571[39m         [38;5;28;01mraise[39;00m CalledProcessError(retcode, process.args,
-[32m    572[39m                                  output=stdout, stderr=stderr)
-[32m    573[39m [38;5;28;01mreturn[39;00m CompletedProcess(process.args, retcode, stdout, stderr)
+[36mFile [39m[32m/opt/conda/lib/python3.13/subprocess.py:577[39m, in [36mrun[39m[34m(input, capture_output, timeout, check, *popenargs, **kwargs)[39m
+[32m    575[39m     retcode = process.poll()
+[32m    576[39m     [38;5;28;01mif[39;00m check [38;5;129;01mand[39;00m retcode:
+[32m--> [39m[32m577[39m         [38;5;28;01mraise[39;00m CalledProcessError(retcode, process.args,
+[32m    578[39m                                  output=stdout, stderr=stderr)
+[32m    579[39m [38;5;28;01mreturn[39;00m CompletedProcess(process.args, retcode, stdout, stderr)
 
 [31mCalledProcessError[39m: Command 'which ospreyCMD' returned non-zero exit status 1.
 
