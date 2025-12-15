@@ -1,0 +1,1710 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Basic Tracking with DIPY &#8212; Neurodesk</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4Z9774J59Y"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4Z9774J59Y');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4Z9774J59Y');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'diffusion_imaging/DIPY_1';</script>
+    <link rel="canonical" href="https://neurodesk.github.io/example-notebooks/diffusion_imaging/DIPY_1.html" />
+    <link rel="icon" href="../_static/neurodesk_logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Advanced Tracking with DIPY" href="DIPY_2.html" />
+    <link rel="prev" title="MR Spectroscopy with Osprey" href="../spectroscopy/osprey.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/neurodesk_logo.svg" class="logo__image only-light" alt="Neurodesk - Home"/>
+    <script>document.write(`<img src="../_static/neurodesk_logo.svg" class="logo__image only-dark" alt="Neurodesk - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Neurodesk environment
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workflows/AA_Neurodesk_demo_tour.html">Neurodesk Tools Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/MRIQC.html">MRIQC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/PyBIDS.html">PyBIDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/RISE_slideshow.html">RISE Slideshow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/bids_conversion.html">BIDS conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/nipype_full.html">Nipype on Neurodesk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/nipype_short.html">Basic Nipype</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../workflows/papermill-slurm-submission-example.html">Papermill Slurm Job Submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/pydra_preproc_ants.html">Pydra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Structural Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/FSL_course_bet.html">FSL course - BET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/brain_extraction_different_tools.html">Brain Extraction Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/freesurfer-recon-all-clinical.html">FreeSurfer: recon-all-clinical</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/freesurfer.html">FreeSurfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/qsmxt.html">QSMxT</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../structural_imaging/sct_toolbox.html">SCT Toolbox</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectroscopy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../spectroscopy/lcmodel.html">MR Spectroscopy with LCModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spectroscopy/osprey.html">MR Spectroscopy with Osprey</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diffusion Imaging</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Basic Tracking with DIPY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DIPY_2.html">Advanced Tracking with DIPY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Diffusion_TBSS_Demo.html">TBSS Tutorial</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="MRtrix_1.html">MRtrix: Part 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRtrix_2.html">MRtrix: Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRtrix_3.html">MRtrix: Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mrtrix3tissue.html">MRtrix3Tissue</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_only.html">AFNI Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_plus_glm.html">AFNI Preprocessing and GLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_preprocessing_plus_glm_group.html">AFNI Preprocessing &amp; Group Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/AFNI_processing_task_based.html">Processing task-based FMRI with AFNI and afni_proc.py</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/FSL_preproc_glm.html">FSL Preprocessing and GLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/FSLnets_course_practical.html">Resting state with FSLnets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/NiWrap.html">NiWrap and Connectome Workbench</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/aslprep.html">ASLprep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/deepretinotopy.html">DeepRetinotopy Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/first_and_second_level_spm.html">Nipype-SPM fMRI Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/fmriprep.html">fMRIprep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/fsl_all_levels_flanker_nipype.html">Nipype-FSL fMRI Analysis</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/intro_to_preprocessing.html">Introduction to Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/mri_vol2surf.html">FreeSurfer: mri_vol2surf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional_imaging/process_five_echo_dataset.html">tedana: TE Dependent ANAlysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Electrophysiology</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../electrophysiology/eeg_with_mne.html">EEG Analysis with MNE</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://play-america.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/diffusion_imaging/DIPY_1.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in America"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in America logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in America</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://play-europe.neurodesk.org/hub/user-redirect/git-pull?repo=https%3A//github.com/NeuroDesk/example-notebooks&urlpath=lab/tree/example-notebooks/books/diffusion_imaging/DIPY_1.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Run in Europe"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Run in Europe logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">Run in Europe</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NeuroDesk/example-notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/edit/main/books/diffusion_imaging/DIPY_1.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NeuroDesk/example-notebooks/issues/new?title=Issue%20on%20page%20%2Fdiffusion_imaging/DIPY_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/diffusion_imaging/DIPY_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic Tracking with DIPY</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-and-probabilistic-tractography-using-basic-stopping-criteria">Deterministic and Probabilistic Tractography Using Basic Stopping Criteria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#educational-resources">Educational resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-content">Table of Content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-python-libraries">Install and import python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-stanford-hardi-dataset-from-stanford-provided-by-dipy">Load Stanford HARDI dataset from Stanford provided by DIPY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-preprocessing">Minimal preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-diffusion-model">Step 1: Diffusion model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-reconstruction-of-the-diffusion-signal-with-dti-single-tensor-model">A) Reconstruction of the diffusion signal with DTI (single tensor) model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-csa-constant-solid-angle-odf">B) CSA (Constant Solid Angle) ODF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-csd-constrained-spherical-deconvolution">C) CSD (Constrained Spherical Deconvolution)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-estimation-of-the-fiber-response-function-from-a-local-brain-region">Step 1. Estimation of the fiber response function from a local brain region</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-fodf-reconstruction">Step 2. fODF reconstruction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-stopping-criterion">Step 2: Stopping criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-seeding">Step 3: Seeding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-local-tracking-probabilistic-and-deterministic-approaches">Step 4: Local Tracking: Probabilistic and Deterministic Approaches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-tractography">Probabilistic tractography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-tractography">Deterministic tractography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-comparison-of-tracking-methods">Quantitative Comparison of Tracking Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-tracking-with-dipy">
+<h1>Basic Tracking with DIPY<a class="headerlink" href="#basic-tracking-with-dipy" title="Link to this heading">#</a></h1>
+<section id="deterministic-and-probabilistic-tractography-using-basic-stopping-criteria">
+<h2>Deterministic and Probabilistic Tractography Using Basic Stopping Criteria<a class="headerlink" href="#deterministic-and-probabilistic-tractography-using-basic-stopping-criteria" title="Link to this heading">#</a></h2>
+<p><strong>Author</strong>: Monika Doerig</p>
+<p><strong>Date</strong>: 5 Dec 2025</p>
+<section id="citation-and-resources">
+<h3>Citation and Resources:<a class="headerlink" href="#citation-and-resources" title="Link to this heading">#</a></h3>
+<section id="tools-included-in-this-workflow">
+<h4>Tools included in this workflow<a class="headerlink" href="#tools-included-in-this-workflow" title="Link to this heading">#</a></h4>
+<p><strong>DIPY:</strong></p>
+<ul class="simple">
+<li><p>Garyfallidis, E., Brett, M., Amirbekian, B., Rokem, A., van der Walt, S., Descoteaux, M., Nimmo-Smith, I., &amp; Dipy Contributors (2014). Dipy, a library for the analysis of diffusion MRI data. Frontiers in neuroinformatics, 8, 8. <a class="reference external" href="https://doi.org/10.3389/fninf.2014.00008">https://doi.org/10.3389/fninf.2014.00008</a></p></li>
+</ul>
+<p><strong>FURY - Free Unified Rendering in Python:</strong></p>
+<ul class="simple">
+<li><p>Eleftherios Garyfallidis, Serge Koudoro, Javier Guaje, Marc-Alexandre Côté, Soham Biswas, David Reagan, Nasim Anousheh, Filipi Silva, Geoffrey Fox, and Fury Contributors. “FURY: advanced scientific visualization.” Journal of Open Source Software 6, no. 64 (2021): 3384. <a class="reference external" href="https://doi.org/10.21105/joss.03384">https://doi.org/10.21105/joss.03384</a></p></li>
+<li><p><a class="reference external" href="https://fury.gl/latest/index.html">FURY Home</a></p></li>
+</ul>
+</section>
+<section id="educational-resources">
+<h4>Educational resources<a class="headerlink" href="#educational-resources" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.dipy.org/1.9.0/examples_built/fiber_tracking/index.html">Fiber Tracking Tutorials DIPY (v1.9.0)</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="table-of-content">
+<h2>Table of Content<a class="headerlink" href="#table-of-content" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#Introduction"><span class="xref myst">Introduction</span></a><br />
+<a class="reference internal" href="#Data-Preparation"><span class="xref myst">Data Preparation</span></a><br />
+<a class="reference internal" href="#Step-1:-Diffusion-model"><span class="xref myst">Step 1: Diffusion model</span></a><br />
+<a class="reference internal" href="#Step-2:-Stopping-criterion"><span class="xref myst">Step 2: Stopping criterion</span></a><br />
+<a class="reference internal" href="#Step-3:-Seeding"><span class="xref myst">Step 3: Seeding</span></a><br />
+<a class="reference internal" href="#Step-4:-Local-Tracking:-Probabilistic-and-Deterministic-Approaches"><span class="xref myst">Step 4: Local Tracking: Probabilistic and Deterministic Approaches</span></a></p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Local fiber tracking is a method for reconstructing white matter pathways from diffusion MRI data. It models the trajectories of fiber bundles by following local orientation information derived from the diffusion signal. The key idea is that if the dominant diffusion direction within each voxel is known, one can integrate along these directions to reconstruct streamlines representing possible neural tracts.</p>
+<p>To perform local fiber tracking, four components are required:</p>
+<p><strong>1.</strong> A model to estimate local diffusion directions (e.g., DTI, CSA or CSD).</p>
+<p><strong>2.</strong> A stopping criterion that defines when a streamline should terminate (e.g., based on fractional anisotropy or tissue boundaries).</p>
+<p><strong>3.</strong> A set of seed points from which tracking begins.</p>
+<p><strong>4.</strong> Local tracking - the actual tractography execution.</p>
+<p>In this notebook, we will combine these components to perform tractography using the DIPY library, demonstrating each step of the local tracking workflow.</p>
+<section id="goal">
+<h3>Goal<a class="headerlink" href="#goal" title="Link to this heading">#</a></h3>
+<p>Build practical understanding of local tractography workflows in DIPY, from diffusion modeling to streamline generation.</p>
+<section id="learning-objectives">
+<h4>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h4>
+<p>By the end of this notebook, you will be able to:</p>
+<ul class="simple">
+<li><p>Load and minimally preprocess diffusion MRI data in DIPY.</p></li>
+<li><p>Fit DTI, CSA and CSD models and visualize derived metrics (FA, FOD).</p></li>
+<li><p>Define stopping criteria and seed regions for tractography.</p></li>
+<li><p>Run both deterministic and probabilistic tractography.</p></li>
+<li><p>Compare outputs visually and quantitatively.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="install-and-import-python-libraries">
+<h2>Install and import python libraries<a class="headerlink" href="#install-and-import-python-libraries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span> 
+<span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span><span class="o">==</span><span class="mf">1.26.4</span> <span class="n">vtk</span><span class="o">==</span><span class="mf">9.4.0</span> <span class="n">fury</span><span class="o">==</span><span class="mf">0.11.0</span> <span class="n">dipy</span><span class="o">==</span><span class="mf">1.9.0</span> <span class="n">nibabel</span><span class="o">==</span><span class="mf">5.3.2</span> <span class="n">scipy</span><span class="o">==</span><span class="mf">1.14.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the necessary libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.segment.mask</span><span class="w"> </span><span class="kn">import</span> <span class="n">median_otsu</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.core.gradients</span><span class="w"> </span><span class="kn">import</span> <span class="n">gradient_table</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.reconst.dti</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorModel</span><span class="p">,</span> <span class="n">fractional_anisotropy</span><span class="p">,</span> <span class="n">color_fa</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.reconst.csdeconv</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConstrainedSphericalDeconvModel</span><span class="p">,</span> <span class="n">auto_response_ssst</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.reconst.shm</span><span class="w"> </span><span class="kn">import</span> <span class="n">CsaOdfModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">default_sphere</span><span class="p">,</span> <span class="n">get_fnames</span><span class="p">,</span> <span class="n">read_stanford_hardi</span><span class="p">,</span> <span class="n">get_sphere</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.tracking.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">seeds_from_mask</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.tracking.stopping_criterion</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThresholdStoppingCriterion</span><span class="p">,</span> <span class="n">BinaryStoppingCriterion</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.direction</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeterministicMaximumDirectionGetter</span><span class="p">,</span> <span class="n">ProbabilisticDirectionGetter</span><span class="p">,</span> <span class="n">peaks_from_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.tracking.local_tracking</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalTracking</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.tracking.streamline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Streamlines</span><span class="p">,</span> <span class="n">length</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">actor</span><span class="p">,</span> <span class="n">colormap</span><span class="p">,</span> <span class="n">has_fury</span><span class="p">,</span> <span class="n">window</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.core.histeq</span><span class="w"> </span><span class="kn">import</span> <span class="n">histeq</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.io.image</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_nifti</span><span class="p">,</span> <span class="n">load_nifti_data</span><span class="p">,</span> <span class="n">save_nifti</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dipy.sims.voxel</span><span class="w"> </span><span class="kn">import</span> <span class="n">single_tensor_odf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">binary_dilation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span>  <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h2>
+<section id="load-stanford-hardi-dataset-from-stanford-provided-by-dipy">
+<h3>Load Stanford HARDI dataset from Stanford provided by DIPY<a class="headerlink" href="#load-stanford-hardi-dataset-from-stanford-provided-by-dipy" title="Link to this heading">#</a></h3>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load example diffusion data</span>
+<span class="n">img</span><span class="p">,</span> <span class="n">gtab</span> <span class="o">=</span> <span class="n">read_stanford_hardi</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+
+<span class="c1">#affine = img.affine</span>
+<span class="n">affine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b-values (unique):&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">gtab</span><span class="o">.</span><span class="n">bvals</span><span class="p">)[:</span><span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;…&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data shape: (81, 106, 76, 160)
+b-values (unique): [   0. 2000.] …
+</pre></div>
+</div>
+</div>
+</div>
+<p>This dataset provides a label map in which all white matter tissues are labeled either 1 or 2. Let’s create a white matter mask to restrict tracking to the white matter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_fname</span> <span class="o">=</span> <span class="n">get_fnames</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;stanford_labels&quot;</span><span class="p">)</span>
+<span class="n">t1_fname</span> <span class="o">=</span> <span class="n">get_fnames</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;stanford_t1&quot;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">load_nifti_data</span><span class="p">(</span><span class="n">label_fname</span><span class="p">)</span>
+<span class="n">t1_data</span> <span class="o">=</span> <span class="n">load_nifti_data</span><span class="p">(</span><span class="n">t1_fname</span><span class="p">)</span>
+
+<span class="c1"># Create white matter mask - also dilate this mask by 1 voxel to ensure streamlines reach the grey matter</span>
+<span class="n">white_matter</span> <span class="o">=</span> <span class="n">binary_dilation</span><span class="p">((</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="minimal-preprocessing">
+<h3>Minimal preprocessing<a class="headerlink" href="#minimal-preprocessing" title="Link to this heading">#</a></h3>
+<p>To keep things simple, we’ll compute a brain mask using <strong>median_otsu</strong>.</p>
+<p>This function is inspired from Mrtrix’s bet which has default values median_radius=3, numpass=2. However, from tests on multiple 1.5T and 3T data from GE, Philips, Siemens, the most robust choice is median_radius=4, numpass=4 (default)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute a quick brain mask</span>
+<span class="n">b0_masked</span><span class="p">,</span> <span class="n">brain_mask</span> <span class="o">=</span> <span class="n">median_otsu</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">vol_idx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gtab</span><span class="o">.</span><span class="n">bvals</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+
+<span class="p">)</span>
+<span class="n">b0_masked</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(81, 106, 76, 160)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sli</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">histeq</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">sli</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">histeq</span><span class="p">(</span><span class="n">b0_masked</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">sli</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f0937f693d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/134d1f5dee31b52cabc8a32b8dc3935cef3d5ddc586efe41ec7b3e9496277e32.png" src="../_images/134d1f5dee31b52cabc8a32b8dc3935cef3d5ddc586efe41ec7b3e9496277e32.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="step-1-diffusion-model">
+<h2>Step 1: Diffusion model<a class="headerlink" href="#step-1-diffusion-model" title="Link to this heading">#</a></h2>
+<p>To reconstruct white matter pathways, we first need to estimate the <strong>local fiber directions</strong> within each voxel.
+In diffusion MRI, water molecules diffuse more easily along axons than across them — this directional dependence can be modeled to infer underlying fiber orientations.</p>
+<p>Several models can be used to represent this directional information. We will look into the following three models (for a complete overview of reconstruction models available in DIPY, see
+<a class="reference external" href="https://docs.dipy.org/1.9.0/examples_built/index.html#reconstruction">here</a>:</p>
+<p>A) <strong>DTI (Diffusion Tensor Imaging)</strong></p>
+<ul class="simple">
+<li><p>Estimates a single principal diffusion direction per voxel.</p></li>
+<li><p>Computes scalar measures such as Fractional Anisotropy (FA) and Mean Diffusivity (MD).</p></li>
+<li><p>Simple and fast, but cannot resolve crossing fibers, which are present in a substantial portion of white matter voxels</p></li>
+</ul>
+<blockquote>
+<div><p>While FA is a scalar measure of anisotropy, you can also visualize a tensor ODF derived from the fitted tensor. This ODF is Gaussian-shaped and symmetric, representing the diffusion profile of a single tensor. It provides intuition about fiber orientation but is limited in regions with crossing or branching fibers.</p>
+</div></blockquote>
+<p>B) <strong>CSA (Constant Solid Angle) ODFs</strong>:</p>
+<ul class="simple">
+<li><p>Estimates an Orientation Distribution Function (ODF) per voxel from the diffusion-weighted signal.</p></li>
+<li><p>Peaks of the ODF indicate likely fiber orientations.</p></li>
+<li><p>Can represent multiple orientations, but peaks may be less sharp than CSD, potentially leading to lower tracking precision</p></li>
+</ul>
+<blockquote>
+<div><p>The CSA model helps illustrate the transition from single-tensor representations to full ODFs, showing how we move toward richer, multi-directional voxel-wise information for tractography.</p>
+</div></blockquote>
+<p>C) <strong>CSD (Constrained Spherical Deconvolution)</strong>:</p>
+<ul class="simple">
+<li><p>Estimates the Fiber Orientation Distribution (FOD) by deconvolving the diffusion signal with a single-fiber response function. The FOD is represented using spherical harmonics (SH).</p></li>
+<li><p>Resolves multiple distinct fiber populations per voxel (crossings, branchings).</p></li>
+<li><p>Produces sharper, more accurate orientation peaks, improving both deterministic and probabilistic tractography</p></li>
+</ul>
+<blockquote>
+<div><p>In short: while DTI and CSA provide useful but simplified diffusion representations, CSD offers a more precise reconstruction of fiber orientations, especially in regions with complex microstructure.</p>
+</div></blockquote>
+<section id="a-reconstruction-of-the-diffusion-signal-with-dti-single-tensor-model">
+<h3>A) Reconstruction of the diffusion signal with DTI (single tensor) model<a class="headerlink" href="#a-reconstruction-of-the-diffusion-signal-with-dti-single-tensor-model" title="Link to this heading">#</a></h3>
+<p>Let’s start with DTI, the simplest diffusion model, before exploring more complex representations with CSA and CSD.</p>
+<p>We will visualize DTI results in several ways:</p>
+<ul class="simple">
+<li><p>FA map — highlights anisotropic regions like white matter.</p></li>
+<li><p>Tensor ellipsoids — show the shape and orientation of diffusion tensors in small regions (e.g., corpus callosum).</p></li>
+<li><p>Tensor ODFs — visualize the diffusion orientation profile derived from the single tensor in each voxel.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Voxel reconstruction with DTI - instantiate TensorModel and fit it to the data</span>
+<span class="n">tenmodel</span> <span class="o">=</span> <span class="n">TensorModel</span><span class="p">(</span><span class="n">gtab</span><span class="p">)</span>
+<span class="n">tenfit</span> <span class="o">=</span> <span class="n">tenmodel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">b0_masked</span><span class="p">)</span>
+
+<span class="n">FA</span> <span class="o">=</span> <span class="n">fractional_anisotropy</span><span class="p">(</span><span class="n">tenfit</span><span class="o">.</span><span class="n">evals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The fitting will not be accurate in the background of the image as there is no signal and possibly we will find FA values with nans (not a number). We can easily remove these in the following way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">FA</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show FA slice</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">FA</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">sli</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;FA (DTI) — middle slice&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;FA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/520bf40eaba7cb28a39d756f421c6d11960de9f43b4c9425f01dd6bed07e3d7f.png" src="../_images/520bf40eaba7cb28a39d756f421c6d11960de9f43b4c9425f01dd6bed07e3d7f.png" />
+</div>
+</div>
+<p>We can also compute the colored FA or RGB-map. First, FA needs tob e scaled between 0 and 1, then the RGB map can be computed and visualized.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">FA</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">RGB</span> <span class="o">=</span> <span class="n">color_fa</span><span class="p">(</span><span class="n">FA</span><span class="p">,</span> <span class="n">tenfit</span><span class="o">.</span><span class="n">evecs</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">RGB</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">sli</span><span class="p">,</span> <span class="p">:],</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># k=1 → 90° counterclockwise</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4b3ba26e8d2863f2234727760e057ee24f4711b11c7d3959dbc16a1ff75ff1ea.png" src="../_images/4b3ba26e8d2863f2234727760e057ee24f4711b11c7d3959dbc16a1ff75ff1ea.png" />
+</div>
+</div>
+<p>Let’s also visualize the tensor ellipsoids of a small rectangular area in an axial slice of the corpus callosum (CC):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">get_sphere</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;repulsion724&quot;</span><span class="p">)</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Scene</span><span class="p">()</span>
+<span class="n">evals</span> <span class="o">=</span> <span class="n">tenfit</span><span class="o">.</span><span class="n">evals</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span> <span class="mi">38</span><span class="p">:</span><span class="mi">39</span><span class="p">]</span>
+<span class="n">evecs</span> <span class="o">=</span> <span class="n">tenfit</span><span class="o">.</span><span class="n">evecs</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span> <span class="mi">38</span><span class="p">:</span><span class="mi">39</span><span class="p">]</span>
+
+<span class="n">cfa</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span> <span class="mi">38</span><span class="p">:</span><span class="mi">39</span><span class="p">]</span>
+<span class="n">cfa</span> <span class="o">/=</span> <span class="n">cfa</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">actor</span><span class="o">.</span><span class="n">tensor_slicer</span><span class="p">(</span><span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span><span class="p">,</span> <span class="n">scalar_colors</span><span class="o">=</span><span class="n">cfa</span><span class="p">,</span> <span class="n">sphere</span><span class="o">=</span><span class="n">sphere</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span>
+    <span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">n_frames</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;tensor_ellipsoids.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;tensor_ellipsoids.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/24f9f994a95a24259201bdddd073d650ed60e336dc8777b04d1e3e59a1cf0d63.png" src="../_images/24f9f994a95a24259201bdddd073d650ed60e336dc8777b04d1e3e59a1cf0d63.png" />
+</div>
+</div>
+<p>Finally, we will visualize the tensor Orientation Distribution Functions for the same area as we did with the ellipsoids.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tensor_odfs</span> <span class="o">=</span> <span class="n">tenmodel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span> <span class="mi">37</span><span class="p">:</span><span class="mi">38</span><span class="p">])</span><span class="o">.</span><span class="n">odf</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
+
+<span class="n">odf_actor</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">odf_slicer</span><span class="p">(</span><span class="n">tensor_odfs</span><span class="p">,</span> <span class="n">sphere</span><span class="o">=</span><span class="n">sphere</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">odf_actor</span><span class="p">)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">n_frames</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;tensor_odfs.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;tensor_odfs.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d0c09c5cbef4ccbf2b5a29a3581062a95fbcd21f74fa031f6ffcde129cb28085.png" src="../_images/d0c09c5cbef4ccbf2b5a29a3581062a95fbcd21f74fa031f6ffcde129cb28085.png" />
+</div>
+</div>
+</section>
+<section id="b-csa-constant-solid-angle-odf">
+<h3>B) CSA (Constant Solid Angle) ODF<a class="headerlink" href="#b-csa-constant-solid-angle-odf" title="Link to this heading">#</a></h3>
+<p>Here, we’ll use <code class="docutils literal notranslate"><span class="pre">peaks_from_model</span></code> to apply the <code class="docutils literal notranslate"><span class="pre">CsaOdfModel</span></code> to each white matter voxel and estimate fiber orientations that we can use for tracking. This function requires a reconstruction model, the diffusion data, and a sphere as input. The sphere is an object that represents the spherical discrete grid where the ODF values will be evaluated.<br />
+The <code class="docutils literal notranslate"><span class="pre">csa_peaks</span></code> object contains several useful attributes:  <code class="docutils literal notranslate"><span class="pre">gfa</span></code> (generalized fractional anisotropy), <code class="docutils literal notranslate"><span class="pre">peak_dirs</span></code> (peak directions), <code class="docutils literal notranslate"><span class="pre">peak_values</span></code> (maxima values of the ODF), <code class="docutils literal notranslate"><span class="pre">peak_indices</span></code> (position on the discrete sphere), <code class="docutils literal notranslate"><span class="pre">shm_coeff</span></code> (spherical harmonic coefficients) and <code class="docutils literal notranslate"><span class="pre">odf</span></code> (the full orientation distribution function).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.dipy.org/stable/examples_built/reconstruction/reconst_csa.html#">DIPY’s example Reconstruction with Constant Solid Angle</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate CSA model with spherical harmonic order (l) of 6</span>
+<span class="n">csa_model</span> <span class="o">=</span> <span class="n">CsaOdfModel</span><span class="p">(</span><span class="n">gtab</span><span class="p">,</span> <span class="n">sh_order_max</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Calculate properties of the ODFs and return for example the peaks and their indices</span>
+<span class="n">csa_peaks</span> <span class="o">=</span> <span class="n">peaks_from_model</span><span class="p">(</span>
+    <span class="n">csa_model</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">default_sphere</span><span class="p">,</span>
+    <span class="n">relative_peak_threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">min_separation_angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
+    <span class="n">mask</span><span class="o">=</span><span class="n">white_matter</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For quality assurance, we can visualize an axial slice from the direction field estimated by the CSA model. Each glyph represents a local fiber orientation derived from the ODF peaks. The underlying ODFs are not shown here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Scene</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">actor</span><span class="o">.</span><span class="n">peak_slicer</span><span class="p">(</span>
+        <span class="n">csa_peaks</span><span class="o">.</span><span class="n">peak_dirs</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span> <span class="mi">37</span><span class="p">:</span><span class="mi">38</span><span class="p">],</span> <span class="n">peaks_values</span><span class="o">=</span><span class="n">csa_peaks</span><span class="o">.</span><span class="n">peak_values</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span> <span class="mi">37</span><span class="p">:</span><span class="mi">38</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;csa_direction_field.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;csa_direction_field.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e401dd1b6d94fe4f2384165b5fef0c0fe2717a93e33004cc0ced94709a527f2c.png" src="../_images/e401dd1b6d94fe4f2384165b5fef0c0fe2717a93e33004cc0ced94709a527f2c.png" />
+</div>
+</div>
+</section>
+<section id="c-csd-constrained-spherical-deconvolution">
+<h3>C) CSD (Constrained Spherical Deconvolution)<a class="headerlink" href="#c-csd-constrained-spherical-deconvolution" title="Link to this heading">#</a></h3>
+<p>Constrained Spherical Deconvolution (CSD) reconstructs the fiber Orientation Distribution Function (fODF) by estimating how the diffusion signal would look for a single, coherently oriented fiber (the response function) and then deconvolving this response from the measured signal. This allows recovery of multiple fiber orientations within a voxel, making it particularly effective in regions with crossing fibers.</p>
+<ul class="simple">
+<li><p>https://docs.dipy.org/stable/examples_built/reconstruction/reconst_csd.html#</p></li>
+</ul>
+<p>First, let’s verify the b-values of the dataset by looking at the attribute <code class="docutils literal notranslate"><span class="pre">gtab.bvals</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gtab</span><span class="o">.</span><span class="n">bvals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   0.,    0.,    0.,    0.,    0.,    0.,    0.,    0.,    0.,
+          0., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000., 2000.,
+       2000., 2000., 2000., 2000., 2000., 2000., 2000.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this dataset with multiple gradient directions, we can proceed with the two steps of CSD.</p>
+<ol class="arabic simple">
+<li><p>Estimation of the fiber response function</p></li>
+<li></li>
+</ol>
+<p>Use the response function to reconstruct the fODF</p>
+<section id="step-1-estimation-of-the-fiber-response-function-from-a-local-brain-region">
+<h4>Step 1. Estimation of the fiber response function from a local brain region<a class="headerlink" href="#step-1-estimation-of-the-fiber-response-function-from-a-local-brain-region" title="Link to this heading">#</a></h4>
+<p>To estimate the <strong>single-fiber response function</strong>, we can use a brain region where fibers are known to be coherent and aligned, such as the <strong>corpus callosum</strong>. The <code class="docutils literal notranslate"><span class="pre">auto_response_ssst</span></code> function automates this process: it selects a it selects a small cuboid ROI (typically centered in the brain), computes FA values, and extracts the response function from voxels with <strong>FA &gt; 0.7</strong> — likely corresponding to single-fiber regions.</p>
+<p>Internally, this function first creates a mask of suitable voxels (<code class="docutils literal notranslate"><span class="pre">mask_for_response_ssst</span></code>) and then computes the response function within that mask (<code class="docutils literal notranslate"><span class="pre">response_from_mask_ssst</span></code>). These two steps can also be performed manually; the resulting responses should be identical.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="p">,</span> <span class="n">ratio</span> <span class="o">=</span> <span class="n">auto_response_ssst</span><span class="p">(</span><span class="n">gtab</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">roi_radii</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fa_thr</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The response tuple contains two elements: an array with the eigenvalues of the response function and the average S0 for this response:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.00139919, 0.0003007 , 0.0003007 ]), 416.7372408293461)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The response tensor should be prolate and anisotropic, with the axial diffusivity about five times greater than the radial diffusivity (i.e., the two smaller eigenvalues are equal and roughly one-fifth of the largest).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21491283972218628
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can double-check that we have a good response function by visualizing the response function’s ODF. Here is how you would do that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Scene</span><span class="p">()</span>
+<span class="n">evals</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">evecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+
+
+<span class="n">response_odf</span> <span class="o">=</span> <span class="n">single_tensor_odf</span><span class="p">(</span><span class="n">default_sphere</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">evals</span><span class="o">=</span><span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span><span class="o">=</span><span class="n">evecs</span><span class="p">)</span>
+<span class="c1"># transform our data from 1D to 4D</span>
+<span class="n">response_odf</span> <span class="o">=</span> <span class="n">response_odf</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">response_actor</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">odf_slicer</span><span class="p">(</span>
+    <span class="n">response_odf</span><span class="p">,</span> <span class="n">sphere</span><span class="o">=</span><span class="n">default_sphere</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span>
+<span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">response_actor</span><span class="p">)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;csd_response.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;csd_response.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/de6801af88cbb153201f57478e0462825e2b4dde2b0cca6b832204c45718da69.png" src="../_images/de6801af88cbb153201f57478e0462825e2b4dde2b0cca6b832204c45718da69.png" />
+</div>
+</div>
+</section>
+<section id="step-2-fodf-reconstruction">
+<h4>Step 2. fODF reconstruction<a class="headerlink" href="#step-2-fodf-reconstruction" title="Link to this heading">#</a></h4>
+<p>After estimation the response function, we can start the deconvolution process:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate the CSD model </span>
+<span class="n">csd_model</span> <span class="o">=</span> <span class="n">ConstrainedSphericalDeconvModel</span><span class="p">(</span><span class="n">gtab</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the model and show the CSD-based ODFs also known as FODFs (fiber ODFs).</span>
+<span class="n">csd_fit</span> <span class="o">=</span> <span class="n">csd_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span> <span class="mi">38</span><span class="p">:</span><span class="mi">39</span><span class="p">])</span>
+<span class="n">csd_odf</span> <span class="o">=</span> <span class="n">csd_fit</span><span class="o">.</span><span class="n">odf</span><span class="p">(</span><span class="n">default_sphere</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 900/900 [00:00&lt;00:00, 3629.00it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+<span class="n">fodf_spheres</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">odf_slicer</span><span class="p">(</span>
+    <span class="n">csd_odf</span><span class="p">,</span> <span class="n">sphere</span><span class="o">=</span><span class="n">default_sphere</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span>
+<span class="p">)</span>
+
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">fodf_spheres</span><span class="p">)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;csd_odfs.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;csd_odfs.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d45e41ee005748181b0433df9d33bfc41a732a0f27c20146a9e9e5e161a05c75.png" src="../_images/d45e41ee005748181b0433df9d33bfc41a732a0f27c20146a9e9e5e161a05c75.png" />
+</div>
+</div>
+<p>We can also find the peak directions (maxima) of the ODFs with <code class="docutils literal notranslate"><span class="pre">peaks_from_model</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find peak directions (maxima) of the ODFs</span>
+<span class="n">peaks_csd</span> <span class="o">=</span> <span class="n">peaks_from_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">csd_model</span><span class="p">,</span>
+                         <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                         <span class="n">sphere</span><span class="o">=</span><span class="n">default_sphere</span><span class="p">,</span>           
+                         <span class="n">relative_peak_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+                         <span class="n">min_separation_angle</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> 
+                         <span class="n">mask</span><span class="o">=</span><span class="n">white_matter</span><span class="p">,</span> 
+                         <span class="n">return_sh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                         <span class="n">parallel</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CSD peaks computed. SH shape:&quot;</span><span class="p">,</span> <span class="n">peaks_csd</span><span class="o">.</span><span class="n">shm_coeff</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CSD peaks computed. SH shape: (81, 106, 76, 45)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Scene</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">actor</span><span class="o">.</span><span class="n">peak_slicer</span><span class="p">(</span>
+        <span class="n">peaks_csd</span><span class="o">.</span><span class="n">peak_dirs</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span> <span class="mi">38</span><span class="p">:</span><span class="mi">39</span><span class="p">],</span> <span class="n">peaks_values</span><span class="o">=</span><span class="n">peaks_csd</span><span class="o">.</span><span class="n">peak_values</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span> <span class="mi">38</span><span class="p">:</span><span class="mi">39</span><span class="p">],</span>
+        <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;csd_direction_field.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;csd_direction_field.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e0431602bb8df52f997a45c7b57ac89b59c64a0c4d37c0bfbe360dd212068884.png" src="../_images/e0431602bb8df52f997a45c7b57ac89b59c64a0c4d37c0bfbe360dd212068884.png" />
+</div>
+</div>
+<p>We now visualize both the ODFs and peaks in the same space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fodf_spheres</span><span class="o">.</span><span class="n">GetProperty</span><span class="p">()</span><span class="o">.</span><span class="n">SetOpacity</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">fodf_spheres</span><span class="p">)</span>
+
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;csd_both.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;csd_both.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9074060ddb34e03025e6ef30e9b7d968c7fd48464caf8bdb1f35c0b11e2fad26.png" src="../_images/9074060ddb34e03025e6ef30e9b7d968c7fd48464caf8bdb1f35c0b11e2fad26.png" />
+</div>
+</div>
+<blockquote>
+<div><p><strong>Why DTI, CSA and CSD?</strong> DTI provides intuitive scalar maps (FA/MD) but only estimates a single fiber direction per voxel. CSA and CSD can both resolve multiple fiber orientations, with CSD producing sharper FODs that improve tractography accuracy in complex white matter regions</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="step-2-stopping-criterion">
+<h2>Step 2: Stopping criterion<a class="headerlink" href="#step-2-stopping-criterion" title="Link to this heading">#</a></h2>
+<p>Before running tractography, we must define when to stop tracking.
+The stopping criterion determines whether tracking continues or terminates at each step along a streamline. Tracking typically stops when:</p>
+<ul class="simple">
+<li><p>The streamline reaches a region with unreliable diffusion information (e.g., low anisotropy)</p></li>
+<li><p>It exits the white matter into gray matter or CSF</p></li>
+<li><p>It reaches the image boundaries</p></li>
+</ul>
+<p>In this notebook, we’ll explore two basic stopping criteria:</p>
+<ol class="arabic simple">
+<li><p>Threshold Stopping Criterion — stops when a scalar metric (FA or GFA) falls below a threshold</p></li>
+<li><p>Binary Stopping Criterion — stops when the streamline exits a predefined white matter mask</p></li>
+</ol>
+<p>Both approaches produce streamlines classified as either:</p>
+<ul class="simple">
+<li><p>Valid: ending at appropriate stopping points (e.g., at mask boundaries or image edges)</p></li>
+<li><p>Invalid: terminating prematurely in regions where tracking should continue</p></li>
+</ul>
+<blockquote>
+<div><p>Note: More advanced stopping criteria, such as Anatomically-Constrained Tractography (ACT), will be covered in a separate notebook on advanced tracking methods.</p>
+</div></blockquote>
+<p>1️⃣ <strong>Threshold Stopping Criterion</strong></p>
+<p>The threshold stopping criterion stops tracking when an interpolated scalar value falls below a specified threshold. We’ll demonstrate this using the FA map from DTI with a threshold of 0.15.
+At each tracking step, the FA value is estimated using trilinear interpolation at the streamline’s current position. If FA &lt; 0.15, tracking stops.</p>
+<p><strong>Streamline stopping states:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ENDPOINT</span></code>: tracking stopped because the FA value fell below the threshold</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUTSIDEIMAGE</span></code>: tracking stopped because the position was outside the image domain</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRACKPOINT</span></code>: tracking stopped because no valid direction was available, even though FA ≥ threshold at that location</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fa_thr</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">stopping_criterion</span> <span class="o">=</span> <span class="n">ThresholdStoppingCriterion</span><span class="p">(</span><span class="n">FA</span><span class="p">,</span> <span class="n">fa_thr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mask_fa</span> <span class="o">=</span> <span class="n">FA</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">mask_fa</span><span class="p">[</span><span class="n">mask_fa</span> <span class="o">&lt;</span> <span class="mf">0.15</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask_fa</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f0935db8ec0&gt;
+</pre></div>
+</div>
+<img alt="../_images/78b254974ddaefe32c6a7ecd429f9fb1b7c6a1f4fcefa650188bc0a4e03856d7.png" src="../_images/78b254974ddaefe32c6a7ecd429f9fb1b7c6a1f4fcefa650188bc0a4e03856d7.png" />
+</div>
+</div>
+<blockquote>
+<div><p>This criterion is data-driven and flexible, but streamlines may occasionally extend slightly beyond the anatomical white matter boundaries.</p>
+</div></blockquote>
+<p>2️⃣ <strong>Binary Stopping Criterion</strong></p>
+<p>Instead of stopping based on a continuous scalar map (like FA), the binary criterion relies solely on a <strong>white matter mask</strong>. Tracking is allowed only inside the mask—as soon as the current position lies outside it, the streamline terminates.</p>
+<p>This criterion uses nearest-neighbor interpolation to determine whether the current tracking location is inside (mask = 1) or outside (mask = 0) the white matter.</p>
+<p><strong>Streamline stopping states:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ENDPOINT</span></code>: tracking stopped because the mask value was 0 (outside white matter)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUTSIDEIMAGE</span></code>: tracking stopped because the position was outside the image domain</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRACKPOINT</span></code>: tracking stopped due to no available direction at that location, even though it was inside the mask</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stopping_criterion_binary</span> <span class="o">=</span> <span class="n">BinaryStoppingCriterion</span><span class="p">(</span><span class="n">white_matter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">white_matter</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f0935dee720&gt;
+</pre></div>
+</div>
+<img alt="../_images/73aad5f76cf58e7e932054ed6841a0f184bb58ae3bd085bb7076f2d7d3704d25.png" src="../_images/73aad5f76cf58e7e932054ed6841a0f184bb58ae3bd085bb7076f2d7d3704d25.png" />
+</div>
+</div>
+<blockquote>
+<div><p>This approach is simpler and ensures that streamlines remain strictly within the white matter mask.</p>
+</div></blockquote>
+</section>
+<section id="step-3-seeding">
+<h2>Step 3: Seeding<a class="headerlink" href="#step-3-seeding" title="Link to this heading">#</a></h2>
+<p>Next, we define where tracking starts — the seed points.
+Each seed acts as a starting location for streamline propagation based on local fiber orientations.</p>
+<p>You can choose seeds:</p>
+<ul class="simple">
+<li><p>In a <strong>specific region of interest (ROI)</strong>, such as the corpus callosum.</p></li>
+<li><p>Or throughout the <strong>entire white matter</strong> to reconstruct whole-brain tractography.</p></li>
+</ul>
+<p>For example, to seed in the corpus callosum:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seeding in the corpus callosum (label value 2)</span>
+<span class="n">seed_mask</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="n">seeds_mask</span> <span class="o">=</span> <span class="n">seeds_from_mask</span><span class="p">(</span><span class="n">seed_mask</span><span class="p">,</span> <span class="n">affine</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#places one seed per voxel</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of seeds:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seeds_mask</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of seeds: 505
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to do whole-brain tractography instead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Whole-brain seeding</span>
+<span class="n">seeds_wm</span> <span class="o">=</span> <span class="n">seeds_from_mask</span><span class="p">(</span><span class="n">white_matter</span><span class="p">,</span> <span class="n">affine</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of seeds:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seeds_wm</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of seeds: 96983
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-local-tracking-probabilistic-and-deterministic-approaches">
+<h2>Step 4: Local Tracking: Probabilistic and Deterministic Approaches<a class="headerlink" href="#step-4-local-tracking-probabilistic-and-deterministic-approaches" title="Link to this heading">#</a></h2>
+<p>With the diffusion model (Step 1), stopping criteria (Step 2), and seeds (Step 3) defined, we are ready to perform tractography.</p>
+<p>DIPY supports two main approaches for local tracking:</p>
+<ul class="simple">
+<li><p><strong>Deterministic:</strong> follows the principal fiber orientation at each step.</p></li>
+<li><p><strong>Probabilistic:</strong> samples directions from the fiber orientation distribution, accounting for uncertainty.</p></li>
+</ul>
+<p>Both approaches use the same seeds and stopping criteria but differ in how the next tracking direction is chosen.</p>
+<section id="probabilistic-tractography">
+<h3>Probabilistic tractography<a class="headerlink" href="#probabilistic-tractography" title="Link to this heading">#</a></h3>
+<p>Probabilistic fiber tracking is one approach for reconstructing white matter connections using diffusion MRI. Unlike deterministic tractography, which follows the peak fiber orientation at each step, probabilistic tractography samples the direction of each step from a distribution of possible orien.taIn this approach, the Fiber Orientation Distribution (FOD) estimated by the CSD model encodes the relative strength of different fiber orientations within each voxel. The FOD can be discretized on a well-distributed sphere to obtain directional weights (akin to a probability mass function, PMF) for sampling tracking directions. Since a PMF cannot have negative values, any negative FOD amplitudes are clipped to zero.</p>
+<p>This probabilistic sampling allows streamlines to explore multiple plausible pathways, capturing uncertainty in local fiber orientation. This is particularly valuable in complex white matter regions with crossing or branching fibers, where a single deterministic direction may oversimplify the underlying anatomy. As with deterministic tracking, probabilistic streamlines begin from seed points and are guided by stopping criteria such as white matter masks or FA thresholds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Probabilistic direction getting for fiber tracking</span>
+<span class="c1"># Uses on-the-fly SH-to-PMF conversion for memory efficiency</span>
+<span class="n">prob_dg</span> <span class="o">=</span> <span class="n">ProbabilisticDirectionGetter</span><span class="o">.</span><span class="n">from_shcoeff</span><span class="p">(</span><span class="n">peaks_csd</span><span class="o">.</span><span class="n">shm_coeff</span><span class="p">,</span>
+                                                    <span class="n">max_angle</span><span class="o">=</span><span class="mf">30.</span><span class="p">,</span>
+                                                    <span class="n">sphere</span><span class="o">=</span><span class="n">peaks_csd</span><span class="o">.</span><span class="n">sphere</span><span class="p">,</span> 
+                                                    <span class="n">sh_to_pmf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Local Tracking is used for probabilistic tractography which takes the direction getter along with the stopping criterion and seeds as input.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">streamlines_prob</span> <span class="o">=</span> <span class="n">LocalTracking</span><span class="p">(</span><span class="n">direction_getter</span><span class="o">=</span><span class="n">prob_dg</span><span class="p">,</span>
+                                 <span class="n">stopping_criterion</span><span class="o">=</span><span class="n">stopping_criterion_binary</span><span class="p">,</span>
+                                 <span class="n">seeds</span><span class="o">=</span><span class="n">seeds_mask</span><span class="p">,</span>
+                                 <span class="n">affine</span><span class="o">=</span><span class="n">affine</span><span class="p">,</span>
+                                 <span class="n">step_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># Compute streamlines</span>
+<span class="n">streamlines_prob</span> <span class="o">=</span> <span class="n">Streamlines</span><span class="p">(</span><span class="n">streamlines_prob</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilistic streamlines: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">streamlines_prob</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilistic streamlines: 587
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we seeded streamlines exclusively from the corpus callosum, all resulting fibers represent interhemispheric connections originating from this region.
+Let’s visualize them using probabilistic direction getter from SH (peaks_from_model):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Scene</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">actor</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">streamlines_prob</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colormap</span><span class="o">.</span><span class="n">line_colors</span><span class="p">(</span><span class="n">streamlines_prob</span><span class="p">)))</span>
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;tractogram_probabilistic.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+
+<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;tractogram_probabilistic.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a3c03b2d897af064f99a933ce57b272dce1f7fce349510a591a2fdb757ebe29d.png" src="../_images/a3c03b2d897af064f99a933ce57b272dce1f7fce349510a591a2fdb757ebe29d.png" />
+</div>
+</div>
+</section>
+<section id="deterministic-tractography">
+<h3>Deterministic tractography<a class="headerlink" href="#deterministic-tractography" title="Link to this heading">#</a></h3>
+<p>We now perform deterministic tractography using the fiber orientation distributions (FODs) estimated with the CSD model. Instead of sampling directions probabilistically, the Deterministic Maximum Direction Getter always follows the direction with the highest value in the distribution at each step, subject to tracking constraints (e.g., maximum turning angle of 30°).</p>
+<p>This method uses the full orientation distribution rather than only peak directions, distinguishing it from approaches like EuDX, which rely on peak-following. The resulting streamlines represent the direction of maximum orientation likelihood starting from the defined seed mask.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Deterministic from CSD peaks</span>
+<span class="n">dg_det</span> <span class="o">=</span> <span class="n">DeterministicMaximumDirectionGetter</span><span class="o">.</span><span class="n">from_shcoeff</span><span class="p">(</span><span class="n">peaks_csd</span><span class="o">.</span><span class="n">shm_coeff</span><span class="p">,</span>
+                                                         <span class="n">max_angle</span><span class="o">=</span><span class="mf">30.</span><span class="p">,</span>
+                                                         <span class="n">sphere</span><span class="o">=</span><span class="n">peaks_csd</span><span class="o">.</span><span class="n">sphere</span><span class="p">,</span>
+                                                         <span class="n">sh_to_pmf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">streamlines_det</span> <span class="o">=</span> <span class="n">LocalTracking</span><span class="p">(</span><span class="n">direction_getter</span><span class="o">=</span><span class="n">dg_det</span><span class="p">,</span>
+                                <span class="n">stopping_criterion</span><span class="o">=</span><span class="n">stopping_criterion_binary</span><span class="p">,</span>
+                                <span class="n">seeds</span><span class="o">=</span><span class="n">seeds_mask</span><span class="p">,</span>
+                                <span class="n">affine</span><span class="o">=</span><span class="n">affine</span><span class="p">,</span>
+                                <span class="n">step_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">streamlines_det</span> <span class="o">=</span> <span class="n">Streamlines</span><span class="p">(</span><span class="n">streamlines_det</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deterministic streamlines: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">streamlines_det</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Deterministic streamlines: 587
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s visualize the Corpus Callosum using deterministic maximum direction getter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Scene</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">actor</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">streamlines_det</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colormap</span><span class="o">.</span><span class="n">line_colors</span><span class="p">(</span><span class="n">streamlines_det</span><span class="p">)))</span>
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;tractogram_deterministic.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+
+<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;tractogram_deterministic.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ef47e2eb26420316c6e6249a7f816db755612a13e3af83c563add2eb70ac5667.png" src="../_images/ef47e2eb26420316c6e6249a7f816db755612a13e3af83c563add2eb70ac5667.png" />
+</div>
+</div>
+<p>The following alternative visualizations display the corpus callosum streamlines overlaid on T1-weighted anatomical slices (axial at z=35 and sagittal at z=35), with the seed ROI shown as a semi-transparent yellow contour.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make display objects</span>
+<span class="n">cc_streamlines_actor</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+    <span class="n">streamlines_det</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colormap</span><span class="o">.</span><span class="n">line_colors</span><span class="p">(</span><span class="n">streamlines_det</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">cc_ROI_actor</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">contour_from_roi</span><span class="p">(</span><span class="n">seed_mask</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">vol_actor</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">slicer</span><span class="p">(</span><span class="n">t1_data</span><span class="p">)</span>
+
+<span class="n">vol_actor</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="c1"># sagittal slice</span>
+<span class="n">vol_actor2</span> <span class="o">=</span> <span class="n">vol_actor</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">vol_actor2</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span> <span class="c1"># axial slice</span>
+
+<span class="c1"># Add display objects to canvas</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Scene</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vol_actor</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vol_actor2</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cc_streamlines_actor</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cc_ROI_actor</span><span class="p">)</span>
+
+<span class="c1"># Save figure</span>
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span>
+    <span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">n_frames</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;corpuscallosum_axial.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;corpuscallosum_axial.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f7feea880fd13dda2fa89d65f3ae00e2ff95caa4c4d5790c95ce178f9484944b.png" src="../_images/f7feea880fd13dda2fa89d65f3ae00e2ff95caa4c4d5790c95ce178f9484944b.png" />
+</div>
+</div>
+<p>The sagittal view illustrates these interhemispheric pathways connecting the two hemispheres.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span><span class="o">.</span><span class="n">set_camera</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">focal_point</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">view_up</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">window</span><span class="o">.</span><span class="n">record</span><span class="p">(</span>
+    <span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">,</span> <span class="n">n_frames</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="s2">&quot;corpuscallosum_sagittal.png&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;corpuscallosum_sagittal.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2ab57f30bf83f4a821a5762646322e9d9971286c80c7f0558b0d25078a032d2f.png" src="../_images/2ab57f30bf83f4a821a5762646322e9d9971286c80c7f0558b0d25078a032d2f.png" />
+</div>
+</div>
+</section>
+<section id="quantitative-comparison-of-tracking-methods">
+<h3>Quantitative Comparison of Tracking Methods<a class="headerlink" href="#quantitative-comparison-of-tracking-methods" title="Link to this heading">#</a></h3>
+<p>As a final step, we compare the deterministic and probabilistic tractography results quantitatively. Since both methods used identical seeds, stopping criteria, and tracking parameters, we can directly compare their outputs in terms of streamline count and length distributions.
+Streamline length is a basic metric that provides insight into the spatial extent of reconstructed pathways. By examining the distribution of lengths across all streamlines, we can assess whether the two tracking approaches produce similar or systematically different patterns for this particular white matter structure.</p>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute streamline length distributions (in mm)</span>
+<span class="n">len_det</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">streamlines_det</span><span class="p">))</span>
+<span class="n">len_prob</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">streamlines_prob</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Streamline Statistics:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deterministic  — n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">len_det</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2">, mean=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">len_det</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2"> mm, &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;median=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">len_det</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2"> mm, std=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">len_det</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilistic  — n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">len_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2">, mean=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">len_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2"> mm, &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;median=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">len_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2"> mm, std=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">len_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">len_det</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Deterministic (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">len_det</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">len_prob</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Probabilistic (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">len_prob</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Streamline length (mm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Streamline Length Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Streamline Statistics:
+Deterministic  — n=  587, mean= 50.3 mm, median= 50.5 mm, std= 23.1 mm
+Probabilistic  — n=  587, mean= 49.7 mm, median= 51.0 mm, std= 23.1 mm
+</pre></div>
+</div>
+<img alt="../_images/b75f22a4d99ad72aab42c289c9fe0619c6a9027d8ee52be40cc6d84edcbc957b.png" src="../_images/b75f22a4d99ad72aab42c289c9fe0619c6a9027d8ee52be40cc6d84edcbc957b.png" />
+</div>
+</div>
+</section>
+<section id="dependencies-in-jupyter-python">
+<h3>Dependencies in Jupyter/Python<a class="headerlink" href="#dependencies-in-jupyter-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Using the package <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a> to document system environment and software versions used in this notebook</p></li>
+</ul>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+
+<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2025-12-05T00:51:41.858665+00:00
+
+Python implementation: CPython
+Python version       : 3.12.10
+IPython version      : 9.6.0
+
+Compiler    : GCC 13.3.0
+OS          : Linux
+Release     : 5.4.0-204-generic
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 32
+Architecture: 64bit
+
+numpy     : 1.26.4
+nibabel   : 5.3.2
+scipy     : 1.14.1
+fury      : 0.11.0
+dipy      : 1.9.0
+matplotlib: 3.10.7
+IPython   : 9.6.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./diffusion_imaging"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../spectroscopy/osprey.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MR Spectroscopy with Osprey</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DIPY_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Advanced Tracking with DIPY</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-and-probabilistic-tractography-using-basic-stopping-criteria">Deterministic and Probabilistic Tractography Using Basic Stopping Criteria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-and-resources">Citation and Resources:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-included-in-this-workflow">Tools included in this workflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#educational-resources">Educational resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-content">Table of Content</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-python-libraries">Install and import python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-stanford-hardi-dataset-from-stanford-provided-by-dipy">Load Stanford HARDI dataset from Stanford provided by DIPY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-preprocessing">Minimal preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-diffusion-model">Step 1: Diffusion model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-reconstruction-of-the-diffusion-signal-with-dti-single-tensor-model">A) Reconstruction of the diffusion signal with DTI (single tensor) model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-csa-constant-solid-angle-odf">B) CSA (Constant Solid Angle) ODF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-csd-constrained-spherical-deconvolution">C) CSD (Constrained Spherical Deconvolution)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-estimation-of-the-fiber-response-function-from-a-local-brain-region">Step 1. Estimation of the fiber response function from a local brain region</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-fodf-reconstruction">Step 2. fODF reconstruction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-stopping-criterion">Step 2: Stopping criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-seeding">Step 3: Seeding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-local-tracking-probabilistic-and-deterministic-approaches">Step 4: Local Tracking: Probabilistic and Deterministic Approaches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-tractography">Probabilistic tractography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-tractography">Deterministic tractography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-comparison-of-tracking-methods">Quantitative Comparison of Tracking Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-in-jupyter-python">Dependencies in Jupyter/Python</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Neurodesk Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
